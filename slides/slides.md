@@ -14,13 +14,54 @@ duration: 50min
 
 ---
 
+# Partie 1: Pourquoi investir du temps? C'est pas pour rien qu'il y a con dans config
+
+## constat: votre pire outil est celui qui vous n'avez pas configure
+
+## charge cognitive
+
+### moins de friction = plus de temps pour faire autre chose
+
+### memoire procedurale = moins de fatigue
+
+## fun
+
+### progression
+
+### partage avec les collegues
+
+# Partie 2: Comment investir dans ses outils?
+
+## Methode
+
+- identifier une friction
+- voir si un outil existe pour cet usage
+- corriger l'usage ou ajouter / configurer un outil
+
+## Domaines d'amelioration - priorisation
+
+- l'espace entre vos taches
+
+## Liste d'outils
+
+aerospace / vim / cmux
+
+## Gerer ses outils
+
+- chezmoi
+
+# Partie 3: Comment convaincre autour de soit?
+
+## Montrer des alternatives
+
+## Montrer par l'exemple qu'on rencontre moins de friction
+
+- les gens sont parfois dans la galere pas parcequ'ils sont nuls pour s'en sortir mais parcequ'ils sont doues pour se mettre profond dans la merde
+
 # Introduction
 
-- En quoi mes outils pourraient faire plus pour moi ?
-    - pourquoi ne font ils pas déjà tout ?
-    - qu'est ce qui m'empêche de leurs faire faire plus ?
-
 [!SKETCH]
+
 > Oula j'ai perdu, ma fenetre, mon copier-coller, ou est mon terminal, ah mince j'ai une reunion...
 
 Ca c'est 2 secondes par ci, 5 secondes par la, toutes les heures pendant des annees. C'est la qu'est la vraie friction.
@@ -34,7 +75,7 @@ les autres de faire de meme.
 
 # Partie 1: Pourquoi investir du temps? C'est pas pour rien qu'il y a con dans config
 
-## Le titre implique que vos outils ne font pas tout pour vous, voire vous ralentissent...
+## Le titre implique que vos outils ne font pas tout pour vous, voire vous ralentissent
 
 Alors effectivement, l'hypothese du titre implique un spectre d'implication qui va de: "vos outils sont pas configures"
 a "il vous manque un outil" en passant par "vous faites de la catachrese instrumentale" _c'est une formule compliquee
@@ -65,6 +106,7 @@ action, vous allez mieux le retenir car vous aller transferer ce savoir dans vot
 memoire long terme qui permet la motricite automatique.
 
 [!NOTE]
+
 > Plus le chemin est court et repete, plus integrera facilement vos automatismes
 
 ### fun
@@ -109,4 +151,7 @@ vous pensez:
 Notez qu'on s'est permis de commenter le screen et que notre boss va donc gagnez du temps a analyser votre message.
 
 [!NOTE]
+
 > Votre efficacite rayonne sur vos collegues
+
+> la memoire procedurale / musculaire libere la conscience : <https://arc.net/l/quote/ihraituc>

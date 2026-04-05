@@ -1,4 +1,4 @@
- L'ergonomie au travail va bien au-delà du bon réglage de chaise ou du choix du bon clavier. Une grande partie de notre confort et de notre productivité se joue dans les dizaines de micro-interactions qui se produisent *entre* les tâches, et c'est souvent là que se cachent les plus grandes opportunités d'amélioration.
+L'ergonomie au travail va bien au-delà du bon réglage de chaise ou du choix du bon clavier. Une grande partie de notre confort et de notre productivité se joue dans les dizaines de micro-interactions qui se produisent _entre_ les tâches, et c'est souvent là que se cachent les plus grandes opportunités d'amélioration.
 
 Ce talk propose d'explorer le potentiel inexploité de notre environnement de travail numérique : la gestion de fenêtres, le terminal, le clipboard, les raccourcis clavier. De petits ajustements qu'on remet toujours à plus tard peuvent transformer durablement notre façon de travailler. 10 secondes gagnées par-ci, 5 secondes par-là, 50 fois par jour: l'impact est discret mais devient colossal au fur et à mesure en temps comme en énergie mentale libérée.
 
