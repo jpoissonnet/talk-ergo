@@ -155,3 +155,4 @@ Notez qu'on s'est permis de commenter le screen et que notre boss va donc gagnez
 > Votre efficacite rayonne sur vos collegues
 
 > la memoire procedurale / musculaire libere la conscience : <https://arc.net/l/quote/ihraituc>
+> How to practice effectively...for just about anything - Annie bosler and don greene <https://www.youtube.com/watch?v=f2O6mQkFiiw>
