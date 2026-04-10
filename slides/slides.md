@@ -14,13 +14,15 @@ duration: 50min
 
 ---
 
-# Partie 1: Pourquoi investir du temps? C'est pas pour rien qu'il y a con dans config
+# Partie 1: Pourquoi investir du temps?
 
-## constat: votre pire outil est celui qui vous n'avez pas configure
+## la vitesse
+
+### C'est une progression qui peut etre lente au debut mais qui se compose
 
 ## charge cognitive
 
-### moins de friction = plus de temps pour faire autre chose
+### moins de friction / moins d'erreur = plus de temps pour faire autre chose
 
 ### memoire procedurale = moins de fatigue
 
@@ -29,6 +31,8 @@ duration: 50min
 ### progression
 
 ### partage avec les collegues
+
+### apprentissage du under the hood
 
 # Partie 2: Comment investir dans ses outils?
 
@@ -50,7 +54,7 @@ aerospace / vim / cmux
 
 - chezmoi
 
-# Partie 3: Comment convaincre autour de soit?
+# Partie 3: Comment convaincre autour de soi?
 
 ## Montrer des alternatives
 
@@ -156,3 +160,5 @@ Notez qu'on s'est permis de commenter le screen et que notre boss va donc gagnez
 
 > la memoire procedurale / musculaire libere la conscience : <https://arc.net/l/quote/ihraituc>
 > How to practice effectively...for just about anything - Annie bosler and don greene <https://www.youtube.com/watch?v=f2O6mQkFiiw>
+
+> plan do check act <https://www.bitesizelearning.co.uk/resources/pdca-plan-do-check-act>
