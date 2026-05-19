@@ -60,6 +60,19 @@ TODO: mettre un screen
 
 ---
 
+## Origines, contamination
+
+- Manque de temps pour investir dans la recherche et la config
+- Pas de veille
+- Habitudes ancrees et pas questionnees
+
+<!--
+Avant de donner la méthode générale et des exemples concrets, on peut parler 2 minutes de l'environement que favorise ce fléau
+On va retrouver: un manque de temps à investir dans la configuration, un manque de veille, un manque d'envie de questionner ses habitudes
+-->
+
+---
+
 ## La DX-ite aiguë chronique
 
 - coucou c'est moi, je suis dev, et je parle d'experience, donc dev-experience
@@ -195,38 +208,130 @@ Un truc rigolo aussi, c'est que vous allez pouvoir en discuter autour de vous, o
 Ça la voie ouverte à beaucoup de sujets de conversations, de débats, des fois houleux pour ceux qui osent critiquer sans avoir essayer (je parle de vim)
 -->
 ---
-## Les perspectives post-guerison (pourquoi travailler sur la DX?)
 
-- focus sur les choses importantes en temps et en charge cognitive
-- fun / progression / discussion
-- vitesse en consequence ⚠️ pas en but | il faut parler bien avant de parler vite
+### La vitesse 
+déguisée en fluidité 
 
----
-
-## Origines, contamination
-
-- Manque de temps pour investir dans la recherche et la config
-- Pas de veille
-- Habitudes ancrees et pas questionnees
+<!--
+En plus de tout le reste, la résultante de tout le travail que vous mettez en place c'est que vous êtes plus rapide et efficace dans ce que vous faites.
+En plus d'avoir des sujets de conversations de geek de l'optimisation et d'avoir une charge cognitive ménagée.
+-->
 
 ---
 
-## Protocole therapeutique
+### La vitesse 
 
-- investir du temps: pair-prog, pause cafe, veille
-- Methode: identifier, analyser, corriger
-  - une friction a la fois, fake it till you make it, installer un bundle pour le decouvrirr pas a pas
-  - documenter, sauvegarde, double-run...
-- en parler = distillation de la connaissance = gain de temps
+Le résultat, pas le but
+
+<!--
+Je conseille de chercher la fluidité dans un premier temps, plutôt que la vitesse, pour la raison simple que le temps que votre nouvelle habitude s'ancre,
+vous allez être plus lent qu'avant, et c'est ce qui rebute une partie des gens. 
+C'est comme apprendre une nouvelle langue, il faut chercher à pouvoir tenir une conversation simple avant de chercher à parler couramment
+-->
 
 ---
 
-## ou mettre le focus en 1er
+## On démarre avec un rendez-vous 
+
+fabriquer le temps: 
+- veille
+- pair-prog
+- pause cafe
+
+(distillation de connaissance: se faire expliquer en 1min ce qui pourrait prendre 1h de son côté)
+(overdose == bon)
+
+<!--
+Pour la DX-ite, malheureusement il n'y a pas moyen d'utiliser Doctolib pour prendre rendez-vous, le temps vous allez devoir le trouver
+Si vous avez moyen d'attribuer une demi-heure par semaine pour faire de la veille c'est parfait, sinon il existe une astuce
+Il faut repenser le temps que vous avez déjà: par exemple, si vous faites du peer-prog (cad travailler avec un collegue), observez comment il travaille et
+fait les tâches que vous avez l'habitude de faire. 
+Ensuite, pendant les pause café, parlez-en, il y a de grandes chances que qqun ait les mm pb que vous et des solutions toutes faites.
+Il s'agit du seul traitement où l'overdose n'est pas possible
+-->
+
+---
+
+## Protocole therapeutique - Méthode générale
+
+1. identifier une friction
+2. analyser d'où elle vient, sa fréquence, sa pertinence
+3. corriger la friction avec un outil existant ou un outil ajouté
+
+<!--
+La méthode générale c'est:
+identifier une friction
+analyser d'où elle vient, sa fréquence, sa pertinence
+et corriger la friction avec un outil existant ou un outil ajouté
+on notera qu'a chaque étape, le faire avec l'avis d'autre gens accélère le processus
+-->
+
+---
+
+
+## Le clavier est votre meilleur ami
+
+Ce que vous utiliser le plus ===> probablement un clavier
+Ce à quoi vous voulez le moins penser ===> probablement un clavier
+
+todo: graphe 72% un clavier, 28% un clavier en rouge
+
+1. avec tous les doigts
+2. sans regarder
+
+<!--
+On va commencer très doucement en parlant de votre interface primaire avec votre ordi: le clavier
+Avant de courir, c'est pas idiot d'apprendre a marcher, alors, on s'échauffe et on apprend à taper sur un clavier
+L'idée c'est de pouvoir passer de "je pense" à "c'est écrit" sans réfléchir à bouger ses doigts
+Ça c'est vraiment la base sur laquelle on va pouvoir construire la suite
+-->
+
+---
+
+### Pourquoi clavier > souris ?
+
+| outil   | possibilité                         | interaction      | sens    |
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+| clavier | 50aine de touche                    | 10aine de doigts | toucher |
+| souris  | 4M de pixels (sur plusieurs écrans) | 1 curseur        | vue     |
+<!--
+Rapidement, avec des maths et un peu de mauvaise foi voici un tableau avec des chiffres, pour dire que j'ai raison
+L'idée c'est qu'on peut automatiser actions par mouvements de doigts, pas par mouvement de souris parceque 
+-->
+
+---
+
+### Redécouvrez votre quotidien du bout de votre clavier
+
+Prenez vos trois logiciels les plus ouverts, et apprenez les raccourcis clavier
+- vim motion dans son IDE parce que ces raccourcis sont utiles ailleurs dans certaines TUI par ex.
+- todo: trouver l'extension qui te dit comment tu aurais pu utiliser ton clavier
+
+<!--
+Pour commencer, prenez vos logiciels les plus utilisés et apprenez à faire au clavier vos tâches les plus répétées
+Je pourrais difficilement donner des conseils pour tous vos cas d'usages, mais en tant que dev, si vous n'êtes pas sous neovim, vous avez de la marge.
+L'idée c'est de passer le plus de tâches dans votre mémoire procédurale
+-->
+
+---
+
+### Optimisons notre quotidien
+
+<!--
+Une fois que vous êtes à l'aise dans vos applications, un autre domaine qui est aussi, voire je dirais plus important c'est ce qui entourent vos 
+applications. C'est-à-dire ce qui regroupe la navigation entre les applications, les copier-collers, captures d'ecran, les mouvemnts des fenetres pour ceux
+qui travaillent sur plusieurs écrans...
+Et là dans qq instants je vais conseiller en boucle le même outil pour Mac, il faut me croire sur parole c'est pas une pub rémunéré.
+Je m'apprete a vous recommander pour plein de cas raycast, parce que c'est un outil cool, avec plein d'usages et qui a des extensions qui permettent de couvrir pleins de mes besoins. L'outil en lui meme n'est pas indispensable, mais c'est sympa d'avoir un outil qui ....⬅️
+-->
+
+---
+
+## Où mettre le focus
 
 1. l'espace entre les taches
    - "Quelque soit votre quotidien, il est probable que vous rencontriiez tous la meme friction"
    - window, clipboard, screenshot
-   - taper sur un clavier <- todo: trouver un meilleur endroit, ça mérite son propre conseil
 2. l'information en 1 coup d'oeil
    - couleurs, distractions, resumes...
 3. la completion
