@@ -637,6 +637,7 @@ Pour la DX-ite, malheureusement il n'y a pas moyen d'utiliser Doctolib pour pren
 <div class="step"><span class="num">1</span><div><strong>Identifier</strong> une friction</div></div>
 <div class="step"><span class="num">2</span><div><strong>Analyser</strong> : origine, fréquence, pertinence</div></div>
 <div class="step"><span class="num">3</span><div><strong>Corriger</strong> avec un outil existant ou ajouté</div></div>
+<div class="step"><span class="num">4</span><div><strong>Répéter</strong> : la prochaine friction vous attend</div></div>
 
 </v-clicks>
 
@@ -754,18 +755,42 @@ Rapidement, avec des maths et un peu de mauvaise foi voici un tableau avec des c
 
 ### 🔍 Redécouvrez votre quotidien du bout de votre clavier
 
-Prenez vos **trois logiciels les plus ouverts**, apprenez les raccourcis clavier.
+Prenez vos **trois logiciels les plus ouverts**, apprenez leurs raccourcis.
+
+<!--
+Pour commencer, prenez vos logiciels les plus utilisés et apprenez à faire au clavier vos tâches les plus répétées.
+-->
+
+---
+
+### 🔍 Trois leviers pour démarrer
 
 <v-clicks>
 
 - 🎹 **vim motion dans l'IDE** — réutilisable dans plein de TUI
-- 🔌 **extensions** qui révèlent quel raccourci vous auriez pu utiliser (ex : `Shortcut Hunter`, `Key Promoter X`)
+- 🔌 **extensions** qui révèlent le raccourci que vous auriez pu utiliser (`Shortcut Hunter`, `Key Promoter X`)
 - 📝 tenir une **liste des frictions** de la semaine
 
 </v-clicks>
 
 <!--
-Pour commencer, prenez vos logiciels les plus utilisés et apprenez à faire au clavier vos tâches les plus répétées
+Trois leviers concrets: les vim motions qui se réutilisent partout, les extensions qui vous apprennent les raccourcis au fil de l'eau, et tenir une liste de vos frictions.
+-->
+
+---
+
+### 🔍 Concrètement, cette semaine
+
+<v-clicks>
+
+- 🧭 **navigateur** — `Cmd/Ctrl + L` pour la barre d'adresse, `Cmd + [1-9]` pour les onglets
+- 💻 **IDE** — multi-curseur, « go to symbol », renommer (`F2`)
+- 💬 **Slack / chat** — `Cmd + K` pour sauter à n'importe quel canal
+
+</v-clicks>
+
+<!--
+Un exemple par catégorie d'outil pour montrer qu'on parle de gestes ultra-quotidiens, pas de magie.
 -->
 
 ---
@@ -788,17 +813,57 @@ Une fois que vous êtes à l'aise dans vos applications, un autre domaine qui es
 
 ## 🎯 Où mettre le focus
 
-<v-clicks depth="2">
+<v-clicks>
 
 1. **L'espace entre les tâches**
-   - window, clipboard, screenshot
-   - « peu importe votre métier, vous aurez la même friction »
 2. **L'information en 1 coup d'œil**
-   - couleurs, distractions filtrées, résumés
 3. **La complétion**
-   - auto-completion, aliases, snippets
 
 </v-clicks>
+
+<!--
+Trois grands domaines à optimiser, on les prend un par un.
+-->
+
+---
+
+### 🎯 1. L'espace entre les tâches
+
+Gérer ses fenêtres, son presse-papier, ses captures.
+
+<v-click>
+
+> « Peu importe votre métier, vous aurez la même friction. »
+
+</v-click>
+
+<!--
+Le premier domaine, c'est tout ce qui se passe ENTRE deux tâches: basculer de fenêtre, copier-coller, faire une capture. C'est universel, indépendant du métier.
+-->
+
+---
+
+### 🎯 2. L'information en 1 coup d'œil
+
+Des **couleurs**, des distractions **filtrées**, des **résumés**.
+
+Voir l'essentiel sans chercher.
+
+<!--
+Le deuxième domaine: réduire l'effort pour comprendre l'état d'un système. Coloration, notifications filtrées, vues synthétiques.
+-->
+
+---
+
+### 🎯 3. La complétion
+
+**Auto-complétion**, **alias**, **snippets**.
+
+Taper moins, se tromper moins.
+
+<!--
+Le troisième domaine: laisser la machine compléter à votre place. Auto-complétion, alias shell, snippets de code.
+-->
 
 ---
 layout: two-cols
