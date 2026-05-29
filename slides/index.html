@@ -1,0 +1,30 @@
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&display=swap">
+</head>
+<body>
+  <script>
+    (function () {
+      var key = 'slidev-color-schema'
+      var root = document.documentElement
+      function resolveDark(mode) {
+        return mode === 'dark'
+          || (mode === 'auto' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      }
+      try {
+        var mode = localStorage.getItem(key)
+        if (!mode) {
+          mode = 'light'
+          localStorage.setItem(key, mode)
+        }
+        var dark = resolveDark(mode)
+        root.classList.toggle('dark', dark)
+        root.classList.toggle('light', !dark)
+      }
+      catch (e) {
+        root.classList.add('light')
+      }
+    })()
+  </script>
+</body>
