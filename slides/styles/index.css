@@ -1,0 +1,191 @@
+/* Medical Blue Theme - Global Styles */
+
+:root {
+  --slidev-theme-primary: #1e6091;
+  --slidev-theme-primary-light: #2d8fbe;
+  --slidev-theme-primary-dark: #0a2540;
+  --slidev-theme-accent: #3ba7d9;
+  --slidev-theme-bg-soft: #f0f7fc;
+}
+
+/* Safe-area padding — keep text off slide edges */
+.slidev-layout {
+  background-color: #f8fbfe;
+  padding: 2rem 3.5rem 1.75rem !important;
+  box-sizing: border-box;
+}
+
+.slidev-layout.cover,
+.slidev-layout[class*='section'] {
+  padding: 2.25rem 4rem !important;
+}
+
+.slidev-layout.center {
+  padding: 2rem 4rem !important;
+}
+
+.slidev-layout.two-columns,
+.slidev-layout.two-cols-header {
+  padding: 1.75rem 3rem !important;
+  gap: 1.5rem;
+  column-gap: 2rem;
+}
+
+.slidev-layout.two-cols-header .col-header {
+  margin-bottom: 0.5rem;
+}
+
+.slidev-layout.two-columns .col-slide,
+.slidev-layout.two-cols-header .col-left,
+.slidev-layout.two-cols-header .col-right {
+  min-width: 0;
+  padding: 0 0.5rem;
+}
+
+/* Body text color (cover slide styles must not leak) */
+.slidev-layout:not(.cover):not([class*='section']) {
+  color: #0a2540;
+}
+
+/* Readable subtitles (theme fades h1 + p on all layouts) */
+.slidev-layout:not(.cover) h1 + p,
+.slidev-layout:not(.cover) h2 + p {
+  opacity: 1;
+  color: #0a2540;
+}
+
+/* Headings in medical blue */
+.slidev-layout h1,
+.slidev-layout h2 {
+  color: #0a2540;
+  border-bottom: 2px solid #2d8fbe;
+  padding-bottom: 0.3em;
+}
+
+.slidev-layout h3 {
+  color: #1e6091;
+}
+
+/* List styling */
+.slidev-layout ul li::marker,
+.slidev-layout ol li::marker {
+  color: #1e6091;
+}
+
+.slidev-layout ul li,
+.slidev-layout ol li {
+  margin-bottom: 0.4em;
+}
+
+/* Link styling */
+.slidev-layout a {
+  color: #2d8fbe;
+  text-decoration-color: #2d8fbe40;
+}
+
+.slidev-layout a:hover {
+  color: #1e6091;
+}
+
+/* Blockquotes - medical blue accent bar */
+.slidev-layout blockquote {
+  border-left: 4px solid #1e6091;
+  background: #f0f7fc;
+  padding: 0.8em 1.2em;
+  border-radius: 0 8px 8px 0;
+  color: #0a2540;
+}
+
+/* Tables */
+.slidev-layout table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.slidev-layout table th {
+  background: #1e6091;
+  color: white;
+  padding: 0.5em 1em;
+}
+
+.slidev-layout table td {
+  padding: 0.5em 1em;
+  border-bottom: 1px solid #e0eef7;
+}
+
+.slidev-layout table tr:nth-child(even) {
+  background: #f0f7fc;
+}
+
+/* Statement layout emphasis */
+.slidev-layout.slidev-page .slidev-layout-statement {
+  color: #0a2540;
+}
+
+/* Section layout - dark blue */
+.slidev-layout[class*="section"] {
+  background: linear-gradient(135deg, #0a2540, #1e6091);
+  color: white;
+}
+
+.slidev-layout[class*="section"] h2 {
+  color: white;
+  border-bottom-color: #3ba7d9;
+}
+
+/* Click animations - smooth fade + slide up */
+.slidev-vclick-target {
+  transition: all 300ms ease;
+}
+
+.slidev-vclick-hidden {
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+}
+
+/* Strong text emphasis */
+.slidev-layout strong {
+  color: #1e6091;
+}
+
+/* Code inline */
+.slidev-layout code:not(pre code) {
+  background: #e8f4fb;
+  color: #0a2540;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+
+/* H2 with emoji: tighten spacing so the icon hugs the title */
+.slidev-layout h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+}
+
+/* Cover layout overrides borders on dark bg */
+.slidev-layout.slidev-layout-cover h1 {
+  border-bottom: none;
+}
+
+/* Section title centered emphasis */
+.slidev-layout[class*="section"] h2 {
+  display: inline-flex;
+  border-bottom: 3px solid #3ba7d9;
+  padding-bottom: 0.4em;
+}
+
+/* Tables & wide content */
+.slidev-layout table {
+  font-size: 0.88em;
+}
+
+.slidev-layout .conclusion {
+  font-size: 0.95em;
+}
+
+/* Cover must not leak light background */
+.slidev-layout.cover {
+  background-color: transparent;
+}
