@@ -233,15 +233,50 @@ La discussion Slack inefficace
 
 <v-clicks>
 
-- ⏰ Manque de temps pour investir dans la recherche et la config
-- 📡 Pas de veille
-- 🔁 Habitudes ancrées et pas questionnées
+- ⏰ **Manque de temps** pour investir dans la config
+- 📡 **Pas de veille**
+- 🔁 **Habitudes ancrées** et pas questionnées
 
 </v-clicks>
 
 <!--
-Avant de donner la méthode générale et des exemples concrets, on peut parler 2 minutes de l'environement que favorise ce fléau
-On va retrouver: un manque de temps à investir dans la configuration, un manque de veille, un manque d'envie de questionner ses habitudes
+Avant de donner la méthode générale, parlons 2 minutes de l'environnement qui favorise ce fléau.
+-->
+
+---
+
+### 🧫 Origines — ⏰ le manque de temps
+
+> « Je n'ai pas 10 minutes pour apprendre le raccourci qui m'en ferait gagner 100. »
+
+Le piège : l'urgence permanente écrase tout investissement.
+
+<!--
+Première cause: on est tellement dans le rush qu'on ne prend jamais le temps de s'outiller. C'est le paradoxe de la hache qu'on n'affûte jamais.
+-->
+
+---
+
+### 🧫 Origines — 📡 le manque de veille
+
+> « J'utilise cet outil tous les jours depuis 3 ans... et je n'ai jamais lu ses raccourcis. »
+
+On ne sait pas ce qu'on ne sait pas.
+
+<!--
+Deuxième cause: pas de veille. On ne peut pas vouloir une solution qu'on ignore. Les outils évoluent, nos usages restent figés.
+-->
+
+---
+
+### 🧫 Origines — 🔁 les habitudes ancrées
+
+> « Ça fait 20 ans que je fais comme ça. »
+
+Le confort de la routine > le bénéfice incertain du changement.
+
+<!--
+Troisième cause: l'habitude. Changer demande un effort immédiat pour un gain futur, notre cerveau préfère souvent le statu quo.
 -->
 
 ---
@@ -423,9 +458,24 @@ L'idée est que si on arrive à déménager tout ce qui se répète dans notre q
 
 <v-clicks>
 
-- 🔍 décomposer
-- 🧪 essayer
-- 🔧 corriger
+- 🔍 **décomposer** le geste répété
+- 🧪 **essayer** une façon plus directe
+- 🔧 **corriger** ce qui coince
+
+</v-clicks>
+
+<!--
+La recette est simple: on décompose le geste qu'on répète, on essaie une approche plus directe, on corrige ce qui ne marche pas.
+-->
+
+---
+
+### 🧠 La charge cognitive
+
+#### ...puis
+
+<v-clicks>
+
 - 🔁 répéter
 - 🔁 répéter
 - 🔁 répéter
@@ -440,7 +490,7 @@ L'idée est que si on arrive à déménager tout ce qui se répète dans notre q
 </style>
 
 <!--
-Super simple il faut: décomposer, essayer, corriger, et répéter
+...et ensuite on répète, jusqu'à ce que le geste passe dans la mémoire procédurale et ne coûte plus rien.
 -->
 
 ---
