@@ -873,9 +873,9 @@ layout: two-cols
 
 ### Message Slack efficace
 
-Avant : 7 messages, pas de contexte, pas de lien
+**Avant** : 7 messages, pas de contexte, pas de lien
 
-Après : 1 message, screen annoté, lien direct
+**Après** : 1 message, screen annoté, lien direct
 
 ::right::
 
@@ -925,19 +925,77 @@ Après : 1 message, screen annoté, lien direct
 .time { color: #898989; font-size: 0.85em; margin-left: 0.4em; }
 </style>
 
+<!--
+Côté gauche le problème, côté droit le même besoin exprimé en un seul message exploitable.
+-->
+
+---
+
+### 🧪 La recette d'une demande exploitable
+
+<v-clicks>
+
+- 🎯 **du contexte** — de quoi parle-t-on ?
+- 🔗 **un lien direct** — ticket, PR, doc
+- 📸 **une preuve annotée** — capture, log, repro
+- ❓ **une question claire** — ce que vous attendez de l'autre
+
+</v-clicks>
+
+<!--
+Peu importe l'outil, une bonne demande contient ces quatre ingrédients. C'est ça qui transforme 7 messages en 1.
+-->
+
 ---
 
 ## 🛡️ Prévention & immunité collective
 
-<v-clicks depth="2">
+<v-clicks>
 
 - 📖 **Revoir ses bases et approfondir**
-  - config de l'OS, git, vim
-- 🤝 **Discuter / conférences / partager / blog**
+- 🤝 **Partager autour de soi**
 
 </v-clicks>
 
-<v-click>
+<!--
+Une fois qu'on a soigné les frictions, on prévient les rechutes: en consolidant ses fondamentaux et en partageant.
+-->
+
+---
+
+### 🛡️ 📖 Revoir ses bases
+
+<v-clicks>
+
+- ⚙️ la **config de votre OS** — raccourcis système, gestion de fenêtres
+- 🌿 **git** — au-delà de `commit` / `push`
+- 🎹 **vim** — les motions qui se réutilisent partout
+
+</v-clicks>
+
+<!--
+Approfondir ce qu'on utilise tous les jours mais qu'on n'a jamais vraiment appris: l'OS, git, vim.
+-->
+
+---
+
+### 🛡️ 🤝 Partager autour de soi
+
+<v-clicks>
+
+- 👀 montrer son écran, observer celui des autres
+- 🎤 conférences, meetups, lightning talks
+- ✍️ un blog, un thread, une note d'équipe
+
+</v-clicks>
+
+<!--
+Le partage crée une immunité collective: ce que vous découvrez profite à toute l'équipe, et inversement.
+-->
+
+---
+layout: center
+---
 
 ### 💰 Effet de composition
 
@@ -952,11 +1010,15 @@ Après : 1 message, screen annoté, lien direct
   </svg>
 </div>
 
-</v-click>
+Chaque optimisation intégrée libère du temps pour la suivante.
 
 <style>
 .compound-chart { max-width: 500px; margin-top: 0.5em; }
 </style>
+
+<!--
+L'effet est cumulatif: chaque geste automatisé libère de l'énergie pour en apprendre un autre. La courbe s'accélère.
+-->
 
 ---
 layout: center
