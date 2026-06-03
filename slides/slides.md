@@ -34,16 +34,32 @@ Installez-vous confortablement, aujourd'hui on va parler de vous, et surtout on 
 
 ---
 class: dx-slide
+title: COURS MAGISTRAL
+---
+
+<!-- ============ 02 · COURS MAGISTRAL ============ -->
+<div class="dx-frame tx-lecture">
+  <div class="dx-layer dx-bloom"></div>
+  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
+  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
+  <div class="dx-marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
+  <div class="dx-content">
+    <span class="emoji">🎓</span>
+    <h2>Cours magistral</h2>
+    <p class="dx-kicker">Une consultation sur vos outils</p>
+  </div>
+  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Introduction / 02</p></div>
+</div>
+
+---
+class: dx-slide
 title: INTRODUCTION — fiche patient
 ---
 
-<!-- ============ 02 · INTRODUCTION — fiche patient ============ -->
+<!-- ============ 03 · INTRODUCTION — fiche patient ============ -->
 <div class="dx-frame dx-content-page dx-patient-intake">
   <div class="dx-marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
   <div class="dx-content">
-    <div class="head">
-      <h2>Cas d'étude</h2>
-    </div>
     <div class="dx-patient-card">
       <div class="dx-patient-card__topline">
         <p class="eyebrow">Fiche patient</p>
@@ -84,28 +100,8 @@ title: INTRODUCTION — fiche patient
       </div>
     </div>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Introduction / 02</p></div>
+  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Introduction / 03</p></div>
 </div>
-
----
-class: dx-slide
-title: SECTION 01 — ANAMNÈSE
----
-
-<!-- ============ 03 · SECTION 01 — ANAMNÈSE ============ -->
-<div class="dx-frame dx-section">
-  <div class="dx-layer dx-bloom"></div>
-  <div class="dx-marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
-  <div class="dx-content">
-    <p class="sec-no">ANAMNÈSE — 01</p>
-    <span class="dx-cross"></span>
-    <h2>Un fléau des temps modernes</h2>
-  </div>
-</div>
-
-<!--
-Aujourd'hui on va étudier un fléau des temps modernes. Il n'est pas nouveau, mais il s'accentue au fur et à mesure que la civilisation progresse dans ses technologies.
--->
 
 ---
 class: dx-slide
@@ -129,7 +125,7 @@ title: SYMPTÔMES
       <li v-click><span class="idx">S5</span><span class="quote">« Je me l'envoie en DM pour pas l'oublier. »</span><span class="tag">Notes</span></li>
     </ul>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Anamnèse / 04</p></div>
+  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Anamnèse / 03</p></div>
 </div>
 
 <!--
@@ -142,8 +138,9 @@ title: COLLÈGUES
 ---
 
 <!-- ============ 05 · COLLÈGUES ============ -->
-<div class="dx-frame dx-symptoms">
+<div class="dx-frame dx-symptoms dx-symptoms--maboul">
   <div class="dx-layer dx-bloom"></div>
+  <img class="dx-maboul" src="/docteur-maboul.jpg" alt="Plateau du jeu Docteur Maboul" />
   <div class="dx-content">
     <div class="head">
       <p class="dx-kicker">Observation périphérique</p>
@@ -155,7 +152,67 @@ title: COLLÈGUES
       <li v-click><span class="idx">C3</span><span class="quote">sont réfractaires aux changements - « ça fait 20 ans que j'écris les commandes en toutes lettres… »</span><span class="tag">Inertie</span></li>
     </ul>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Anamnèse / 05</p></div>
+  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Anamnèse / 04</p></div>
+</div>
+
+---
+class: dx-slide
+title: DX-ite chronique
+---
+
+<!-- ============ 05 · DX-ite chronique ============ -->
+<div class="dx-frame tx-title">
+  <div class="dx-layer dx-bloom"></div>
+  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
+  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
+  <div class="dx-marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
+  <div class="dx-content">
+    <h2>La DX-ite<br/>aiguë chronique</h2>
+    <p class="dx-kicker">« aka : c'est moi qui ai donné le nom »</p>
+  </div>
+  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Diagnostic / 06</p></div>
+</div>
+
+<!--
+Alors pourquoi DX-ite, en fait c'est moi qui donne le nom donc je fais ce que je veux. Perso je suis développeur dans une équipe dont une partie du scope c'est la developer experience. C'est nommé pour les devs mais ça concerne en fait tous les gens qui travaillent avec un ordinateur.
+-->
+
+---
+class: dx-slide
+title: QUOTE — médical
+---
+
+<!-- ============ 07 · QUOTE — médical ============ -->
+<div class="dx-frame dx-quote">
+  <div class="dx-layer dx-bloom"></div>
+  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
+  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
+  <div class="dx-marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
+  <div class="dx-content">
+    <p class="qmark">"</p>
+    <blockquote>La poubelle est à l'autre bout du bloc — on traverse la salle avec des compresses sales dans les mains.</blockquote>
+    <p class="by">— <span class="name">un proche soignant</span></p>
+  </div>
+  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Diagnostic / 07</p></div>
+</div>
+
+---
+class: dx-slide
+title: QUOTE — cuisine
+---
+
+<!-- ============ 08 · QUOTE — cuisine ============ -->
+<div class="dx-frame dx-quote">
+  <div class="dx-layer dx-bloom"></div>
+  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
+  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
+  <div class="dx-marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
+  <div class="dx-content">
+    <p class="qmark">"</p>
+    <blockquote>Les couteaux dans un tiroir, la planche à découper dans le placard du haut, et le balais derrière la porte.</blockquote>
+    <p class="by">— <span class="name">mes ex-colocs (collectivement)</span></p>
+  </div>
+  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Diagnostic / 08</p></div>
 </div>
 
 ---
@@ -191,46 +248,7 @@ title: SLACK — bonjour Vincent
       </div>
     </div>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Anamnèse / 06</p></div>
-</div>
-
----
-class: dx-slide
-title: SLACK — demande sans contexte
----
-
-<!-- ============ 07 · SLACK — demande sans contexte ============ -->
-<div class="dx-frame dx-twocol">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
-  <div class="dx-content">
-    <div class="head">
-      <p class="dx-kicker">Cas typique</p>
-      <h2>Une demande d'aide en plusieurs messages</h2>
-    </div>
-    <div class="cols">
-      <div class="col">
-        <h3>Le problème</h3>
-        <ul>
-          <li>7 messages pour dire 1 chose</li>
-          <li>aucun contexte au début</li>
-          <li>la vraie demande arrive trop tard</li>
-        </ul>
-      </div>
-      <div class="col">
-        <div class="dx-slack">
-          <div class="msg"><div class="avatar">A</div><div><span class="name">Alex</span><span class="time">14:07</span><span class="body">t'as 2 min ?</span></div></div>
-          <div class="msg"><div class="avatar">A</div><div><span class="name">Alex</span><span class="time">14:07</span><span class="body">c'est pour le truc</span></div></div>
-          <div class="msg"><div class="avatar">A</div><div><span class="name">Alex</span><span class="time">14:08</span><span class="body">tu sais ?</span></div></div>
-          <div class="msg"><div class="avatar">A</div><div><span class="name">Alex</span><span class="time">14:08</span><span class="body">celui d'hier</span></div></div>
-          <div class="msg"><div class="avatar">A</div><div><span class="name">Alex</span><span class="time">14:09</span><span class="body">le bug sur mobile</span></div></div>
-          <div class="msg"><div class="avatar">A</div><div><span class="name">Alex</span><span class="time">14:09</span><span class="body">tu peux regarder ?</span></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Anamnèse / 07</p></div>
+  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Diagnostic / 09</p></div>
 </div>
 
 ---
@@ -280,7 +298,7 @@ return response.data.user
       </div>
     </div>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Anamnèse / 08</p></div>
+  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Diagnostic / 10</p></div>
 </div>
 
 ---
@@ -316,12 +334,12 @@ title: SLACK — message sans lien
       </div>
     </div>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Anamnèse / 09</p></div>
+  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Diagnostic / 11</p></div>
 </div>
 
 ---
 class: dx-slide
-title: ORIGINES — vue d'ensemble
+title: FACTEURS FAVORISANT
 ---
 
 <!-- ============ 10 · ORIGINES — vue d'ensemble ============ -->
@@ -331,8 +349,8 @@ title: ORIGINES — vue d'ensemble
   <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
     <div class="head">
-      <p class="dx-kicker">Étiologie</p>
-      <h2 class="dx-caps">Origines, contamination</h2>
+      <p class="dx-kicker">Diagnostic · étiologie</p>
+      <h2 class="dx-caps">Facteurs favorisant</h2>
     </div>
     <ul>
       <li v-click><span class="idx">O1</span><span class="quote">Manque de temps pour investir dans la config</span><span class="tag">Urgence</span></li>
@@ -340,7 +358,7 @@ title: ORIGINES — vue d'ensemble
       <li v-click><span class="idx">O3</span><span class="quote">Habitudes ancrées et pas questionnées</span><span class="tag">Routine</span></li>
     </ul>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Anamnèse / 10</p></div>
+  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Diagnostic / 12</p></div>
 </div>
 
 <!--
@@ -363,6 +381,7 @@ title: ORIGINE 1 — manque de temps
     <blockquote>Je n'ai pas 10 minutes pour apprendre le raccourci qui m'en ferait gagner 100.</blockquote>
     <p class="by">— <span class="name">Origine 01 · Manque de temps</span></p>
   </div>
+  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Diagnostic / 13</p></div>
 </div>
 
 <!--
@@ -385,6 +404,7 @@ title: ORIGINE 2 — manque de veille
     <blockquote>J'utilise cet outil tous les jours depuis 3 ans… et je n'ai jamais lu ses raccourcis.</blockquote>
     <p class="by">— <span class="name">Origine 02 · Manque de veille</span></p>
   </div>
+  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Diagnostic / 14</p></div>
 </div>
 
 <!--
@@ -407,86 +427,46 @@ title: ORIGINE 3 — habitudes
     <blockquote>Ça fait 20 ans que je fais comme ça.</blockquote>
     <p class="by">— <span class="name">Origine 03 · Habitudes ancrées</span></p>
   </div>
+  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Diagnostic / 15</p></div>
 </div>
 
 <!--
 Troisième cause : l'habitude. Changer demande un effort immédiat pour un gain futur, notre cerveau préfère souvent le statu quo.
 -->
 
+
 ---
 class: dx-slide
-title: SECTION 02 — DIAGNOSTIC
+title: POURQUOI LA SOIGNER
 ---
 
-<!-- ============ 14 · SECTION 02 — DIAGNOSTIC ============ -->
-<div class="dx-frame dx-section">
+<!-- ============ 16 · POURQUOI LA SOIGNER ============ -->
+<div class="dx-frame tx-title">
   <div class="dx-layer dx-bloom"></div>
   <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
   <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
   <div class="dx-content">
-    <p class="sec-no">DIAGNOSTIC — 02</p>
-    <span class="dx-cross"></span>
-    <h2>La DX-ite aiguë chronique</h2>
-    <p class="sub">« aka : c'est moi qui ai donné le nom, donc je fais ce que je veux »</p>
+    <h2>Pourquoi<br/>la soigner&nbsp;?</h2>
   </div>
+  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 16</p></div>
 </div>
-
-<!--
-Alors pourquoi DX-ite, en fait c'est moi qui donne le nom donc je fais ce que je veux. Perso je suis développeur dans une équipe dont une partie du scope c'est la developer experience. C'est nommé pour les devs mais ça concerne en fait tous les gens qui travaillent avec un ordinateur.
--->
 
 ---
 class: dx-slide
-title: DOMAINES — médical / cuisine
+title: MEILLEURE SANTÉ — sous-titre
 ---
 
-<!-- ============ 15 · DOMAINES — médical / cuisine ============ -->
-<div class="dx-frame dx-twocol">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
-  <div class="dx-content">
-    <div class="head">
-      <p class="dx-kicker">Comorbidités observées</p>
-      <h2>La DX-ite dans tous les domaines</h2>
-    </div>
-    <div class="cols">
-      <div class="col">
-        <h3>Dans le médical</h3>
-        <blockquote>La poubelle est à l'autre bout du bloc — on traverse la salle avec des compresses sales dans les mains.</blockquote>
-        <p class="caption">— un proche soignant</p>
-      </div>
-      <div class="col">
-        <h3>Dans la cuisine</h3>
-        <blockquote>Les couteaux dans un tiroir, la planche à découper dans le placard du haut, et le balais derrière la porte.</blockquote>
-        <p class="caption">— mes ex-colocs (collectivement)</p>
-      </div>
-    </div>
-  </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Diagnostic / 15</p></div>
-</div>
-
-<!--
-En préparant ce talk, j'ai discuté autour de moi et j'ai été étonné : le problème est partout.
--->
-
----
-class: dx-slide
-title: PRONOSTIC — Meilleure DX = Meilleure santé
----
-
-<!-- ============ 16 · PRONOSTIC — Meilleure DX = Meilleure santé ============ -->
-<div class="dx-frame dx-statement">
+<!-- ============ 17 · MEILLEURE SANTÉ — sous-titre ============ -->
+<div class="dx-frame tx-subtitle">
   <div class="dx-layer dx-bloom"></div>
   <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
   <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
     <p class="dx-kicker">Pronostic</p>
-    <p class="eq"><span>Meilleure DX</span><span class="op">=</span><b>Meilleure santé</b></p>
-    <p class="note">Tout le monde peut profiter d'une meilleure hygiène de DX — comme tout le monde gagnerait à être en meilleure santé.</p>
+    <h2>Meilleure santé</h2>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 16</p></div>
+  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 17</p></div>
 </div>
 
 ---
@@ -494,7 +474,7 @@ class: dx-slide
 title: CHARGE COGNITIVE — avant / après
 ---
 
-<!-- ============ 17 · CHARGE COGNITIVE — avant / après ============ -->
+<!-- ============ 18 · CHARGE COGNITIVE — avant / après ============ -->
 <div class="dx-frame dx-twocol">
   <div class="dx-layer dx-bloom"></div>
   <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
@@ -531,7 +511,7 @@ title: CHARGE COGNITIVE — avant / après
       </div>
     </div>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 17</p></div>
+  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 18</p></div>
 </div>
 
 <!--
@@ -540,94 +520,92 @@ title: CHARGE COGNITIVE — avant / après
 
 ---
 class: dx-slide
-title: MÉMOIRE PROCÉDURALE
+title: MÉMOIRE PROCÉDURALE — sous-titre
 ---
 
-<!-- ============ 18 · MÉMOIRE PROCÉDURALE ============ -->
-<div class="dx-frame dx-content-page">
+<!-- ============ 19 · MÉMOIRE PROCÉDURALE — sous-titre ============ -->
+<div class="dx-frame tx-subtitle">
   <div class="dx-layer dx-bloom"></div>
   <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
   <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
-    <div class="head">
-      <p class="dx-kicker">Pronostic · charge cognitive</p>
-      <h2>Votre meilleure alliée</h2>
-      <h3>la mémoire procédurale</h3>
-    </div>
-    <ul>
-      <li><span class="idx">EX·1</span><span>faire ses lacets</span></li>
-      <li><span class="idx">EX·2</span><span>taper son code de téléphone</span></li>
-      <li><span class="idx">EX·3</span><span>une figure de skate</span></li>
-      <li><span class="idx">EX·4</span><span>taper sur un clavier</span></li>
-    </ul>
-  </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 18</p></div>
-</div>
-
-<!--
-La mémoire procédurale c'est le terme qui décrit l'ensemble de ce que vous savez faire sans même y penser.
--->
-
----
-class: dx-slide
-title: STATEMENT — automatismes
----
-
-<!-- ============ 19 · STATEMENT — automatismes ============ -->
-<div class="dx-frame dx-statement">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
-  <div class="dx-content">
-    <p class="dx-kicker">Pronostic · équation</p>
-    <p class="eq"><span>Plus d'automatismes</span><span class="op">=</span><b>moins de charge cognitive</b></p>
-    <p class="note">Tout ce qui se répète peut déménager dans la mémoire procédurale et libérer la conscience.</p>
+    <p class="dx-kicker">Pronostic · mémoire</p>
+    <span class="emoji">🧠</span>
+    <h2>Mémoire procédurale</h2>
   </div>
   <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 19</p></div>
 </div>
 
 ---
 class: dx-slide
-title: PROTOCOLE — comment ça marche
+title: MÉMOIRE PROCÉDURALE — définition
 ---
 
-<!-- ============ 20 · PROTOCOLE — comment ça marche ============ -->
-<div class="dx-frame dx-protocol">
-  <div class="dx-layer dx-bloom"></div>
-  <div class="dx-content">
-    <div class="head">
-      <p class="dx-kicker">Pronostic · mécanique</p>
-      <h2 class="dx-caps">Comment ça marche</h2>
-    </div>
-    <div class="steps steps-3">
-      <div class="step" v-click><p class="no">01</p><h3>Décomposer</h3><p>Repérer chaque micro-étape du geste répété.</p></div>
-      <div class="step" v-click><p class="no">02</p><h3>Essayer</h3><p>Tenter une façon plus directe, même imparfaite.</p></div>
-      <div class="step" v-click><p class="no">03</p><h3>Corriger</h3><p>Ajuster ce qui coince, garder ce qui colle.</p></div>
-    </div>
-  </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 20</p></div>
-</div>
-
-<!--
-La recette est simple : on décompose le geste qu'on répète, on essaie une approche plus directe, on corrige ce qui ne marche pas.
--->
-
----
-class: dx-slide
-title: ...puis répéter
----
-
-<!-- ============ 21 · ...puis répéter ============ -->
-<div class="dx-frame dx-statement">
+<!-- ============ 20 · MÉMOIRE PROCÉDURALE — définition ============ -->
+<div class="dx-frame tx-definition">
   <div class="dx-layer dx-bloom"></div>
   <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
   <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
-    <p class="dx-kicker">… puis</p>
-    <p class="eq"><b>Répéter, répéter, répéter</b></p>
-    <p class="note">Jusqu'à ce que le geste passe dans la mémoire procédurale et ne coûte plus rien.</p>
+    <div class="head">
+      <p class="dx-kicker">Pronostic · mémoire</p>
+      <h2>Mémoire procédurale</h2>
+    </div>
+    <div class="tx-schema">
+      <!-- TODO: asset memoire-procedurale -->
+      <img src="/TODO-memoire-procedurale.png" alt="Schéma mémoire procédurale" />
+      <p class="placeholder">🧠 Ce que vous savez faire sans y penser :<br/>lacets, code PIN, clavier, vélo…</p>
+    </div>
+    <p class="caption">Tout geste répété finit par s'automatiser — et libère la conscience.</p>
+  </div>
+  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 20</p></div>
+</div>
+
+---
+class: dx-slide
+title: AUTOMATISMES — liste
+---
+
+<!-- ============ 21 · AUTOMATISMES — liste ============ -->
+<div class="dx-frame tx-list">
+  <div class="dx-layer dx-bloom"></div>
+  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
+  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
+  <div class="dx-content">
+    <div class="head">
+      <p class="dx-kicker">Pronostic · protocole</p>
+      <h2>Créer un automatisme</h2>
+    </div>
+    <ol>
+      <li v-click><span class="no">01</span><span class="label">Décomposer</span></li>
+      <li v-click><span class="no">02</span><span class="label">Essayer</span></li>
+      <li v-click><span class="no">03</span><span class="label">Corriger</span></li>
+      <li v-click><span class="no">04</span><span class="label">Répéter</span></li>
+      <li class="fade"><span class="no">05</span><span class="label">Répéter…</span></li>
+    </ol>
   </div>
   <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 21</p></div>
+</div>
+
+<!--
+La recette est simple : on décompose le geste qu'on répète, on essaie une approche plus directe, on corrige ce qui ne marche pas. Et on répète jusqu'à ce que ça devienne automatique.
+-->
+
+---
+class: dx-slide
+title: FUN — sous-titre
+---
+
+<!-- ============ 22 · FUN — sous-titre ============ -->
+<div class="dx-frame tx-subtitle">
+  <div class="dx-layer dx-bloom"></div>
+  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
+  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
+  <div class="dx-content">
+    <p class="dx-kicker">Pronostic · bonus</p>
+    <h2>Fun</h2>
+  </div>
+  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 22</p></div>
 </div>
 
 ---
@@ -635,17 +613,18 @@ class: dx-slide
 title: FUN — apprendre
 ---
 
-<!-- ============ 22 · FUN — apprendre ============ -->
-<div class="dx-frame dx-statement">
+<!-- ============ 23 · FUN — apprendre ============ -->
+<div class="dx-frame tx-subtitle">
   <div class="dx-layer dx-bloom"></div>
   <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
   <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
     <p class="dx-kicker">Le fun</p>
-    <p class="eq"><b>Apprendre</b></p>
-    <p class="note">on est en informatique : on aime ça, non ?</p>
+    <h2>Apprendre</h2>
+    <!-- TODO: asset roadmap -->
+    <img class="tx-img" src="/TODO-roadmap.png" alt="Roadmap apprendre" />
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 22</p></div>
+  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 23</p></div>
 </div>
 
 <!--
@@ -657,17 +636,18 @@ class: dx-slide
 title: FUN — progresser
 ---
 
-<!-- ============ 23 · FUN — progresser ============ -->
-<div class="dx-frame dx-statement">
+<!-- ============ 24 · FUN — progresser ============ -->
+<div class="dx-frame tx-subtitle">
   <div class="dx-layer dx-bloom"></div>
   <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
   <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
     <p class="dx-kicker">Le fun</p>
-    <p class="eq"><b>Progresser</b></p>
-    <p class="note">un jour, vous taperez votre première phrase sans regarder le clavier.</p>
+    <h2>Progresser</h2>
+    <!-- TODO: asset monkeytype -->
+    <img class="tx-img" src="/TODO-monkeytype.png" alt="Monkeytype — progresser" />
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 23</p></div>
+  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 24</p></div>
 </div>
 
 <!--
@@ -679,17 +659,24 @@ class: dx-slide
 title: FUN — partager
 ---
 
-<!-- ============ 24 · FUN — partager ============ -->
-<div class="dx-frame dx-statement">
+<!-- ============ 25 · FUN — partager ============ -->
+<div class="dx-frame tx-subtitle">
   <div class="dx-layer dx-bloom"></div>
   <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
   <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
     <p class="dx-kicker">Le fun</p>
-    <p class="eq"><b>Partager</b></p>
-    <p class="note">débattre, comparer, observer ses collègues.</p>
+    <h2>Partager</h2>
+    <div class="tx-overlap">
+      <!-- TODO: asset cafe -->
+      <img class="tx-img tx-img--1" src="/TODO-cafe.png" alt="Café" />
+      <!-- TODO: asset blog -->
+      <img class="tx-img tx-img--2" src="/TODO-blog.png" alt="Article de blog" />
+      <!-- TODO: asset conference -->
+      <img class="tx-img tx-img--3" src="/TODO-conference.png" alt="Conférence" />
+    </div>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 24</p></div>
+  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 25</p></div>
 </div>
 
 <!--
@@ -701,17 +688,16 @@ class: dx-slide
 title: VITESSE — fluidité
 ---
 
-<!-- ============ 25 · VITESSE — fluidité ============ -->
-<div class="dx-frame dx-statement">
+<!-- ============ 26 · VITESSE — fluidité ============ -->
+<div class="dx-frame tx-subtitle">
   <div class="dx-layer dx-bloom"></div>
   <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
   <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
-    <p class="dx-kicker">La vitesse</p>
-    <p class="eq"><span>déguisée en</span><span class="op">·</span><b>fluidité</b></p>
-    <p class="note">La résultante de tout le travail mis en place : être plus rapide et efficace, sans même le chercher.</p>
+    <p class="dx-kicker">Le fun</p>
+    <h2>Vitesse</h2>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 25</p></div>
+  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 26</p></div>
 </div>
 
 <!--
@@ -720,25 +706,86 @@ En plus de tout le reste, la résultante de tout le travail que vous mettez en p
 
 ---
 class: dx-slide
-title: LE RÉSULTAT — pas le but
+title: VITESSE — mise en garde
 ---
 
-<!-- ============ 26 · LE RÉSULTAT — pas le but ============ -->
-<div class="dx-frame dx-statement">
+<!-- ============ 27 · VITESSE — mise en garde ============ -->
+<div class="dx-frame tx-warning">
   <div class="dx-layer dx-bloom"></div>
   <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
   <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
+  <div class="dx-marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
   <div class="dx-content">
-    <p class="dx-kicker">Mise en garde</p>
-    <p class="eq"><span>Le résultat</span><span class="op">≠</span><b>le but</b></p>
-    <p class="note">Cherchez d'abord la fluidité — la vitesse arrivera sans qu'on l'invite.</p>
+    <p class="icon">⚠️</p>
+    <p class="qmark">"</p>
+    <blockquote>La vitesse est une conséquence,<br/>pas un objectif.</blockquote>
+    <p class="by">— <span class="name">Mise en garde · Pronostic</span></p>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 26</p></div>
+  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 27</p></div>
 </div>
 
 <!--
 Je conseille de chercher la fluidité dans un premier temps, plutôt que la vitesse.
 -->
+
+---
+class: dx-slide
+title: LOI DE GOODHART — sous-titre
+---
+
+<!-- ============ 28 · LOI DE GOODHART — sous-titre ============ -->
+<div class="dx-frame tx-subtitle">
+  <div class="dx-layer dx-bloom"></div>
+  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
+  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
+  <div class="dx-content">
+    <p class="dx-kicker">Pronostic · définition</p>
+    <span class="emoji">📈</span>
+    <h2>Loi de Goodhart</h2>
+  </div>
+  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 28</p></div>
+</div>
+
+---
+class: dx-slide
+title: LOI DE GOODHART — définition
+---
+
+<!-- ============ 29 · LOI DE GOODHART — définition ============ -->
+<div class="dx-frame tx-definition">
+  <div class="dx-layer dx-bloom"></div>
+  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
+  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
+  <div class="dx-content">
+    <div class="head">
+      <p class="dx-kicker">Pronostic · définition</p>
+      <h2>Loi de Goodhart</h2>
+    </div>
+    <div class="tx-schema">
+      <!-- TODO: asset goodhart -->
+      <p class="placeholder">📈 Quand une mesure devient un objectif,<br/>elle cesse d'être une bonne mesure.</p>
+    </div>
+    <p class="caption">Quand une mesure devient un objectif, elle cesse d'être une bonne mesure.</p>
+  </div>
+  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 29</p></div>
+</div>
+
+---
+class: dx-slide
+title: ON COMMENCE PAR QUOI
+---
+
+<!-- ============ 30 · ON COMMENCE PAR QUOI ============ -->
+<div class="dx-frame tx-title">
+  <div class="dx-layer dx-bloom"></div>
+  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
+  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
+  <div class="dx-marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
+  <div class="dx-content">
+    <h2>On commence<br/>par quoi&nbsp;?</h2>
+  </div>
+  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 30</p></div>
+</div>
 
 ---
 class: dx-slide
@@ -887,28 +934,6 @@ Rapidement, avec des maths et un peu de mauvaise foi, voici un tableau avec des 
 
 ---
 class: dx-slide
-title: REDÉCOUVREZ
----
-
-<!-- ============ 31 · REDÉCOUVREZ ============ -->
-<div class="dx-frame dx-statement">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
-  <div class="dx-content">
-    <p class="dx-kicker">Traitement · première dose</p>
-    <p class="eq"><span>Vos 3 logiciels</span><span class="op">+</span><b>leurs raccourcis</b></p>
-    <p class="note">Redécouvrez votre quotidien du bout de votre clavier — un logiciel à la fois.</p>
-  </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Traitement / 31</p></div>
-</div>
-
-<!--
-Pour commencer, prenez vos logiciels les plus utilisés et apprenez à faire au clavier vos tâches les plus répétées.
--->
-
----
-class: dx-slide
 title: TROIS LEVIERS
 ---
 
@@ -1032,50 +1057,6 @@ title: FOCUS 1 — entre les tâches
 
 <!--
 Le premier domaine, c'est tout ce qui se passe ENTRE deux tâches : basculer de fenêtre, copier-coller, faire une capture. C'est universel, indépendant du métier.
--->
-
----
-class: dx-slide
-title: FOCUS 2 — information
----
-
-<!-- ============ 37 · FOCUS 2 — information ============ -->
-<div class="dx-frame dx-statement">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
-  <div class="dx-content">
-    <p class="dx-kicker">Focus 02 · l'information</p>
-    <p class="eq"><span>Voir l'essentiel</span><span class="op">·</span><b>sans chercher</b></p>
-    <p class="note">Des couleurs, des distractions filtrées, des résumés. Réduire l'effort pour comprendre l'état d'un système.</p>
-  </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Traitement / 37</p></div>
-</div>
-
-<!--
-Le deuxième domaine : réduire l'effort pour comprendre l'état d'un système. Coloration, notifications filtrées, vues synthétiques.
--->
-
----
-class: dx-slide
-title: FOCUS 3 — complétion
----
-
-<!-- ============ 38 · FOCUS 3 — complétion ============ -->
-<div class="dx-frame dx-statement">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
-  <div class="dx-content">
-    <p class="dx-kicker">Focus 03 · la complétion</p>
-    <p class="eq"><span>Taper moins</span><span class="op">+</span><b>se tromper moins</b></p>
-    <p class="note">Auto-complétion, alias shell, snippets. Laisser la machine compléter à votre place.</p>
-  </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Traitement / 38</p></div>
-</div>
-
-<!--
-Le troisième domaine : laisser la machine compléter à votre place. Auto-complétion, alias shell, snippets de code.
 -->
 
 ---
