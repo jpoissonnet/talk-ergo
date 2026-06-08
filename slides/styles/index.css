@@ -1,21 +1,18 @@
 /* ===================================================================
-   Design System pour Slidev
-   - html.dark  : House MD
-   - html.light : IRM
+   Design System pour Slidev — thème IRM (clair)
    - typography : Modern by default (Space Grotesk)
    - brain + marks always on
    =================================================================== */
 
-/* ========== TOKENS (défaut = thème SOMBRE / House MD) ========== */
+/* ========== TOKENS ========== */
 :root {
-  --dx-bg: #0c0a07;
-  --dx-head: #f7efe0;
-  --dx-ink: #f1e8d7;
-  --dx-muted: #9d8f77;
-  --dx-faint: #756a54;
-  --dx-line: rgba(241, 232, 215, 0.14);
-  --dx-amber: #d9a35b; /* accent */
-  --dx-clinical: #c0503c; /* accent clinique */
+  --dx-head: #161c22;
+  --dx-ink: #232a31;
+  --dx-muted: #586672;
+  --dx-faint: #93a0ab;
+  --dx-line: rgba(28, 36, 46, 0.22);
+  --dx-amber: #2c6f8f; /* acier froid */
+  --dx-clinical: #b23a2a;
 
   --dx-serif: "Space Grotesk", system-ui, sans-serif;
   --dx-sans: "Space Grotesk", system-ui, sans-serif;
@@ -28,7 +25,7 @@
 /* ========== RESET de la slide en pleine page ========== */
 .slidev-layout.dx-slide {
   padding: 0;
-  background: var(--dx-bg);
+  background: radial-gradient(125% 110% at 50% 32%, #f6f8fa 0%, #e4e8ec 100%);
   color: var(--dx-ink);
   font-family: var(--dx-sans);
   overflow: hidden;
@@ -48,12 +45,9 @@
 .dx-brain {
   position: absolute;
   pointer-events: none;
-  mix-blend-mode: screen;
-  filter: contrast(1.05);
+  mix-blend-mode: multiply;
+  filter: contrast(1);
 }
-.dx-brain--irm {
-  display: none;
-} /* caché en thème sombre */
 .dx-content {
   position: absolute;
   inset: 0;
@@ -151,26 +145,6 @@
   left: 0;
   height: 4px;
   width: 30px;
-}
-
-/* pied de page */
-.dx-footer {
-  position: absolute;
-  left: 132px;
-  right: 132px;
-  bottom: 56px;
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.dx-footer .f {
-  font-weight: 300;
-  font-size: 24px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--dx-faint);
-  margin: 0;
 }
 
 /* ========== GABARIT : COVER ========== */
@@ -365,7 +339,7 @@
     rgba(12, 10, 7, 0) 62%
   );
 }
-html.light .dx-maboul {
+.dx-maboul {
   opacity: 0.2;
   mix-blend-mode: multiply;
 }
@@ -848,7 +822,7 @@ html.light .dx-maboul {
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
-html.light .dx-patient-card {
+.dx-patient-card {
   margin: 0 auto;
   background: linear-gradient(
     180deg,
@@ -857,14 +831,14 @@ html.light .dx-patient-card {
   );
   box-shadow: 0 24px 70px rgba(53, 72, 88, 0.1);
 }
-html.light .dx-patient-card::before {
+.dx-patient-card::before {
   border-color: rgba(28, 36, 46, 0.08);
 }
-html.light .dx-patient-card .field {
+.dx-patient-card .field {
   background: rgba(255, 255, 255, 0.55);
   border-color: rgba(28, 36, 46, 0.08);
 }
-html.light .dx-patient-card .chips li {
+.dx-patient-card .chips li {
   background: rgba(178, 58, 42, 0.1);
 }
 
@@ -1026,7 +1000,7 @@ html.light .dx-patient-card .chips li {
   background: rgba(12, 10, 7, 0.72);
 }
 .dx-code-shot {
-  filter: blur(14px);
+  filter: blur(4px);
   transform: scale(1.01);
   opacity: 0.78;
   transition:
@@ -1055,12 +1029,12 @@ html.light .dx-patient-card .chips li {
   padding: 22px 24px;
   background: transparent !important;
 }
-html.light .dx-slack--screenshot .screen.dx-code-shot {
+.dx-slack--screenshot .screen.dx-code-shot {
   background: rgba(255, 255, 255, 0.8);
 }
 .dx-slack--good .avatar {
   background: var(--dx-amber);
-  color: var(--dx-bg);
+  color: #fff;
 }
 
 /* charge cognitive : carte AVANT / APRÈS (utilisée dans dx-twocol ou dx-statement) */
@@ -1161,107 +1135,67 @@ html.light .dx-slack--screenshot .screen.dx-code-shot {
   fill: var(--dx-amber);
 }
 
-/* ===================================================================
-   THÈME CLAIR — « IRM » (html.light)
-   =================================================================== */
-html.light {
-  --dx-head: #161c22;
-  --dx-ink: #232a31;
-  --dx-muted: #586672;
-  --dx-faint: #93a0ab;
-  --dx-line: rgba(28, 36, 46, 0.22);
-  --dx-amber: #2c6f8f; /* acier froid */
-  --dx-clinical: #b23a2a;
-}
-html.light .slidev-layout.dx-slide {
-  background: radial-gradient(125% 110% at 50% 32%, #f6f8fa 0%, #e4e8ec 100%);
-}
-html.light .dx-brain {
-  mix-blend-mode: multiply;
-  filter: contrast(1);
-}
-html.light .dx-brain--dark {
-  display: none;
-}
-html.light .dx-brain--irm {
-  display: block;
-}
-html.light .dx-bloom {
-  background: radial-gradient(
-    72% 84% at 50% 38%,
-    rgba(255, 255, 255, 0.55) 0%,
-    rgba(228, 232, 236, 0) 70%
-  ) !important;
-}
-html.light .dx-cover .dx-scrim {
-  background: linear-gradient(
-    90deg,
-    rgba(246, 248, 250, 0.96) 0%,
-    rgba(246, 248, 250, 0.7) 36%,
-    rgba(246, 248, 250, 0) 62%
-  );
-}
-/* cerveau discret pour rester majoritairement clair */
-html.light .dx-cover .dx-brain {
+/* ========== overrides spécifiques par gabarit ========== */
+.dx-cover .dx-brain {
   opacity: 0.62;
 }
-html.light .dx-section .dx-brain {
+.dx-section .dx-brain {
   opacity: 0.36;
 }
-html.light .dx-symptoms .dx-brain {
+.dx-symptoms .dx-brain {
   opacity: 0.12;
 }
-html.light .dx-statement .dx-brain {
+.dx-statement .dx-brain {
   opacity: 0.13;
 }
-html.light .dx-quote .dx-brain {
+.dx-quote .dx-brain {
   opacity: 0.16;
 }
-html.light .dx-content-page .dx-brain {
+.dx-content-page .dx-brain {
   opacity: 0.1;
 }
-html.light .dx-twocol .dx-brain {
+.dx-twocol .dx-brain {
   opacity: 0.08;
 }
 /* lisibilité : graisses renforcées + ombres coupées */
-html.light .dx-kicker {
+.dx-kicker {
   font-weight: 500;
 }
-html.light .dx-caps,
-html.light .dx-section h2,
-html.light .dx-cover h1,
-html.light .dx-protocol h3,
-html.light .dx-content-page h2,
-html.light .dx-twocol h2 {
+.dx-caps,
+.dx-section h2,
+.dx-cover h1,
+.dx-protocol h3,
+.dx-content-page h2,
+.dx-twocol h2 {
   font-weight: 400;
 }
-html.light .dx-section .sec-no,
-html.light .dx-protocol .no {
+.dx-section .sec-no,
+.dx-protocol .no {
   font-weight: 500;
 }
-html.light .dx-statement .eq {
+.dx-statement .eq {
   font-weight: 400;
   text-shadow: none;
 }
-html.light .dx-statement .eq b {
+.dx-statement .eq b {
   font-weight: 500;
 }
-html.light .dx-statement .note {
+.dx-statement .note {
   font-weight: 400;
   text-shadow: none;
 }
-html.light .dx-symptoms .quote,
-html.light .dx-quote blockquote {
+.dx-symptoms .quote,
+.dx-quote blockquote {
   font-weight: 500;
 }
-html.light .dx-content-page .body {
+.dx-content-page .body {
   font-weight: 400;
 }
-html.light .dx-twocol .col p,
-html.light .dx-twocol .col li {
+.dx-twocol .col p,
+.dx-twocol .col li {
   font-weight: 400;
 }
-html.light .dx-slack {
+.dx-slack {
   background: rgba(28, 36, 46, 0.04);
 }
 
@@ -1488,18 +1422,73 @@ html.light .dx-slack {
   font-style: italic;
 }
 
+/* .tx-grid — grille d'icônes + titre (flex, 2 lignes de 2 à 3 éléments) */
+.tx-grid .dx-content {
+  gap: 1.5rem;
+}
+.tx-grid .head {
+  margin-bottom: 0.5rem;
+}
+.tx-grid h2 {
+  font-size: 2.5rem;
+  color: var(--dx-head);
+  margin: 0;
+}
+.tx-grid .tx-grid-rows {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+.tx-grid .tx-grid-row {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+.tx-grid .tx-grid-item {
+  flex: 1 1 0;
+  max-width: 22rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.85rem;
+  padding: 1.75rem 1.25rem;
+  border: 1px solid var(--dx-line);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.45);
+}
+.tx-grid .tx-grid-item .icon {
+  display: flex;
+  line-height: 1;
+}
+.tx-grid .tx-grid-item .icon > * {
+  width: 3.5rem;
+  height: 3.5rem;
+  color: var(--dx-amber);
+}
+.tx-grid .tx-grid-item .title {
+  font-size: 1.5rem;
+  color: var(--dx-ink);
+  letter-spacing: var(--dx-track-caps);
+}
+.tx-grid .dx-brain {
+  opacity: 0.06;
+}
+
 /* tx- light overrides */
-html.light .tx-lecture .dx-brain { opacity: 0.05; }
-html.light .tx-title .dx-brain { opacity: 0.06; }
-html.light .tx-subtitle .dx-brain { opacity: 0.04; }
-html.light .tx-warning .dx-brain { opacity: 0.05; }
-html.light .tx-definition .dx-brain { opacity: 0.06; }
-html.light .tx-list .dx-brain { opacity: 0.06; }
-html.light .tx-warning .qmark { color: var(--dx-clinical); opacity: 0.18; }
-html.light .tx-warning blockquote { color: #1a1a1a; }
-html.light .tx-warning .by { color: var(--dx-clinical); }
-html.light .tx-list ol li { border-left-color: rgba(0,0,0,0.15); }
-html.light .tx-list ol li .no { color: var(--dx-clinical); }
+.tx-lecture .dx-brain { opacity: 0.05; }
+.tx-title .dx-brain { opacity: 0.06; }
+.tx-subtitle .dx-brain { opacity: 0.04; }
+.tx-warning .dx-brain { opacity: 0.05; }
+.tx-definition .dx-brain { opacity: 0.06; }
+.tx-list .dx-brain { opacity: 0.06; }
+.tx-warning .qmark { color: var(--dx-clinical); opacity: 0.18; }
+.tx-warning blockquote { color: #1a1a1a; }
+.tx-warning .by { color: var(--dx-clinical); }
+.tx-list ol li { border-left-color: rgba(0,0,0,0.15); }
+.tx-list ol li .no { color: var(--dx-clinical); }
 
 /* ========== fix transitions Slidev (clics progressifs) ========== */
 .slidev-vclick-target {

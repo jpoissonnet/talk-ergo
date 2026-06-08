@@ -5,12 +5,17 @@
   "scripts": {
     "build": "slidev build",
     "dev": "slidev --open",
-    "export": "slidev export"
+    "export": "slidev export",
+    "fix": "node scripts/fix-slides.mjs",
+    "check": "node scripts/fix-slides.mjs --check"
   },
   "dependencies": {
     "@slidev/cli": "^52.14.1",
     "@slidev/theme-default": "latest",
     "@slidev/theme-seriph": "latest",
     "vue": "^3.5.29"
+  },
+  "devDependencies": {
+    "prettier-plugin-slidev": "^1.0.5"
   }
 }

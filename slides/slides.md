@@ -3,7 +3,6 @@ theme: none
 title: Et si vos outils faisaient un peu plus pour vous ?
 aspectRatio: 16/9
 canvasWidth: 1920
-colorSchema: auto
 transition: slide-left
 class: dx-slide
 duration: 50min
@@ -13,17 +12,14 @@ drawings:
 
 <!-- ============ 01 · COVER ============ -->
 <div class="dx-frame dx-cover">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
   <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
-  <div class="dx-layer dx-scrim"></div>
-  <div class="dx-marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
   <div class="dx-content">
     <div class="col">
-      <p class="dx-kicker">Une consultation sur vos outils</p>
       <h1>Et si vos outils faisaient <em>un peu plus</em> pour vous&nbsp;?</h1>
       <div class="rule-row"><span class="dx-cross"></span><hr class="dx-hair" /></div>
-      <p class="dx-mono">CAS N°001 · DURÉE 50 MIN · PATIENT·E&nbsp;: VOUS</p>
+      <p class="dx-mono">CAS N°001 · DURÉE 50 MIN</p>
+<p class="dx-mono">PATIENT : VOUS</p>
+<p class="dx-mono">DOCTEUR : VOUS</p>
     </div>
   </div>
 </div>
@@ -39,16 +35,11 @@ title: COURS MAGISTRAL
 
 <!-- ============ 02 · COURS MAGISTRAL ============ -->
 <div class="dx-frame tx-lecture">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
   <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
-  <div class="dx-marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
   <div class="dx-content">
-    <span class="emoji">🎓</span>
+    <img src="https://media.vanityfair.fr/photos/673ae9083b28d3f24bf64e2c/1:1/w_2910,h_2910,c_limit/dr%20house%2020%20anni%20dopo-cast.jpg"/>
     <h2>Cours magistral</h2>
-    <p class="dx-kicker">Une consultation sur vos outils</p>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Introduction / 02</p></div>
 </div>
 
 ---
@@ -75,32 +66,31 @@ title: INTRODUCTION — fiche patient
       <div class="dx-patient-card__grid">
         <div class="field">
           <p class="label">Patient·e</p>
-          <p class="value">Potentiellement vous</p>
+          <p class="value">Vous</p>
         </div>
         <div class="field">
           <p class="label">Contexte</p>
-          <p class="value">Environnement numérique quotidien</p>
+          <p class="value">Environnement numérique</p>
         </div>
         <div class="field field--full">
           <p class="label">Motif de consultation</p>
-          <p class="value">Relation conflictuelle avec vos outils, charge mentale saturée.</p>
+          <p class="value">Relation conflictuelle avec vos outils, ras-le-bol</p>
         </div>
         <div class="field">
           <p class="label">Symptômes initiaux</p>
           <ul class="chips">
             <li>friction</li>
-            <li>oubli</li>
+            <li>charge mentale</li>
             <li>contexte dispersé</li>
           </ul>
         </div>
         <div class="field">
           <p class="label">Objectif</p>
-          <p class="value">Retrouver du confort, du temps et un peu de fluidité.</p>
+          <p class="value">Retrouver du confort, du temps et de la fluidité.</p>
         </div>
       </div>
     </div>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Introduction / 03</p></div>
 </div>
 
 ---
@@ -109,27 +99,47 @@ title: SYMPTÔMES
 ---
 
 <!-- ============ 04 · SYMPTÔMES ============ -->
-<div class="dx-frame dx-symptoms dx-symptoms--maboul">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-maboul" src="/docteur-maboul.jpg" alt="Plateau du jeu Docteur Maboul" />
+<div class="dx-frame tx-grid">
   <div class="dx-content">
     <div class="head">
-      <p class="dx-kicker">Examen clinique</p>
-      <h2 class="dx-caps">Liste des symptômes</h2>
+      <h2>Liste des symptômes</h2>
     </div>
-    <ul>
-      <li v-click><span class="idx">S1</span><span class="quote">« J'ai perdu mon copier-coller. »</span><span class="tag">Presse-papier</span></li>
-      <li v-click><span class="idx">S2</span><span class="quote">« Tu peux rajouter le lien ? »</span><span class="tag">Contexte</span></li>
-      <li v-click><span class="idx">S3</span><span class="quote">« Ah mince, j'avais pas vu - j'ai une réunion. »</span><span class="tag">Agenda</span></li>
-      <li v-click><span class="idx">S4</span><span class="quote">« Elle est où, la fenêtre que je veux partager ? »</span><span class="tag">Fenêtres</span></li>
-      <li v-click><span class="idx">S5</span><span class="quote">« Je me l'envoie en DM pour pas l'oublier. »</span><span class="tag">Notes</span></li>
-    </ul>
+    <div class="tx-grid-rows">
+      <div class="tx-grid-row">
+        <div class="tx-grid-item" v-click>
+          <span class="icon"><span class="i-carbon-copy"></span></span>
+          <span class="title">Presse-papier</span>
+        </div>
+        <div class="tx-grid-item" v-click>
+          <span class="icon"><span class="i-carbon-link"></span></span>
+          <span class="title">Contexte</span>
+        </div>
+        <div class="tx-grid-item" v-click>
+          <span class="icon"><span class="i-carbon-calendar"></span></span>
+          <span class="title">Agenda</span>
+        </div>
+      </div>
+      <div class="tx-grid-row">
+        <div class="tx-grid-item" v-click>
+          <span class="icon"><span class="i-carbon-application"></span></span>
+          <span class="title">Fenêtres</span>
+        </div>
+        <div class="tx-grid-item" v-click>
+          <span class="icon"><span class="i-carbon-notebook"></span></span>
+          <span class="title">Notes</span>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Anamnèse / 03</p></div>
 </div>
 
 <!--
 Les symptômes peuvent être multiples, vous avez peut-être déjà dit ou entendu les choses suivantes...
+- J'ai perdu mon copier-coller
+- Ah mince j'ai pas mis le lien dans le msg
+- Oups, j'avais pas vu que j'avais une réu
+- Elle où la fenetre que je dois partager?
+- attends je vais me l'envoyer par message pour le retenir
 -->
 
 ---
@@ -138,22 +148,36 @@ title: COLLÈGUES
 ---
 
 <!-- ============ 05 · COLLÈGUES ============ -->
-<div class="dx-frame dx-symptoms dx-symptoms--maboul">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-maboul" src="/docteur-maboul.jpg" alt="Plateau du jeu Docteur Maboul" />
+<div class="dx-frame tx-grid">
   <div class="dx-content">
     <div class="head">
-      <p class="dx-kicker">Observation périphérique</p>
-      <h2 class="dx-caps">… mais aussi des collègues qui:</h2>
+      <h2>… mais aussi des collègues qui&nbsp;:</h2>
     </div>
-    <ul>
-      <li v-click><span class="idx">C1</span><span class="quote">remettent une tâche courte à plus tard</span><span class="tag">Procrastination</span></li>
-      <li v-click><span class="idx">C2</span><span class="quote">ont une réputation de bricoleur avec tous les outils pour leur usage</span><span class="tag">Bricolage</span></li>
-      <li v-click><span class="idx">C3</span><span class="quote">sont réfractaires aux changements - « ça fait 20 ans que j'écris les commandes en toutes lettres… »</span><span class="tag">Inertie</span></li>
-    </ul>
+    <div class="tx-grid-rows">
+      <div class="tx-grid-row">
+        <div class="tx-grid-item" v-click>
+          <span class="icon"><span class="i-carbon-time"></span></span>
+          <span class="title">Procrastination</span>
+        </div>
+        <div class="tx-grid-item" v-click>
+          <span class="icon"><span class="i-carbon-tools"></span></span>
+          <span class="title">Bricolage</span>
+        </div>
+        <div class="tx-grid-item" v-click>
+          <span class="icon"><span class="i-carbon-locked"></span></span>
+          <span class="title">Inertie</span>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Anamnèse / 04</p></div>
 </div>
+
+<!--
+on a aussi des collègues qui:
+- remettent à plus tard des tout petits trucs et ne les font jamais
+- tordent un outil dans tous les sens pour leur usage
+- ont des habitudes bien ancrées et ont acceptés leur frictions
+-->
 
 ---
 class: dx-slide
@@ -162,19 +186,19 @@ title: DX-ite chronique
 
 <!-- ============ 05 · DX-ite chronique ============ -->
 <div class="dx-frame tx-title">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
-  <div class="dx-marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
   <div class="dx-content">
-    <h2>La DX-ite<br/>aiguë chronique</h2>
-    <p class="dx-kicker">« aka : c'est moi qui ai donné le nom »</p>
+    <h2>La DX-ite chronique</h2>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Diagnostic / 06</p></div>
 </div>
 
 <!--
-Alors pourquoi DX-ite, en fait c'est moi qui donne le nom donc je fais ce que je veux. Perso je suis développeur dans une équipe dont une partie du scope c'est la developer experience. C'est nommé pour les devs mais ça concerne en fait tous les gens qui travaillent avec un ordinateur.
+En avant-première, je nomme devant cette maladie: La DX-ite aiguë chronique.
+
+Alors pourquoi DX-ite, en fait c'est moi qui donne le nom donc je fais ce que je veux. 
+
+Je suis développeur dans une équipe dont une partie du scope c'est la DX: developer experience. Mais en fait on verra que ça s'applique ailleurs, pas que pour les devs.
+
+En fait tout les gens qui travaillent sur un ordinateur sont concernés. C'est une maladie chronique parce qu'on peut en guérir sur certains aspects, mais c'est malheureusement un combat que l'on devra continuer de mener.
 -->
 
 ---
@@ -184,17 +208,17 @@ title: QUOTE — médical
 
 <!-- ============ 07 · QUOTE — médical ============ -->
 <div class="dx-frame dx-quote">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
   <div class="dx-content">
     <p class="qmark">"</p>
     <blockquote>La poubelle est à l'autre bout du bloc — on traverse la salle avec des compresses sales dans les mains.</blockquote>
     <p class="by">— <span class="name">un proche soignant</span></p>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Diagnostic / 07</p></div>
 </div>
+
+<!--
+En fait quand je dis que ça ne concerne pas les devs, c'est parceque j'ai entendu de la part d'une infirmière que tout le personnel n'a pas la même façon de préparer un bloc, opératoire, et certaines façons n'ont aucun sens.
+-->
 
 ---
 class: dx-slide
@@ -203,17 +227,17 @@ title: QUOTE — cuisine
 
 <!-- ============ 08 · QUOTE — cuisine ============ -->
 <div class="dx-frame dx-quote">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
   <div class="dx-content">
     <p class="qmark">"</p>
     <blockquote>Les couteaux dans un tiroir, la planche à découper dans le placard du haut, et le balais derrière la porte.</blockquote>
     <p class="by">— <span class="name">mes ex-colocs (collectivement)</span></p>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Diagnostic / 08</p></div>
 </div>
+
+<!--
+Dans la cuisine de mes colocs, j'ai pu l'observer, ils se dispersent partout et traversent toute la cuisine avec les ingrédients dans les mains au risque de tout faire tomber.
+-->
 
 ---
 class: dx-slide
@@ -222,34 +246,38 @@ title: SLACK — bonjour Vincent
 
 <!-- ============ 06 · SLACK — bonjour Vincent ============ -->
 <div class="dx-frame dx-twocol">
-  <div class="dx-layer dx-bloom"></div>
   <div class="dx-content">
     <div class="head">
-      <p class="dx-kicker">Cas typique</p>
       <h2>Bonjour Vincent</h2>
     </div>
-    <div class="cols">
-      <div class="col">
-        <h3>Le problème</h3>
-        <p>La conversation commence sans besoin explicite et mange l'attention avant d'expliquer quoi que ce soit.</p>
-        <ul>
-          <li>salutation + préambule</li>
-          <li>aucun sujet annoncé</li>
-          <li>le destinataire attend la vraie question</li>
-        </ul>
-      </div>
-      <div class="col">
-        <div class="dx-slack">
+        <div class="dx-slack m-auto">
           <div class="msg"><div class="avatar">A</div><div><span class="name">Alex</span><span class="time">14:02</span><span class="body">Bonjour Vincent !</span></div></div>
           <div class="msg"><div class="avatar">A</div><div><span class="name">Alex</span><span class="time">14:02</span><span class="body">tu vas bien ?</span></div></div>
           <div class="msg"><div class="avatar">V</div><div><span class="name">Vincent</span><span class="time">14:05</span><span class="body">oui, et toi ? 🙂</span></div></div>
           <div class="msg"><div class="avatar">A</div><div><span class="name">Alex</span><span class="time">14:06</span><span class="body">J'aurais une question à te poser...</span></div></div>
         </div>
-      </div>
-    </div>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Diagnostic / 09</p></div>
 </div>
+
+---
+class: dx-slide
+title: SLACK — Etat mental de vincent
+---
+
+<div class="dx-frame dx-twocol">
+  <div class="dx-content">
+    <div class="head">
+      <h2>État mental de Vincent</h2>
+    </div>
+        <div class="m-auto">
+       <img v-click src='https://media-www.canadiantire.ca/product/party-city/party-city-seasonal/party-city-halloween-costumes/8554767/anger-kit-adult-size-xx-large-50-52--8974061c-7ed4-4c54-8930-3ed56d23bd33-jpgrendition.jpg'/>
+        </div>
+  </div>
+</div>
+
+<!--
+Dans votre quotidien, c'est pas en retrouvant du riz parterre que vous allez le voir, mais plûtot en recevant ou en envoyant ce genre de message.
+-->
 
 ---
 class: dx-slide
@@ -258,48 +286,45 @@ title: SLACK — screenshot illisible
 
 <!-- ============ 08 · SLACK — screenshot illisible ============ -->
 <div class="dx-frame dx-twocol">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
     <div class="head">
-      <p class="dx-kicker">Cas typique</p>
-      <h2>Un screen sur lequel on ne voit rien</h2>
+      <h2>Un screen inutile</h2>
     </div>
-    <div class="cols">
-      <div class="col">
-        <h3>Le problème</h3>
-        <ul>
-          <li>screenshot non annoté</li>
-          <li>zone utile introuvable</li>
-        </ul>
-      </div>
-      <div class="col">
-        <div class="dx-slack dx-slack--screenshot">
+        <div class="m-auto dx-slack dx-slack--screenshot">
           <div class="msg"><div class="avatar">A</div><div><span class="name">Alex</span><span class="time">14:10</span><span class="body">ça fait ça chez moi 👇</span>
-            <div class="screen dx-code-shot" v-click>
-```ts {2,5,9}
-async function submitSignup(form: SignupForm) {
+            <pre class="screen dx-code-shot" v-pre v-click><code>async function submitSignup(form: SignupForm) {
   const payload = buildPayload(form)
   const response = await api.post('/signup', payload)
-
-if (!response.ok) {
-captureException(new Error('signup failed'))
-throw new Error('Signup request failed')
-}
-
-return response.data.user
-}
-
-```
-            </div>
+  if (!response.ok) {
+    captureException(new Error('signup failed'))
+    throw new Error('Signup request failed')
+  }
+  return response.data.user
+}</code></pre>
           </div></div>
         </div>
       </div>
     </div>
+
+---
+class: dx-slide
+title: SLACK — Etat mental de vincent
+---
+
+<div class="dx-frame dx-twocol">
+  <div class="dx-content">
+    <div class="head">
+      <h2>État mental de Vincent</h2>
+    </div>
+        <div class="m-auto">
+       <img v-click src='https://media-www.canadiantire.ca/product/party-city/party-city-seasonal/party-city-halloween-costumes/8554767/anger-kit-adult-size-xx-large-50-52--8974061c-7ed4-4c54-8930-3ed56d23bd33-jpgrendition.jpg'/>
+        </div>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Diagnostic / 10</p></div>
 </div>
+
+<!--
+Pauvre vincent
+-->
 
 ---
 class: dx-slide
@@ -308,33 +333,28 @@ title: SLACK — message sans lien
 
 <!-- ============ 09 · SLACK — message sans lien ============ -->
 <div class="dx-frame dx-twocol">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
     <div class="head">
-      <p class="dx-kicker">Cas typique</p>
       <h2>Un message sans lien</h2>
     </div>
     <div class="cols">
       <div class="col">
-        <h3>Le problème</h3>
-        <ul>
-          <li>pas de lien vers le ticket</li>
-          <li>pas de PR, pas de doc, pas de trace</li>
-          <li>réponse 3 jours après dans un thread</li>
-        </ul>
-      </div>
-      <div class="col">
         <div class="dx-slack">
           <div class="msg"><div class="avatar">A</div><div><span class="name">Alex</span><span class="time">Lun 16:42</span><span class="body">J'ai peut-être cassé un truc sur le signup.</span></div></div>
-          <div class="msg"><div class="avatar">V</div><div><span class="name">Vincent</span><span class="time">Lun 16:50</span><span class="body">tu as le ticket ?</span></div></div>
+          <div class="msg"><div class="avatar">V</div><div><span class="name">Vincent</span><span class="time">Lun 16:50</span><span class="body">tu as le lien du ticket ?</span></div></div>
           <div class="msg"><div class="avatar">A</div><div><span class="name">Alex</span><span class="time">Jeu 09:14</span><span class="body">j'ai répondu dans le thread 🙃</span></div></div>
         </div>
       </div>
+      <div class="col">
+        <h3>Le problème</h3>
+        <ul>
+          <li v-click>pas de lien vers le ticket</li>
+          <li v-click>pas de PR, pas de doc, pas de trace</li>
+          <li v-click>réponse 3 jours après dans un thread</li>
+        </ul>
+      </div>
     </div>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Diagnostic / 11</p></div>
 </div>
 
 ---
@@ -344,12 +364,8 @@ title: FACTEURS FAVORISANT
 
 <!-- ============ 10 · ORIGINES — vue d'ensemble ============ -->
 <div class="dx-frame dx-symptoms">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
     <div class="head">
-      <p class="dx-kicker">Diagnostic · étiologie</p>
       <h2 class="dx-caps">Facteurs favorisant</h2>
     </div>
     <ul>
@@ -358,7 +374,6 @@ title: FACTEURS FAVORISANT
       <li v-click><span class="idx">O3</span><span class="quote">Habitudes ancrées et pas questionnées</span><span class="tag">Routine</span></li>
     </ul>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Diagnostic / 12</p></div>
 </div>
 
 <!--
@@ -372,16 +387,12 @@ title: ORIGINE 1 — manque de temps
 
 <!-- ============ 11 · ORIGINE 1 — manque de temps ============ -->
 <div class="dx-frame dx-quote">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
   <div class="dx-content">
     <p class="qmark">“</p>
     <blockquote>Je n'ai pas 10 minutes pour apprendre le raccourci qui m'en ferait gagner 100.</blockquote>
     <p class="by">— <span class="name">Origine 01 · Manque de temps</span></p>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Diagnostic / 13</p></div>
 </div>
 
 <!--
@@ -395,16 +406,12 @@ title: ORIGINE 2 — manque de veille
 
 <!-- ============ 12 · ORIGINE 2 — manque de veille ============ -->
 <div class="dx-frame dx-quote">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
   <div class="dx-content">
     <p class="qmark">“</p>
     <blockquote>J'utilise cet outil tous les jours depuis 3 ans… et je n'ai jamais lu ses raccourcis.</blockquote>
     <p class="by">— <span class="name">Origine 02 · Manque de veille</span></p>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Diagnostic / 14</p></div>
 </div>
 
 <!--
@@ -418,22 +425,17 @@ title: ORIGINE 3 — habitudes
 
 <!-- ============ 13 · ORIGINE 3 — habitudes ============ -->
 <div class="dx-frame dx-quote">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
   <div class="dx-content">
     <p class="qmark">“</p>
     <blockquote>Ça fait 20 ans que je fais comme ça.</blockquote>
     <p class="by">— <span class="name">Origine 03 · Habitudes ancrées</span></p>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Diagnostic / 15</p></div>
 </div>
 
 <!--
 Troisième cause : l'habitude. Changer demande un effort immédiat pour un gain futur, notre cerveau préfère souvent le statu quo.
 -->
-
 
 ---
 class: dx-slide
@@ -442,14 +444,11 @@ title: POURQUOI LA SOIGNER
 
 <!-- ============ 16 · POURQUOI LA SOIGNER ============ -->
 <div class="dx-frame tx-title">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
   <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
   <div class="dx-content">
     <h2>Pourquoi<br/>la soigner&nbsp;?</h2>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 16</p></div>
 </div>
 
 ---
@@ -459,14 +458,10 @@ title: MEILLEURE SANTÉ — sous-titre
 
 <!-- ============ 17 · MEILLEURE SANTÉ — sous-titre ============ -->
 <div class="dx-frame tx-subtitle">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
   <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
-    <p class="dx-kicker">Pronostic</p>
     <h2>Meilleure santé</h2>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 17</p></div>
 </div>
 
 ---
@@ -476,12 +471,8 @@ title: CHARGE COGNITIVE — avant / après
 
 <!-- ============ 18 · CHARGE COGNITIVE — avant / après ============ -->
 <div class="dx-frame dx-twocol">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
     <div class="head">
-      <p class="dx-kicker">Pronostic · charge cognitive</p>
       <h2>Moins de charge, plus de place</h2>
     </div>
     <div class="cols">
@@ -511,7 +502,6 @@ title: CHARGE COGNITIVE — avant / après
       </div>
     </div>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 18</p></div>
 </div>
 
 <!--
@@ -525,15 +515,11 @@ title: MÉMOIRE PROCÉDURALE — sous-titre
 
 <!-- ============ 19 · MÉMOIRE PROCÉDURALE — sous-titre ============ -->
 <div class="dx-frame tx-subtitle">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
   <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
-    <p class="dx-kicker">Pronostic · mémoire</p>
     <span class="emoji">🧠</span>
     <h2>Mémoire procédurale</h2>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 19</p></div>
 </div>
 
 ---
@@ -543,12 +529,8 @@ title: MÉMOIRE PROCÉDURALE — définition
 
 <!-- ============ 20 · MÉMOIRE PROCÉDURALE — définition ============ -->
 <div class="dx-frame tx-definition">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
     <div class="head">
-      <p class="dx-kicker">Pronostic · mémoire</p>
       <h2>Mémoire procédurale</h2>
     </div>
     <div class="tx-schema">
@@ -558,7 +540,6 @@ title: MÉMOIRE PROCÉDURALE — définition
     </div>
     <p class="caption">Tout geste répété finit par s'automatiser — et libère la conscience.</p>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 20</p></div>
 </div>
 
 ---
@@ -568,12 +549,8 @@ title: AUTOMATISMES — liste
 
 <!-- ============ 21 · AUTOMATISMES — liste ============ -->
 <div class="dx-frame tx-list">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
     <div class="head">
-      <p class="dx-kicker">Pronostic · protocole</p>
       <h2>Créer un automatisme</h2>
     </div>
     <ol>
@@ -581,10 +558,9 @@ title: AUTOMATISMES — liste
       <li v-click><span class="no">02</span><span class="label">Essayer</span></li>
       <li v-click><span class="no">03</span><span class="label">Corriger</span></li>
       <li v-click><span class="no">04</span><span class="label">Répéter</span></li>
-      <li class="fade"><span class="no">05</span><span class="label">Répéter…</span></li>
+      <li v-click class="fade"><span class="no">05</span><span class="label">Répéter…</span></li>
     </ol>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 21</p></div>
 </div>
 
 <!--
@@ -593,19 +569,54 @@ La recette est simple : on décompose le geste qu'on répète, on essaie une app
 
 ---
 class: dx-slide
+title: GRILLE — icônes
+---
+
+<div class="dx-frame tx-grid">
+  <div class="dx-content">
+    <div class="head">
+      <h2>Vos outils au quotidien</h2>
+    </div>
+    <div class="tx-grid-rows">
+      <div class="tx-grid-row">
+        <div class="tx-grid-item" v-click>
+          <span class="icon"><span class="i-carbon-terminal"></span></span>
+          <span class="title">Terminal</span>
+        </div>
+        <div class="tx-grid-item" v-click>
+          <span class="icon"><span class="i-carbon-edit"></span></span>
+          <span class="title">Éditeur</span>
+        </div>
+        <div class="tx-grid-item" v-click>
+          <span class="icon"><span class="i-carbon-branch"></span></span>
+          <span class="title">Git</span>
+        </div>
+      </div>
+      <div class="tx-grid-row">
+        <div class="tx-grid-item" v-click>
+          <span class="icon"><span class="i-carbon-bot"></span></span>
+          <span class="title">Assistant</span>
+        </div>
+        <div class="tx-grid-item" v-click>
+          <span class="icon"><span class="i-carbon-rocket"></span></span>
+          <span class="title">Déploiement</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+class: dx-slide
 title: FUN — sous-titre
 ---
 
 <!-- ============ 22 · FUN — sous-titre ============ -->
 <div class="dx-frame tx-subtitle">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
   <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
-    <p class="dx-kicker">Pronostic · bonus</p>
     <h2>Fun</h2>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 22</p></div>
 </div>
 
 ---
@@ -615,16 +626,12 @@ title: FUN — apprendre
 
 <!-- ============ 23 · FUN — apprendre ============ -->
 <div class="dx-frame tx-subtitle">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
   <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
-    <p class="dx-kicker">Le fun</p>
     <h2>Apprendre</h2>
     <!-- TODO: asset roadmap -->
     <img class="tx-img" src="/TODO-roadmap.png" alt="Roadmap apprendre" />
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 23</p></div>
 </div>
 
 <!--
@@ -638,16 +645,12 @@ title: FUN — progresser
 
 <!-- ============ 24 · FUN — progresser ============ -->
 <div class="dx-frame tx-subtitle">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
   <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
-    <p class="dx-kicker">Le fun</p>
     <h2>Progresser</h2>
     <!-- TODO: asset monkeytype -->
     <img class="tx-img" src="/TODO-monkeytype.png" alt="Monkeytype — progresser" />
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 24</p></div>
 </div>
 
 <!--
@@ -661,11 +664,8 @@ title: FUN — partager
 
 <!-- ============ 25 · FUN — partager ============ -->
 <div class="dx-frame tx-subtitle">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
   <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
-    <p class="dx-kicker">Le fun</p>
     <h2>Partager</h2>
     <div class="tx-overlap">
       <!-- TODO: asset cafe -->
@@ -676,7 +676,6 @@ title: FUN — partager
       <img class="tx-img tx-img--3" src="/TODO-conference.png" alt="Conférence" />
     </div>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 25</p></div>
 </div>
 
 <!--
@@ -690,14 +689,10 @@ title: VITESSE — fluidité
 
 <!-- ============ 26 · VITESSE — fluidité ============ -->
 <div class="dx-frame tx-subtitle">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
   <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
-    <p class="dx-kicker">Le fun</p>
     <h2>Vitesse</h2>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 26</p></div>
 </div>
 
 <!--
@@ -711,9 +706,6 @@ title: VITESSE — mise en garde
 
 <!-- ============ 27 · VITESSE — mise en garde ============ -->
 <div class="dx-frame tx-warning">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
   <div class="dx-content">
     <p class="icon">⚠️</p>
@@ -721,7 +713,6 @@ title: VITESSE — mise en garde
     <blockquote>La vitesse est une conséquence,<br/>pas un objectif.</blockquote>
     <p class="by">— <span class="name">Mise en garde · Pronostic</span></p>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 27</p></div>
 </div>
 
 <!--
@@ -735,15 +726,11 @@ title: LOI DE GOODHART — sous-titre
 
 <!-- ============ 28 · LOI DE GOODHART — sous-titre ============ -->
 <div class="dx-frame tx-subtitle">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
   <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
-    <p class="dx-kicker">Pronostic · définition</p>
     <span class="emoji">📈</span>
     <h2>Loi de Goodhart</h2>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 28</p></div>
 </div>
 
 ---
@@ -753,12 +740,8 @@ title: LOI DE GOODHART — définition
 
 <!-- ============ 29 · LOI DE GOODHART — définition ============ -->
 <div class="dx-frame tx-definition">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
     <div class="head">
-      <p class="dx-kicker">Pronostic · définition</p>
       <h2>Loi de Goodhart</h2>
     </div>
     <div class="tx-schema">
@@ -767,7 +750,6 @@ title: LOI DE GOODHART — définition
     </div>
     <p class="caption">Quand une mesure devient un objectif, elle cesse d'être une bonne mesure.</p>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 29</p></div>
 </div>
 
 ---
@@ -777,14 +759,11 @@ title: ON COMMENCE PAR QUOI
 
 <!-- ============ 30 · ON COMMENCE PAR QUOI ============ -->
 <div class="dx-frame tx-title">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
   <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
   <div class="dx-content">
     <h2>On commence<br/>par quoi&nbsp;?</h2>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Pronostic / 30</p></div>
 </div>
 
 ---
@@ -794,12 +773,8 @@ title: RENDEZ-VOUS — fabriquer le temps
 
 <!-- ============ 27 · RENDEZ-VOUS — fabriquer le temps ============ -->
 <div class="dx-frame dx-content-page">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
     <div class="head">
-      <p class="dx-kicker">Traitement · prise de rendez-vous</p>
       <h2>On démarre par fabriquer le temps</h2>
     </div>
     <ul>
@@ -815,7 +790,6 @@ title: RENDEZ-VOUS — fabriquer le temps
       </div>
     </div>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Traitement / 27</p></div>
 </div>
 
 <!--
@@ -829,10 +803,8 @@ title: PROTOCOLE THÉRAPEUTIQUE — 4 étapes
 
 <!-- ============ 28 · PROTOCOLE THÉRAPEUTIQUE — 4 étapes ============ -->
 <div class="dx-frame dx-protocol">
-  <div class="dx-layer dx-bloom"></div>
   <div class="dx-content">
     <div class="head">
-      <p class="dx-kicker">Traitement · méthode générale</p>
       <h2 class="dx-caps">Protocole thérapeutique</h2>
     </div>
     <div class="steps">
@@ -842,7 +814,6 @@ title: PROTOCOLE THÉRAPEUTIQUE — 4 étapes
       <div class="step" v-click><p class="no">04</p><h3>Répéter</h3><p>La prochaine friction vous attend déjà.</p></div>
     </div>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Traitement / 28</p></div>
 </div>
 
 <!--
@@ -856,12 +827,8 @@ title: CLAVIER — votre meilleur ami
 
 <!-- ============ 29 · CLAVIER — votre meilleur ami ============ -->
 <div class="dx-frame dx-twocol">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
     <div class="head">
-      <p class="dx-kicker">Traitement · interface primaire</p>
       <h2>Le clavier est votre meilleur ami</h2>
     </div>
     <div class="cols">
@@ -891,7 +858,6 @@ title: CLAVIER — votre meilleur ami
       </div>
     </div>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Traitement / 29</p></div>
 </div>
 
 <!--
@@ -905,12 +871,8 @@ title: CLAVIER vs SOURIS — table
 
 <!-- ============ 30 · CLAVIER vs SOURIS — table ============ -->
 <div class="dx-frame dx-content-page">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
     <div class="head">
-      <p class="dx-kicker">Traitement · arithmétique</p>
       <h2>Clavier &gt; souris</h2>
       <h3>avec un peu de mauvaise foi</h3>
     </div>
@@ -925,7 +887,6 @@ title: CLAVIER vs SOURIS — table
     </table>
     <blockquote>On automatise par <strong>mouvements de doigts</strong>, pas par mouvements de curseur.</blockquote>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Traitement / 30</p></div>
 </div>
 
 <!--
@@ -939,12 +900,8 @@ title: TROIS LEVIERS
 
 <!-- ============ 32 · TROIS LEVIERS ============ -->
 <div class="dx-frame dx-symptoms">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
     <div class="head">
-      <p class="dx-kicker">Traitement · outillage</p>
       <h2 class="dx-caps">Trois leviers pour démarrer</h2>
     </div>
     <ul>
@@ -953,7 +910,6 @@ title: TROIS LEVIERS
       <li v-click><span class="idx">L3</span><span class="quote">Tenir une liste des frictions de la semaine</span><span class="tag">Journal</span></li>
     </ul>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Traitement / 32</p></div>
 </div>
 
 <!--
@@ -967,12 +923,8 @@ title: CONCRÈTEMENT — cette semaine
 
 <!-- ============ 33 · CONCRÈTEMENT — cette semaine ============ -->
 <div class="dx-frame dx-symptoms">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
     <div class="head">
-      <p class="dx-kicker">Traitement · prescription du jour</p>
       <h2 class="dx-caps">Concrètement, cette semaine</h2>
     </div>
     <ul>
@@ -981,7 +933,6 @@ title: CONCRÈTEMENT — cette semaine
       <li v-click><span class="idx">⌘·3</span><span class="quote">Slack / chat — <em>Cmd + K</em> pour sauter à n'importe quel canal</span><span class="tag">Chat</span></li>
     </ul>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Traitement / 33</p></div>
 </div>
 
 <!--
@@ -995,8 +946,6 @@ title: SECTION 03 — TRAITEMENT (autour des applis)
 
 <!-- ============ 34 · SECTION 03 — TRAITEMENT (autour des applis) ============ -->
 <div class="dx-frame dx-section">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
   <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
   <div class="dx-content">
@@ -1018,10 +967,8 @@ title: TROIS FOCUS
 
 <!-- ============ 35 · TROIS FOCUS ============ -->
 <div class="dx-frame dx-protocol">
-  <div class="dx-layer dx-bloom"></div>
   <div class="dx-content">
     <div class="head">
-      <p class="dx-kicker">Traitement · cartographie</p>
       <h2 class="dx-caps">Où mettre le focus</h2>
     </div>
     <div class="steps steps-3">
@@ -1030,7 +977,6 @@ title: TROIS FOCUS
       <div class="step" v-click><p class="no">03</p><h3>Complétion</h3><p>Auto-complétion, alias, snippets.</p></div>
     </div>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Traitement / 35</p></div>
 </div>
 
 <!--
@@ -1044,9 +990,6 @@ title: FOCUS 1 — entre les tâches
 
 <!-- ============ 36 · FOCUS 1 — entre les tâches ============ -->
 <div class="dx-frame dx-quote">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
   <div class="dx-content">
     <p class="qmark">“</p>
@@ -1066,12 +1009,8 @@ title: DEMO — message Slack avant/après
 
 <!-- ============ 39 · DEMO — message Slack avant/après ============ -->
 <div class="dx-frame dx-twocol">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
     <div class="head">
-      <p class="dx-kicker">Traitement · démo clinique</p>
       <h2>Message Slack efficace</h2>
     </div>
     <div class="cols">
@@ -1093,7 +1032,6 @@ title: DEMO — message Slack avant/après
       </div>
     </div>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Traitement / 39</p></div>
 </div>
 
 <!--
@@ -1107,12 +1045,8 @@ title: RECETTE — demande exploitable
 
 <!-- ============ 40 · RECETTE — demande exploitable ============ -->
 <div class="dx-frame dx-symptoms">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
     <div class="head">
-      <p class="dx-kicker">Recette d'une demande exploitable</p>
       <h2 class="dx-caps">Quatre ingrédients</h2>
     </div>
     <ul>
@@ -1122,7 +1056,6 @@ title: RECETTE — demande exploitable
       <li v-click><span class="idx">R4</span><span class="quote">Une question claire — ce que vous attendez</span><span class="tag">Demande</span></li>
     </ul>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Traitement / 40</p></div>
 </div>
 
 <!--
@@ -1136,10 +1069,8 @@ title: PRÉVENTION — immunité collective
 
 <!-- ============ 41 · PRÉVENTION — immunité collective ============ -->
 <div class="dx-frame dx-protocol">
-  <div class="dx-layer dx-bloom"></div>
   <div class="dx-content">
     <div class="head">
-      <p class="dx-kicker">Prévention</p>
       <h2 class="dx-caps">Immunité collective</h2>
     </div>
     <div class="steps steps-2">
@@ -1147,7 +1078,6 @@ title: PRÉVENTION — immunité collective
       <div class="step" v-click><p class="no">02</p><h3>Partager</h3><p>Ce qu'on découvre profite à toute l'équipe — et inversement.</p></div>
     </div>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Prévention / 41</p></div>
 </div>
 
 <!--
@@ -1161,12 +1091,8 @@ title: REVOIR SES BASES
 
 <!-- ============ 42 · REVOIR SES BASES ============ -->
 <div class="dx-frame dx-symptoms">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
     <div class="head">
-      <p class="dx-kicker">Prévention · fondamentaux</p>
       <h2 class="dx-caps">Revoir ses bases</h2>
     </div>
     <ul>
@@ -1175,7 +1101,6 @@ title: REVOIR SES BASES
       <li v-click><span class="idx">B3</span><span class="quote">Vim — les motions qui se réutilisent partout</span><span class="tag">Vim</span></li>
     </ul>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Prévention / 42</p></div>
 </div>
 
 <!--
@@ -1189,12 +1114,8 @@ title: PARTAGER AUTOUR DE SOI
 
 <!-- ============ 43 · PARTAGER AUTOUR DE SOI ============ -->
 <div class="dx-frame dx-symptoms">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
     <div class="head">
-      <p class="dx-kicker">Prévention · transmission</p>
       <h2 class="dx-caps">Partager autour de soi</h2>
     </div>
     <ul>
@@ -1203,7 +1124,6 @@ title: PARTAGER AUTOUR DE SOI
       <li v-click><span class="idx">P3</span><span class="quote">Un blog, un thread, une note d'équipe</span><span class="tag">Écriture</span></li>
     </ul>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Prévention / 43</p></div>
 </div>
 
 <!--
@@ -1217,11 +1137,8 @@ title: EFFET DE COMPOSITION
 
 <!-- ============ 44 · EFFET DE COMPOSITION ============ -->
 <div class="dx-frame dx-statement">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
   <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
-    <p class="dx-kicker">Prévention · effet de composition</p>
     <p class="eq"><b>Une optimisation libère la suivante</b></p>
     <div class="figure">
       <div class="dx-chart">
@@ -1237,7 +1154,6 @@ title: EFFET DE COMPOSITION
     </div>
     <p class="note">Chaque geste automatisé libère de l'énergie pour en apprendre un autre. La courbe s'accélère.</p>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Prévention / 44</p></div>
 </div>
 
 <!--
@@ -1251,10 +1167,8 @@ title: CONCLUSION — récap protocole
 
 <!-- ============ 45 · CONCLUSION — récap protocole ============ -->
 <div class="dx-frame dx-protocol">
-  <div class="dx-layer dx-bloom"></div>
   <div class="dx-content">
     <div class="head">
-      <p class="dx-kicker">Conclusion · une consultation à la fois</p>
       <h2 class="dx-caps">Le protocole, en quatre temps</h2>
     </div>
     <div class="steps">
@@ -1264,7 +1178,6 @@ title: CONCLUSION — récap protocole
       <div class="step"><p class="no">04</p><h3>Répéter</h3><p>La suivante vous attend déjà.</p></div>
     </div>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Conclusion / 45</p></div>
 </div>
 
 ---
@@ -1274,9 +1187,6 @@ title: QUOTE — rayonnement
 
 <!-- ============ 46 · QUOTE — rayonnement ============ -->
 <div class="dx-frame dx-quote">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
   <div class="dx-content">
     <p class="qmark">“</p>
@@ -1292,9 +1202,6 @@ title: QUOTE — Marie Curie
 
 <!-- ============ 47 · QUOTE — Marie Curie ============ -->
 <div class="dx-frame dx-quote">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
   <div class="dx-content">
     <p class="qmark">“</p>
@@ -1310,12 +1217,8 @@ title: RESSOURCES & REMERCIEMENTS
 
 <!-- ============ 48 · RESSOURCES & REMERCIEMENTS ============ -->
 <div class="dx-frame dx-content-page">
-  <div class="dx-layer dx-bloom"></div>
-  <img class="dx-brain dx-brain--dark" src="/brain-glow.png" />
-  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
   <div class="dx-content">
     <div class="head">
-      <p class="dx-kicker">Bibliographie</p>
       <h2>Ressources</h2>
     </div>
     <div class="resources">
@@ -1325,6 +1228,4 @@ title: RESSOURCES & REMERCIEMENTS
     </div>
     <p class="thanks">Merci.</p>
   </div>
-  <div class="dx-footer"><p class="f">Consultation outils</p><p class="f">Fin / 48</p></div>
 </div>
-```
