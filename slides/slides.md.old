@@ -1,46 +1,135 @@
 ---
-theme: none 
+theme: none
 title: Et si vos outils faisaient un peu plus pour vous ?
 aspectRatio: 16/9
+canvasWidth: 1920
 transition: slide-left
 duration: 50min
-layout: big-title
+drawings:
+  persist: false
 ---
 
-Et si vos outils faisaient <em>un peu plus</em> pour vous ?
-CAS N°001 · DURÉE 50 MIN
-PATIENT : VOUS
-DOCTEUR : VOUS
+<div class="dx-frame dx-cover">
+  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
+  <div class="dx-content">
+    <div class="col">
+      <h1>Et si vos outils faisaient <em>un peu plus</em> pour vous&nbsp;?</h1>
+      <div class="rule-row"><span class="dx-cross"></span><hr class="dx-hair" /></div>
+      <p class="dx-mono">CAS N°001 · DURÉE 50 MIN</p>
+<p class="dx-mono">PATIENT : VOUS</p>
+<p class="dx-mono">DOCTEUR : VOUS</p>
+    </div>
+  </div>
+</div>
 
 <!--
 Installez-vous confortablement, aujourd'hui on va parler de vous, et surtout on va parler de votre relation à vos outils.
 -->
 
 ---
-layout: single-image
----
-<img src="https://media.vanityfair.fr/photos/673ae9083b28d3f24bf64e2c/1:1/w_2910,h_2910,c_limit/dr%20house%2020%20anni%20dopo-cast.jpg"/>
-
-<!-- À la manière d'un épisode de DR House, ou d'un amphi de médecine, on va regarder un dignostic, et une maladie de notre ère -->
-
----
-layout: single-image
+class: dx-slide
+title: COURS MAGISTRAL
 ---
 
-todo: mettre une image de finger pointing
-
-<!-- le phénomène qu'on va étudier se produit sûrement chez vous, il se manifeste de plein de façons différentes, on va en voir qq unes avant de lui donner un nom -->
+<!-- ============ 02 · COURS MAGISTRAL ============ -->
+<div class="dx-frame tx-lecture">
+  <img class="dx-brain dx-brain--irm" src="/brain-irm.png" />
+  <div class="dx-content">
+    <img src="https://media.vanityfair.fr/photos/673ae9083b28d3f24bf64e2c/1:1/w_2910,h_2910,c_limit/dr%20house%2020%20anni%20dopo-cast.jpg"/>
+    <h2>Cours magistral</h2>
+  </div>
+</div>
 
 ---
-layout: mess-list
+class: dx-slide
+title: INTRODUCTION — fiche patient
 ---
-todo: animation text pas droit on click
 
-- J'ai perdu mon copier-coller
-- Ah mince j'ai pas mis le lien dans le msg
-- Oups, j'avais pas vu que j'avais une réu
-- Elle où la fenetre que je dois partager ?
-- Attends je vais me l'envoyer par message pour le retenir
+<!-- ============ 03 · INTRODUCTION — fiche patient ============ -->
+<div class="dx-frame dx-content-page dx-patient-intake">
+  <div class="dx-marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
+  <div class="dx-content">
+    <div class="dx-patient-card">
+      <div class="dx-patient-card__topline">
+        <p class="eyebrow">Fiche patient</p>
+        <p class="status">Ouverte</p>
+      </div>
+      <div class="dx-patient-card__hero">
+        <div>
+          <p class="label">Dossier</p>
+          <h4>N°001 · consultation initiale</h4>
+        </div>
+        <div class="pill">50 min</div>
+      </div>
+      <div class="dx-patient-card__grid">
+        <div class="field">
+          <p class="label">Patient·e</p>
+          <p class="value">Vous</p>
+        </div>
+        <div class="field">
+          <p class="label">Contexte</p>
+          <p class="value">Environnement numérique</p>
+        </div>
+        <div class="field field--full">
+          <p class="label">Motif de consultation</p>
+          <p class="value">Relation conflictuelle avec vos outils, ras-le-bol</p>
+        </div>
+        <div class="field">
+          <p class="label">Symptômes initiaux</p>
+          <ul class="chips">
+            <li>friction</li>
+            <li>charge mentale</li>
+            <li>contexte dispersé</li>
+          </ul>
+        </div>
+        <div class="field">
+          <p class="label">Objectif</p>
+          <p class="value">Retrouver du confort, du temps et de la fluidité.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+class: dx-slide
+title: SYMPTÔMES
+---
+
+<!-- ============ 04 · SYMPTÔMES ============ -->
+<div class="dx-frame tx-grid">
+  <div class="dx-content">
+    <div class="head">
+      <h2>Liste des symptômes</h2>
+    </div>
+    <div class="tx-grid-rows">
+      <div class="tx-grid-row">
+        <div class="tx-grid-item" v-click>
+          <span class="icon"><span class="i-carbon-copy"></span></span>
+          <span class="title">Presse-papier</span>
+        </div>
+        <div class="tx-grid-item" v-click>
+          <span class="icon"><span class="i-carbon-link"></span></span>
+          <span class="title">Contexte</span>
+        </div>
+        <div class="tx-grid-item" v-click>
+          <span class="icon"><span class="i-carbon-calendar"></span></span>
+          <span class="title">Agenda</span>
+        </div>
+      </div>
+      <div class="tx-grid-row">
+        <div class="tx-grid-item" v-click>
+          <span class="icon"><span class="i-carbon-application"></span></span>
+          <span class="title">Fenêtres</span>
+        </div>
+        <div class="tx-grid-item" v-click>
+          <span class="icon"><span class="i-carbon-notebook"></span></span>
+          <span class="title">Notes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!--
 Les symptômes peuvent être multiples, vous avez peut-être déjà dit ou entendu les choses suivantes...
@@ -49,165 +138,140 @@ Les symptômes peuvent être multiples, vous avez peut-être déjà dit ou enten
 - Oups, j'avais pas vu que j'avais une réu
 - Elle où la fenetre que je dois partager?
 - attends je vais me l'envoyer par message pour le retenir
-ça c'est les premiers signes
 -->
 
 ---
-layout: text-mess-list
+class: dx-slide
+title: COLLÈGUES
 ---
 
-- Oui c'est 20sec mais je suis en plein dans autre chose
-- Je prends mes notes dans mes brouillons de mails parce que c'est pratique
-- Ça fait 10 ans que je fais ça et j'ai accepté que c'était relou
-
-<!-- c'est moins fréquent mais on a aussi celles si:
-- Oui c'est 20sec mais je suis en plein dans autre chose
-- Je prends mes notes dans mes brouillons de mails parce que c'est pratique
-- Ça fait 10 ans que je fais ça et j'ai accepté que c'était relou
--->
-
----
-layout: single-image
----
-
-todo: image de david goodenough
+<!-- ============ 05 · COLLÈGUES ============ -->
+<div class="dx-frame tx-grid">
+  <div class="dx-content">
+    <div class="head">
+      <h2>… mais aussi des collègues qui&nbsp;:</h2>
+    </div>
+    <div class="tx-grid-rows">
+      <div class="tx-grid-row">
+        <div class="tx-grid-item" v-click>
+          <span class="icon"><span class="i-carbon-time"></span></span>
+          <span class="title">Procrastination</span>
+        </div>
+        <div class="tx-grid-item" v-click>
+          <span class="icon"><span class="i-carbon-tools"></span></span>
+          <span class="title">Bricolage</span>
+        </div>
+        <div class="tx-grid-item" v-click>
+          <span class="icon"><span class="i-carbon-locked"></span></span>
+          <span class="title">Inertie</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!--
-En soit c'est rien de grave, c'est juste que ça pourrait être beaucoup mieux.
-On a des petites frictions du quotidien qui sont assez pénible pour nous ralentir mais pas assez pour qu'on prenne le temps de les enlever
+on a aussi des collègues qui:
+- remettent à plus tard des tout petits trucs et ne les font jamais
+- tordent un outil dans tous les sens pour leur usage
+- ont des habitudes bien ancrées et ont acceptés leur frictions
 -->
 
 ---
-layout: title
+class: dx-slide
+title: DX-ite chronique
 ---
 
-~La DX-ite chronique~
-La frictionite chronique
+<!-- ============ 05 · DX-ite chronique ============ -->
+<div class="dx-frame tx-title">
+  <div class="dx-content">
+    <h2>La DX-ite chronique</h2>
+  </div>
+</div>
 
 <!--
-Au début je voulais l'appeler la DX-ite en référence à l'expérience de developpeur (DX)
-mais en fait je me suis rendu compte que ça concernait une population bien plus large
+En avant-première, je nomme devant cette maladie: La DX-ite aiguë chronique.
 
-En fait tout les gens qui travaillent sur un ordinateur sont concernés. C'est une maladie chronique parce qu'on peut la traiter, mais c'est malheureusement un combat que l'on devra continuer de mener à jamais.
+Alors pourquoi DX-ite, en fait c'est moi qui donne le nom donc je fais ce que je veux. 
+
+Je suis développeur dans une équipe dont une partie du scope c'est la DX: developer experience. Mais en fait on verra que ça s'applique ailleurs, pas que pour les devs.
+
+En fait tout les gens qui travaillent sur un ordinateur sont concernés. C'est une maladie chronique parce qu'on peut en guérir sur certains aspects, mais c'est malheureusement un combat que l'on devra continuer de mener.
 -->
 
 ---
-layout: quote
+class: dx-slide
+title: QUOTE — médical
 ---
 
-La poubelle est à l'autre bout du bloc, on traverse la salle avec des compresses sales dans les mains
+<!-- ============ 07 · QUOTE — médical ============ -->
+<div class="dx-frame dx-quote">
+  <div class="dx-marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
+  <div class="dx-content">
+    <p class="qmark">"</p>
+    <blockquote>La poubelle est à l'autre bout du bloc — on traverse la salle avec des compresses sales dans les mains.</blockquote>
+    <p class="by">— <span class="name">un proche soignant</span></p>
+  </div>
+</div>
 
 <!--
 En fait quand je dis que ça ne concerne pas les devs, c'est parceque j'ai entendu de la part d'une infirmière que tout le personnel n'a pas la même façon de préparer un bloc, opératoire, et certaines façons n'ont aucun sens.
 -->
 
 ---
-layout: single-image
+class: dx-slide
+title: QUOTE — cuisine
 ---
 
-todo: trouver une image de cuisine pas logique
-idea: cauchemard en cuisine?
-todo: animation avec des flèches pour montrer les incohérences
+<!-- ============ 08 · QUOTE — cuisine ============ -->
+<div class="dx-frame dx-quote">
+  <div class="dx-marks"><span class="tl"></span><span class="tr"></span><span class="bl"></span><span class="br"></span></div>
+  <div class="dx-content">
+    <p class="qmark">"</p>
+    <blockquote>Les couteaux dans un tiroir, la planche à découper dans le placard du haut, et le balais derrière la porte.</blockquote>
+    <p class="by">— <span class="name">mes ex-colocs (collectivement)</span></p>
+  </div>
+</div>
 
 <!--
 Dans la cuisine de mes colocs, j'ai pu l'observer, ils se dispersent partout et traversent toute la cuisine avec les ingrédients dans les mains au risque de tout faire tomber.
 -->
----
-layout: title
----
-
-Pourquoi traiter maintenant ?
-__Parce que c'est le 2ème meilleur moment pour s'en occuper, le 1er c'était hier 🙃__
-
-<!--
-Bon alors en bon david goodenough, vous allez dire, oui mais si c'est pas si grave, ça sert à quoi de s'en occuper maintenant
-Et à ça je répondrais 3 choses...
--->
-
 
 ---
-layout: sub-title
----
-1. Le fun
-
-<!-- 
-Tout d'abord: le fun, je pense qu'en venant en parler en conf je m'adresse à des gens qui aiment apprendre et qui sont curieux.
-Alors je vous le dis: apprendre à se servir de ses outils, c'est rigolo, ça peut devenir assez technique pour ceux qui aiment, et c'est super gratifiant parcequ'on se voit progresser
--->
-
----
-layout: image-description
+class: dx-slide
+title: SLACK — bonjour Vincent
 ---
 
-todo: image monkeytype
-
-<!--
-Un exemple tout bête, c'est d'apprendre à taper sur un clavier. c'est votre interface primaire avec votre ordinateur. Quelque soit votre métier, il est fort probable que vous gagneriez beaucoup à taper plus vite. L'avantage c'est que la vitesse de frappe c'est une métrique facile à mesurer et du coup on pas voir une jolie courbe
--->
-
----
-layout: mess-list
----
-
-todo: image de café
-todo: image de blog
-todo: image de conf 😉
-
-<!--
-C'est un super vecteur de conversation et de partage aussi que ce soit pour en discuter autour d'un café, en faire un article de blog, ou faire des conf à ce propos
--->
----
-layout: sub-title
----
-2. La charge cognitive
-
-<!--
-eh oui, remettez vos blouse, on va parler cerveau 
-La charge cognitive, c'est la quantité d'information que vous avez dans votre mémoire court terme.
--->
+<!-- ============ 06 · SLACK — bonjour Vincent ============ -->
+<div class="dx-frame dx-twocol">
+  <div class="dx-content">
+    <div class="head">
+      <h2>Bonjour Vincent</h2>
+    </div>
+        <div class="dx-slack m-auto">
+          <div class="msg"><div class="avatar">A</div><div><span class="name">Alex</span><span class="time">14:02</span><span class="body">Bonjour Vincent !</span></div></div>
+          <div class="msg"><div class="avatar">A</div><div><span class="name">Alex</span><span class="time">14:02</span><span class="body">tu vas bien ?</span></div></div>
+          <div class="msg"><div class="avatar">V</div><div><span class="name">Vincent</span><span class="time">14:05</span><span class="body">oui, et toi ? 🙂</span></div></div>
+          <div class="msg"><div class="avatar">A</div><div><span class="name">Alex</span><span class="time">14:06</span><span class="body">J'aurais une question à te poser...</span></div></div>
+        </div>
+  </div>
+</div>
 
 ---
-layout: article
+class: dx-slide
+title: SLACK — Etat mental de vincent
 ---
 
-<img src="https://github.com/zakirullin/cognitive-load/raw/main/img/cognitiveloadv6.png"/>
-todo: qrcode: https://github.com/zakirullin/cognitive-load onclick
-
-<!--
-En gros, quand vous devez faire une tâche en plusieurs fois, il faut stocker les étapes dans votre mémoire de travail, à court-terme
-et ça entraine beaucoup de fatigue et des risques d'erreurs à chaque étape
-
-ps: il y a un super article qui parle de la charge cognitive dans le dev, et les pratique de code qui l'impact dont je mets le lien ici, pour ceux qui n'ont pas le temps de scanner je donnerais mes sources à la fin
--->
-
----
-layout: single-image
----
-<img src="https://www.frcneurodon.org/app/uploads/2015/11/Mouvement-2.jpg"/>
-
-todo: onclick fléche cortex préfrontal
-todo: onclick fléche cortex moteur
-
-<!--
-⬅️
--->
-
-
-
----
-layout: content
----
-todo: faire un composant conversation slack
-
-Alex. Bonjour Vincent ! Ça va ?
-Vincent. Salut ça va et toi ?
-Alex. Super merci 😉 ! Dis-voir j'aurais une question sur 'insérer le vrai objectif'
-
----
-layout single-image
----
-
-<img v-click src='https://media-www.canadiantire.ca/product/party-city/party-city-seasonal/party-city-halloween-costumes/8554767/anger-kit-adult-size-xx-large-50-52--8974061c-7ed4-4c54-8930-3ed56d23bd33-jpgrendition.jpg'/>
+<div class="dx-frame dx-twocol">
+  <div class="dx-content">
+    <div class="head">
+      <h2>État mental de Vincent</h2>
+    </div>
+        <div class="m-auto">
+       <img v-click src='https://media-www.canadiantire.ca/product/party-city/party-city-seasonal/party-city-halloween-costumes/8554767/anger-kit-adult-size-xx-large-50-52--8974061c-7ed4-4c54-8930-3ed56d23bd33-jpgrendition.jpg'/>
+        </div>
+  </div>
+</div>
 
 <!--
 Dans votre quotidien, c'est pas en retrouvant du riz parterre que vous allez le voir, mais plûtot en recevant ou en envoyant ce genre de message.
@@ -1156,7 +1220,6 @@ title: RESSOURCES & REMERCIEMENTS
       <h2>Ressources</h2>
     </div>
     <div class="resources">
-- https://github.com/zakirullin/cognitive-load
       <div><strong>La mémoire procédurale libère la conscience</strong><br/><a href="https://arc.net/l/quote/ihraituc" target="_blank">arc.net/l/quote/ihraituc</a></div>
       <div><strong>How to practice effectively…</strong> — Annie Bosler &amp; Don Greene<br/><a href="https://www.youtube.com/watch?v=f2O6mQkFiiw" target="_blank">youtube.com/watch?v=f2O6mQkFiiw</a></div>
       <div><strong>Plan-Do-Check-Act</strong><br/><a href="https://www.bitesizelearning.co.uk/resources/pdca-plan-do-check-act" target="_blank">bitesizelearning.co.uk · pdca</a></div>
