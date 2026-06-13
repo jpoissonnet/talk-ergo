@@ -189,10 +189,94 @@ todo: onclick fléche cortex préfrontal
 todo: onclick fléche cortex moteur
 
 <!--
-⬅️
+Ça c'est un cerveau. Votre mémoire de travail et ce qui permet de raisonner se situe dans le cortex préfrontal. On sait que mettre trop d'information à cet endroit déclenche une surcharge cognitive.
+La bonne nouvelle, c'est qu'on a une zone voisine, au niveau du cortex prémoteur dont on peut se servir pour alléger la charge. C'est dans cette zone que se situe la mémoire procédurale, l'ensemble des tâches qu'on sait faire sans y penser: faire ses lacets, ouvrir une bouteille etc.
+L'idée c'est qu'en choisissant bien nos outils, et nos habitudes, on peut déménager le plus possible de charge dans cette zone, en effaçant les frictions pour les remplacer par des automatismes
+-->
+
+---
+layout: content
+---
+
+# Prescription: Mémoire procédurale
+
+- Identifier
+- Analyser
+- Corriger
+- Répéter
+
+<!-- 
+Du coup la prescription pour votre frictionite, c'est simple, on identifie une friction, on analyse la cause, on corrige et on répète
+Et la mémoire procédurale fonctionne exactement pareil, c'est la répétition d'un mouvement, en l'ayant décomposer et corriger, qui va l'inscrire comme une nouvelle compétence
+-->
+
+---
+layout: sub-title
+---
+
+~3. La vitesse~
+3. La fluidité
+
+
+<!--
+L'effet le plus important est le plus visible, après qq temps, astuces et investissements, vous allez vous apercevoir que vous êtes juste plus rapide...
+À mon avis, c'est pas qqchose qu'il faut chercher activement au début, c'est juste une conséquence de l'effort que vous avez mis et de votre recablage cérébral.
+Le vrai objectif que vous devriez visez c'est la fluidité, la vitesse viendra avec, comme pour le langage
+-->
+
+---
+layout: single-image
+---
+
+todo: trouver une image de ménage, kanban... housekeeping
+
+<!--
+Vous allez sans doute réduire le nombre de tâche que vous repousse parce que ce qui vous interrompait dans vos pensées et vous prenait 5 min, aujourd'hui vous en prend 2 et vous le faite sans y penser.
+-->
+
+---
+layout: title
+---
+Par où on commence ?
+
+<!--
+Bon alors c'est très sympa de nous dire qu'on peut accélérer, mais comment on fait ?
+-->
+
+---
+layout: sub-title
+---
+
+todo: image docteur maboul
+
+<!--
+Et là je vais vous decevoir parceque je n'ai pas de solution miracle pour rebrancher votre cerveau et vous obtenir une expérience sans friction.
+Par contre je connais qqun qui peut...
 -->
 
 
+---
+layout: sub-title
+---
+
+Vous êtes le médecin et le patient
+
+<!--
+Eh oui, c'est vous qui connaissez le mieux vos habitudes, vos gouts et vos frictions, c'est donc de vous que doit venir le remède
+L'idée c'est de commencer par ce que vous faites le plus souvent
+-->
+
+---
+layout: two-cols
+---
+
+- copier-coller
+- faire un screenshot
+- changer de fenêtre
+
+<!--
+spoiler dans les trucs que vous faites le plus souvent, (en fait quand je dis vous, je dis moi) il y a: faire des copier-coller et changer de fenêtre
+-->
 
 ---
 layout: content
@@ -201,7 +285,11 @@ todo: faire un composant conversation slack
 
 Alex. Bonjour Vincent ! Ça va ?
 Vincent. Salut ça va et toi ?
-Alex. Super merci 😉 ! Dis-voir j'aurais une question sur 'insérer le vrai objectif'
+Alex. Super merci 😉 ! Dis-voir j'aurais une question sur la documentation du réacteur
+Vincent. T'as le lien ?
+<!--
+Ça vous évitera de faire des conversations avec des aller-retours juste parceque vous avez la flemme de faire un screen et un cp-coller
+-->
 
 ---
 layout single-image
