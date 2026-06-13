@@ -436,5 +436,10 @@ layout: content
 layout: todo
 ---
 
+- section: convaincre ses collegues
+  - slide: montrer la config: -> chezmoi
+    - dire: vous allez oubliez des trucs en proposant qu'un outil à la fois
+  - slide: proposer des bundles -> awesome
+    - dire: c'est cool pour découvrir des trucs dont vous ne connaissiez pas l'existence
 - slide: Concrètement, ce que vous pouvez installer la semaine prochaine
 - dire: Votre efficacité rayonne sur vos collègues
