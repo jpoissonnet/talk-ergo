@@ -1,47 +1,48 @@
 ---
-theme: none
+theme: default
 title: Et si vos outils faisaient un peu plus pour vous ?
 aspectRatio: 16/9
 transition: slide-left
 duration: 50min
-layout: big-title
+layout: intro
 ---
 
-Et si vos outils faisaient <em>un peu plus</em> pour vous ?
-CAS N°001 · DURÉE 50 MIN
-PATIENT : VOUS
-DOCTEUR : VOUS
+<h1 class="text-4xl font-bold">Et si vos outils faisaient un peu plus pour vous ?</h1>
+
+<p class="text-2xl">CAS N°001 · DURÉE 50 MIN</p>
+<p class="text-2xl">PATIENT : VOUS</p>
+<p class="text-2xl">DOCTEUR : VOUS</p>
 
 <!--
 Installez-vous confortablement, aujourd'hui on va parler de vous, et surtout on va parler de votre relation à vos outils.
 -->
 
 ---
-layout: single-image
+layout: image
+image: https://media.vanityfair.fr/photos/673ae9083b28d3f24bf64e2c/1:1/w_2910,h_2910,c_limit/dr%20house%2020%20anni%20dopo-cast.jpg
 ---
 
-<img src="https://media.vanityfair.fr/photos/673ae9083b28d3f24bf64e2c/1:1/w_2910,h_2910,c_limit/dr%20house%2020%20anni%20dopo-cast.jpg"/>
 
 <!-- À la manière d'un épisode de DR House, ou d'un amphi de médecine, on va regarder un dignostic, et une maladie de notre ère -->
 
 ---
-layout: single-image
+layout: image
+image: https://files.mastodon.social/media_attachments/files/112/505/726/754/005/422/original/605d65dec7235350.jpg
 ---
-
-todo: mettre une image de finger pointing
 
 <!-- le phénomène qu'on va étudier se produit sûrement chez vous, il se manifeste de plein de façons différentes, on va en voir qq unes avant de lui donner un nom -->
 
 ---
-layout: mess-list
----
-todo: animation text pas droit on click
 
-- J'ai perdu mon copier-coller
-- Ah mince j'ai pas mis le lien dans le msg
-- Oups, j'avais pas vu que j'avais une réu
-- Elle où la fenetre que je dois partager ?
-- Attends je vais me l'envoyer par message pour le retenir
+<v-clicks>
+
+<li class="list-none text-xl italic rotate-2">J'ai perdu mon copier-coller 🧭</li>
+<li class="list-none text-xl font-bold -rotate-3 translate-x-80"> Ah mince j'ai pas mis le lien dans le message</li>
+<li class="list-none text-xl font-semibold text-blue-500 -rotate-2 translate-y-20"> Oups, j'avais pas vu que j'avais une réu</li>
+<li class="list-none text-xl rotate-4 translate-x-100 text-purple-500 translate-y-30"> Elle où la fenetre que je dois partager ?</li>
+<li class="list-none text-xl font-bold rotate-5 translate-y-40 text-green-500"> Attends je vais me l'envoyer par message pour le retenir</li>
+
+</v-clicks>
 
 <!--
 Les symptômes peuvent être multiples, vous avez peut-être déjà dit ou entendu les choses suivantes...
@@ -54,13 +55,16 @@ Les symptômes peuvent être multiples, vous avez peut-être déjà dit ou enten
 -->
 
 ---
-layout: text-mess-list
+layout: center
 ---
 
-- Oui c'est 20sec mais je suis en plein dans autre chose
-- Je prends mes notes dans mes brouillons de mails parce que c'est pratique
-- Ça fait 10 ans que je fais ça et j'ai accepté que c'était relou
+<v-clicks>
 
+<li class="list-none text-xl font-bold -rotate-2 my-8"> Oui c'est 20sec mais je suis en plein dans autre chose</li>
+<li class="list-none text-xl font-bold rotate-3 my-30"> Je prends mes notes dans mes brouillons de mails parce que c'est pratique</li>
+<li class="list-none text-xl font-bold -rotate-2 my-8"> Ça fait 10 ans que je fais ça et j'ai accepté que c'était relou</li>
+
+</v-clicks>
 <!-- c'est moins fréquent mais on a aussi celles si:
 - Oui c'est 20sec mais je suis en plein dans autre chose
 - Je prends mes notes dans mes brouillons de mails parce que c'est pratique
@@ -68,10 +72,9 @@ layout: text-mess-list
 -->
 
 ---
-layout: single-image
+layout: image
+image: https://static.wikia.nocookie.net/joueur-du-grenier/images/4/43/David_Good.jpg/revision/latest/scale-to-width-down/1200?cb=20200629174229&path-prefix=fr
 ---
-
-todo: image de david goodenough
 
 <!--
 En soit c'est rien de grave, c'est juste que ça pourrait être beaucoup mieux.
@@ -79,11 +82,12 @@ On a des petites frictions du quotidien qui sont assez pénible pour nous ralent
 -->
 
 ---
-layout: title
+layout: section
 ---
 
-~La DX-ite chronique~
-La frictionite chronique
+<h1 v-click v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, textDecoration: 'line-through'  }" :click-2="{ scale: 0.5, opacity: .4 }">La DX-ite chronique</h1>
+
+<h1 v-click v-motion :initial="{ scale: 0.5, opacity: 0 }" :enter="{ scale: 1.2, opacity: 1, y: -50 }">La frictionite chronique</h1>
 
 <!--
 Au début je voulais l'appeler la DX-ite en référence à l'expérience de developpeur (DX)
@@ -96,29 +100,30 @@ En fait tout les gens qui travaillent sur un ordinateur sont concernés. C'est u
 layout: quote
 ---
 
-La poubelle est à l'autre bout du bloc, on traverse la salle avec des compresses sales dans les mains
+<blockquote><h2>La poubelle est à l'autre bout du bloc, on traverse la salle avec des compresses sales dans les mains</h2></blockquote>
+
+<h3 class="text-lg mt-8">— Infirmier de la famille Goodenough</h3>
 
 <!--
 En fait quand je dis que ça ne concerne pas les devs, c'est parceque j'ai entendu de la part d'une infirmière que tout le personnel n'a pas la même façon de préparer un bloc, opératoire, et certaines façons n'ont aucun sens.
 -->
 
 ---
-layout: single-image
+layout: image
+image: https://i2-prod.themirror.com/article136839.ece/ALTERNATES/s1200e/0_Gordon.jpg
 ---
-
-todo: trouver une image de cuisine pas logique
-idea: cauchemard en cuisine?
-todo: animation avec des flèches pour montrer les incohérences
 
 <!--
 Dans la cuisine de mes colocs, j'ai pu l'observer, ils se dispersent partout et traversent toute la cuisine avec les ingrédients dans les mains au risque de tout faire tomber.
 -->
 ---
-layout: title
+layout: section
 ---
 
-Pourquoi traiter maintenant ?
-__Parce que c'est le 2ème meilleur moment pour s'en occuper, le 1er c'était hier 🙃__
+<h1>Pourquoi traiter maintenant ?</h1>
+
+<h3 v-click>Parce que c'est le 2ème meilleur moment pour s'en occuper...</h3>
+<h4 class="mt-3" v-click>le 1er c'était hier 🙃</h4>
 
 <!--
 Bon alors en bon david goodenough, vous allez dire, oui mais si c'est pas si grave, ça sert à quoi de s'en occuper maintenant
@@ -127,9 +132,10 @@ Et à ça je répondrais 3 choses...
 
 
 ---
-layout: sub-title
+layout: section 
 ---
-1. Le fun
+
+<h1>1. Le fun</h1>
 
 <!--
 Tout d'abord: le fun, je pense qu'en venant en parler en conf je m'adresse à des gens qui aiment apprendre et qui sont curieux.
@@ -137,30 +143,31 @@ Alors je vous le dis: apprendre à se servir de ses outils, c'est rigolo, ça pe
 -->
 
 ---
-layout: image-description
+layout: image
+image: https://preview.redd.it/started-at-10-wpm-in-march-built-a-tool-to-track-full-v0-ux016wvjej7f1.png?width=1865&format=png&auto=webp&s=fd70dc5c86293ad035ba91ad2a31ccc7186241eb
+backgroundSize: contain
 ---
-
-todo: image monkeytype
 
 <!--
 Un exemple tout bête, c'est d'apprendre à taper sur un clavier. c'est votre interface primaire avec votre ordinateur. Quelque soit votre métier, il est fort probable que vous gagneriez beaucoup à taper plus vite. L'avantage c'est que la vitesse de frappe c'est une métrique facile à mesurer et du coup on pas voir une jolie courbe
 -->
 
 ---
-layout: mess-list
----
 
-todo: image de café
-todo: image de blog
-todo: image de conf 😉
+<div class="relative">  
+<img class="absolute" v-click src="https://dfjx2uxqg3cgi.cloudfront.net/img/photo/270603/270603_00_2x.jpg?20230207234316"/>
+<img class="absolute left-1/2 -translate-x-1/2" v-click src="https://thumbs.dreamstime.com/b/woman-writing-blog-content-notebook-table-closeup-162627112.jpg"/>
+<img class="absolute left-1/2 -translate-x-1/2" v-click src="https://sunny-tech.io/gallery/01.jpg"/>
+</div>
+
 
 <!--
 C'est un super vecteur de conversation et de partage aussi que ce soit pour en discuter autour d'un café, en faire un article de blog, ou faire des conf à ce propos
 -->
 ---
-layout: sub-title
+layout: section
 ---
-2. La charge cognitive
+<h1>2. La charge cognitive</h1>
 
 <!--
 eh oui, remettez vos blouse, on va parler cerveau
@@ -171,7 +178,10 @@ La charge cognitive, c'est la quantité d'information que vous avez dans votre m
 layout: article
 ---
 
-<img src="https://github.com/zakirullin/cognitive-load/raw/main/img/cognitiveloadv6.png"/>
+<img class="h-full object-contain" src="https://github.com/zakirullin/cognitive-load/raw/main/img/cognitiveloadv6.png"/>
+
+::article::
+
 todo: qrcode: https://github.com/zakirullin/cognitive-load onclick
 
 <!--
