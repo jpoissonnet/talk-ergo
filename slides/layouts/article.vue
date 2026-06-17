@@ -1,10 +1,16 @@
 <template>
-    <div class="slidev-layout article">
-      <h1 class="bold"><slot/></h1>
-      <p class="bold text-lg"><slot name="subtitle"/></p>
-    </div>
-  </template>
-  
-  <style scoped>
-  
-  </style>
+  <div class="slidev-layout article">
+    <img
+      class="h-full object-contain absolute top-0 left-0"
+      :src="$frontmatter.imgSrc"
+    />
+    <qr-code
+      modulesize="6"
+      class="absolute bottom-0 right-0"
+      :data="$frontmatter.link"
+    ></qr-code>
+  </div>
+</template>
+<script setup>
+import "webcomponent-qr-code";
+</script>

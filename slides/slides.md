@@ -176,13 +176,9 @@ La charge cognitive, c'est la quantité d'information que vous avez dans votre m
 
 ---
 layout: article
+link: https://github.com/zakirullin/cognitive-load
+imgSrc: https://github.com/zakirullin/cognitive-load/raw/main/img/cognitiveloadv6.png
 ---
-
-<img class="h-full object-contain" src="https://github.com/zakirullin/cognitive-load/raw/main/img/cognitiveloadv6.png"/>
-
-::article::
-
-todo: qrcode: https://github.com/zakirullin/cognitive-load onclick
 
 <!--
 En gros, quand vous devez faire une tâche en plusieurs fois, il faut stocker les étapes dans votre mémoire de travail, à court-terme
@@ -192,9 +188,9 @@ ps: il y a un super article qui parle de la charge cognitive dans le dev, et l
 -->
 
 ---
-layout: single-image
+layout: image
+image: https://www.frcneurodon.org/app/uploads/2015/11/Mouvement-2.jpg
 ---
-<img src="https://www.frcneurodon.org/app/uploads/2015/11/Mouvement-2.jpg"/>
 
 todo: onclick fléche cortex préfrontal
 todo: onclick fléche cortex moteur
