@@ -36,11 +36,13 @@ image: https://files.mastodon.social/media_attachments/files/112/505/726/754/005
 
 <v-clicks>
 
-<li class="list-none text-xl italic rotate-2">J'ai perdu mon copier-coller 🧭</li>
-<li class="list-none text-xl font-bold -rotate-3 translate-x-80"> Ah mince j'ai pas mis le lien dans le message</li>
-<li class="list-none text-xl font-semibold text-blue-500 -rotate-2 translate-y-20"> Oups, j'avais pas vu que j'avais une réu</li>
-<li class="list-none text-xl rotate-4 translate-x-100 text-purple-500 translate-y-30"> Elle où la fenetre que je dois partager ?</li>
-<li class="list-none text-xl font-bold rotate-5 translate-y-40 text-green-500"> Attends je vais me l'envoyer par message pour le retenir</li>
+<ul class="flex flex-col items-center gap-12">
+<li v-motion :initial="{ rotate: 2 }" :enter="{ rotate: -2 }" class="list-none text-xl italic ">J'ai perdu mon copier-coller 🧭</li>
+<li v-motion :initial="{ rotate: -3 }" :enter="{ rotate: 2 }" class="list-none text-xl font-bold translate-x-80"> Ah mince j'ai pas mis le lien dans le message</li>
+<li v-motion :initial="{ rotate: -2 }" :enter="{ rotate: 2 }" class="list-none text-xl font-semibold text-blue-500 translate-y-20"> Oups, j'avais pas vu que j'avais une réu</li>
+<li v-motion :initial="{ rotate: 4 }" :enter="{ rotate: -4 }" class="list-none text-xl translate-x-100 text-purple-500 translate-y-30"> Elle où la fenetre que je dois partager ?</li>
+<li v-motion :initial="{ rotate: 5 }" :enter="{ rotate: -3 }" class="list-none text-xl font-bold translate-y-40 text-green-500"> Attends je vais me l'envoyer par message pour le retenir</li>
+</ul>
 
 </v-clicks>
 
@@ -190,10 +192,11 @@ ps: il y a un super article qui parle de la charge cognitive dans le dev, et l
 ---
 layout: image
 image: https://www.frcneurodon.org/app/uploads/2015/11/Mouvement-2.jpg
+backgroundSize: 60%
 ---
 
-todo: onclick fléche cortex préfrontal
-todo: onclick fléche cortex moteur
+<Arrow x1="10%" y1="10%" x2="35%" y2="50%" color="red" width="8" />
+<Arrow x1="75%" y1="80%" x2="47%" y2="46%" color="red" width="8" />
 
 <!--
 Ça c'est un cerveau. Votre mémoire de travail et ce qui permet de raisonner se situe dans le cortex préfrontal. On sait que mettre trop d'information à cet endroit déclenche une surcharge cognitive.
@@ -207,10 +210,19 @@ layout: content
 
 # Prescription: Mémoire procédurale
 
-- Identifier
-- Analyser
-- Corriger
-- Répéter
+<v-clicks>
+<ul class="list-none flex flex-col items-center gap-8 mt-12">
+
+<li>Identifier</li>
+<li>Analyser</li>
+<li>Corriger</li>
+<li>Répéter</li>
+<li class="text-gray-500 text-xs">Répéter...</li>
+<li class="text-gray-500 text-xs">Répéter...</li>
+<li class="text-gray-500 text-xs">Répéter...</li>
+
+</ul>
+</v-clicks>
 
 <!--
 Du coup la prescription pour votre frictionite, c'est simple, on identifie une friction, on analyse la cause, on corrige et on répète
@@ -218,11 +230,11 @@ Et la mémoire procédurale fonctionne exactement pareil, c'est la répétition 
 -->
 
 ---
-layout: sub-title
+layout: section
 ---
 
-~3. La vitesse~
-3. La fluidité
+<h1 v-click v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, textDecoration: 'line-through'  }" :click-2="{ scale: 0.5, opacity: .4 }">3. La vitesse</h1>
+<h1 v-click v-motion :initial="{ scale: 0.5, opacity: 0 }" :enter="{ scale: 1.2, opacity: 1, y: -50 }">3. La fluidité</h1>
 
 
 <!--
