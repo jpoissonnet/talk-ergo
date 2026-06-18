@@ -205,7 +205,7 @@ L'idée c'est qu'en choisissant bien nos outils, et nos habitudes, on peut dém�
 -->
 
 ---
-layout: content
+layout: full
 ---
 
 # Prescription: Mémoire procédurale
@@ -330,26 +330,92 @@ layout: none
 
 
 ---
-layout: content
+layout: center
 ---
 
-- copier-coller
-- faire un screenshot
-- changer de fenêtre
+<div 
+  class="absolute right-4 top-4 flex items-start gap-4 rounded-lg shadow-lg px-6 py-4 max-w-xl mx-auto mb-8 border border-gray-300 backdrop-blur-md"
+  style="
+    background: linear-gradient(135deg, rgba(137, 137, 153, 0.6) 0%, rgba(150,150,155,0.35) 100%);
+    border: 1px solid rgba(160,160,170,0.25);
+    box-shadow: 20px 8px 32px 0 rgba(31,38,135,0.10);
+    backdrop-filter: blur(16px) saturate(150%);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
+  "
+  v-click="4" v-motion :initial="{ translateX: 100, filter: 'blur(10px)' }" :enter="{ translateX: 0, filter: 'blur(0px)' }"
+>
+  <img 
+    src="https://media.licdn.com/dms/image/v2/C4D03AQFhBI1feJOYeQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1637317452394?e=1783555200&v=beta&t=k7Deh4Swr4pqEgSxx3z-lZwW8C6Xy8AblmIdrPin-Eo" 
+    alt="Arthur Gaudard" 
+    class="rounded-full w-10 h-10 object-cover mt-1"
+    style="background: rgba(244,244,244,0.3);"
+  />
+  <div>
+    <div class="flex items-baseline justify-between gap-2">
+      <div class="flex gap-2">
+        <span class="font-semibold text-black">Arthur Gaudard</span>
+        <span class="flex items-center gap-1 text-sm text-gray-800">
+          <img src="https://a.slack-edge.com/80588/marketing/img/meta/slack_hash_256.png" alt="Slack logo" class="rounded w-4 h-4 inline-block" style="vertical-align: middle;" />
+          via Slack
+        </span>
+        </div>
+      <span class="ml-2 text-sm text-gray-500" v-html="new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })"></span>
+    </div>
+    <div class="mt-1 text-gray-900">
+      🚨 <span class="font-semibold">Urgent :</span> il me faut le lien du dashboard de ce matin
+    </div>
+  </div>
+  <!-- notification dot -->
+  <span class="absolute top-2 right-2 w-3 h-3 bg-red-500 rounded-full border-2 border-white"></span>
+</div>
+
+
+<div class="flex gap-8 justify-center">
+  <div 
+    class="bg-blue-100 rounded-xl px-8 py-6 shadow-lg flex flex-col items-center min-w-[180px] max-w-[250px]"
+    v-click 
+    v-motion 
+    :initial="{ translateX: -100, translateY: -100, opacity: 0 }"
+    :enter="{ translateX: 0, translateY: 0, opacity: 1 }"
+  >
+    <span class="text-4xl mb-2">📋</span>
+    <span class="font-bold text-lg">Copier-coller</span>
+  </div>
+  <div 
+    class="bg-blue-100 rounded-xl px-8 py-6 shadow-lg flex flex-col items-center min-w-[180px] max-w-[250px]"
+    v-click 
+    v-motion 
+    :initial="{ scale: 0.2, opacity: 0, rotate: 180 }"
+    :enter="{ scale: 1, opacity: 1, rotate: 0 }"
+  >
+    <span class="text-4xl mb-2">📸</span>
+    <span class="font-bold text-lg">Faire un screenshot</span>
+  </div>
+  <div 
+    class="bg-blue-100 rounded-xl px-8 py-6 shadow-lg flex flex-col items-center min-w-[180px] max-w-[250px]"
+    v-click 
+    v-motion 
+    :initial="{ scale: 0.5, opacity: 0 }"
+    :enter="{ scale: 1, opacity: 1 }"
+  >
+    <span class="text-4xl mb-2">🖥️</span>
+    <span class="font-bold text-lg">Changer de fenêtre</span>
+  </div>
+</div>
 
 <!-- la raison est que c'est dans les actions les plus courtes et les plus fréquentes qu'on voit vraiment la différence.
-Interruption: message slack ah pardon, c'est mon chef qui a besoin encore une fois du lien du dashboard...
-todo: faire l'interruption par message slack
+...
+Interruption: ah pardon, c'est mon chef qui a besoin encore une fois du lien du dashboard...
 En vrai je peux lui répondre maintenant parceque le faire maintenant ça va le sortir de ma tête
-- navigation sur une autre app
-- prise de screen + copier un truc
+- navigation sur faux dashboard
+- prise de screen + copier le lien
 - aller sur slack
 - coller les infos
 - fermer et revenir au talk
 -->
 
 ---
-layout: content
+layout: full
 ---
 
 # Changer de fenêtre 
@@ -361,10 +427,15 @@ click: affichage de la fenetre
 <!-- La raison pour laquelle le changement de fenetre est aussi dur c'est que tout se fait au visuel, il faut se souvenir de l'icône, aller dans la barre trouver l'icone, cliquer dessus, il faut que ça ouvre sur le bon écran, et enfin on est au bon endroit -->
 
 ---
-layout: single-image
+layout: image
+image: https://des-livres-pour-changer-de-vie.com/wp-content/uploads/2021/04/pensees-pour-moi-meme-marc-aurele.jpg
+backgroundSize: contain
 ---
 
-todo: image pensées pour moi-même de marc-aurèle
+<v-clicks>
+  <p class="text-lg text-black">*discours non contractuel</p>
+  <div class="flex items-center gap-2"><p class="text-lg text-black">*source Claude</p><img src="https://cdn.worldvectorlogo.com/logos/anthropic-1.svg" alt="anthropic logo" class="w-4 h-4 inline-block" style="vertical-align: middle;" /></div>
+</v-clicks>
 
 <!-- Selon Claude, Marc-aurele disait dans son bouquin que notre meilleur ami c'était le clavier.-->
 
@@ -372,30 +443,40 @@ todo: image pensées pour moi-même de marc-aurèle
 layout: two-cols
 ---
 
-# Souris vs Clavier
+# Souris
+
+<v-clicks>
 
 - un million de pixel possible
 - un clic à la fois au max
 - erreur facile
 - engage la vue et le toucher
 
-:right:
+</v-clicks>
+
+::right::
+
+# Clavier
+
+<v-clicks>
 
 - ~50 touches
-- ~8 doigts en //
+- ~8 doigts en parallèle
 - n'engage que le toûcher
 - débloque les raccourcis claviers
 - stockable en mémoire procédurale
 
+</v-clicks>
+
 <!-- Et c'est facile à voir en fait la souris est beaucoup plus fatigante à utiliser, parcequ'on doit viser, puis cliquer et attendre d'avoir un feedback visuel pour savoir si on est sur le bon bouton. Du côté du clavier, avec un peu de travail, on peut taper sans regarder et atteindre assez vite une vitesse de frappe qui permet de penser et de taper en même temps. Le truc important aussi c'est qu'on va pouvoir intégrer des raccourcis claviers, qui vont débloquer des actions entières, qui seront stockées dans notre mémoire procédurale et donc on pourra faire des actions sans y penser -->
 
 ---
-layout: title
+layout: full
 ---
 
 # Ménager son champ de vision
 
-todo: jurassic park
+<img v-click v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, opacity: 1 }" src="https://i.redd.it/e13ts578tb881.jpg" alt="Jurassic Park logo" class="h-2/3 mx-auto mt-20" />
 
 <!-- La vue c'est un sens un peu traître parceque autant on peut oublier les choses qui ne bougent pas, et ne pas voir que c'est l'heure d'aller en réu, et autant la moindre notification en haut de l'écran nous fait tourner les yeux -->
 
@@ -408,6 +489,8 @@ layout: two-cols
 - Enlever les icones qui servent pas
 - Abuser du plein-écran
 
+::right::
+
 ## Rendre accessible l'important
 
 - Réunion dans la menu bar
@@ -419,7 +502,7 @@ D'autre part, dans les informations que j'ai envie d'avoir, c'est pas tellement 
  -->
 
 ---
-layout: image-mess-list
+layout: full
 ---
 
 # En tant que dev
@@ -430,7 +513,7 @@ todo: image prompt p10k avec une commande en vert
 <!-- En tant que dev, je l'applique en essayant le plus de possible de mettre l'espace sur ce qui est important, donc je code en plein écran, j'ai pas besoin de savoir que slack est ouvert au moment où j'écris du code. Dans l'utilisation du terminal, je me facilite la vie et je mets l'environnement en affichage permanent comme ça je vois avant de faire la betise que la commande va pas marcher, ou que je vais faire n'importe quoi sur la prod -->
 
 ---
-layout: content 
+layout: full 
 ---
 
 # Ne taper que le nécessaire
@@ -452,7 +535,7 @@ layout: content
 
 
 ---
-layout: todo
+layout: full
 ---
 
 - section: convaincre ses collegues
