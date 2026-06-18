@@ -244,29 +244,29 @@ Le vrai objectif que vous devriez visez c'est la fluidité, la vitesse viendra a
 -->
 
 ---
-layout: single-image
+layout: image
+image: https://interreg.eu/media/2chgz5sb/nicola_2.jpg?width=1500&height=844&v=1dca4b4ee2d0a70?format=webp
 ---
-
-todo: trouver une image de ménage, kanban... housekeeping
 
 <!--
 Vous allez sans doute réduire le nombre de tâche que vous repousse parce que ce qui vous interrompait dans vos pensées et vous prenait 5 min, aujourd'hui vous en prend 2 et vous le faite sans y penser.
 -->
 
 ---
-layout: title
+layout: section
 ---
-Par où on commence ?
+
+<h1>Par où on commence ?</h1>
 
 <!--
 Bon alors c'est très sympa de nous dire qu'on peut accélérer, mais comment on fait ?
 -->
 
 ---
-layout: sub-title
+layout: image
+image: https://lagranderecre-lagranderecre-fr-storage.omn.proximis.com/Imagestorage/images/0/0/607efd4c57507_B2176_HAND_GMS_WMT_OPERATION_177.jpg
+backgroundSize: contain
 ---
-
-todo: image docteur maboul
 
 <!--
 Et là je vais vous decevoir parceque je n'ai pas de solution miracle pour rebrancher votre cerveau et vous obtenir une expérience sans friction.
@@ -275,55 +275,56 @@ Par contre je connais qqun qui peut...
 
 
 ---
-layout: sub-title
+layout: section
 ---
 
-Vous êtes le médecin et le patient
+<h1>Vous êtes le médecin et le patient</h1>
 
 <!--
 Eh oui, c'est vous qui connaissez le mieux vos habitudes, vos gouts et vos frictions, c'est donc de vous que doit venir le remède
 -->
 
 ---
-layout: single-image
+layout: full
 ---
-todo: image logo doctolib
-todo: image calendrier google agenda plein à craquer v-click
+
+<img src="https://www.chambre-syndicale-sophrologie.fr/wp-content/uploads/2022/11/doctolib.jpg" class="h-1/2 absolute top-1/4 -translate-y-1/2 left-1/4" v-click.hide-after v-motion :initial="{ scale: 0.5, opacity: 1 }"  :enter="{ scale: 1, opacity: 1 }" />
+<img src="https://everhour.com/blog/wp-content/uploads/2024/05/google-calendar-color-coding.jpg" class="h-full absolute top-0 right-0" v-click v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, opacity: 1 }" />
 
 <!-- Malheureusement il y a pas de Doctolib pour prendre des rdvs pour soigner sa DX. Donc il va falloir trouver du temps dans votre semaine pour le faire. -->
 
 ---
-layout: single-image
+layout: image
+image: https://thumbs.dreamstime.com/z/temps-de-compression-41255817.jpg
 ---
-
-todo: image de sensei ou image de veille techinque ?
 
 <!-- J'ai une collègue qui m'a donné son astuce de chef pour gagner du temps sur la veille technique, c'est d'aller voir les gens qui sont en train de tester des outils et de leur en parler. Ce qu'ils ont passé 2h à déchiffrer et qui est frais dans leur têtes, ils vont peut-être mettre 3min à vous le résumer et vous aller pouvoir savoir si l'outil mérite de l'investissement ou non.-->
 
 ---
-layout: single-image
+layout: image
+image: https://m.media-amazon.com/images/M/MV5BNmU4ODM0NGUtYjk0ZC00ODQwLTk3NjItYThiZWRiNDk2MjFlXkEyXkFqcGc@._V1_.jpg
 ---
-
-todo: image de salle de pause machine à café
 
 <!-- Un bon endroit pour ça c'est la machine à café, ça vous permet de rendre vos pauses productives, et en fonction vos bureaux ça peut même vous faire croiser des équipes avec qui vous travaillez pas et qui ont donc d'autres expériences enrichissantes -->
 
 ---
-layout: title
+layout: section
 ---
 
-# On s'y met ?
-
-## On commence par quoi ?
-
-### mini disclaimer
+<v-clicks>
+<h1 class="font-bold" v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, opacity: 1 }">On s'y met ?</h1>
+<h2 class="font-bold" v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, opacity: 1 }">On commence par quoi ?</h2>
+<h3 class="italic" v-motion :initial="{ scale: 0.5, opacity: 1, translateX: -100 }" :enter="{ scale: 1, opacity: 1, translateX: 0 }">mini disclaimer 📣</h3>
+</v-clicks>
 
 <!-- Y consacrer du temps c'est bien, mais on commence par quoi? Mini disclaimer: Je vais donner des exemples à partir de maintenant qui sont basées sur ce que j'ai vécu et vu. Il s'agit de ma façon de répondre aux problèmes que j'ai rencontré. Vous n'aurez surement pas les mêmes besoins, ni les mêmes façons d'y répondre. -->
 
 ---
-layout: image-mess-list
+layout: none
 ---
-todo: image clavier ordinateur, image menu bar remplie de logiciel de travail, image slack
+
+<img class="absolute" src="https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/19194063/darkmodeslackdesktop.jpg?quality=90&strip=all&crop=0,0,100,100" />
+<img v-click class="absolute" src="https://f.hellowork.com/bdmtools/2021/05/outil-miro-1.jpg"/>
 
 <!-- Si ces images représentent une partie de votre quotidien et que vous ne devez retenir qu'un truc de ce talk c'est la slide suivante: -->
 
