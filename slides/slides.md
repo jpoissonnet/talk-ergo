@@ -195,9 +195,8 @@ image: https://www.frcneurodon.org/app/uploads/2015/11/Mouvement-2.jpg
 backgroundSize: 60%
 ---
 
-<Arrow x1="10%" y1="10%" x2="35%" y2="50%" color="red" width="8" />
-<Arrow x1="75%" y1="80%" x2="47%" y2="46%" color="red" width="8" />
-
+<Arrow v-click v-motion :initial="{ translateX: -200}" :enter="{ translateX: 0}" x1="10%" y1="10%" x2="35%" y2="50%" color="black" width="6" />
+<Arrow v-click v-motion :initial="{ translateX: 200}" :enter="{ translateX: 0}" x1="75%" y1="80%" x2="47%" y2="46%" color="black" width="6" />
 <!--
 Ça c'est un cerveau. Votre mémoire de travail et ce qui permet de raisonner se situe dans le cortex préfrontal. On sait que mettre trop d'information à cet endroit déclenche une surcharge cognitive.
 La bonne nouvelle, c'est qu'on a une zone voisine, au niveau du cortex prémoteur dont on peut se servir pour alléger la charge. C'est dans cette zone que se situe la mémoire procédurale, l'ensemble des tâches qu'on sait faire sans y penser: faire ses lacets, ouvrir une bouteille etc.
@@ -233,7 +232,7 @@ Et la mémoire procédurale fonctionne exactement pareil, c'est la répétition 
 layout: section
 ---
 
-<h1 v-click v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, textDecoration: 'line-through'  }" :click-2="{ scale: 0.5, opacity: .4 }">3. La vitesse</h1>
+<h1 v-click v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, textDecoration: 'none'  }" :click-2="{ scale: 0.5, opacity: .4, textDecoration: 'line-through' }">3. La vitesse</h1>
 <h1 v-click v-motion :initial="{ scale: 0.5, opacity: 0 }" :enter="{ scale: 1.2, opacity: 1, y: -50 }">3. La fluidité</h1>
 
 
@@ -538,6 +537,9 @@ layout: full
 layout: full
 ---
 
+- didascalie: arthur 1 => galérer à faire un truc
+- section: présenter l'iceberg de l'efficacité (l'arbre ?)
+- didascalie: arthur 2 => faire le truc à l'efficacité max
 - section: convaincre ses collegues
   - slide: montrer la config: -> chezmoi
     - dire: vous allez oubliez des trucs en proposant qu'un outil à la fois
