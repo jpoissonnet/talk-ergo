@@ -30,7 +30,9 @@ layout: image
 image: https://files.mastodon.social/media_attachments/files/112/505/726/754/005/422/original/605d65dec7235350.jpg
 ---
 
-<!-- le phénomène qu'on va étudier se produit sûrement chez vous, il se manifeste de plein de façons différentes, on va en voir qq unes avant de lui donner un nom -->
+<!--
+le phénomène qu'on va étudier se produit sûrement chez vous, il se manifeste de plein de façons différentes, on va lister qq symptomes et voir si vous pouvez l'identifier
+-->
 
 ---
 
@@ -80,14 +82,14 @@ image: https://static.wikia.nocookie.net/joueur-du-grenier/images/4/43/David_Goo
 
 <!--
 En soit c'est rien de grave, c'est juste que ça pourrait être beaucoup mieux.
-On a des petites frictions du quotidien qui sont assez pénible pour nous ralentir mais pas assez pour qu'on prenne le temps de les enlever
+On a des petites frictions du quotidien qui sont assez pénible pour nous ralentir mais pas assez pour qu'on prenne le temps de les enlever, mais en vrai c'est la réflexion qui souvent amène à cette maladie
 -->
 
 ---
 layout: section
 ---
 
-<h1 v-click v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, textDecoration: 'line-through'  }" :click-2="{ scale: 0.5, opacity: .4 }">La DX-ite chronique</h1>
+<h1 v-click v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, textDecoration: 'none'  }" :click-2="{ scale: 0.5, opacity: .4, textDecoration: 'line-through' }">La DX-ite chronique</h1>
 
 <h1 v-click v-motion :initial="{ scale: 0.5, opacity: 0 }" :enter="{ scale: 1.2, opacity: 1, y: -50 }">La frictionite chronique</h1>
 
@@ -122,8 +124,9 @@ Dans la cuisine de mes colocs, j'ai pu l'observer, ils se dispersent partout et 
 layout: section
 ---
 
-<h1>Pourquoi traiter maintenant ?</h1>
+<h1>Qu'est-ce qu'on gagne à traiter ?</h1>
 
+<h3 v-click class="italic text-gray-500">« Ça fait 10 ans que je fais comme ça, et ça marche… »</h3>
 <h3 v-click>Parce que c'est le 2ème meilleur moment pour s'en occuper...</h3>
 <h4 class="mt-3" v-click>le 1er c'était hier 🙃</h4>
 
@@ -131,7 +134,6 @@ layout: section
 Bon alors en bon david goodenough, vous allez dire, oui mais si c'est pas si grave, ça sert à quoi de s'en occuper maintenant
 Et à ça je répondrais 3 choses...
 -->
-
 
 ---
 layout: section 
@@ -209,6 +211,7 @@ layout: full
 
 # Prescription: Mémoire procédurale
 
+todo: dynamiser la liste à puce
 <v-clicks>
 <ul class="list-none flex flex-col items-center gap-8 mt-12">
 
@@ -232,9 +235,10 @@ Et la mémoire procédurale fonctionne exactement pareil, c'est la répétition 
 layout: section
 ---
 
+todo: dire que c'est en cherchant la fluidité qu'on va décomposer son mouvement, analyser les erreurs et le répéter, et que du coup ça va rentrer dans la mémoire procédurale, parce que c'est comme ça qu'elle fonctionne
+
 <h1 v-click v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, textDecoration: 'none'  }" :click-2="{ scale: 0.5, opacity: .4, textDecoration: 'line-through' }">3. La vitesse</h1>
 <h1 v-click v-motion :initial="{ scale: 0.5, opacity: 0 }" :enter="{ scale: 1.2, opacity: 1, y: -50 }">3. La fluidité</h1>
-
 
 <!--
 L'effet le plus important est le plus visible, après qq temps, astuces et investissements, vous allez vous apercevoir que vous êtes juste plus rapide...
@@ -247,6 +251,8 @@ layout: image
 image: https://interreg.eu/media/2chgz5sb/nicola_2.jpg?width=1500&height=844&v=1dca4b4ee2d0a70?format=webp
 ---
 
+todo: considérer de mettre une image "I am Speed" de flash mcqueen
+
 <!--
 Vous allez sans doute réduire le nombre de tâche que vous repousse parce que ce qui vous interrompait dans vos pensées et vous prenait 5 min, aujourd'hui vous en prend 2 et vous le faite sans y penser.
 -->
@@ -255,7 +261,13 @@ Vous allez sans doute réduire le nombre de tâche que vous repousse parce que c
 layout: section
 ---
 
-<h1>Par où on commence ?</h1>
+todo: réordonner les slides
+- d'abord trouver du temps - docto + compression
+- ensuite tout le monde est différent, les symptomes comme les soins - docteur maboul
+- c'est vous le docteur
+
+<h1>Comment on fait ?</h1>
+<h2>Petits rappels</h2>
 
 <!--
 Bon alors c'est très sympa de nous dire qu'on peut accélérer, mais comment on fait ?
@@ -287,10 +299,27 @@ Eh oui, c'est vous qui connaissez le mieux vos habitudes, vos gouts et vos frict
 layout: full
 ---
 
-<img src="https://www.chambre-syndicale-sophrologie.fr/wp-content/uploads/2022/11/doctolib.jpg" class="h-1/2 absolute top-1/4 -translate-y-1/2 left-1/4" v-click.hide-after v-motion :initial="{ scale: 0.5, opacity: 1 }"  :enter="{ scale: 1, opacity: 1 }" />
-<img src="https://everhour.com/blog/wp-content/uploads/2024/05/google-calendar-color-coding.jpg" class="h-full absolute top-0 right-0" v-click v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, opacity: 1 }" />
+<img 
+  src="https://www.chambre-syndicale-sophrologie.fr/wp-content/uploads/2022/11/doctolib.jpg"
+  class="h-1/2 absolute top-1/2 left-1/2"
+  v-click
+  v-motion
+  :initial="{ scale: 0.5, opacity: 1, translateX: '-50%', translateY: '-50%' }"
+  :enter="{ scale: 1, opacity: 1 }"
+/>
 
-<!-- Malheureusement il y a pas de Doctolib pour prendre des rdvs pour soigner sa DX. Donc il va falloir trouver du temps dans votre semaine pour le faire. -->
+<img
+  src="https://everhour.com/blog/wp-content/uploads/2024/05/google-calendar-color-coding.jpg"
+  class="h-full absolute top-1/2 left-1/2"
+  v-click
+  v-motion
+  :initial="{ scale: 0.5, opacity: 1, translateX: '-50%', translateY: '-50%' }"
+  :enter="{ scale: 1, opacity: 1 }"
+/>
+
+<!--
+Malheureusement il y a pas de Doctolib pour prendre des rdvs pour soigner sa DX. Donc il va falloir trouver du temps dans votre semaine pour le faire.
+-->
 
 ---
 layout: image
@@ -310,13 +339,20 @@ image: https://m.media-amazon.com/images/M/MV5BNmU4ODM0NGUtYjk0ZC00ODQwLTk3NjItY
 layout: section
 ---
 
-<v-clicks>
-<h1 class="font-bold" v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, opacity: 1 }">On s'y met ?</h1>
-<h2 class="font-bold" v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, opacity: 1 }">On commence par quoi ?</h2>
-<h3 class="italic" v-motion :initial="{ scale: 0.5, opacity: 1, translateX: -100 }" :enter="{ scale: 1, opacity: 1, translateX: 0 }">mini disclaimer 📣</h3>
-</v-clicks>
+todo: dire la méthode
+- identifier - analyser - remédier
+dire que les trucs où les gens ont le plus à gagner c'est
+- copier-coller
+- screen
+- changer de fenêtre
+ensuite c'est personnel mais voici les grands axes avec des examples
+todo: donner mes exemples catégoriser par axes (info, distraction, frugalité du clavier)
 
-<!-- Y consacrer du temps c'est bien, mais on commence par quoi? Mini disclaimer: Je vais donner des exemples à partir de maintenant qui sont basées sur ce que j'ai vécu et vu. Il s'agit de ma façon de répondre aux problèmes que j'ai rencontré. Vous n'aurez surement pas les mêmes besoins, ni les mêmes façons d'y répondre. -->
+<h2 class="font-bold" v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, opacity: 1 }">On commence par quoi ?</h2>
+
+<!--
+Y consacrer du temps c'est bien, mais on commence par quoi? Mini disclaimer: Je vais donner des exemples à partir de maintenant qui sont basées sur ce que j'ai vécu et vu. Il s'agit de ma façon de répondre aux problèmes que j'ai rencontré. Vous n'aurez surement pas les mêmes besoins, ni les mêmes façons d'y répondre.
+-->
 
 ---
 layout: none
@@ -325,8 +361,7 @@ layout: none
 <img class="absolute" src="https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/19194063/darkmodeslackdesktop.jpg?quality=90&strip=all&crop=0,0,100,100" />
 <img v-click class="absolute" src="https://f.hellowork.com/bdmtools/2021/05/outil-miro-1.jpg"/>
 
-<!-- Si ces images représentent une partie de votre quotidien et que vous ne devez retenir qu'un truc de ce talk c'est la slide suivante: -->
-
+<!-- Si ces images représentent une partie de votre quotidien et que vous ne devez retenir qu'un truc de ce talk, c'est ce qui suit : -->
 
 ---
 layout: center
@@ -417,13 +452,88 @@ En vrai je peux lui répondre maintenant parceque le faire maintenant ça va le 
 layout: full
 ---
 
-# Changer de fenêtre 
-todo: screen macos
-click: fléche slack
-animation: cursor vers le logo
-click: affichage de la fenetre
+todo: Arthur, à la dure 😮‍💨
 
-<!-- La raison pour laquelle le changement de fenetre est aussi dur c'est que tout se fait au visuel, il faut se souvenir de l'icône, aller dans la barre trouver l'icone, cliquer dessus, il faut que ça ouvre sur le bon écran, et enfin on est au bon endroit -->
+<v-clicks>
+
+- 🔍 chercher la fenêtre du dashboard dans la barre… *(8 s)*
+- 🖱️ viser l'icône, mauvais écran, re-cliquer *(6 s)*
+- 📸 capturer tout l'écran, ouvrir l'aperçu, recadrer *(12 s)*
+- 🔗 sélectionner l'URL à la souris, Cmd+C *(5 s)*
+- 🪟 retrouver Slack, la bonne conversation *(7 s)*
+- ⌨️ coller, envoyer… *« c'était quoi déjà ma pensée ? »*
+
+</v-clicks>
+
+<p v-click class="text-2xl font-bold text-red-500 mt-8">~40 s + le fil de pensée perdu</p>
+
+<!-- Reprenons le scénario du chef. Voilà comment ça se passe quand rien n'est optimisé : chaque étape coûte quelques secondes, et au bout on a perdu son fil. -->
+
+---
+layout: full
+---
+
+# 📋 Copier-coller → un gestionnaire de presse-papier
+
+<v-clicks>
+
+- un **historique**, pas un seul emplacement
+- re-coller ce qu'on avait copié il y a 3 copies
+- coller en séquence
+
+</v-clicks>
+
+<p v-click class="text-gray-500 mt-6">ex. Maccy, Raycast, Klipper… — universel, tous OS</p>
+
+<!--
+Premier geste : le presse-papier. Par défaut on n'a qu'un seul emplacement. Un gestionnaire garde un historique, permet de coller en texte brut, et d'épingler ce qu'on recolle souvent.
+-->
+
+---
+layout: full
+---
+
+# 📸 Screenshot → capturer juste ce qu'il faut
+
+<v-clicks>
+
+- envoyer direct dans le **presse-papier** (pas un fichier sur le bureau)
+- annoter / flécher avant d'envoyer
+- bonus: ocr + qr code
+
+</v-clicks>
+
+<!--
+Deuxième geste : la capture. On veut une capture de zone, qui atterrit dans le presse-papier, prête à coller. Et quand un lien suffit, autant l'envoyer plutôt qu'une image.
+-->
+
+---
+layout: full
+---
+
+# 🖥️ Gérer ses fenêtres → au clavier
+
+<v-clicks>
+
+- ⚠️ ⌘ + Tab n'est pas idem-potent
+- un switcher (Raycast / AltTab / rcmd) pour viser une app précise
+- des **raccourcis dédiés** : ⌥⌘S = Slack, ⌥⌘B = navigateur
+- la fenêtre s'ouvre toujours au bon endroit, sans viser
+
+</v-clicks>
+
+<!--
+La raison pour laquelle le changement de fenetre est aussi dur c'est que tout se fait au visuel : il faut se souvenir de l'icône, la trouver dans la barre, cliquer, espérer le bon écran. Au clavier, on vise une app par un raccourci et elle s'ouvre toujours au même endroit.
+-->
+
+---
+layout: section
+---
+
+<h1>Et moi, comment je l'applique ?</h1>
+<h3 v-click class="italic text-gray-500">au-delà de l'universel : mon setup, à adapter au vôtre</h3>
+
+<!-- Jusqu'ici c'était universel, ça vaut pour tout le monde. À partir de maintenant je passe à mes optimisations perso de dev : prenez ce qui vous parle. -->
 
 ---
 layout: image
@@ -467,7 +577,9 @@ layout: two-cols
 
 </v-clicks>
 
-<!-- Et c'est facile à voir en fait la souris est beaucoup plus fatigante à utiliser, parcequ'on doit viser, puis cliquer et attendre d'avoir un feedback visuel pour savoir si on est sur le bon bouton. Du côté du clavier, avec un peu de travail, on peut taper sans regarder et atteindre assez vite une vitesse de frappe qui permet de penser et de taper en même temps. Le truc important aussi c'est qu'on va pouvoir intégrer des raccourcis claviers, qui vont débloquer des actions entières, qui seront stockées dans notre mémoire procédurale et donc on pourra faire des actions sans y penser -->
+<!--
+Et c'est facile à voir en fait la souris est beaucoup plus fatigante à utiliser, parcequ'on doit viser, puis cliquer et attendre d'avoir un feedback visuel pour savoir si on est sur le bon bouton. Du côté du clavier, avec un peu de travail, on peut taper sans regarder et atteindre assez vite une vitesse de frappe qui permet de penser et de taper en même temps. Le truc important aussi c'est qu'on va pouvoir intégrer des raccourcis claviers, qui vont débloquer des actions entières, qui seront stockées dans notre mémoire procédurale et donc on pourra faire des actions sans y penser
+-->
 
 ---
 layout: full
@@ -506,8 +618,18 @@ layout: full
 
 # En tant que dev
 
-todo: image IDE full
-todo: image prompt p10k avec une commande en vert
+todo: screen ide 
+todo: screen terminal p10k
+
+<v-clicks>
+
+- coder en **plein écran** : pas besoin de voir que Slack est ouvert
+- un **prompt** qui affiche l'essentiel en permanence (branche git, env, contexte k8s)
+- voir l'environnement **avant** de lancer la commande → moins de bêtises en prod
+
+</v-clicks>
+
+<!-- screencast : IDE plein écran + prompt p10k avec le contexte (env/prod) bien visible -->
 
 <!-- En tant que dev, je l'applique en essayant le plus de possible de mettre l'espace sur ce qui est important, donc je code en plein écran, j'ai pas besoin de savoir que slack est ouvert au moment où j'écris du code. Dans l'utilisation du terminal, je me facilite la vie et je mets l'environnement en affichage permanent comme ça je vois avant de faire la betise que la commande va pas marcher, ou que je vais faire n'importe quoi sur la prod -->
 
@@ -532,18 +654,116 @@ layout: full
 
 <!-- Pour les actions que fais le plus, un investissement sous-côté, c'est les alias et les snippets. Je suis dev sur une stack JS, et tout passe par pnpm, donc quand j'ouvre mon terminal, ce que je fais une majorité du temps c'est d'ouvrir un projet et de lancer l'app, bon bah grâce à un alias et à un changement intelligent de dossier j'économise beaucoup de temps et d'énergie. En bonus les gens pensent que je suis super rapide, alors que je tape juste moins  -->
 
+---
+layout: full
+---
+
+todo: Arthur, version efficace ✨
+
+<v-clicks>
+
+- 🔗 capture de zone + lien copiés en un raccourci *(3 s)*
+- 🪟 ⌥⌘S pour sauter sur Slack *(1 s)*
+- ⌨️ coller, envoyer — et retour direct au boulot *(2 s)*
+
+</v-clicks>
+
+<p v-click class="text-2xl font-bold text-green-500 mt-8">~6 s, sans quitter sa pensée</p>
+
+<!-- Le même scénario que tout à l'heure, mais avec les gestes qu'on vient de voir. Arthur reste dans son flow, et il n'a rien perdu de sa concentration. -->
+
+---
+layout: section
+---
+
+<h1>Votre efficacité rayonne sur vos collègues</h1>
+<h3 v-click class="italic text-gray-500">comment embarquer l'équipe ?</h3>
+
+<!-- Une fois qu'on a soigné sa propre frictionite, on a envie de partager. Mais attention à la façon de s'y prendre. -->
 
 ---
 layout: full
 ---
 
-- didascalie: arthur 1 => galérer à faire un truc
-- section: présenter l'iceberg de l'efficacité (l'arbre ?)
-- didascalie: arthur 2 => faire le truc à l'efficacité max
-- section: convaincre ses collegues
-  - slide: montrer la config: -> chezmoi
-    - dire: vous allez oubliez des trucs en proposant qu'un outil à la fois
-  - slide: proposer des bundles -> awesome
-    - dire: c'est cool pour découvrir des trucs dont vous ne connaissiez pas l'existence
-- slide: Concrètement, ce que vous pouvez installer la semaine prochaine
-- dire: Votre efficacité rayonne sur vos collègues
+# Partager sa config → `chezmoi`
+
+<v-clicks>
+
+- versionne tes dotfiles et les réplique sur n'importe quelle machine
+- ton setup devient reproductible et lisible par les autres
+- ⚠️ propose **un outil à la fois** — sinon l'équipe oublie tout
+
+</v-clicks>
+
+<!-- chezmoi gère ses dotfiles proprement. Le piège quand on partage, c'est de tout balancer d'un coup : personne ne retient. Un outil à la fois. -->
+
+---
+layout: full
+---
+
+# Faire découvrir → les listes `awesome`
+
+<v-clicks>
+
+- des collections curées par écosystème (`awesome-macos`, `awesome-cli`, …)
+- parfait pour tomber sur des outils dont on ignorait l'existence
+- chacun pioche ce qui colle à **ses** frictions
+
+</v-clicks>
+
+<!-- Les listes awesome sont d'excellents points de départ pour découvrir, et ça laisse chacun choisir ce qui lui parle. -->
+
+---
+layout: full
+---
+
+# La semaine prochaine 🗓️
+
+<v-clicks>
+
+- installer un **gestionnaire de presse-papier**
+- régler un raccourci de **capture de zone**
+- mettre **2-3 alias** sur vos commandes du quotidien
+- cacher **une** distraction inutile de la barre
+- choisir **une** friction par semaine, pas dix
+
+</v-clicks>
+
+<!-- Concrètement, de quoi commencer dès lundi. Pas besoin de tout faire : une friction à la fois. -->
+
+---
+layout: center
+---
+
+# La frictionite, ça se soigne 🩺
+
+<h3 v-click>Une friction. Un geste. Répéter.</h3>
+
+<!-- Pour conclure : c'est chronique, mais ça se soigne, un geste à la fois. Vous êtes le médecin et le patient. -->
+
+---
+layout: center
+---
+
+# Merci 🙏
+
+<div class="grid grid-cols-2 gap-12 items-center mt-6">
+<div>
+
+### Sources
+- *Cognitive Load* — zakirullin
+- *Pensées pour moi-même* — Marc-Aurèle (*source Claude*)
+
+</div>
+<div class="flex flex-col items-center">
+<qr-code modulesize="6" :data="slidesUrl"></qr-code>
+<p class="text-sm text-gray-500 mt-2">les slides</p>
+</div>
+</div>
+
+<script setup>
+import "webcomponent-qr-code";
+const slidesUrl = "https://github.com/jules-poissonnet/talk-ergo";
+</script>
+
+<!-- Merci ! Les slides et les sources sont derrière le QR. -->
