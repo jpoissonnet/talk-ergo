@@ -261,38 +261,11 @@ Vous allez sans doute réduire le nombre de tâche que vous repousse parce que c
 layout: section
 ---
 
-todo: réordonner les slides
-- d'abord trouver du temps - docto + compression
-- ensuite tout le monde est différent, les symptomes comme les soins - docteur maboul
-- c'est vous le docteur
-
 <h1>Comment on fait ?</h1>
 <h2>Petits rappels</h2>
 
 <!--
 Bon alors c'est très sympa de nous dire qu'on peut accélérer, mais comment on fait ?
--->
-
----
-layout: image
-image: https://lagranderecre-lagranderecre-fr-storage.omn.proximis.com/Imagestorage/images/0/0/607efd4c57507_B2176_HAND_GMS_WMT_OPERATION_177.jpg
-backgroundSize: contain
----
-
-<!--
-Et là je vais vous decevoir parceque je n'ai pas de solution miracle pour rebrancher votre cerveau et vous obtenir une expérience sans friction.
-Par contre je connais qqun qui peut...
--->
-
-
----
-layout: section
----
-
-<h1>Vous êtes le médecin et le patient</h1>
-
-<!--
-Eh oui, c'est vous qui connaissez le mieux vos habitudes, vos gouts et vos frictions, c'est donc de vous que doit venir le remède
 -->
 
 ---
@@ -334,6 +307,28 @@ image: https://m.media-amazon.com/images/M/MV5BNmU4ODM0NGUtYjk0ZC00ODQwLTk3NjItY
 ---
 
 <!-- Un bon endroit pour ça c'est la machine à café, ça vous permet de rendre vos pauses productives, et en fonction vos bureaux ça peut même vous faire croiser des équipes avec qui vous travaillez pas et qui ont donc d'autres expériences enrichissantes -->
+
+---
+layout: image
+image: https://lagranderecre-lagranderecre-fr-storage.omn.proximis.com/Imagestorage/images/0/0/607efd4c57507_B2176_HAND_GMS_WMT_OPERATION_177.jpg
+backgroundSize: contain
+---
+
+<!--
+Et là je vais vous decevoir parceque je n'ai pas de solution miracle pour rebrancher votre cerveau et vous obtenir une expérience sans friction.
+Par contre je connais qqun qui peut...
+-->
+
+
+---
+layout: section
+---
+
+<h1>Vous êtes le médecin et le patient</h1>
+
+<!--
+Eh oui, c'est vous qui connaissez le mieux vos habitudes, vos gouts et vos frictions, c'est donc de vous que doit venir le remède
+-->
 
 ---
 layout: section
@@ -536,6 +531,99 @@ layout: section
 <!-- Jusqu'ici c'était universel, ça vaut pour tout le monde. À partir de maintenant je passe à mes optimisations perso de dev : prenez ce qui vous parle. -->
 
 ---
+layout: center
+---
+
+# Mes 3 axes
+
+<div class="flex gap-8 justify-center mt-12">
+  <div
+    class="bg-blue-100 rounded-xl px-8 py-6 shadow-lg flex flex-col items-center min-w-[180px] max-w-[250px]"
+    v-click
+    v-motion
+    :initial="{ translateY: 40, opacity: 0 }"
+    :enter="{ translateY: 0, opacity: 1 }"
+  >
+    <span class="text-4xl mb-2">📡</span>
+    <span class="font-bold text-lg">Info</span>
+  </div>
+  <div
+    class="bg-blue-100 rounded-xl px-8 py-6 shadow-lg flex flex-col items-center min-w-[180px] max-w-[250px]"
+    v-click
+    v-motion
+    :initial="{ translateY: 40, opacity: 0 }"
+    :enter="{ translateY: 0, opacity: 1 }"
+  >
+    <span class="text-4xl mb-2">🛑</span>
+    <span class="font-bold text-lg">Distraction</span>
+  </div>
+  <div
+    class="bg-blue-100 rounded-xl px-8 py-6 shadow-lg flex flex-col items-center min-w-[180px] max-w-[250px]"
+    v-click
+    v-motion
+    :initial="{ translateY: 40, opacity: 0 }"
+    :enter="{ translateY: 0, opacity: 1 }"
+  >
+    <span class="text-4xl mb-2">⌨️</span>
+    <span class="font-bold text-lg">Frugalité du clavier</span>
+  </div>
+</div>
+
+<!-- Mes optimisations perso se rangent en 3 axes : l'info (ce que j'affiche et où), la distraction (ce que je cache), et la frugalité du clavier (taper moins). -->
+
+---
+layout: full
+---
+
+# En tant que dev
+
+todo: screen ide 
+todo: screen terminal p10k
+
+<v-clicks>
+
+- coder en **plein écran** : pas besoin de voir que Slack est ouvert
+- un **prompt** qui affiche l'essentiel en permanence (branche git, env, contexte k8s)
+- voir l'environnement **avant** de lancer la commande → moins de bêtises en prod
+
+</v-clicks>
+
+<!-- screencast : IDE plein écran + prompt p10k avec le contexte (env/prod) bien visible -->
+
+<!-- En tant que dev, je l'applique en essayant le plus de possible de mettre l'espace sur ce qui est important, donc je code en plein écran, j'ai pas besoin de savoir que slack est ouvert au moment où j'écris du code. Dans l'utilisation du terminal, je me facilite la vie et je mets l'environnement en affichage permanent comme ça je vois avant de faire la betise que la commande va pas marcher, ou que je vais faire n'importe quoi sur la prod -->
+
+---
+layout: full
+---
+
+# Ménager son champ de vision
+
+<img v-click v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, opacity: 1 }" src="https://i.redd.it/e13ts578tb881.jpg" alt="Jurassic Park logo" class="h-2/3 mx-auto mt-20" />
+
+<!-- La vue c'est un sens un peu traître parceque autant on peut oublier les choses qui ne bougent pas, et ne pas voir que c'est l'heure d'aller en réu, et autant la moindre notification en haut de l'écran nous fait tourner les yeux -->
+
+---
+layout: two-cols
+---
+
+## Diminuer les distractions
+
+- Enlever les icones qui servent pas
+- Abuser du plein-écran
+
+::right::
+
+## Rendre accessible l'important
+
+- Réunion dans la menu bar
+- Météo dans le volet widget
+
+<!-- Pour en prendre soin, il y a 2 choses à faire: diminuer les distractions, et mettre l'accent sur l'important
+En pratique, savoir que mon wifi est actif ne m'aide pas tant que ça dans ma journée, a priori si j'ai internet je suis au courant, en cachant l'icone on remet de l'importance sur qqchose d'autre comme est-ce que le VPN de ma boîte est actif...
+D'autre part, dans les informations que j'ai envie d'avoir, c'est pas tellement l'heure, c'est plutot dans cb de temps est ma prochaine réu.
+ -->
+
+---
 layout: image
 image: https://des-livres-pour-changer-de-vie.com/wp-content/uploads/2021/04/pensees-pour-moi-meme-marc-aurele.jpg
 backgroundSize: contain
@@ -580,58 +668,6 @@ layout: two-cols
 <!--
 Et c'est facile à voir en fait la souris est beaucoup plus fatigante à utiliser, parcequ'on doit viser, puis cliquer et attendre d'avoir un feedback visuel pour savoir si on est sur le bon bouton. Du côté du clavier, avec un peu de travail, on peut taper sans regarder et atteindre assez vite une vitesse de frappe qui permet de penser et de taper en même temps. Le truc important aussi c'est qu'on va pouvoir intégrer des raccourcis claviers, qui vont débloquer des actions entières, qui seront stockées dans notre mémoire procédurale et donc on pourra faire des actions sans y penser
 -->
-
----
-layout: full
----
-
-# Ménager son champ de vision
-
-<img v-click v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, opacity: 1 }" src="https://i.redd.it/e13ts578tb881.jpg" alt="Jurassic Park logo" class="h-2/3 mx-auto mt-20" />
-
-<!-- La vue c'est un sens un peu traître parceque autant on peut oublier les choses qui ne bougent pas, et ne pas voir que c'est l'heure d'aller en réu, et autant la moindre notification en haut de l'écran nous fait tourner les yeux -->
-
----
-layout: two-cols
----
-
-## Diminuer les distractions
-
-- Enlever les icones qui servent pas
-- Abuser du plein-écran
-
-::right::
-
-## Rendre accessible l'important
-
-- Réunion dans la menu bar
-- Météo dans le volet widget
-
-<!-- Pour en prendre soin, il y a 2 choses à faire: diminuer les distractions, et mettre l'accent sur l'important
-En pratique, savoir que mon wifi est actif ne m'aide pas tant que ça dans ma journée, a priori si j'ai internet je suis au courant, en cachant l'icone on remet de l'importance sur qqchose d'autre comme est-ce que le VPN de ma boîte est actif...
-D'autre part, dans les informations que j'ai envie d'avoir, c'est pas tellement l'heure, c'est plutot dans cb de temps est ma prochaine réu.
- -->
-
----
-layout: full
----
-
-# En tant que dev
-
-todo: screen ide 
-todo: screen terminal p10k
-
-<v-clicks>
-
-- coder en **plein écran** : pas besoin de voir que Slack est ouvert
-- un **prompt** qui affiche l'essentiel en permanence (branche git, env, contexte k8s)
-- voir l'environnement **avant** de lancer la commande → moins de bêtises en prod
-
-</v-clicks>
-
-<!-- screencast : IDE plein écran + prompt p10k avec le contexte (env/prod) bien visible -->
-
-<!-- En tant que dev, je l'applique en essayant le plus de possible de mettre l'espace sur ce qui est important, donc je code en plein écran, j'ai pas besoin de savoir que slack est ouvert au moment où j'écris du code. Dans l'utilisation du terminal, je me facilite la vie et je mets l'environnement en affichage permanent comme ça je vois avant de faire la betise que la commande va pas marcher, ou que je vais faire n'importe quoi sur la prod -->
 
 ---
 layout: full 
