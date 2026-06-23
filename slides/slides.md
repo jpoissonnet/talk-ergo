@@ -211,20 +211,17 @@ layout: full
 
 # Prescription: Mémoire procédurale
 
-todo: dynamiser la liste à puce
-<v-clicks>
-<ul class="list-none flex flex-col items-center gap-8 mt-12">
+<ul class="list-none flex flex-col items-center gap-6 mt-12">
 
-<li>Identifier</li>
-<li>Analyser</li>
-<li>Corriger</li>
-<li>Répéter</li>
-<li class="text-gray-500 text-xs">Répéter...</li>
-<li class="text-gray-500 text-xs">Répéter...</li>
-<li class="text-gray-500 text-xs">Répéter...</li>
+<li v-click v-motion :initial="{ x: -120, opacity: 0 }" :enter="{ x: 0, opacity: 1 }" class="text-2xl font-bold">🔍 Identifier</li>
+<li v-click v-motion :initial="{ x: 120, opacity: 0 }" :enter="{ x: 0, opacity: 1 }" class="text-2xl font-bold">🔬 Analyser</li>
+<li v-click v-motion :initial="{ x: -120, opacity: 0 }" :enter="{ x: 0, opacity: 1 }" class="text-2xl font-bold">🛠️ Corriger</li>
+<li v-click v-motion :initial="{ scale: 0.4, opacity: 0 }" :enter="{ scale: 1, opacity: 1 }" class="text-2xl font-bold">🔁 Répéter</li>
+<li v-click v-motion :initial="{ opacity: 0 }" :enter="{ opacity: 0.6 }" class="text-gray-500 text-sm">Répéter...</li>
+<li v-click v-motion :initial="{ opacity: 0 }" :enter="{ opacity: 0.4 }" class="text-gray-400 text-xs">Répéter...</li>
+<li v-click v-motion :initial="{ opacity: 0 }" :enter="{ opacity: 0.25 }" class="text-gray-300 text-xs">répéter...</li>
 
 </ul>
-</v-clicks>
 
 <!--
 Du coup la prescription pour votre frictionite, c'est simple, on identifie une friction, on analyse la cause, on corrige et on répète
@@ -248,10 +245,9 @@ Le vrai objectif que vous devriez visez c'est la fluidité, la vitesse viendra a
 
 ---
 layout: image
-image: https://interreg.eu/media/2chgz5sb/nicola_2.jpg?width=1500&height=844&v=1dca4b4ee2d0a70?format=webp
+image: /i-am-speed.jpg
+backgroundSize: contain
 ---
-
-todo: considérer de mettre une image "I am Speed" de flash mcqueen
 
 <!--
 Vous allez sans doute réduire le nombre de tâche que vous repousse parce que ce qui vous interrompait dans vos pensées et vous prenait 5 min, aujourd'hui vous en prend 2 et vous le faite sans y penser.
@@ -334,16 +330,17 @@ Eh oui, c'est vous qui connaissez le mieux vos habitudes, vos gouts et vos frict
 layout: section
 ---
 
-todo: dire la méthode
-- identifier - analyser - remédier
-dire que les trucs où les gens ont le plus à gagner c'est
-- copier-coller
-- screen
-- changer de fenêtre
-ensuite c'est personnel mais voici les grands axes avec des examples
-todo: donner mes exemples catégoriser par axes (info, distraction, frugalité du clavier)
-
 <h2 class="font-bold" v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, opacity: 1 }">On commence par quoi ?</h2>
+
+<div class="flex items-center justify-center gap-4 mt-12 text-2xl font-semibold">
+  <span v-click v-motion :initial="{ x: -60, opacity: 0 }" :enter="{ x: 0, opacity: 1 }">🔍 Identifier</span>
+  <span v-click class="text-gray-400">→</span>
+  <span v-click v-motion :initial="{ y: 30, opacity: 0 }" :enter="{ y: 0, opacity: 1 }">🔬 Analyser</span>
+  <span v-click class="text-gray-400">→</span>
+  <span v-click v-motion :initial="{ x: 60, opacity: 0 }" :enter="{ x: 0, opacity: 1 }">🛠️ Remédier</span>
+</div>
+
+<p v-click class="text-center text-gray-500 mt-10">Les plus gros gains pour tout le monde : copier-coller · screenshot · changer de fenêtre</p>
 
 <!--
 Y consacrer du temps c'est bien, mais on commence par quoi? Mini disclaimer: Je vais donner des exemples à partir de maintenant qui sont basées sur ce que j'ai vécu et vu. Il s'agit de ma façon de répondre aux problèmes que j'ai rencontré. Vous n'aurez surement pas les mêmes besoins, ni les mêmes façons d'y répondre.
@@ -362,41 +359,14 @@ layout: none
 layout: center
 ---
 
-<div 
-  class="absolute right-4 top-4 flex items-start gap-4 rounded-lg shadow-lg px-6 py-4 max-w-xl mx-auto mb-8 border border-gray-300 backdrop-blur-md"
-  style="
-    background: linear-gradient(135deg, rgba(137, 137, 153, 0.6) 0%, rgba(150,150,155,0.35) 100%);
-    border: 1px solid rgba(160,160,170,0.25);
-    box-shadow: 20px 8px 32px 0 rgba(31,38,135,0.10);
-    backdrop-filter: blur(16px) saturate(150%);
-    -webkit-backdrop-filter: blur(16px) saturate(150%);
-  "
-  v-click="4" v-motion :initial="{ translateX: 100, filter: 'blur(10px)' }" :enter="{ translateX: 0, filter: 'blur(0px)' }"
->
-  <img 
-    src="https://media.licdn.com/dms/image/v2/C4D03AQFhBI1feJOYeQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1637317452394?e=1783555200&v=beta&t=k7Deh4Swr4pqEgSxx3z-lZwW8C6Xy8AblmIdrPin-Eo" 
-    alt="Arthur Gaudard" 
-    class="rounded-full w-10 h-10 object-cover mt-1"
-    style="background: rgba(244,244,244,0.3);"
-  />
-  <div>
-    <div class="flex items-baseline justify-between gap-2">
-      <div class="flex gap-2">
-        <span class="font-semibold text-black">Arthur Gaudard</span>
-        <span class="flex items-center gap-1 text-sm text-gray-800">
-          <img src="https://a.slack-edge.com/80588/marketing/img/meta/slack_hash_256.png" alt="Slack logo" class="rounded w-4 h-4 inline-block" style="vertical-align: middle;" />
-          via Slack
-        </span>
-        </div>
-      <span class="ml-2 text-sm text-gray-500" v-html="new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })"></span>
-    </div>
-    <div class="mt-1 text-gray-900">
-      🚨 <span class="font-semibold">Urgent :</span> il me faut le lien du dashboard de ce matin
-    </div>
-  </div>
-  <!-- notification dot -->
-  <span class="absolute top-2 right-2 w-3 h-3 bg-red-500 rounded-full border-2 border-white"></span>
-</div>
+<SlackNotification
+  class="absolute right-4 top-4"
+  avatar-src="https://media.licdn.com/dms/image/v2/C4D03AQFhBI1feJOYeQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1637317452394?e=1783555200&v=beta&t=k7Deh4Swr4pqEgSxx3z-lZwW8C6Xy8AblmIdrPin-Eo"
+  v-click="4"
+  v-motion
+  :initial="{ translateX: 100, filter: 'blur(10px)' }"
+  :enter="{ translateX: 0, filter: 'blur(0px)' }"
+/>
 
 
 <div class="flex gap-8 justify-center">
@@ -444,25 +414,15 @@ En vrai je peux lui répondre maintenant parceque le faire maintenant ça va le 
 -->
 
 ---
-layout: full
+layout: none
+clicks: 10
 ---
 
-todo: Arthur, à la dure 😮‍💨
+<ArthurSlow />
 
-<v-clicks>
-
-- 🔍 chercher la fenêtre du dashboard dans la barre… *(8 s)*
-- 🖱️ viser l'icône, mauvais écran, re-cliquer *(6 s)*
-- 📸 capturer tout l'écran, ouvrir l'aperçu, recadrer *(12 s)*
-- 🔗 sélectionner l'URL à la souris, Cmd+C *(5 s)*
-- 🪟 retrouver Slack, la bonne conversation *(7 s)*
-- ⌨️ coller, envoyer… *« c'était quoi déjà ma pensée ? »*
-
-</v-clicks>
-
-<p v-click class="text-2xl font-bold text-red-500 mt-8">~40 s + le fil de pensée perdu</p>
-
-<!-- Reprenons le scénario du chef. Voilà comment ça se passe quand rien n'est optimisé : chaque étape coûte quelques secondes, et au bout on a perdu son fil. -->
+<!--
+Reprenons le scénario du chef. Voilà comment ça se passe quand rien n'est optimisé : chaque étape coûte quelques secondes, et au bout on a perdu son fil.
+-->
 
 ---
 layout: full
@@ -522,11 +482,12 @@ La raison pour laquelle le changement de fenetre est aussi dur c'est que tout se
 -->
 
 ---
-layout: section
+layout: quote
 ---
 
-<h1>Et moi, comment je l'applique ?</h1>
-<h3 v-click class="italic text-gray-500">au-delà de l'universel : mon setup, à adapter au vôtre</h3>
+<blockquote><h2>Et toi comment tu fais dans ton quotidien ?</h2></blockquote>
+
+<h3 class="text-lg mt-8">— Vous, {{ new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) }}</h3>
 
 <!-- Jusqu'ici c'était universel, ça vaut pour tout le monde. À partir de maintenant je passe à mes optimisations perso de dev : prenez ce qui vous parle. -->
 
@@ -545,7 +506,7 @@ layout: center
     :enter="{ translateY: 0, opacity: 1 }"
   >
     <span class="text-4xl mb-2">📡</span>
-    <span class="font-bold text-lg">Info</span>
+    <span class="font-bold text-lg">Ma vision</span>
   </div>
   <div
     class="bg-blue-100 rounded-xl px-8 py-6 shadow-lg flex flex-col items-center min-w-[180px] max-w-[250px]"
@@ -555,7 +516,7 @@ layout: center
     :enter="{ translateY: 0, opacity: 1 }"
   >
     <span class="text-4xl mb-2">🛑</span>
-    <span class="font-bold text-lg">Distraction</span>
+    <span class="font-bold text-lg">Mon attention</span>
   </div>
   <div
     class="bg-blue-100 rounded-xl px-8 py-6 shadow-lg flex flex-col items-center min-w-[180px] max-w-[250px]"
@@ -565,32 +526,11 @@ layout: center
     :enter="{ translateY: 0, opacity: 1 }"
   >
     <span class="text-4xl mb-2">⌨️</span>
-    <span class="font-bold text-lg">Frugalité du clavier</span>
+    <span class="font-bold text-lg">Ma précision</span>
   </div>
 </div>
 
 <!-- Mes optimisations perso se rangent en 3 axes : l'info (ce que j'affiche et où), la distraction (ce que je cache), et la frugalité du clavier (taper moins). -->
-
----
-layout: full
----
-
-# En tant que dev
-
-todo: screen ide 
-todo: screen terminal p10k
-
-<v-clicks>
-
-- coder en **plein écran** : pas besoin de voir que Slack est ouvert
-- un **prompt** qui affiche l'essentiel en permanence (branche git, env, contexte k8s)
-- voir l'environnement **avant** de lancer la commande → moins de bêtises en prod
-
-</v-clicks>
-
-<!-- screencast : IDE plein écran + prompt p10k avec le contexte (env/prod) bien visible -->
-
-<!-- En tant que dev, je l'applique en essayant le plus de possible de mettre l'espace sur ce qui est important, donc je code en plein écran, j'ai pas besoin de savoir que slack est ouvert au moment où j'écris du code. Dans l'utilisation du terminal, je me facilite la vie et je mets l'environnement en affichage permanent comme ça je vois avant de faire la betise que la commande va pas marcher, ou que je vais faire n'importe quoi sur la prod -->
 
 ---
 layout: full
