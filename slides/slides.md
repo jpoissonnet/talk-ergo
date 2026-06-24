@@ -438,6 +438,26 @@ layout: section
 <!-- TODO: les maths de la friction / ROI — 10s par-ci, 5s par-là × 50 fois/jour = effet boule de neige ; investir 10s pour un raccourci qui en fait gagner 0,5s reste rentable -->
 
 ---
+layout: intro
+---
+
+<img
+  src="/jules.png"
+  alt="Jules Poissonnet"
+  class="absolute right-12 top-1/2 -translate-y-1/2 w-64 h-64 object-cover rounded-2xl shadow-xl"
+/>
+
+# Jules Poissonnet
+
+<p class="text-2xl flex items-center gap-2">Software Developer @ Bedrock Streaming</p>
+
+<img src="/bedrock.png" alt="Bedrock Streaming" class="w-1/2 dark:invert" />
+
+<!--
+Petite pause pour me présenter : moi c'est Jules, dev chez Bedrock Streaming. Tout ce que j'ai dit jusqu'ici est universel. À partir de maintenant, je vous parle de MES optimisations, celles que j'ai bricolées pour mes propres frictions. Prenez ce qui vous parle.
+-->
+
+---
 layout: quote
 ---
 
@@ -712,6 +732,25 @@ layout: center
 <h3 v-click>Une friction. Un geste. Répéter.</h3>
 
 <!-- Pour conclure : c'est chronique, mais ça se soigne, un geste à la fois. Vous êtes le médecin et le patient. -->
+
+---
+layout: center
+---
+
+<div class="font-mono text-center border-2 border-dashed border-gray-400 rounded-xl p-12 max-w-xl mx-auto">
+  <p class="text-gray-400 text-sm mb-4">Rx — Ordonnance</p>
+  <p class="text-2xl font-bold">1 friction · 1 geste · répéter</p>
+  <p class="text-gray-400 text-xs mt-4">durée : à vie</p>
+</div>
+
+<h2 v-click class="mt-12 text-xl italic text-center">
+  À votre avis, il ressemblera à quoi votre quotidien<br>
+  quand vos outils feront un peu plus pour vous ?
+</h2>
+
+<!--
+On s'est quitté sur l'ordonnance : une friction, un geste, on répète, à vie. Et plutôt que de répondre à la question du début à votre place, je vous la retourne : à votre avis, il ressemblera à quoi votre quotidien quand vos outils feront un peu plus pour vous ? ... Laissez infuser, et merci.
+-->
 
 ---
 layout: center
