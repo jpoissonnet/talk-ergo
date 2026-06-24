@@ -206,33 +206,8 @@ L'idée c'est qu'en choisissant bien nos outils, et nos habitudes, on peut dém�
 -->
 
 ---
-layout: full
----
-
-# Prescription: Mémoire procédurale
-
-<ul class="list-none flex flex-col items-center gap-6 mt-12">
-
-<li v-click v-motion :initial="{ x: -120, opacity: 0 }" :enter="{ x: 0, opacity: 1 }" class="text-2xl font-bold">🔍 Identifier</li>
-<li v-click v-motion :initial="{ x: 120, opacity: 0 }" :enter="{ x: 0, opacity: 1 }" class="text-2xl font-bold">🔬 Analyser</li>
-<li v-click v-motion :initial="{ x: -120, opacity: 0 }" :enter="{ x: 0, opacity: 1 }" class="text-2xl font-bold">🛠️ Corriger</li>
-<li v-click v-motion :initial="{ scale: 0.4, opacity: 0 }" :enter="{ scale: 1, opacity: 1 }" class="text-2xl font-bold">🔁 Répéter</li>
-<li v-click v-motion :initial="{ opacity: 0 }" :enter="{ opacity: 0.6 }" class="text-gray-500 text-sm">Répéter...</li>
-<li v-click v-motion :initial="{ opacity: 0 }" :enter="{ opacity: 0.4 }" class="text-gray-400 text-xs">Répéter...</li>
-<li v-click v-motion :initial="{ opacity: 0 }" :enter="{ opacity: 0.25 }" class="text-gray-300 text-xs">répéter...</li>
-
-</ul>
-
-<!--
-Du coup la prescription pour votre frictionite, c'est simple, on identifie une friction, on analyse la cause, on corrige et on répète
-Et la mémoire procédurale fonctionne exactement pareil, c'est la répétition d'un mouvement, en l'ayant décomposer et corriger, qui va l'inscrire comme une nouvelle compétence
--->
-
----
 layout: section
 ---
-
-todo: dire que c'est en cherchant la fluidité qu'on va décomposer son mouvement, analyser les erreurs et le répéter, et que du coup ça va rentrer dans la mémoire procédurale, parce que c'est comme ça qu'elle fonctionne
 
 <h1 v-click v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, textDecoration: 'none'  }" :click-2="{ scale: 0.5, opacity: .4, textDecoration: 'line-through' }">3. La vitesse</h1>
 <h1 v-click v-motion :initial="{ scale: 0.5, opacity: 0 }" :enter="{ scale: 1.2, opacity: 1, y: -50 }">3. La fluidité</h1>
@@ -241,6 +216,19 @@ todo: dire que c'est en cherchant la fluidité qu'on va décomposer son mouvemen
 L'effet le plus important est le plus visible, après qq temps, astuces et investissements, vous allez vous apercevoir que vous êtes juste plus rapide...
 À mon avis, c'est pas qqchose qu'il faut chercher activement au début, c'est juste une conséquence de l'effort que vous avez mis et de votre recablage cérébral.
 Le vrai objectif que vous devriez visez c'est la fluidité, la vitesse viendra avec, comme pour le langage
+-->
+
+---
+layout: full
+---
+
+# Prescription: Mémoire procédurale
+
+<img src="/boxing.gif" alt="boxeur frappant un sac" class="mx-auto mt-8 h-80 rounded-xl object-cover" />
+
+<!--
+Du coup la prescription pour votre frictionite, c'est simple, on identifie une friction, on analyse la cause, on corrige et on répète
+Et la mémoire procédurale fonctionne exactement pareil, c'est la répétition d'un mouvement, en l'ayant décomposer et corriger, qui va l'inscrire comme une nouvelle compétence
 -->
 
 ---
