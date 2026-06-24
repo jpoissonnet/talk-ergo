@@ -258,7 +258,6 @@ layout: section
 ---
 
 <h1>Comment on fait ?</h1>
-<h2>Petits rappels</h2>
 
 <!--
 Bon alors c'est très sympa de nous dire qu'on peut accélérer, mais comment on fait ?
@@ -268,59 +267,17 @@ Bon alors c'est très sympa de nous dire qu'on peut accélérer, mais comment on
 layout: full
 ---
 
-<img 
-  src="https://www.chambre-syndicale-sophrologie.fr/wp-content/uploads/2022/11/doctolib.jpg"
-  class="h-1/2 absolute top-1/2 left-1/2"
-  v-click
-  v-motion
-  :initial="{ scale: 0.5, opacity: 1, translateX: '-50%', translateY: '-50%' }"
-  :enter="{ scale: 1, opacity: 1 }"
-/>
+todo: méthode symptômes - diagnostic - prescription 
 
-<img
-  src="https://everhour.com/blog/wp-content/uploads/2024/05/google-calendar-color-coding.jpg"
-  class="h-full absolute top-1/2 left-1/2"
-  v-click
-  v-motion
-  :initial="{ scale: 0.5, opacity: 1, translateX: '-50%', translateY: '-50%' }"
-  :enter="{ scale: 1, opacity: 1 }"
-/>
-
-<!--
-Malheureusement il y a pas de Doctolib pour prendre des rdvs pour soigner sa DX. Donc il va falloir trouver du temps dans votre semaine pour le faire.
+<!---
+tosay: dire que c'est la méthode générale pour soigner la frictionite
 -->
-
----
-layout: image
-image: https://thumbs.dreamstime.com/z/temps-de-compression-41255817.jpg
----
-
-<!-- J'ai une collègue qui m'a donné son astuce de chef pour gagner du temps sur la veille technique, c'est d'aller voir les gens qui sont en train de tester des outils et de leur en parler. Ce qu'ils ont passé 2h à déchiffrer et qui est frais dans leur têtes, ils vont peut-être mettre 3min à vous le résumer et vous aller pouvoir savoir si l'outil mérite de l'investissement ou non.-->
-
----
-layout: image
-image: https://m.media-amazon.com/images/M/MV5BNmU4ODM0NGUtYjk0ZC00ODQwLTk3NjItYThiZWRiNDk2MjFlXkEyXkFqcGc@._V1_.jpg
----
-
-<!-- Un bon endroit pour ça c'est la machine à café, ça vous permet de rendre vos pauses productives, et en fonction vos bureaux ça peut même vous faire croiser des équipes avec qui vous travaillez pas et qui ont donc d'autres expériences enrichissantes -->
-
----
-layout: image
-image: https://lagranderecre-lagranderecre-fr-storage.omn.proximis.com/Imagestorage/images/0/0/607efd4c57507_B2176_HAND_GMS_WMT_OPERATION_177.jpg
-backgroundSize: contain
----
-
-<!--
-Et là je vais vous decevoir parceque je n'ai pas de solution miracle pour rebrancher votre cerveau et vous obtenir une expérience sans friction.
-Par contre je connais qqun qui peut...
--->
-
 
 ---
 layout: section
 ---
 
-<h1>Vous êtes le médecin et le patient</h1>
+<h1>Vous êtes le patient et le médecin</h1>
 
 <!--
 Eh oui, c'est vous qui connaissez le mieux vos habitudes, vos gouts et vos frictions, c'est donc de vous que doit venir le remède
@@ -330,30 +287,12 @@ Eh oui, c'est vous qui connaissez le mieux vos habitudes, vos gouts et vos frict
 layout: section
 ---
 
-<h2 class="font-bold" v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, opacity: 1 }">On commence par quoi ?</h2>
-
-<div class="flex items-center justify-center gap-4 mt-12 text-2xl font-semibold">
-  <span v-click v-motion :initial="{ x: -60, opacity: 0 }" :enter="{ x: 0, opacity: 1 }">🔍 Identifier</span>
-  <span v-click class="text-gray-400">→</span>
-  <span v-click v-motion :initial="{ y: 30, opacity: 0 }" :enter="{ y: 0, opacity: 1 }">🔬 Analyser</span>
-  <span v-click class="text-gray-400">→</span>
-  <span v-click v-motion :initial="{ x: 60, opacity: 0 }" :enter="{ x: 0, opacity: 1 }">🛠️ Remédier</span>
-</div>
-
-<p v-click class="text-center text-gray-500 mt-10">Les plus gros gains pour tout le monde : copier-coller · screenshot · changer de fenêtre</p>
+<h1>On commence par quoi ?</h1>
+<h3 v-click class="text-gray-500">Les gains immédiats, pour tout le monde</h3>
 
 <!--
 Y consacrer du temps c'est bien, mais on commence par quoi? Mini disclaimer: Je vais donner des exemples à partir de maintenant qui sont basées sur ce que j'ai vécu et vu. Il s'agit de ma façon de répondre aux problèmes que j'ai rencontré. Vous n'aurez surement pas les mêmes besoins, ni les mêmes façons d'y répondre.
 -->
-
----
-layout: none
----
-
-<img class="absolute" src="https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/19194063/darkmodeslackdesktop.jpg?quality=90&strip=all&crop=0,0,100,100" />
-<img v-click class="absolute" src="https://f.hellowork.com/bdmtools/2021/05/outil-miro-1.jpg"/>
-
-<!-- Si ces images représentent une partie de votre quotidien et que vous ne devez retenir qu'un truc de ce talk, c'est ce qui suit : -->
 
 ---
 layout: center
@@ -428,17 +367,15 @@ Reprenons le scénario du chef. Voilà comment ça se passe quand rien n'est opt
 layout: full
 ---
 
-# 📋 Copier-coller → un gestionnaire de presse-papier
+# 📋 Copier-coller → utiliser le ✨presse-papier✨
 
-<v-clicks>
+<ul class="-ml-8 text-xl">
+<li class="list-none"><span class="font-bold">un historique</span>, pas un seul emplacement</li>
+<li class="list-none"><span class="font-bold">re-coller</span> ce qu'on avait copié il y a 3 copies</li>
+<li class="list-none">coller <span class="font-bold">en séquence</span></li>
+</ul>
+<p class="text-gray-500 mt-6">ex. Maccy, Raycast, Klipper… — universel, tous OS</p>
 
-- un **historique**, pas un seul emplacement
-- re-coller ce qu'on avait copié il y a 3 copies
-- coller en séquence
-
-</v-clicks>
-
-<p v-click class="text-gray-500 mt-6">ex. Maccy, Raycast, Klipper… — universel, tous OS</p>
 
 <!--
 Premier geste : le presse-papier. Par défaut on n'a qu'un seul emplacement. Un gestionnaire garde un historique, permet de coller en texte brut, et d'épingler ce qu'on recolle souvent.
@@ -448,11 +385,11 @@ Premier geste : le presse-papier. Par défaut on n'a qu'un seul emplacement. Un 
 layout: full
 ---
 
-# 📸 Screenshot → capturer juste ce qu'il faut
+# 📸 Screenshot → illustrer une information 
 
 <v-clicks>
 
-- envoyer direct dans le **presse-papier** (pas un fichier sur le bureau)
+- envoyer direct dans le **presse-papier** ou sur le bureau
 - annoter / flécher avant d'envoyer
 - bonus: ocr + qr code
 
@@ -480,6 +417,32 @@ layout: full
 <!--
 La raison pour laquelle le changement de fenetre est aussi dur c'est que tout se fait au visuel : il faut se souvenir de l'icône, la trouver dans la barre, cliquer, espérer le bon écran. Au clavier, on vise une app par un raccourci et elle s'ouvre toujours au même endroit.
 -->
+
+---
+layout: full
+---
+
+todo: Arthur, version efficace ✨
+
+<v-clicks>
+
+- 🔗 capture de zone + lien copiés en un raccourci *(3 s)*
+- 🪟 ⌥⌘S pour sauter sur Slack *(1 s)*
+- ⌨️ coller, envoyer — et retour direct au boulot *(2 s)*
+
+</v-clicks>
+
+<p v-click class="text-2xl font-bold text-green-500 mt-8">~6 s, sans quitter sa pensée</p>
+
+<!-- Le même scénario que tout à l'heure, mais avec les gestes qu'on vient de voir. Arthur reste dans son flow, et il n'a rien perdu de sa concentration. -->
+
+---
+layout: section
+---
+
+<h1>Les maths de la friction</h1>
+
+<!-- TODO: les maths de la friction / ROI — 10s par-ci, 5s par-là × 50 fois/jour = effet boule de neige ; investir 10s pour un raccourci qui en fait gagner 0,5s reste rentable -->
 
 ---
 layout: quote
@@ -634,28 +597,68 @@ layout: full
 layout: full
 ---
 
-todo: Arthur, version efficace ✨
-
-<v-clicks>
-
-- 🔗 capture de zone + lien copiés en un raccourci *(3 s)*
-- 🪟 ⌥⌘S pour sauter sur Slack *(1 s)*
-- ⌨️ coller, envoyer — et retour direct au boulot *(2 s)*
-
-</v-clicks>
-
-<p v-click class="text-2xl font-bold text-green-500 mt-8">~6 s, sans quitter sa pensée</p>
-
-<!-- Le même scénario que tout à l'heure, mais avec les gestes qu'on vient de voir. Arthur reste dans son flow, et il n'a rien perdu de sa concentration. -->
+todo: iceberg des possibilités
 
 ---
 layout: section
 ---
 
-<h1>Votre efficacité rayonne sur vos collègues</h1>
-<h3 v-click class="italic text-gray-500">comment embarquer l'équipe ?</h3>
+<h1>Votre efficacité est contagieuse</h1>
+<h3 v-click class="italic text-gray-500">comment contaminer votre équipe ?</h3>
 
 <!-- Une fois qu'on a soigné sa propre frictionite, on a envie de partager. Mais attention à la façon de s'y prendre. -->
+
+---
+layout: full
+---
+
+<img 
+  src="https://www.chambre-syndicale-sophrologie.fr/wp-content/uploads/2022/11/doctolib.jpg"
+  class="h-1/2 absolute top-1/2 left-1/2"
+  v-click
+  v-motion
+  :initial="{ scale: 0.5, opacity: 1, translateX: '-50%', translateY: '-50%' }"
+  :enter="{ scale: 1, opacity: 1 }"
+/>
+
+<img
+  src="https://everhour.com/blog/wp-content/uploads/2024/05/google-calendar-color-coding.jpg"
+  class="h-full absolute top-1/2 left-1/2"
+  v-click
+  v-motion
+  :initial="{ scale: 0.5, opacity: 1, translateX: '-50%', translateY: '-50%' }"
+  :enter="{ scale: 1, opacity: 1 }"
+/>
+
+<!--
+Malheureusement il y a pas de Doctolib pour prendre des rdvs pour soigner sa DX. Donc il va falloir trouver du temps dans votre semaine pour le faire.
+-->
+
+---
+layout: image
+image: https://lagranderecre-lagranderecre-fr-storage.omn.proximis.com/Imagestorage/images/0/0/607efd4c57507_B2176_HAND_GMS_WMT_OPERATION_177.jpg
+backgroundSize: contain
+---
+
+<!--
+Et là je vais vous decevoir parceque je n'ai pas de solution miracle pour rebrancher votre cerveau et vous obtenir une expérience sans friction.
+Par contre je connais qqun qui peut...
+-->
+
+
+---
+layout: image
+image: https://thumbs.dreamstime.com/z/temps-de-compression-41255817.jpg
+---
+
+<!-- J'ai une collègue qui m'a donné son astuce de chef pour gagner du temps sur la veille technique, c'est d'aller voir les gens qui sont en train de tester des outils et de leur en parler. Ce qu'ils ont passé 2h à déchiffrer et qui est frais dans leur têtes, ils vont peut-être mettre 3min à vous le résumer et vous aller pouvoir savoir si l'outil mérite de l'investissement ou non.-->
+
+---
+layout: image
+image: https://m.media-amazon.com/images/M/MV5BNmU4ODM0NGUtYjk0ZC00ODQwLTk3NjItYThiZWRiNDk2MjFlXkEyXkFqcGc@._V1_.jpg
+---
+
+<!-- Un bon endroit pour ça c'est la machine à café, ça vous permet de rendre vos pauses productives, et en fonction vos bureaux ça peut même vous faire croiser des équipes avec qui vous travaillez pas et qui ont donc d'autres expériences enrichissantes -->
 
 ---
 layout: full
