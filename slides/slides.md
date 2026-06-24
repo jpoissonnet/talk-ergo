@@ -419,22 +419,15 @@ La raison pour laquelle le changement de fenetre est aussi dur c'est que tout se
 -->
 
 ---
-layout: full
+layout: none
+clicks: 12
 ---
 
-todo: Arthur, version efficace ✨
+<ArthurFast />
 
-<v-clicks>
-
-- 🔗 capture de zone + lien copiés en un raccourci *(3 s)*
-- 🪟 ⌥⌘S pour sauter sur Slack *(1 s)*
-- ⌨️ coller, envoyer — et retour direct au boulot *(2 s)*
-
-</v-clicks>
-
-<p v-click class="text-2xl font-bold text-green-500 mt-8">~6 s, sans quitter sa pensée</p>
-
-<!-- Le même scénario que tout à l'heure, mais avec les gestes qu'on vient de voir. Arthur reste dans son flow, et il n'a rien perdu de sa concentration. -->
+<!--
+réviser le scénario
+-->
 
 ---
 layout: section

@@ -24,15 +24,20 @@
 import { computed, ref } from 'vue'
 
 const props = defineProps({
-  workspaceName:   { type: String,  default: 'Bedrock Streaming' },
-  activeDm:        { type: String,  default: ''                  },
-  showPasteMenu:   { type: Boolean, default: false               }, // click 8: context menu over input
-  linkTyped:       { type: Boolean, default: false               }, // click 9: URL in input bar
-  messageSent:     { type: Boolean, default: false               }, // click 10: sent as bubble
-  arthurAvatarSrc: { type: String,  default: ''                  },
-  now:             { type: Number,  default: () => Date.now()    }, // refreshed by ArthurSlow on slide enter
-  width:           { type: String,  default: '100%'              },
-  height:          { type: String,  default: '100%'              },
+  workspaceName:     { type: String,  default: 'Bedrock Streaming' },
+  activeDm:          { type: String,  default: ''                  },
+  showPasteMenu:     { type: Boolean, default: false               }, // click 8: context menu over input
+  linkTyped:         { type: Boolean, default: false               }, // click 9: URL in input bar
+  messageSent:       { type: Boolean, default: false               }, // click 10: sent as bubble
+  arthurAvatarSrc:   { type: String,  default: ''                  },
+  now:               { type: Number,  default: () => Date.now()    }, // refreshed by parent on slide enter
+  width:             { type: String,  default: '100%'              },
+  height:            { type: String,  default: '100%'              },
+  // ArthurFast additions:
+  showSearchOverlay: { type: Boolean, default: false               }, // click 7+8: Slack search modal
+  searchTyped:       { type: Boolean, default: false               }, // click 8: "Gaud" typed + result highlighted
+  pastedItems:       { type: Array,   default: () => []            }, // click 10+11: items in input bar
+  sentItems:         { type: Array,   default: () => []            }, // click 12: items in sent bubble
 })
 
 const arthurAvatar    = computed(() => props.arthurAvatarSrc)
@@ -189,7 +194,7 @@ const replyUrl       = 'https://dashboard.internal.bedrock.tech/metrics/today'
       </nav>
 
       <!-- ── Conversation pane ──────────────────────────────────── -->
-      <div class="flex flex-col flex-1 overflow-hidden" style="background:#1a1d21; min-width:0;">
+      <div class="flex flex-col flex-1 overflow-hidden relative" style="background:#1a1d21; min-width:0;">
 
         <!-- Pane header -->
         <div
@@ -241,7 +246,7 @@ const replyUrl       = 'https://dashboard.internal.bedrock.tech/metrics/today'
                 </div>
               </div>
 
-              <!-- Sent reply (click 8) — appears and sends in one click -->
+              <!-- Sent reply (click 10) — appears and sends in one click -->
               <Transition name="reply-slide">
                 <div v-if="messageSent" class="flex items-start gap-2">
                   <div
@@ -253,7 +258,15 @@ const replyUrl       = 'https://dashboard.internal.bedrock.tech/metrics/today'
                       <span class="text-[11px] font-bold" style="color:white;">Jules Poissonnet</span>
                       <span class="text-[9px]" style="color:rgba(255,255,255,0.32);">{{ timeReply }}</span>
                     </div>
-                    <p class="text-[11px] mt-0.5 leading-relaxed" style="color:#5ac8fa;">{{ replyUrl }}</p>
+                    <!-- ArthurFast: sentItems shows thumbnail + URL -->
+                    <div v-if="sentItems.length > 0" class="flex flex-col gap-1.5 mt-1">
+                      <template v-for="(item, i) in sentItems" :key="i">
+                        <span v-if="item.type === 'screenshot'" class="sent-thumb">📊</span>
+                        <span v-else-if="item.type === 'url'" class="text-[11px]" style="color:#5ac8fa;">{{ item.value }}</span>
+                      </template>
+                    </div>
+                    <!-- ArthurSlow: just the URL -->
+                    <p v-else class="text-[11px] mt-0.5 leading-relaxed" style="color:#5ac8fa;">{{ replyUrl }}</p>
                   </div>
                 </div>
               </Transition>
@@ -271,6 +284,44 @@ const replyUrl       = 'https://dashboard.internal.bedrock.tech/metrics/today'
           </Transition>
         </div>
 
+        <!-- ── Slack search overlay (ArthurFast click 7) ─────────── -->
+        <Transition name="search-overlay">
+          <div
+            v-if="showSearchOverlay"
+            class="absolute inset-0 z-50 flex items-center justify-center"
+            style="background:rgba(0,0,0,0.40);"
+          >
+            <div class="slack-search-box">
+              <!-- Search input -->
+              <div class="slack-search-input-row">
+                <span class="slack-search-icon">🔍</span>
+                <span v-if="searchTyped" class="slack-search-text">Gaud</span>
+                <span v-else class="slack-search-placeholder">Rechercher dans Bedrock Streaming</span>
+                <span class="input-cursor">|</span>
+              </div>
+              <!-- Result row: only shown when typed -->
+              <template v-if="searchTyped">
+                <div style="height:1px;background:rgba(255,255,255,0.08);margin:0;" />
+                <div class="slack-search-result slack-search-result-active">
+                  <div class="slack-search-avatar">
+                    <img
+                      v-if="!arthurImgFailed"
+                      :src="arthurAvatar"
+                      class="slack-search-avatar-img"
+                      @error="arthurImgFailed = true"
+                    />
+                    <span v-else>AG</span>
+                  </div>
+                  <div class="slack-search-result-info">
+                    <span class="slack-search-result-name">Arthur Gaudard</span>
+                    <span class="slack-search-result-sub">Message direct</span>
+                  </div>
+                </div>
+              </template>
+            </div>
+          </div>
+        </Transition>
+
         <!-- Input area wrapper (relative so the context menu can anchor to it) -->
         <div class="flex-shrink-0 mx-3 mb-3 relative">
 
@@ -287,12 +338,20 @@ const replyUrl       = 'https://dashboard.internal.bedrock.tech/metrics/today'
           <!-- Input bar -->
           <div
             class="flex items-center gap-2 rounded-md px-3"
-            :style="linkTyped
-              ? 'height:32px;background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.22);'
+            :style="(linkTyped || pastedItems.length > 0)
+              ? 'height:36px;background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.22);'
               : 'height:32px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.11);'"
           >
-            <!-- click 9: URL pasted in input bar with blinking cursor -->
-            <span v-if="linkTyped" class="text-[10px] flex-1 truncate" style="color:rgba(255,255,255,0.85);">
+            <!-- ArthurFast click 9: pasted items (screenshot thumbnail + URL) -->
+            <template v-if="pastedItems.length > 0">
+              <template v-for="(item, i) in pastedItems" :key="i">
+                <span v-if="item.type === 'screenshot'" class="paste-thumb">📊</span>
+                <span v-else-if="item.type === 'url'" class="text-[10px] truncate" style="color:#5ac8fa;max-width:160px;">{{ item.value }}</span>
+              </template>
+              <span class="input-cursor">|</span>
+            </template>
+            <!-- ArthurSlow click 9: URL pasted in input bar with blinking cursor -->
+            <span v-else-if="linkTyped" class="text-[10px] flex-1 truncate" style="color:rgba(255,255,255,0.85);">
               {{ replyUrl }}<span class="input-cursor">|</span>
             </span>
             <!-- default / sent: placeholder -->
@@ -359,5 +418,123 @@ const replyUrl       = 'https://dashboard.internal.bedrock.tech/metrics/today'
   animation: blink 0.9s step-start infinite;
   font-weight: 100;
   margin-left: 1px;
+  color: rgba(255,255,255,0.70);
+  font-size: 11px;
+}
+
+/* Screenshot thumbnail in input bar and sent bubble */
+.paste-thumb {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 28px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 4px;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+.sent-thumb {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 90px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px;
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+/* ── Slack search overlay (ArthurFast) ───────────────────────── */
+.search-overlay-enter-active {
+  transition: opacity 0.18s ease, transform 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.search-overlay-enter-from {
+  opacity: 0;
+  transform: scale(0.94);
+}
+.search-overlay-leave-active {
+  transition: opacity 0.14s ease-in;
+}
+.search-overlay-leave-to {
+  opacity: 0;
+}
+
+.slack-search-box {
+  width: 80%;
+  max-width: 320px;
+  background: #1e1e2e;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+}
+.slack-search-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+}
+.slack-search-icon {
+  font-size: 12px;
+  opacity: 0.55;
+  flex-shrink: 0;
+}
+.slack-search-text {
+  font-size: 12px;
+  color: rgba(255,255,255,0.85);
+  flex: 1;
+}
+.slack-search-placeholder {
+  font-size: 12px;
+  color: rgba(255,255,255,0.30);
+  flex: 1;
+}
+.slack-search-result {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  cursor: default;
+}
+.slack-search-result-active {
+  background: rgba(29, 155, 240, 0.25);
+}
+.slack-search-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#4a90d9,#2c6fb0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 9px;
+  font-weight: 700;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.slack-search-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.slack-search-result-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.slack-search-result-name {
+  font-size: 11px;
+  font-weight: 600;
+  color: white;
+}
+.slack-search-result-sub {
+  font-size: 9px;
+  color: rgba(255,255,255,0.45);
 }
 </style>
