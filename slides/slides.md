@@ -242,13 +242,35 @@ Bon alors c'est très sympa de nous dire qu'on peut accélérer, mais comment on
 -->
 
 ---
-layout: full
+layout: center
 ---
 
-todo: méthode symptômes - diagnostic - prescription 
+<h1 class="text-5xl font-black text-center mb-8">La méthode en 3 étapes</h1>
 
-<!---
-tosay: dire que c'est la méthode générale pour soigner la frictionite
+<div class="flex justify-center gap-16 items-center my-12">
+
+  <div class="flex flex-col items-center" v-click>
+    <span class="text-6xl mb-4">😣</span>
+    <span class="text-xl font-bold mb-2 text-red-500">1. Symptôme</span>
+    <span class="text-gray-600 text-center">Identifier une friction<br/><i>(Qu'est-ce qui ralentit&nbsp;?)</i></span>
+  </div>
+  
+  <div class="flex flex-col items-center" v-click>
+    <span class="text-6xl mb-4">🔎</span>
+    <span class="text-xl font-bold mb-2 text-yellow-500">2. Diagnostic</span>
+    <span class="text-gray-600 text-center">Trouver l’outil ou le réglage<br/><i>(Comment le résoudre&nbsp;?)</i></span>
+  </div>
+
+  <div class="flex flex-col items-center" v-click>
+    <span class="text-6xl mb-4">💊</span>
+    <span class="text-xl font-bold mb-2 text-green-600">3. Prescription</span>
+    <span class="text-gray-600 text-center">Prendre la nouvelle habitude<br/><i>(S’entraîner, répéter)</i></span>
+  </div>
+
+</div>
+
+<!--
+C'est la méthode générale : on commence par repérer le symptôme — la friction, on diagnostique le point d'amélioration possible (souvent une config ou un outil), puis on l'intègre comme une nouvelle habitude. Ce cycle est à répéter pour apaiser la "frictionite" petit à petit.
 -->
 
 ---
