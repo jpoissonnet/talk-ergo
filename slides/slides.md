@@ -232,16 +232,6 @@ Et la mémoire procédurale fonctionne exactement pareil, c'est la répétition 
 -->
 
 ---
-layout: image
-image: /i-am-speed.jpg
-backgroundSize: contain
----
-
-<!--
-Vous allez sans doute réduire le nombre de tâche que vous repousse parce que ce qui vous interrompait dans vos pensées et vous prenait 5 min, aujourd'hui vous en prend 2 et vous le faite sans y penser.
--->
-
----
 layout: section
 ---
 
@@ -417,13 +407,93 @@ clicks: 12
 réviser le scénario
 -->
 
+
+---
+layout: image
+image: /i-am-speed.jpg
+backgroundSize: contain
+---
+
+<!--
+Vous allez sans doute réduire le nombre de tâche que vous repousse parce que ce qui vous interrompait dans vos pensées et vous prenait 5 min, aujourd'hui vous en prend 2 et vous le faite sans y penser.
+-->
+
 ---
 layout: section
 ---
 
-<h1>Les maths de la friction</h1>
+# Les maths des gains potentiels
 
-<!-- TODO: les maths de la friction / ROI — 10s par-ci, 5s par-là × 50 fois/jour = effet boule de neige ; investir 10s pour un raccourci qui en fait gagner 0,5s reste rentable -->
+<!-- accrochez vous on va faire des maths -->
+
+---
+layout: center
+---
+
+<h1 class="text-4xl font-bold text-center">Une journée type</h1>
+
+
+<div class="flex flex-col items-center gap-4">
+<v-clicks>
+  <p class="text-3xl text-blue-500">50 copier-collers</p>
+  <p class="text-3xl text-green-500">5 captures d'écran</p>
+  <p class="text-3xl text-purple-500">100 commandes éxécutées</p>
+</v-clicks>
+</div>
+
+
+<!-- accrochez vous on va faire des maths -->
+
+---
+layout: center
+---
+
+<p class="text-6xl font-black text-gray-500 text-center" v-click>copier-collers</p>
+<p class="text-8xl font-bold py-16 text-center">50 × 5s</p>
+<p class="text-6xl font-black text-blue-500" v-click>= 2h47 par an</p>
+
+---
+layout: fact
+---
+
+<p class="text-6xl font-black text-gray-500 text-center" v-click>screenshots</p>
+<p class="text-8xl font-bold py-16 text-center">5 × 10s</p>
+<p class="text-6xl font-black text-green-500" v-click>= 1h23 par an</p>
+---
+layout: fact
+---
+
+<p class="text-6xl font-black text-gray-500 text-center" v-click>commandes éxécutées</p>
+<p class="text-8xl font-bold py-16 text-center">100 × 3s</p>
+<p class="text-6xl font-black text-purple-500" v-click>= 4h10 par an</p>
+
+---
+layout: fact
+---
+
+<p class="text-6xl font-black text-gray-500 text-center" v-click>Au max 🚀</p>
+<p class="text-8xl font-bold py-16 text-center">Fluidité</p>
+
+---
+layout: fact
+---
+
+<p class="text-6xl font-black text-gray-500 text-center" v-click>Allégée 💪</p>
+<p class="text-8xl font-bold py-16 text-center">Charge cognitive</p>
+
+---
+layout: fact
+---
+
+<p class="text-6xl font-black text-center">Total:</p>
+<v-clicks>
+<AutoFitText :max="50" modelValue="Une semaine de travail de gain" class="font-bold text-center"/>
+  <p class="text-5xl"><i class="text-gray-500 text-center">*en ressenti</i></p>
+  <p class="text-5xl"><i class="text-gray-500 text-center">*sans compter les heures de config</i></p>
+  <p class="text-5xl"><i class="text-gray-500 text-center">*discours non contractuel</i></p>
+</v-clicks>
+
+<!-- on va dire que c'est beaucoup -->
 
 ---
 layout: intro
