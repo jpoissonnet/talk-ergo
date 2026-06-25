@@ -562,7 +562,8 @@ layout: center
     :enter="{ translateY: 0, opacity: 1 }"
   >
     <span class="text-4xl mb-2">📡</span>
-    <span class="font-bold text-lg">Ma vision</span>
+    <span class="font-bold text-lg">Radar</span>
+    <span class="text-xs text-gray-500 mt-1">la bonne info en vue</span>
   </div>
   <div
     class="bg-blue-100 rounded-xl px-8 py-6 shadow-lg flex flex-col items-center min-w-[180px] max-w-[250px]"
@@ -571,8 +572,9 @@ layout: center
     :initial="{ translateY: 40, opacity: 0 }"
     :enter="{ translateY: 0, opacity: 1 }"
   >
-    <span class="text-4xl mb-2">🛑</span>
-    <span class="font-bold text-lg">Mon attention</span>
+    <span class="text-4xl mb-2">🤫</span>
+    <span class="font-bold text-lg">Silence</span>
+    <span class="text-xs text-gray-500 mt-1">couper le bruit</span>
   </div>
   <div
     class="bg-blue-100 rounded-xl px-8 py-6 shadow-lg flex flex-col items-center min-w-[180px] max-w-[250px]"
@@ -581,43 +583,68 @@ layout: center
     :initial="{ translateY: 40, opacity: 0 }"
     :enter="{ translateY: 0, opacity: 1 }"
   >
-    <span class="text-4xl mb-2">⌨️</span>
-    <span class="font-bold text-lg">Ma précision</span>
+    <span class="text-4xl mb-2">✋</span>
+    <span class="font-bold text-lg">Parcimonie</span>
+    <span class="text-xs text-gray-500 mt-1">taper moins</span>
   </div>
 </div>
 
-<!-- Mes optimisations perso se rangent en 3 axes : l'info (ce que j'affiche et où), la distraction (ce que je cache), et la frugalité du clavier (taper moins). -->
+<!-- Mes optimisations perso se rangent en 3 axes : Radar (avoir la bonne info en vue), Silence (couper le bruit), Parcimonie (taper moins, se tromper moins). -->
 
 ---
 layout: full
 ---
 
-# Ménager son champ de vision
+# 📡 Radar
 
 <img v-click v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, opacity: 1 }" src="https://i.redd.it/e13ts578tb881.jpg" alt="Jurassic Park logo" class="h-2/3 mx-auto mt-20" />
 
 <!-- La vue c'est un sens un peu traître parceque autant on peut oublier les choses qui ne bougent pas, et ne pas voir que c'est l'heure d'aller en réu, et autant la moindre notification en haut de l'écran nous fait tourner les yeux -->
 
 ---
-layout: two-cols
+layout: full
 ---
 
-## Diminuer les distractions
+# 📡 Radar — la bonne info, sans la chercher
 
-- Enlever les icones qui servent pas
-- Abuser du plein-écran
+<div class="absolute inset-0">
+  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[14%] top-[30%] -rotate-3" name="p10k" icon="⚡" img="/logos/powerlevel10k.png" desc="prompt : env · node · git" />
+  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[55%] top-[24%] rotate-2" name="Notion Calendar" icon="📅" img="https://cdn.simpleicons.org/notion" desc="prochaine réu en vue" />
+  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[58%] top-[65%] rotate-1" name="météo" icon="🌤️" desc="le temps, en widget" />
+  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[18%] top-[60%] rotate-3" name="git-delta" icon="🔺" img="/logos/delta.png" desc="diffs lisibles" />
+</div>
 
-::right::
+<!--
+Radar : avoir en permanence sous les yeux les infos qui comptent, sans aller les chercher. Mon prompt me donne le contexte (env, version de Node, état git), Notion Calendar m'affiche ma prochaine réu, le widget météo m'évite d'ouvrir une app. Et côté terminal, eza, delta et btop rendent l'info lisible d'un coup d'œil.
+-->
 
-## Rendre accessible l'important
+---
+layout: center
+---
 
-- Réunion dans la menu bar
-- Météo dans le volet widget
+# 🤫 Silence
 
-<!-- Pour en prendre soin, il y a 2 choses à faire: diminuer les distractions, et mettre l'accent sur l'important
-En pratique, savoir que mon wifi est actif ne m'aide pas tant que ça dans ma journée, a priori si j'ai internet je suis au courant, en cachant l'icone on remet de l'importance sur qqchose d'autre comme est-ce que le VPN de ma boîte est actif...
-D'autre part, dans les informations que j'ai envie d'avoir, c'est pas tellement l'heure, c'est plutot dans cb de temps est ma prochaine réu.
- -->
+<p class="text-xl text-gray-500 mt-4">Tout ce qui clignote, vibre ou dépasse vole un bout d'attention.</p>
+
+<!-- Silence : réduire les distractions au minimum. Savoir que mon wifi est actif ne m'aide pas ; en cachant l'icône je laisse de la place à ce qui compte vraiment (mon VPN est-il actif ?). Pareil pour les fenêtres : tout en plein écran, pas de panneaux inutiles qui grignotent l'écran. -->
+
+---
+layout: full
+---
+
+# 🤫 Silence — couper le bruit
+
+<div class="absolute inset-0">
+  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[16%] top-[30%] -rotate-2" name="Ice" icon="🧊" img="/logos/ice.png" desc="menu bar épurée" />
+  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[56%] top-[26%] rotate-2" name="aerospace" icon="🪟" img="/logos/aerospace.png" desc="tiling au clavier" />
+  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[33%] top-[47%] rotate-1" name="plein écran" icon="⛶" desc="toutes les fenêtres maximisées" />
+  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[60%] top-[65%] -rotate-2" name="side-bars off" icon="📐" desc="moins de panneaux dans l'IDE" />
+  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[22%] top-[70%] -rotate-1" name="gh" icon="🐙" img="https://cdn.simpleicons.org/github" desc="GitHub sans quitter le terminal" />
+</div>
+
+<!--
+Silence : moins de bruit, plus de focus. Ice range et cache ce qui pollue ma barre de menu, aerospace dispose mes fenêtres au clavier et tout reste en plein écran, je coupe les side-bars de l'IDE qui grignotent l'écran, ghostty est un terminal qui s'efface, et gh me permet de gérer mes PR sans même ouvrir le navigateur.
+-->
 
 ---
 layout: image
@@ -669,28 +696,62 @@ Et c'est facile à voir en fait la souris est beaucoup plus fatigante à utilise
 layout: full 
 ---
 
-# Ne taper que le nécessaire
+# ✋ Parcimonie — le shell qui devine
 
-- alias
-  - `p` -> pnpm
-  - `cd ~/projects/m6web/app-bedrock-android` -> cd android 
+<div class="absolute inset-0">
+  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[15%] top-[30%] -rotate-3" name="atuin" icon="🔍" img="/logos/atuin.png" desc="historique cherchable (⌃R)" />
+  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[56%] top-[26%] rotate-2" name="zoxide" icon="📂" img="/logos/zoxide.png" desc="le cd qui apprend" />jj
+  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[34%] top-[46%] rotate-1" name="fzf" icon="🎯" img="/logos/fzf.png" desc="complétion floue & interactive" />
+  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[58%] top-[54%] -rotate-2" name="zsh-autosuggestions" icon="✨" desc="la suite, proposée en gris" />
+  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[20%] top-[64%] rotate-2" name="zsh-expand" icon="🔬" desc="les alias se déplient" />
+</div>
 
-- snippet
-  - `cct` -> ☁️ thought: 
-  - `!note` -> > [!NOTE] >
-  - `ntm` -> arrose tes plantes
-
-- auto-complétion
-  - fzf
-  - man
-
-<!-- Pour les actions que fais le plus, un investissement sous-côté, c'est les alias et les snippets. Je suis dev sur une stack JS, et tout passe par pnpm, donc quand j'ouvre mon terminal, ce que je fais une majorité du temps c'est d'ouvrir un projet et de lancer l'app, bon bah grâce à un alias et à un changement intelligent de dossier j'économise beaucoup de temps et d'énergie. En bonus les gens pensent que je suis super rapide, alors que je tape juste moins  -->
+<!--
+Parcimonie, premier volet : plutôt que de retaper, je laisse le shell deviner. atuin pour retrouver une commande, zoxide pour sauter dans mes dossiers, fzf pour choisir au lieu de me souvenir, autosuggestions qui propose la suite, et zsh-expand qui déplie mes alias pour qu'ils restent lisibles par les autres.
+-->
 
 ---
 layout: full
 ---
 
-todo: iceberg des possibilités
+# ✋ Parcimonie — frapper moins, se tromper moins
+
+<div class="absolute inset-0">
+  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[15%] top-[30%] -rotate-2" name="alias" icon="✂️" desc="p → pnpm · gst · gco" />
+  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[55%] top-[25%] rotate-2" name="snippets" icon="📝" desc="!note · cct" />
+  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[34%] top-[44%] rotate-1" name="fd" icon="📁" img="/logos/fd.png" desc="find, lisible" />
+  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[60%] top-[50%] -rotate-2" name="ripgrep" icon="⚡" img="/logos/ripgrep.png" desc="grep ultra-rapide" />
+  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[17%] top-[61%] rotate-3" name="lazygit" icon="🌿" img="/logos/lazygit.png" desc="git, tout au clavier" />
+  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[53%] top-[69%] -rotate-1" name="unduck" icon="🦆" img="https://cdn.simpleicons.org/duckduckgo" desc="les bangs DuckDuckGo" />
+</div>
+
+<!--
+Deuxième volet : frapper moins et se tromper moins. Les alias et snippets transforment mes commandes longues en deux-trois lettres, fd et ripgrep remplacent find et grep en plus rapide, lazygit me donne tout git au clavier, et unduck m'envoie direct au bon endroit grâce aux bangs DuckDuckGo. En bonus, les gens pensent que je suis super rapide alors que je tape juste moins.
+-->
+
+---
+layout: center
+class: text-center
+---
+
+# L'iceberg des possibilités
+
+<div class="relative w-full max-w-3xl mx-auto mt-8 rounded-xl overflow-hidden shadow-lg">
+  <div class="bg-sky-100 px-6 py-5">
+    <p class="text-xs uppercase tracking-widest text-sky-600 mb-2">Ma sélection perso — ce que je connais</p>
+    <p class="text-lg">📡 Radar · 🤫 Silence · ✋ Parcimonie</p>
+  </div>
+  <div class="h-1.5 bg-blue-400"></div>
+  <div class="bg-gradient-to-b from-blue-500 to-blue-900 text-white px-6 pt-6 pb-12" v-click>
+    <p class="text-xs uppercase tracking-widest text-blue-200 mb-3">Tout ce que je ne connais même pas (encore)</p>
+    <p class="text-lg leading-relaxed">des milliers d'outils · pour des frictions<br/>que je n'ai même pas conscience d'avoir</p>
+  </div>
+</div>
+
+<!--
+Et tout ce que je viens de montrer, c'est juste MA petite pointe émergée : les outils que je connais et qui collent à mes frictions à moi.
+En dessous, il y a un océan d'outils que je ne connais même pas, qui résolvent des frictions dont je n'ai même pas conscience. Personne ne peut tout connaître, et c'est exactement pour ça que ça vaut le coup de partager.
+-->
 
 ---
 layout: section
