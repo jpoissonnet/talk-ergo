@@ -338,6 +338,16 @@ Y consacrer du temps c'est bien, mais on commence par quoi? Mini disclaimer: Je 
 -->
 
 ---
+layout: article
+link: https://xkcd.com/1205
+imgSrc: https://imgs.xkcd.com/comics/is_it_worth_the_time.png
+---
+
+<!--
+Avant de foncer : est-ce que ça vaut le coup ? Randall Munroe a fait le calcul pour nous : selon la fréquence d'une tâche et le temps gagné à chaque fois, voilà combien de temps on peut investir à l'optimiser avant d'y perdre. La leçon : on commence par ce qui est fréquent, où on gagne un peu mais souvent. C'est exactement le profil des gains immédiats qui suivent — copier-coller, captures, fenêtres — qu'on fait des dizaines de fois par jour.
+-->
+
+---
 layout: center
 ---
 
@@ -658,7 +668,7 @@ layout: full
 </div>
 
 <!--
-Radar : avoir en permanence sous les yeux les infos qui comptent, sans aller les chercher. Mon prompt me donne le contexte (env, version de Node, état git), Notion Calendar m'affiche ma prochaine réu, le widget météo m'évite d'ouvrir une app. Et côté terminal, eza, delta et btop rendent l'info lisible d'un coup d'œil.
+Le besoin d'abord : avoir sous les yeux l'info qui compte sans aller la chercher. Ce besoin est le même pour tout le monde, seule la réponse change. Mon prompt p10k me donne le contexte dev (env, Node, git) ; Notion Calendar m'affiche ma prochaine réu et le widget météo m'évite d'ouvrir une app — ces deux-là parlent à tout le monde. Même besoin « le bon contexte en vue », outils différents. Et git-delta rend juste l'info plus lisible d'un coup d'œil.
 -->
 
 ---
@@ -678,6 +688,7 @@ layout: full
 # 🤫 Silence — couper le bruit
 
 <div class="absolute inset-0">
+  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[40%] top-[14%] rotate-1" name="Ne pas déranger" icon="🔕" desc="couper les notifs en focus" />
   <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[16%] top-[30%] -rotate-2" name="Ice" icon="🧊" img="/logos/ice.png" desc="menu bar épurée" />
   <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[56%] top-[26%] rotate-2" name="aerospace" icon="🪟" img="/logos/aerospace.png" desc="tiling au clavier" />
   <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[33%] top-[47%] rotate-1" name="plein écran" icon="⛶" desc="toutes les fenêtres maximisées" />
@@ -686,7 +697,7 @@ layout: full
 </div>
 
 <!--
-Silence : moins de bruit, plus de focus. Ice range et cache ce qui pollue ma barre de menu, aerospace dispose mes fenêtres au clavier et tout reste en plein écran, je coupe les side-bars de l'IDE qui grignotent l'écran, ghostty est un terminal qui s'efface, et gh me permet de gérer mes PR sans même ouvrir le navigateur.
+Le besoin d'abord : tout ce qui clignote ou dépasse vole un bout d'attention, donc on coupe le bruit. Pour tout le monde, sans terminal : passer en « Ne pas déranger » et couper les badges, tout mettre en plein écran. Mes réponses de dev au même besoin : Ice range et cache ma barre de menu, aerospace dispose mes fenêtres au clavier, je coupe les side-bars de l'IDE qui grignotent l'écran, et gh me sort GitHub sans ouvrir le navigateur. Même besoin « moins de bruit », réponses dev ou pas.
 -->
 
 ---
@@ -739,7 +750,7 @@ Et c'est facile à voir en fait la souris est beaucoup plus fatigante à utilise
 layout: full
 ---
 
-# ✋ Parcimonie — le shell qui devine
+# ✋ Parcimonie — ne pas refaire ce qu'on a déjà fait
 
 <div class="absolute inset-0">
   <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[15%] top-[30%] -rotate-3" name="atuin" icon="🔍" img="/logos/atuin.png" desc="historique cherchable (⌃R)" />
@@ -750,7 +761,7 @@ layout: full
 </div>
 
 <!--
-Parcimonie, premier volet : plutôt que de retaper, je laisse le shell deviner. atuin pour retrouver une commande, zoxide pour sauter dans mes dossiers, fzf pour choisir au lieu de me souvenir, autosuggestions qui propose la suite, et zsh-expand qui déplie mes alias pour qu'ils restent lisibles par les autres.
+Le besoin d'abord : ne pas refaire ni retaper ce que j'ai déjà fait, laisser la machine se souvenir à ma place. Tout le monde connaît ça — l'autocomplétion du navigateur, les réponses enregistrées d'une boîte mail : même besoin. Mes réponses de dev : atuin retrouve une commande passée, zoxide me téléporte dans mes dossiers, fzf me fait choisir au lieu de me souvenir, autosuggestions propose la suite, zsh-expand déplie mes alias.
 -->
 
 ---
@@ -769,7 +780,7 @@ layout: full
 </div>
 
 <!--
-Deuxième volet : frapper moins et se tromper moins. Les alias et snippets transforment mes commandes longues en deux-trois lettres, fd et ripgrep remplacent find et grep en plus rapide, lazygit me donne tout git au clavier, et unduck m'envoie direct au bon endroit grâce aux bangs DuckDuckGo. En bonus, les gens pensent que je suis super rapide alors que je tape juste moins.
+Le besoin d'abord : frapper moins, se tromper moins. Le plus transverse ici, c'est le texte qui s'écrit tout seul — mes snippets (et l'expansion de texte façon raccourcis clavier, que tout le monde peut utiliser), et les bangs DuckDuckGo qui m'envoient direct au bon endroit. Mes réponses de dev au même besoin : les alias pour raccourcir mes commandes, fd et ripgrep à la place de find et grep, lazygit pour tout git au clavier. En bonus, les gens me croient rapide alors que je tape juste moins.
 -->
 
 ---
@@ -794,6 +805,25 @@ class: text-center
 <!--
 Et tout ce que je viens de montrer, c'est juste MA petite pointe émergée : les outils que je connais et qui collent à mes frictions à moi.
 En dessous, il y a un océan d'outils que je ne connais même pas, qui résolvent des frictions dont je n'ai même pas conscience. Personne ne peut tout connaître, et c'est exactement pour ça que ça vaut le coup de partager.
+-->
+
+---
+layout: full
+---
+
+# Comment on trouve l'outil ?
+
+<v-clicks>
+
+- **nommer la friction** : « ça me gonfle de refaire ça »
+- parier qu'**il existe presque toujours un réglage ou un outil pour ça**
+- chercher activement : « *un outil pour [mon problème]* »
+- … mais ta meilleure source, ce sont **les autres** 👇
+
+</v-clicks>
+
+<!--
+La partie la plus dure du diagnostic, ce n'est pas de connaître l'outil : c'est de remarquer la friction et de se dire qu'elle n'est pas une fatalité. Le réflexe : nommer ce qui m'agace, parier qu'il existe un réglage ou un outil pour ça, et chercher activement. Mais le raccourci le plus efficace pour trouver le bon outil, ce ne sont pas les listes — ce sont les gens autour de moi. Et ça tombe bien...
 -->
 
 ---
