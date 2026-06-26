@@ -594,9 +594,9 @@ Petite pause pour me présenter : moi c'est Jules, dev chez Bedrock Streaming. T
 layout: quote
 ---
 
-<blockquote><h2>Et toi comment tu fais dans ton quotidien ?</h2></blockquote>
+<blockquote><h1>Et toi, Jules ! Comment tu fais dans ton quotidien ?</h1></blockquote>
 
-<h3 class="text-lg mt-8">— Vous, {{ new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) }}</h3>
+<h2 class="mt-8">— Vous, {{ new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) }}</h2>
 
 <!-- Jusqu'ici c'était universel, ça vaut pour tout le monde. À partir de maintenant je passe à mes optimisations perso de dev : prenez ce qui vous parle. -->
 
@@ -813,25 +813,40 @@ layout: full
 
 # Comment on trouve l'outil ?
 
-<v-clicks>
+<div class="flex items-center justify-center gap-6 mt-20">
+  <div v-click v-motion :initial="{ y: 30, opacity: 0 }" :enter="{ y: 0, opacity: 1 }" class="bg-blue-50 dark:bg-blue-950 rounded-2xl px-6 py-5 shadow-lg w-64 min-h-48 flex flex-col items-center text-center">
+    <span class="text-5xl mb-4">😣</span>
+    <span class="font-bold text-xl">Nommer la friction</span>
+    <span class="text-gray-600 dark:text-gray-300 mt-3">« ça me gonfle de refaire ça »</span>
+  </div>
 
-- **nommer la friction** : « ça me gonfle de refaire ça »
-- parier qu'**il existe presque toujours un réglage ou un outil pour ça**
-- chercher activement : « *un outil pour [mon problème]* »
-- … mais ta meilleure source, ce sont **les autres** 👇
+  <div v-click class="text-5xl text-gray-400">→</div>
 
-</v-clicks>
+  <div v-click v-motion :initial="{ y: 30, opacity: 0 }" :enter="{ y: 0, opacity: 1 }" class="bg-blue-50 dark:bg-blue-950 rounded-2xl px-6 py-5 shadow-lg w-64 min-h-48 flex flex-col items-center text-center">
+    <span class="text-5xl mb-4">💡</span>
+    <span class="font-bold text-xl">Faire le pari</span>
+    <span class="text-gray-600 dark:text-gray-300 mt-3">il existe sûrement un réglage ou un outil pour ça</span>
+  </div>
+
+  <div v-click class="text-5xl text-gray-400">→</div>
+
+  <div v-click v-motion :initial="{ y: 30, opacity: 0 }" :enter="{ y: 0, opacity: 1 }" class="bg-blue-50 dark:bg-blue-950 rounded-2xl px-6 py-5 shadow-lg w-64 min-h-48 flex flex-col items-center text-center">
+    <span class="text-5xl mb-4">🔎</span>
+    <span class="font-bold text-xl">Chercher activement</span>
+    <span class="text-gray-600 dark:text-gray-300 mt-3">« un outil pour [mon problème] »</span>
+  </div>
+</div>
 
 <!--
-La partie la plus dure du diagnostic, ce n'est pas de connaître l'outil : c'est de remarquer la friction et de se dire qu'elle n'est pas une fatalité. Le réflexe : nommer ce qui m'agace, parier qu'il existe un réglage ou un outil pour ça, et chercher activement. Mais le raccourci le plus efficace pour trouver le bon outil, ce ne sont pas les listes — ce sont les gens autour de moi. Et ça tombe bien...
+La partie la plus dure du diagnostic, ce n'est pas de connaître l'outil : c'est de remarquer la friction et de se dire qu'elle n'est pas une fatalité. Le réflexe : nommer ce qui m'agace, parier qu'il existe un réglage ou un outil pour ça, et chercher activement.
 -->
 
 ---
 layout: section
 ---
 
-<h1>Votre efficacité est contagieuse</h1>
-<h3 v-click class="italic text-gray-500">comment contaminer votre équipe ?</h3>
+<h1>L'efficacité, c'est contagieux</h1>
+<h2 v-click class="italic text-gray-500">Comment travailler l'immunité collective de son équipe ?</h2>
 
 <!-- Une fois qu'on a soigné sa propre frictionite, on a envie de partager. Mais attention à la façon de s'y prendre. -->
 
@@ -871,12 +886,12 @@ On ne convainc personne en évangélisant « tu DOIS utiliser X » : les gens se
 -->
 
 ---
-layout: center
+layout: section
 ---
 
 # Le partage informel
 
-<p class="text-xl text-gray-500 mt-3">ça circule dans les deux sens 🔄</p>
+<p class="text-3xl text-gray-500 mt-3">ça circule dans les deux sens 🔄</p>
 
 <!--
 Le premier canal de diffusion, c'est l'informel — et ça marche dans les deux sens : on apprend des autres autant qu'on leur transmet.
