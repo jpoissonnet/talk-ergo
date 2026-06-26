@@ -711,7 +711,7 @@ backgroundSize: contain
 ---
 
 <div class="text-center text-4xl">
-<p style="line-height: 1.2;">Va toujours par le chemin le plus court, et le plus court est <span v-mark="{ at: 1, type: 'strike-through', 'strokeWidth': 8, color: 'red' }"><span v-click.hide="2">le</span> chemin tracé par la <span v-mark="{ at: 1, type: 'strike-through', 'strokeWidth': 8, color: 'red' }">nature</span></span><p v-click="2" v-motion :initial="{ opacity: 0, x: -10 }" :enter="{ opacity: 1, x: 0 }" style="line-height: 1.2;">l'utilisation de son clavier</p></p>
+<p style="line-height: 1.2;">Va toujours par le chemin le plus court, et le plus court est <span v-mark="{ at: 1, type: 'strike-through', 'strokeWidth': 8, color: 'red' }"><span v-click.hide="2">le</span> chemin tracé par la <span v-mark="{ at: 1, type: 'strike-through', 'strokeWidth': 8, color: 'red' }">nature</span></span><span v-click="2" v-motion :initial="{ opacity: 0, x: -10 }" :enter="{ opacity: 1, x: 0 }" style="line-height: 1.2;"> l'utilisation&nbsp;du&nbsp;clavier</span></p>
 </div>
 
 <AutoFitText v-click="3" min="20" class="mt-8">*discours non contractuel</AutoFitText>
@@ -720,7 +720,9 @@ backgroundSize: contain
   <img src="https://cdn.worldvectorlogo.com/logos/anthropic-1.svg" alt="anthropic logo" class="h-12 object-contain inline-block" style="vertical-align: middle;" />
 </div>
 
-<!-- Selon Claude, Marc-aurele disait dans son bouquin que notre meilleur ami c'était le clavier.-->
+<!--
+Selon Claude, Marc-aurele disait dans son bouquin que notre meilleur ami c'était le clavier.
+-->
 
 ---
 layout: two-cols
