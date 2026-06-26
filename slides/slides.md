@@ -222,7 +222,7 @@ Le vrai objectif que vous devriez visez c'est la fluidité, la vitesse viendra a
 layout: full
 ---
 
-# Prescription: Mémoire procédurale
+<h1 class="text-center">Prescription: Mémoire procédurale</h1>
 
 <img src="/boxing.gif" alt="boxeur frappant un sac" class="mx-auto mt-8 h-80 rounded-xl object-cover" />
 
@@ -240,6 +240,38 @@ layout: section
 <!--
 Bon alors c'est très sympa de nous dire qu'on peut accélérer, mais comment on fait ?
 -->
+
+---
+layout: full
+---
+
+<img 
+  src="https://www.chambre-syndicale-sophrologie.fr/wp-content/uploads/2022/11/doctolib.jpg"
+  class="h-1/2 absolute top-1/2 left-1/2"
+  v-click
+  v-motion
+  :initial="{ scale: 0.5, opacity: 1, translateX: '-50%', translateY: '-50%' }"
+  :enter="{ scale: 1, opacity: 1 }"
+/>
+
+<img
+  src="https://everhour.com/blog/wp-content/uploads/2024/05/google-calendar-color-coding.jpg"
+  class="h-full absolute top-1/2 left-1/2"
+  v-click
+  v-motion
+  :initial="{ scale: 0.5, opacity: 1, translateX: '-50%', translateY: '-50%' }"
+  :enter="{ scale: 1, opacity: 1 }"
+/>
+
+<!--
+Malheureusement il y a pas de Doctolib pour prendre des rdvs pour soigner sa DX. Donc il va falloir trouver du temps dans votre semaine pour le faire.
+-->
+
+---
+layout: image
+image: https://thumbs.dreamstime.com/z/temps-de-compression-41255817.jpg
+---
+
 
 ---
 layout: center
@@ -271,6 +303,17 @@ layout: center
 
 <!--
 C'est la méthode générale : on commence par repérer le symptôme — la friction, on diagnostique le point d'amélioration possible (souvent une config ou un outil), puis on l'intègre comme une nouvelle habitude. Ce cycle est à répéter pour apaiser la "frictionite" petit à petit.
+-->
+
+---
+layout: image
+image: https://lagranderecre-lagranderecre-fr-storage.omn.proximis.com/Imagestorage/images/0/0/607efd4c57507_B2176_HAND_GMS_WMT_OPERATION_177.jpg
+backgroundSize: contain
+---
+
+<!--
+Et là je vais vous decevoir parceque je n'ai pas de solution miracle pour rebrancher votre cerveau et vous obtenir une expérience sans friction.
+Par contre je connais qqun qui peut...
 -->
 
 ---
@@ -693,14 +736,14 @@ Et c'est facile à voir en fait la souris est beaucoup plus fatigante à utilise
 -->
 
 ---
-layout: full 
+layout: full
 ---
 
 # ✋ Parcimonie — le shell qui devine
 
 <div class="absolute inset-0">
   <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[15%] top-[30%] -rotate-3" name="atuin" icon="🔍" img="/logos/atuin.png" desc="historique cherchable (⌃R)" />
-  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[56%] top-[26%] rotate-2" name="zoxide" icon="📂" img="/logos/zoxide.png" desc="le cd qui apprend" />jj
+  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[56%] top-[26%] rotate-2" name="zoxide" icon="📂" img="/logos/zoxide.png" desc="le cd qui apprend" />
   <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[34%] top-[46%] rotate-1" name="fzf" icon="🎯" img="/logos/fzf.png" desc="complétion floue & interactive" />
   <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[58%] top-[54%] -rotate-2" name="zsh-autosuggestions" icon="✨" desc="la suite, proposée en gris" />
   <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[20%] top-[64%] rotate-2" name="zsh-expand" icon="🔬" desc="les alias se déplient" />
@@ -762,55 +805,58 @@ layout: section
 
 <!-- Une fois qu'on a soigné sa propre frictionite, on a envie de partager. Mais attention à la façon de s'y prendre. -->
 
+
 ---
-layout: full
+layout: center
 ---
 
-<img 
-  src="https://www.chambre-syndicale-sophrologie.fr/wp-content/uploads/2022/11/doctolib.jpg"
-  class="h-1/2 absolute top-1/2 left-1/2"
-  v-click
-  v-motion
-  :initial="{ scale: 0.5, opacity: 1, translateX: '-50%', translateY: '-50%' }"
-  :enter="{ scale: 1, opacity: 1 }"
-/>
+<h1 class="text-center">Montrer, pas prêcher</h1>
 
-<img
-  src="https://everhour.com/blog/wp-content/uploads/2024/05/google-calendar-color-coding.jpg"
-  class="h-full absolute top-1/2 left-1/2"
+<div class="flex gap-10 justify-center items-stretch mt-8">
+  <div v-click v-motion :initial="{ x: -60, opacity: 0, rotate: -3 }" :enter="{ x: 0, opacity: 1, rotate: -2 }" class="bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-800 rounded-2xl px-8 py-6 shadow-lg w-64 flex flex-col items-center text-center">
+    <span class="text-5xl mb-3">🗣️</span>
+    <span class="font-bold text-xl text-red-600">Prêcher</span>
+    <span class="text-gray-600 dark:text-gray-300 mt-2">« tu <b>dois</b> utiliser X »<br/>→ on se braque</span>
+  </div>
+  <div v-click v-motion :initial="{ x: 60, opacity: 0, rotate: 3 }" :enter="{ x: 0, opacity: 1, rotate: 2 }" class="bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800 rounded-2xl px-8 py-6 shadow-lg w-64 flex flex-col items-center text-center">
+    <span class="text-5xl mb-3">🧲</span>
+    <span class="font-bold text-xl text-green-600">Montrer</span>
+    <span class="text-gray-600 dark:text-gray-300 mt-2">on vous voit faire<br/>→ les questions viennent d'elles mêmes</span>
+  </div>
+</div>
+
+<SlackNotification
+  class="mt-12"
   v-click
   v-motion
-  :initial="{ scale: 0.5, opacity: 1, translateX: '-50%', translateY: '-50%' }"
-  :enter="{ scale: 1, opacity: 1 }"
+  :initial="{ x: 100, opacity: 0}"
+  :enter="{ x: 0, opacity: 1 }"
+  name="Un.e curieux.se"
+  initials="🙋"
+  message="au fait... comment tu fais ça aussi vite tout à l'heure&nbsp;?!"
 />
 
 <!--
-Malheureusement il y a pas de Doctolib pour prendre des rdvs pour soigner sa DX. Donc il va falloir trouver du temps dans votre semaine pour le faire.
+On ne convainc personne en évangélisant « tu DOIS utiliser X » : les gens se braquent. Ce qui marche, c'est l'inverse : on vous voit aller vite, et ce sont eux qui viennent demander « mais comment tu fais ça ?! ». C'est ça la vraie porte d'entrée — on tire (pull), on ne pousse pas (push).
 -->
 
 ---
-layout: image
-image: https://lagranderecre-lagranderecre-fr-storage.omn.proximis.com/Imagestorage/images/0/0/607efd4c57507_B2176_HAND_GMS_WMT_OPERATION_177.jpg
-backgroundSize: contain
+layout: center
 ---
+
+# Le partage informel
+
+<p class="text-xl text-gray-500 mt-3">ça circule dans les deux sens 🔄</p>
 
 <!--
-Et là je vais vous decevoir parceque je n'ai pas de solution miracle pour rebrancher votre cerveau et vous obtenir une expérience sans friction.
-Par contre je connais qqun qui peut...
+Le premier canal de diffusion, c'est l'informel — et ça marche dans les deux sens : on apprend des autres autant qu'on leur transmet.
 -->
-
-
----
-layout: image
-image: https://thumbs.dreamstime.com/z/temps-de-compression-41255817.jpg
----
-
-<!-- J'ai une collègue qui m'a donné son astuce de chef pour gagner du temps sur la veille technique, c'est d'aller voir les gens qui sont en train de tester des outils et de leur en parler. Ce qu'ils ont passé 2h à déchiffrer et qui est frais dans leur têtes, ils vont peut-être mettre 3min à vous le résumer et vous aller pouvoir savoir si l'outil mérite de l'investissement ou non.-->
 
 ---
 layout: image
 image: https://m.media-amazon.com/images/M/MV5BNmU4ODM0NGUtYjk0ZC00ODQwLTk3NjItYThiZWRiNDk2MjFlXkEyXkFqcGc@._V1_.jpg
 ---
+
 
 <!-- Un bon endroit pour ça c'est la machine à café, ça vous permet de rendre vos pauses productives, et en fonction vos bureaux ça peut même vous faire croiser des équipes avec qui vous travaillez pas et qui ont donc d'autres expériences enrichissantes -->
 
@@ -829,6 +875,35 @@ layout: full
 </v-clicks>
 
 <!-- chezmoi gère ses dotfiles proprement. Le piège quand on partage, c'est de tout balancer d'un coup : personne ne retient. Un outil à la fois. -->
+
+---
+layout: center
+---
+
+# Ancrer une dynamique d'équipe
+
+<div class="grid grid-cols-2 gap-x-12 gap-y-8 mt-18">
+  <div v-click v-motion :initial="{ y: 30, opacity: 0, scale: 0.9 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="bg-blue-50 dark:bg-blue-950 rounded-2xl px-6 py-5 shadow-lg flex items-center gap-4">
+    <span class="text-4xl shrink-0">👥</span>
+    <div><div class="font-bold text-2xl">travaillez ensemble</div><div class="text-xl text-gray-500">les astuces partagées</div></div>
+  </div>
+  <div v-click v-motion :initial="{ y: 30, opacity: 0, scale: 0.9 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="bg-blue-50 dark:bg-blue-950 rounded-2xl px-6 py-5 shadow-lg flex items-center gap-4">
+    <span class="text-4xl shrink-0">#️⃣</span>
+    <div><div class="font-bold text-2xl">un canal #astuces</div><div class="text-xl text-gray-500">une trouvaille = un message</div></div>
+  </div>
+  <div v-click v-motion :initial="{ y: 30, opacity: 0, scale: 0.9 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="bg-blue-50 dark:bg-blue-950 rounded-2xl px-6 py-5 shadow-lg flex items-center gap-4">
+    <span class="text-4xl shrink-0">🧬</span>
+    <div><div class="font-bold text-2xl">montrez vos dotfiles</div><div class="text-xl text-gray-500">les astuces partagées</div></div>
+  </div>
+  <div v-click v-motion :initial="{ y: 30, opacity: 0, scale: 0.9 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="bg-blue-50 dark:bg-blue-950 rounded-2xl px-6 py-5 shadow-lg flex items-center gap-4">
+    <span class="text-4xl shrink-0">🎁</span>
+    <div><div class="font-bold text-2xl">onboarding</div><div class="text-xl text-gray-500">les bons outils dès le jour 1</div></div>
+  </div>
+</div>
+
+<!--
+Pour que le gain devienne collectif et durable, on l'ancre dans un rituel : un canal #astuces où chacun poste ses trouvailles, un « tip of the week » de deux minutes en daily, les bons outils glissés dès l'onboarding des nouveaux, et des dotfiles d'équipe pour partager les bons défauts. C'est ça qui transforme une habitude perso en culture d'équipe.
+-->
 
 ---
 layout: full
