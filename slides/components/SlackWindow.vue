@@ -249,10 +249,11 @@ const replyUrl       = 'https://dashboard.internal.bedrock.tech/metrics/today'
               <!-- Sent reply (click 10) — appears and sends in one click -->
               <Transition name="reply-slide">
                 <div v-if="messageSent" class="flex items-start gap-2">
-                  <div
-                    class="rounded-md flex items-center justify-center flex-shrink-0 text-white text-[9px] font-bold"
-                    style="width:26px;height:26px;background:linear-gradient(135deg,#34c759,#248a3d);margin-top:1px;"
-                  >JP</div>
+                  <img
+                    src="/jules.png"
+                    class="rounded-md object-cover flex-shrink-0"
+                    style="width:26px;height:26px;margin-top:1px;"
+                  />
                   <div class="flex flex-col min-w-0">
                     <div class="flex items-baseline gap-2">
                       <span class="text-[11px] font-bold" style="color:white;">Jules Poissonnet</span>

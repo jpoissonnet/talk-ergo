@@ -43,13 +43,7 @@ const dockIcons = [
   <div
     class="relative w-full h-full overflow-hidden flex flex-col select-none"
     style="
-      background: linear-gradient(145deg,
-        #0f2027 0%,
-        #1a3a4a 30%,
-        #1e5068 60%,
-        #2980b9 85%,
-        #6dd5fa 100%
-      );
+      background: linear-gradient(210deg, rgb(142, 199, 251), rgb(28, 85, 170));
     "
   >
     <!-- ── Wallpaper texture overlay ─────────────────────────────── -->

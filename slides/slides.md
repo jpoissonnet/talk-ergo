@@ -3,13 +3,13 @@ theme: default
 title: Et si vos outils faisaient un peu plus pour vous ?
 aspectRatio: 16/9
 transition: slide-left
-duration: 50min
+duration: 50
 layout: intro
 ---
 
 <h1 class="text-4xl font-bold">Et si vos outils faisaient un peu plus pour vous ?</h1>
 
-<p class="text-2xl">CAS N°001 · DURÉE 50 MIN</p>
+<p class="text-2xl">CAS N°001 · CONSULTATION DE {{$slidev.configs.duration}} MIN</p>
 <p class="text-2xl">PATIENT : VOUS</p>
 <p class="text-2xl">DOCTEUR : VOUS</p>
 
@@ -104,9 +104,11 @@ En fait tout les gens qui travaillent sur un ordinateur sont concernés. C'est u
 layout: quote
 ---
 
-<blockquote><h2>La poubelle est à l'autre bout du bloc, on traverse la salle avec des compresses sales dans les mains</h2></blockquote>
-
-<h3 class="text-lg mt-8">— Infirmier de la famille Goodenough</h3>
+<img src="https://static.wikia.nocookie.net/house/images/2/29/5x7theitch.jpg/revision/latest/scale-to-width-down/1000?cb=20090620124629" alt="cameron nurse" class="w-1/2 mx-auto my-8 rounded-xl object-cover" />
+<blockquote><h2>Dans le bloc, la poubelle est parfois à l'autre bout, on traverse avec des compresses dans les mains</h2>
+<br/>
+<h3 class="text-lg">— Infirmier de la famille Goodenough</h3>
+</blockquote>
 
 <!--
 En fait quand je dis que ça ne concerne pas les devs, c'est parceque j'ai entendu de la part d'une infirmière que tout le personnel n'a pas la même façon de préparer un bloc, opératoire, et certaines façons n'ont aucun sens.
@@ -124,11 +126,8 @@ Dans la cuisine de mes colocs, j'ai pu l'observer, ils se dispersent partout et 
 layout: section
 ---
 
-<h1>Qu'est-ce qu'on gagne à traiter ?</h1>
-
-<h3 v-click class="italic text-gray-500">« Ça fait 10 ans que je fais comme ça, et ça marche… »</h3>
-<h3 v-click>Parce que c'est le 2ème meilleur moment pour s'en occuper...</h3>
-<h4 class="mt-3" v-click>le 1er c'était hier 🙃</h4>
+<h1>Pourquoi on voudrait traiter ?</h1>
+<h2 v-click>...on arrive à travailler en l'état</h2>
 
 <!--
 Bon alors en bon david goodenough, vous allez dire, oui mais si c'est pas si grave, ça sert à quoi de s'en occuper maintenant
@@ -272,12 +271,37 @@ layout: image
 image: https://thumbs.dreamstime.com/z/temps-de-compression-41255817.jpg
 ---
 
+---
+layout: image
+image: https://m.media-amazon.com/images/M/MV5BNmU4ODM0NGUtYjk0ZC00ODQwLTk3NjItYThiZWRiNDk2MjFlXkEyXkFqcGc@._V1_.jpg
+---
+
+---
+layout: section
+---
+
+<h1>Vous êtes le patient</h1>
+<h1 v-click>Et le médecin</h1>
+
+<!--
+Eh oui, c'est vous qui connaissez le mieux vos habitudes, vos gouts et vos frictions, c'est donc de vous que doit venir le remède
+-->
+---
+layout: image
+image: https://lagranderecre-lagranderecre-fr-storage.omn.proximis.com/Imagestorage/images/0/0/607efd4c57507_B2176_HAND_GMS_WMT_OPERATION_177.jpg
+backgroundSize: contain
+---
+
+<!--
+Et là je vais vous decevoir parceque je n'ai pas de solution miracle pour rebrancher votre cerveau et vous obtenir une expérience sans friction.
+Par contre je connais qqun qui peut...
+-->
 
 ---
 layout: center
 ---
 
-<h1 class="text-5xl font-black text-center mb-8">La méthode en 3 étapes</h1>
+<h1 class="text-2xl font-black text-center mb-8">La méthode générale</h1>
 
 <div class="flex justify-center gap-16 items-center my-12">
 
@@ -289,7 +313,7 @@ layout: center
   
   <div class="flex flex-col items-center" v-click>
     <span class="text-6xl mb-4">🔎</span>
-    <span class="text-xl font-bold mb-2 text-yellow-500">2. Diagnostic</span>
+    <span class="text-xl font-bold mb-2 text-purple-500">2. Diagnostic</span>
     <span class="text-gray-600 text-center">Trouver l’outil ou le réglage<br/><i>(Comment le résoudre&nbsp;?)</i></span>
   </div>
 
@@ -306,32 +330,10 @@ C'est la méthode générale : on commence par repérer le symptôme — la fric
 -->
 
 ---
-layout: image
-image: https://lagranderecre-lagranderecre-fr-storage.omn.proximis.com/Imagestorage/images/0/0/607efd4c57507_B2176_HAND_GMS_WMT_OPERATION_177.jpg
-backgroundSize: contain
----
-
-<!--
-Et là je vais vous decevoir parceque je n'ai pas de solution miracle pour rebrancher votre cerveau et vous obtenir une expérience sans friction.
-Par contre je connais qqun qui peut...
--->
-
----
 layout: section
 ---
 
-<h1>Vous êtes le patient et le médecin</h1>
-
-<!--
-Eh oui, c'est vous qui connaissez le mieux vos habitudes, vos gouts et vos frictions, c'est donc de vous que doit venir le remède
--->
-
----
-layout: section
----
-
-<h1>On commence par quoi ?</h1>
-<h3 v-click class="text-gray-500">Les gains immédiats, pour tout le monde</h3>
+<h1>On commence par les actions les plus courantes</h1>
 
 <!--
 Y consacrer du temps c'est bien, mais on commence par quoi? Mini disclaimer: Je vais donner des exemples à partir de maintenant qui sont basées sur ce que j'ai vécu et vu. Il s'agit de ma façon de répondre aux problèmes que j'ai rencontré. Vous n'aurez surement pas les mêmes besoins, ni les mêmes façons d'y répondre.
@@ -363,14 +365,14 @@ layout: center
 
 <div class="flex gap-8 justify-center">
   <div 
-    class="bg-blue-100 rounded-xl px-8 py-6 shadow-lg flex flex-col items-center min-w-[180px] max-w-[250px]"
+    class="bg-blue-100 rounded-xl px-8 py-6 shadow-lg flex flex-col items-center space-between gap-4 min-w-[180px] max-w-[250px]"
     v-click 
     v-motion 
     :initial="{ translateX: -100, translateY: -100, opacity: 0 }"
     :enter="{ translateX: 0, translateY: 0, opacity: 1 }"
   >
-    <span class="text-4xl mb-2">📋</span>
-    <span class="font-bold text-lg">Copier-coller</span>
+    <span class="text-6xl mb-2">📋</span>
+    <span class="font-bold text-2xl">Copier-coller</span>
   </div>
   <div 
     class="bg-blue-100 rounded-xl px-8 py-6 shadow-lg flex flex-col items-center min-w-[180px] max-w-[250px]"
@@ -379,8 +381,8 @@ layout: center
     :initial="{ scale: 0.2, opacity: 0, rotate: 180 }"
     :enter="{ scale: 1, opacity: 1, rotate: 0 }"
   >
-    <span class="text-4xl mb-2">📸</span>
-    <span class="font-bold text-lg">Faire un screenshot</span>
+    <span class="text-6xl mb-2">📸</span>
+    <span class="font-bold text-2xl text-center">Faire un screenshot</span>
   </div>
   <div 
     class="bg-blue-100 rounded-xl px-8 py-6 shadow-lg flex flex-col items-center min-w-[180px] max-w-[250px]"
@@ -389,8 +391,8 @@ layout: center
     :initial="{ scale: 0.5, opacity: 0 }"
     :enter="{ scale: 1, opacity: 1 }"
   >
-    <span class="text-4xl mb-2">🖥️</span>
-    <span class="font-bold text-lg">Changer de fenêtre</span>
+    <span class="text-6xl mb-2">🖥️</span>
+    <span class="font-bold text-2xl text-center">Changer de fenêtre</span>
   </div>
 </div>
 
@@ -420,52 +422,67 @@ Reprenons le scénario du chef. Voilà comment ça se passe quand rien n'est opt
 layout: full
 ---
 
-# 📋 Copier-coller → utiliser le ✨presse-papier✨
+<AutoFitText class="w-full">📋 Faire un copier-coller → utiliser le ✨presse-papier✨</AutoFitText>
 
-<ul class="-ml-8 text-xl">
-<li class="list-none"><span class="font-bold">un historique</span>, pas un seul emplacement</li>
-<li class="list-none"><span class="font-bold">re-coller</span> ce qu'on avait copié il y a 3 copies</li>
-<li class="list-none">coller <span class="font-bold">en séquence</span></li>
-</ul>
-<p class="text-gray-500 mt-6">ex. Maccy, Raycast, Klipper… — universel, tous OS</p>
-
+<div class="w-full relative h-5/6 my-8 rounded-xl bg-[linear-gradient(140deg,_rgb(165,142,251),_rgb(233,191,248))]"
+>
+  <img src="/clipboard.png" alt="copier-coller" class="absolute top-0 left-0 w-full h-full object-contain rounded-xl" />
+</div>
 
 <!--
 Premier geste : le presse-papier. Par défaut on n'a qu'un seul emplacement. Un gestionnaire garde un historique, permet de coller en texte brut, et d'épingler ce qu'on recolle souvent.
+- un historique, pas un seul emplacement
+- re-coller ce qu'on avait copié il y a 3 copies
+- coller en séquence
+ex. Raycast, Maccy, Klipper...
 -->
 
 ---
 layout: full
 ---
 
-# 📸 Screenshot → illustrer une information 
+<AutoFitText class="w-full">📸 Faire un screenshot → ✨illustrer✨ une information</AutoFitText>
 
-<v-clicks>
-
-- envoyer direct dans le **presse-papier** ou sur le bureau
-- annoter / flécher avant d'envoyer
-- bonus: ocr + qr code
-
-</v-clicks>
+<div class="w-full relative h-5/6 my-8 rounded-xl bg-[linear-gradient(140deg,_rgb(238,213,182),_rgb(175,136,86))]"
+>
+  <img src="/screenshot.png" alt="screenshot" class="absolute top-0 left-0 p-8 w-full h-full object-contain rounded-xl" />
+</div>
 
 <!--
 Deuxième geste : la capture. On veut une capture de zone, qui atterrit dans le presse-papier, prête à coller. Et quand un lien suffit, autant l'envoyer plutôt qu'une image.
+- on choisit où atterit la capture (presse-papier, bureau)
+- on peut annoter la capture
+- on peut lire des qr codes
+- on peut faire de l'OCR
+le tout avec des raccourcis clavier
+ex. Shottr, Snipaste, Kap...
 -->
 
 ---
 layout: full
 ---
 
-# 🖥️ Gérer ses fenêtres → au clavier
+<AutoFitText class="w-full">🖥️ Changer de fenêtre → naviguer sans les voir</AutoFitText>
 
-<v-clicks>
-
-- ⚠️ ⌘ + Tab n'est pas idem-potent
-- un switcher (Raycast / AltTab / rcmd) pour viser une app précise
-- des **raccourcis dédiés** : ⌥⌘S = Slack, ⌥⌘B = navigateur
-- la fenêtre s'ouvre toujours au bon endroit, sans viser
-
-</v-clicks>
+<div class="w-full relative h-5/6 my-8 rounded-xl" style="background-image: linear-gradient(
+    50deg,
+    hsl(159deg 65% 73%) 0%,
+    hsl(162deg 64% 70%) 8%,
+    hsl(165deg 62% 66%) 15%,
+    hsl(167deg 60% 63%) 22%,
+    hsl(170deg 58% 59%) 28%,
+    hsl(173deg 57% 56%) 35%,
+    hsl(176deg 55% 53%) 42%,
+    hsl(178deg 54% 49%) 49%,
+    hsl(181deg 52% 46%) 56%,
+    hsl(183deg 51% 42%) 64%,
+    hsl(187deg 49% 39%) 73%,
+    hsl(189deg 48% 35%) 83%,
+    hsl(192deg 46% 32%) 100%
+  );;"
+>
+  <img src="/cmd-tab.gif" alt="cmd-tab" class="absolute top-1/2 -translate-y-1/2 w-95% left-5 object-contain rounded-xl shadow-xl" />
+</div>
 
 <!--
 La raison pour laquelle le changement de fenetre est aussi dur c'est que tout se fait au visuel : il faut se souvenir de l'icône, la trouver dans la barre, cliquer, espérer le bon écran. Au clavier, on vise une app par un raccourci et elle s'ouvre toujours au même endroit.
@@ -601,12 +618,12 @@ layout: quote
 <!-- Jusqu'ici c'était universel, ça vaut pour tout le monde. À partir de maintenant je passe à mes optimisations perso de dev : prenez ce qui vous parle. -->
 
 ---
-layout: center
+layout: full
 ---
 
-# Mes 3 axes
+<AutoFitText max="50" class="font-bold text-center">Mes 3 axes</AutoFitText>
 
-<div class="flex gap-8 justify-center mt-12">
+<div class="flex items-center h-3/4 justify-around">
   <div
     class="bg-blue-100 rounded-xl px-8 py-6 shadow-lg flex flex-col items-center min-w-[180px] max-w-[250px]"
     v-click
@@ -614,9 +631,8 @@ layout: center
     :initial="{ translateY: 40, opacity: 0 }"
     :enter="{ translateY: 0, opacity: 1 }"
   >
-    <span class="text-4xl mb-2">📡</span>
-    <span class="font-bold text-lg">Radar</span>
-    <span class="text-xs text-gray-500 mt-1">la bonne info en vue</span>
+    <span class="text-6xl mb-2">📡</span>
+    <span class="font-bold text-4xl">Radar</span>
   </div>
   <div
     class="bg-blue-100 rounded-xl px-8 py-6 shadow-lg flex flex-col items-center min-w-[180px] max-w-[250px]"
@@ -625,9 +641,8 @@ layout: center
     :initial="{ translateY: 40, opacity: 0 }"
     :enter="{ translateY: 0, opacity: 1 }"
   >
-    <span class="text-4xl mb-2">🤫</span>
-    <span class="font-bold text-lg">Silence</span>
-    <span class="text-xs text-gray-500 mt-1">couper le bruit</span>
+    <span class="text-6xl mb-2">🤫</span>
+    <span class="font-bold text-4xl">Silence</span>
   </div>
   <div
     class="bg-blue-100 rounded-xl px-8 py-6 shadow-lg flex flex-col items-center min-w-[180px] max-w-[250px]"
@@ -636,9 +651,8 @@ layout: center
     :initial="{ translateY: 40, opacity: 0 }"
     :enter="{ translateY: 0, opacity: 1 }"
   >
-    <span class="text-4xl mb-2">✋</span>
-    <span class="font-bold text-lg">Parcimonie</span>
-    <span class="text-xs text-gray-500 mt-1">taper moins</span>
+    <span class="text-6xl mb-2">✋</span>
+    <span class="font-bold text-4xl">Parcimonie</span>
   </div>
 </div>
 
@@ -648,17 +662,7 @@ layout: center
 layout: full
 ---
 
-# 📡 Radar
-
-<img v-click v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, opacity: 1 }" src="https://i.redd.it/e13ts578tb881.jpg" alt="Jurassic Park logo" class="h-2/3 mx-auto mt-20" />
-
-<!-- La vue c'est un sens un peu traître parceque autant on peut oublier les choses qui ne bougent pas, et ne pas voir que c'est l'heure d'aller en réu, et autant la moindre notification en haut de l'écran nous fait tourner les yeux -->
-
----
-layout: full
----
-
-# 📡 Radar — la bonne info, sans la chercher
+<AutoFitText max="50" class="font-bold text-center">📡 Radar — la bonne info, sans la chercher</AutoFitText>
 
 <div class="absolute inset-0">
   <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[14%] top-[30%] -rotate-3" name="p10k" icon="⚡" img="/logos/powerlevel10k.png" desc="prompt : env · node · git" />
@@ -672,12 +676,12 @@ Le besoin d'abord : avoir sous les yeux l'info qui compte sans aller la chercher
 -->
 
 ---
-layout: center
+layout: full
 ---
 
-# 🤫 Silence
+<AutoFitText max="50" class="font-bold text-center">📡 Radar — la bonne info, sans la chercher</AutoFitText>
 
-<p class="text-xl text-gray-500 mt-4">Tout ce qui clignote, vibre ou dépasse vole un bout d'attention.</p>
+<img v-click v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, opacity: 1 }" src="https://i.redd.it/e13ts578tb881.jpg" alt="Jurassic Park logo" class="h-2/3 mx-auto mt-20" />
 
 <!-- Silence : réduire les distractions au minimum. Savoir que mon wifi est actif ne m'aide pas ; en cachant l'icône je laisse de la place à ce qui compte vraiment (mon VPN est-il actif ?). Pareil pour les fenêtres : tout en plein écran, pas de panneaux inutiles qui grignotent l'écran. -->
 
@@ -685,10 +689,10 @@ layout: center
 layout: full
 ---
 
-# 🤫 Silence — couper le bruit
+<AutoFitText max="50" class="font-bold text-center">🤫 Silence — couper le bruit</AutoFitText>
 
 <div class="absolute inset-0">
-  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[40%] top-[14%] rotate-1" name="Ne pas déranger" icon="🔕" desc="couper les notifs en focus" />
+  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[40%] top-[24%] rotate-1" name="Ne pas déranger" icon="🔕" desc="couper les notifs en focus" />
   <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[16%] top-[30%] -rotate-2" name="Ice" icon="🧊" img="/logos/ice.png" desc="menu bar épurée" />
   <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[56%] top-[26%] rotate-2" name="aerospace" icon="🪟" img="/logos/aerospace.png" desc="tiling au clavier" />
   <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[33%] top-[47%] rotate-1" name="plein écran" icon="⛶" desc="toutes les fenêtres maximisées" />
@@ -701,15 +705,20 @@ Le besoin d'abord : tout ce qui clignote ou dépasse vole un bout d'attention, d
 -->
 
 ---
-layout: image
+layout: image-left
 image: https://des-livres-pour-changer-de-vie.com/wp-content/uploads/2021/04/pensees-pour-moi-meme-marc-aurele.jpg
 backgroundSize: contain
 ---
 
-<v-clicks>
-  <p class="text-lg text-black">*discours non contractuel</p>
-  <div class="flex items-center gap-2"><p class="text-lg text-black">*source Claude</p><img src="https://cdn.worldvectorlogo.com/logos/anthropic-1.svg" alt="anthropic logo" class="w-4 h-4 inline-block" style="vertical-align: middle;" /></div>
-</v-clicks>
+<div class="text-center text-4xl">
+<p style="line-height: 1.2;">Va toujours par le chemin le plus court, et le plus court est <span v-mark="{ at: 1, type: 'strike-through', 'strokeWidth': 8, color: 'red' }"><span v-click.hide="2">le</span> chemin tracé par la <span v-mark="{ at: 1, type: 'strike-through', 'strokeWidth': 8, color: 'red' }">nature</span></span><p v-click="2" v-motion :initial="{ opacity: 0, x: -10 }" :enter="{ opacity: 1, x: 0 }" style="line-height: 1.2;">l'utilisation de son clavier</p></p>
+</div>
+
+<AutoFitText v-click="3" min="20" class="mt-8">*discours non contractuel</AutoFitText>
+<div v-click="4" class="flex items-center gap-2 w-full">
+  <AutoFitText max="20">*source Claude</AutoFitText>
+  <img src="https://cdn.worldvectorlogo.com/logos/anthropic-1.svg" alt="anthropic logo" class="h-12 object-contain inline-block" style="vertical-align: middle;" />
+</div>
 
 <!-- Selon Claude, Marc-aurele disait dans son bouquin que notre meilleur ami c'était le clavier.-->
 
@@ -1004,10 +1013,6 @@ layout: center
   <p class="text-gray-400 text-xs mt-4">durée : à vie</p>
 </div>
 
-<h2 v-click class="mt-12 text-xl italic text-center">
-  À votre avis, il ressemblera à quoi votre quotidien<br>
-  quand vos outils feront un peu plus pour vous ?
-</h2>
 
 <!--
 On s'est quitté sur l'ordonnance : une friction, un geste, on répète, à vie. Et plutôt que de répondre à la question du début à votre place, je vous la retourne : à votre avis, il ressemblera à quoi votre quotidien quand vos outils feront un peu plus pour vous ? ... Laissez infuser, et merci.
@@ -1017,7 +1022,10 @@ On s'est quitté sur l'ordonnance : une friction, un geste, on répète, à vie.
 layout: center
 ---
 
-# Merci 🙏
+<h2 v-click class="mt-12 text-xl italic text-center">
+  Et vous, il ressemblera à quoi votre quotidien<br>
+  quand vos outils feront un peu plus pour vous ?
+</h2>
 
 <div class="grid grid-cols-2 gap-12 items-center mt-6">
 <div>

@@ -5,7 +5,8 @@
       :src="$frontmatter.imgSrc"
     />
     <qr-code
-      modulesize="6"
+      margin="0"
+      modulesize="10"
       class="absolute bottom-0 right-0"
       :data="$frontmatter.link"
     ></qr-code>

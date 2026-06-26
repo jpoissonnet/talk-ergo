@@ -42,8 +42,8 @@
     <div>
       <div class="flex items-baseline justify-between gap-2">
         <div class="flex items-center gap-2">
-          <span class="font-semibold text-black" :class="compact ? 'text-xs' : ''">{{ name }}</span>
-          <span class="flex items-center gap-1 text-gray-800" :class="compact ? 'text-[10px]' : 'text-sm'">
+          <span class="font-semibold text-black" :class="compact ? 'text-sm' : 'text-lg'">{{ name }}</span>
+          <span class="flex items-center gap-1 text-gray-800" :class="compact ? 'text-xs' : 'text-base'">
             <img
               src="https://a.slack-edge.com/80588/marketing/img/meta/slack_hash_256.png"
               alt="Slack logo"
@@ -54,9 +54,9 @@
             via Slack
           </span>
         </div>
-        <span class="ml-2 text-gray-500" :class="compact ? 'text-[10px]' : 'text-sm'">{{ displayTime }}</span>
+        <span class="ml-2 text-gray-500" :class="compact ? 'text-xs' : 'text-base'">{{ displayTime }}</span>
       </div>
-      <div class="text-gray-900" :class="compact ? 'mt-0.5 text-[11px]' : 'mt-1'" v-html="message"></div>
+      <div class="text-gray-900" :class="compact ? 'mt-0.5 text-sm' : 'mt-1.5 text-lg leading-snug'" v-html="message"></div>
     </div>
 
     <!-- notification dot -->
@@ -91,10 +91,10 @@ const displayTime = computed(
 )
 
 const cardStyle = `
-  background: linear-gradient(135deg, rgba(137,137,153,0.6) 0%, rgba(150,150,155,0.35) 100%);
-  border: 1px solid rgba(160,160,170,0.25);
-  box-shadow: 20px 8px 32px 0 rgba(31,38,135,0.10);
-  backdrop-filter: blur(16px) saturate(150%);
-  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  background: linear-gradient(135deg, rgba(228,228,233,0.8) 0%, rgba(214,214,222,0.7) 100%);
+  border: 1px solid rgba(255,255,255,0.4);
+  box-shadow: 20px 8px 32px 0 rgba(31,38,135,0.18), inset 0 1px 0 rgba(255,255,255,0.5);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
 `
 </script>
