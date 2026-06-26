@@ -621,7 +621,7 @@ layout: quote
 layout: full
 ---
 
-<AutoFitText max="50" class="font-bold text-center">Mes 3 axes</AutoFitText>
+<AutoFitText max="40" class="font-bold text-center">Mes 3 axes</AutoFitText>
 
 <div class="flex items-center h-3/4 justify-around">
   <div
@@ -662,13 +662,12 @@ layout: full
 layout: full
 ---
 
-<AutoFitText max="50" class="font-bold text-center">📡 Radar — la bonne info, sans la chercher</AutoFitText>
+<AutoFitText max="40" class="font-bold text-center">📡 Radar — la bonne info, sans la chercher</AutoFitText>
 
-<div class="absolute inset-0">
-  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[14%] top-[30%] -rotate-3" name="p10k" icon="⚡" img="/logos/powerlevel10k.png" desc="prompt : env · node · git" />
-  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[55%] top-[24%] rotate-2" name="Notion Calendar" icon="📅" img="https://cdn.simpleicons.org/notion" desc="prochaine réu en vue" />
-  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[58%] top-[65%] rotate-1" name="météo" icon="🌤️" desc="le temps, en widget" />
-  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[18%] top-[60%] rotate-3" name="git-delta" icon="🔺" img="/logos/delta.png" desc="diffs lisibles" />
+<div class="w-full h-full relative">
+  <img v-click="[1, 2]" src="https://starship.rs/presets/img/nerd-font-symbols.png" alt="Starship symbols" class="h-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+  <img v-click="[2, 3]" src="/notion-calendar.png" alt="Notion Calendar" class="w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+  <img v-click="3" src="/weather.png" alt="Weather" class="w-1/2 absolute right-0 top-1/4 border-gray border border-1 rounded-[35px] shadow-2xl" v-motion :initial="{ x:100, opacity: 0 }" :enter="{ x: 0, opacity: 1, type: 'spring' }"/>
 </div>
 
 <!--
@@ -679,7 +678,7 @@ Le besoin d'abord : avoir sous les yeux l'info qui compte sans aller la chercher
 layout: full
 ---
 
-<AutoFitText max="50" class="font-bold text-center">📡 Radar — la bonne info, sans la chercher</AutoFitText>
+<AutoFitText max="40" class="font-bold text-center">🤫 Silence — réduire les parasites</AutoFitText>
 
 <img v-click v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, opacity: 1 }" src="https://i.redd.it/e13ts578tb881.jpg" alt="Jurassic Park logo" class="h-2/3 mx-auto mt-20" />
 
@@ -689,15 +688,22 @@ layout: full
 layout: full
 ---
 
-<AutoFitText max="50" class="font-bold text-center">🤫 Silence — couper le bruit</AutoFitText>
+<AutoFitText max="40" class="font-bold text-center">🤫 Silence — réduire les parasites</AutoFitText>
 
-<div class="absolute inset-0">
-  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[40%] top-[24%] rotate-1" name="Ne pas déranger" icon="🔕" desc="couper les notifs en focus" />
-  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[16%] top-[30%] -rotate-2" name="Ice" icon="🧊" img="/logos/ice.png" desc="menu bar épurée" />
-  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[56%] top-[26%] rotate-2" name="aerospace" icon="🪟" img="/logos/aerospace.png" desc="tiling au clavier" />
-  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[33%] top-[47%] rotate-1" name="plein écran" icon="⛶" desc="toutes les fenêtres maximisées" />
-  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[60%] top-[65%] -rotate-2" name="side-bars off" icon="📐" desc="moins de panneaux dans l'IDE" />
-  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[22%] top-[70%] -rotate-1" name="gh" icon="🐙" img="https://cdn.simpleicons.org/github" desc="GitHub sans quitter le terminal" />
+<div class="w-full h-full relative">
+  <div class="absolute flex flex-col items-center justify-center gap-16 pb-12 h-full w-full h-full">
+    <img v-click="[1, 3]" src="/menu-bar-long.png" alt="Menu Bar Long" class="w-full" />
+    <img v-click="[2, 3]" src="/menu-bar-short.png" alt="Menu Bar Long" class="w-full" />
+  </div>
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 w-full h-full">
+    <img v-click="[3, 4]" src="/cursor-full.png" alt="Cursor Full" class="h-full" />
+  </div>
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 w-full h-full">
+    <img v-click="[4, 5]" src="/cursor-light.png" alt="Cursor Light" class="h-full" />
+  </div>
+  <div class="absolute top-0 py-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 w-full h-full">
+    <img v-click="5" src="/aerospace.png" alt="Aerospace" class="h-full object-contain" />
+  </div>
 </div>
 
 <!--
@@ -722,38 +728,6 @@ backgroundSize: contain
 
 <!--
 Selon Claude, Marc-aurele disait dans son bouquin que notre meilleur ami c'était le clavier.
--->
-
----
-layout: two-cols
----
-
-# Souris
-
-<v-clicks>
-
-- un million de pixel possible
-- un clic à la fois au max
-- erreur facile
-- engage la vue et le toucher
-
-</v-clicks>
-
-::right::
-
-# Clavier
-
-<v-clicks>
-
-- ~50 touches
-- ~8 doigts en parallèle
-- n'engage que le toûcher
-- débloque les raccourcis claviers
-- stockable en mémoire procédurale
-
-</v-clicks>
-
-<!--
 Et c'est facile à voir en fait la souris est beaucoup plus fatigante à utiliser, parcequ'on doit viser, puis cliquer et attendre d'avoir un feedback visuel pour savoir si on est sur le bon bouton. Du côté du clavier, avec un peu de travail, on peut taper sans regarder et atteindre assez vite une vitesse de frappe qui permet de penser et de taper en même temps. Le truc important aussi c'est qu'on va pouvoir intégrer des raccourcis claviers, qui vont débloquer des actions entières, qui seront stockées dans notre mémoire procédurale et donc on pourra faire des actions sans y penser
 -->
 
@@ -761,38 +735,36 @@ Et c'est facile à voir en fait la souris est beaucoup plus fatigante à utilise
 layout: full
 ---
 
-# ✋ Parcimonie — ne pas refaire ce qu'on a déjà fait
+# ✋ Parcimonie — moins de souris, plus de clavier
 
 <div class="absolute inset-0">
-  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[15%] top-[30%] -rotate-3" name="atuin" icon="🔍" img="/logos/atuin.png" desc="historique cherchable (⌃R)" />
-  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[56%] top-[26%] rotate-2" name="zoxide" icon="📂" img="/logos/zoxide.png" desc="le cd qui apprend" />
-  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[34%] top-[46%] rotate-1" name="fzf" icon="🎯" img="/logos/fzf.png" desc="complétion floue & interactive" />
-  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[58%] top-[54%] -rotate-2" name="zsh-autosuggestions" icon="✨" desc="la suite, proposée en gris" />
-  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[20%] top-[64%] rotate-2" name="zsh-expand" icon="🔬" desc="les alias se déplient" />
+
+todo: spark
+todo: notion calendar
+tosay: navigable au clavier
+
+</div>
+
+<!--
+Le besoin d'abord : frapper moins, se tromper moins. Le plus transverse ici, c'est le texte qui s'écrit tout seul — mes snippets (et l'expansion de texte façon raccourcis clavier, que tout le monde peut utiliser), et les bangs DuckDuckGo qui m'envoient direct au bon endroit. Mes réponses de dev au même besoin : les alias pour raccourcir mes commandes, fd et ripgrep à la place de find et grep, lazygit pour tout git au clavier. En bonus, les gens me croient rapide alors que je tape juste moins.
+-->
+---
+layout: full
+---
+
+# ✋ Parcimonie — faire moins, faire mieux
+
+<div class="w-full h-full relative">
+    <img v-click="[1, 2]" src="/zsh-history.png" alt="Zsh History" class="w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-xl" />
+    <img v-click="[2, 3]" src="/alias-expand.png" alt="Alias Expand" class="w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-xl" />
+    <img v-click="[3, 4]" src="/snippets.png" alt="Snippets" class="w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-xl" />
+    <img v-click="4" src="https://duckduckgo.com/_next/static/media/screenshot-md-lg-dark.259cbd7a.png" alt="Snippets" class="w-full h-full object-contain absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 </div>
 
 <!--
 Le besoin d'abord : ne pas refaire ni retaper ce que j'ai déjà fait, laisser la machine se souvenir à ma place. Tout le monde connaît ça — l'autocomplétion du navigateur, les réponses enregistrées d'une boîte mail : même besoin. Mes réponses de dev : atuin retrouve une commande passée, zoxide me téléporte dans mes dossiers, fzf me fait choisir au lieu de me souvenir, autosuggestions propose la suite, zsh-expand déplie mes alias.
 -->
 
----
-layout: full
----
-
-# ✋ Parcimonie — frapper moins, se tromper moins
-
-<div class="absolute inset-0">
-  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[15%] top-[30%] -rotate-2" name="alias" icon="✂️" desc="p → pnpm · gst · gco" />
-  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[55%] top-[25%] rotate-2" name="snippets" icon="📝" desc="!note · cct" />
-  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[34%] top-[44%] rotate-1" name="fd" icon="📁" img="/logos/fd.png" desc="find, lisible" />
-  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[60%] top-[50%] -rotate-2" name="ripgrep" icon="⚡" img="/logos/ripgrep.png" desc="grep ultra-rapide" />
-  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[17%] top-[61%] rotate-3" name="lazygit" icon="🌿" img="/logos/lazygit.png" desc="git, tout au clavier" />
-  <ToolCard v-click v-motion :initial="{ y: 40, opacity: 0, scale: 0.6 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="absolute left-[53%] top-[69%] -rotate-1" name="unduck" icon="🦆" img="https://cdn.simpleicons.org/duckduckgo" desc="les bangs DuckDuckGo" />
-</div>
-
-<!--
-Le besoin d'abord : frapper moins, se tromper moins. Le plus transverse ici, c'est le texte qui s'écrit tout seul — mes snippets (et l'expansion de texte façon raccourcis clavier, que tout le monde peut utiliser), et les bangs DuckDuckGo qui m'envoient direct au bon endroit. Mes réponses de dev au même besoin : les alias pour raccourcir mes commandes, fd et ripgrep à la place de find et grep, lazygit pour tout git au clavier. En bonus, les gens me croient rapide alors que je tape juste moins.
--->
 
 ---
 layout: center
