@@ -994,19 +994,11 @@ const articleUrl = "https://ralphammer.com/is-it-good-enough-is-the-wrong-questi
 </script>
 
 ---
-layout: full
+layout: section
 ---
 
-# Prescription: La semaine prochaine 🗓️
-
-<v-clicks>
-
-- je demande aux collègues si ils savent ce qu'est un presse-papier
-- je parle "frictionite" à la machine à café
-- je prévoie la prochaine friction que j'enlève en suivant radar / silence / parcimonie
-- et je demande autour de moi...
-
-</v-clicks>
+# Prescription
+## La semaine prochaine 🗓️
 
 <!-- Concrètement, de quoi commencer dès lundi. Pas besoin de tout faire : une friction à la fois. -->
 
@@ -1014,24 +1006,66 @@ layout: full
 layout: center
 ---
 
-<h2 v-click class="mt-12 text-xl italic text-center">
-  Et si vos outils faisaient un peu plus pour vous ?
-</h2>
+<p class="text-2xl text-gray-500">En attendant que mon ordi démarre, je demande:</p>
+<AutoFitText :max="40" modelValue="T'utilises un presse-papier ?"/>
 
-### Sources
-- *Cognitive Load* — zakirullin
-- *Pensées pour moi-même* — Marc-Aurèle (*source Claude*)
+<!-- Je demande aux collègues s'ils savent ce qu'est un presse-papier. -->
 
-</div>
+---
+layout: center
+---
+
+<p class="text-2xl text-gray-500">À la machine à café, je parle:</p>
+<AutoFitText :max="40" modelValue="Friction et charge cognitive"/>
+
+<!-- Je parle "frictionite" à la machine à café. -->
+
+---
+layout: fact
+---
+
+<p class="text-2xl text-gray-500">En choisissant parmi radar, silence et parcimonie,</p>
+<AutoFitText :max="40" modelValue="Je prévois la prochaine friction que j'enlève"/>
+
+<!-- Je prévois la prochaine friction que j'enlève en suivant radar / silence / parcimonie. -->
+
+---
+layout: fact
+---
+
+<AutoFitText :max="40" modelValue="Et surtout je demande autour de moi…"/>
+
+<!-- Et surtout, je demande autour de moi... -->
+
+---
+layout: center
+---
+
+<AutoFitText :max="40" modelValue="Et si vos outils faisaient un peu plus pour vous ?"/>
+
+---
+layout: two-cols
+---
+
 <div class="flex flex-col items-center">
-<qr-code modulesize="6" :data="slidesUrl"></qr-code>
-<p class="text-sm text-gray-500 mt-2">les slides</p>
+  <qr-code modulesize="8" :data="slidesUrl"></qr-code>
+  <span class="inline-flex">
+    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" class="h-12" />
+    <h1 class="text-sm text-gray-500 mt-2">Slides</h1>
+  </span>
 </div>
+
+::right::
+
+<div class="flex flex-col items-center">
+  <h1 class="text-sm text-gray-500 mt-2">🙏 Feedback</h1>
+  <qr-code modulesize="8" :data="feedbackUrl"></qr-code>
 </div>
 
 <script setup>
 import "webcomponent-qr-code";
 const slidesUrl = "https://github.com/jules-poissonnet/talk-ergo";
+const feedbackUrl = "https://openfeedback.io/sunnytech2026/2026-07-02/cmm4pkmk4006k01nsnwb3n0qw";
 </script>
 
-<!-- Merci ! Les slides et les sources sont derrière le QR. -->
+<!-- Merci ! Les slides et les sources sont derrière le QR. La citation Marc-Aurèle sur le clavier vient de Claude, pas du texte original. -->
