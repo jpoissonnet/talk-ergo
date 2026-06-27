@@ -192,8 +192,8 @@ ps: il y a un super article qui parle de la charge cognitive dans le dev, et l
 
 ---
 layout: image
-image: https://www.frcneurodon.org/app/uploads/2015/11/Mouvement-2.jpg
-backgroundSize: 60%
+image: /cortex.jpeg 
+backgroundSize: 80%
 ---
 
 <Arrow v-click v-motion :initial="{ translateX: -200}" :enter="{ translateX: 0}" x1="10%" y1="10%" x2="35%" y2="50%" color="black" width="6" />
@@ -828,140 +828,183 @@ La partie la plus dure du diagnostic, ce n'est pas de connaître l'outil : c'est
 layout: section
 ---
 
-<h1>L'efficacité, c'est contagieux</h1>
-<h2 v-click class="italic text-gray-500">Comment travailler l'immunité collective de son équipe ?</h2>
+<h1>La vaccination thérapeutique</h1>
+<h2 v-click class="italic text-gray-500">Les outils d'une équipe qui se soigne</h2>
 
-<!-- Une fois qu'on a soigné sa propre frictionite, on a envie de partager. Mais attention à la façon de s'y prendre. -->
-
+<!--
+Recap : j'ai soigné MA frictionite — et maintenant ? Le réflexe serait d'évangéliser. Mauvaise idée. La bonne image, c'est la vaccination thérapeutique. Un vaccin thérapeutique ne PRÉVIENT pas une maladie : il aide à SOIGNER une maladie déjà installée. Et la frictionite, on l'a dit, elle est chronique et déjà partout. Donc on n'infecte personne, on immunise toute l'équipe — soi compris. Et un vaccin, ça s'administre à petite dose, jamais de force.
+-->
 
 ---
 layout: center
 ---
 
-<h1 class="text-center">Montrer, pas prêcher</h1>
+<AutoFitText max="40" class="text-center">💉 On n'impose pas, on questionne</AutoFitText>
 
-<div class="flex gap-10 justify-center items-stretch mt-8">
-  <div v-click v-motion :initial="{ x: -60, opacity: 0, rotate: -3 }" :enter="{ x: 0, opacity: 1, rotate: -2 }" class="bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-800 rounded-2xl px-8 py-6 shadow-lg w-64 flex flex-col items-center text-center">
+<div class="flex gap-10 justify-center items-stretch mt-12">
+  <div v-click v-motion :initial="{ x: -60, opacity: 0, rotate: -3 }" :enter="{ x: 0, opacity: 1, rotate: -2 }" class="bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-800 rounded-2xl px-8 py-6 shadow-lg w-72 flex flex-col items-center text-center">
     <span class="text-5xl mb-3">🗣️</span>
-    <span class="font-bold text-xl text-red-600">Prêcher</span>
-    <span class="text-gray-600 dark:text-gray-300 mt-2">« tu <b>dois</b> utiliser X »<br/>→ on se braque</span>
+    <span class="font-bold text-xl text-red-600">Injection forcée</span>
+    <span class="text-gray-600 dark:text-gray-300 mt-2">"tu <b>dois</b> utiliser X"<br/>→ on se braque</span>
   </div>
-  <div v-click v-motion :initial="{ x: 60, opacity: 0, rotate: 3 }" :enter="{ x: 0, opacity: 1, rotate: 2 }" class="bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800 rounded-2xl px-8 py-6 shadow-lg w-64 flex flex-col items-center text-center">
+  <div v-click v-motion :initial="{ x: 60, opacity: 0, rotate: 3 }" :enter="{ x: 0, opacity: 1, rotate: 2 }" class="bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800 rounded-2xl px-8 py-6 shadow-lg w-72 flex flex-col items-center text-center">
     <span class="text-5xl mb-3">🧲</span>
-    <span class="font-bold text-xl text-green-600">Montrer</span>
-    <span class="text-gray-600 dark:text-gray-300 mt-2">on vous voit faire<br/>→ les questions viennent d'elles mêmes</span>
-  </div>
+    <span class="font-bold text-xl text-green-600">Questionnement</span>
+    <span class="text-gray-600 dark:text-gray-300 mt-2">"t'as déjà utilisé ça ?" → la leçon reste un dialogue</span>
+    </div>
 </div>
 
 <SlackNotification
-  class="mt-12"
+  class="mt-8"
   v-click
   v-motion
   :initial="{ x: 100, opacity: 0}"
   :enter="{ x: 0, opacity: 1 }"
   name="Un.e curieux.se"
   initials="🙋"
-  message="au fait... comment tu fais ça aussi vite tout à l'heure&nbsp;?!"
+  message="au fait... c'est quel outil que t'as utilisé pour faire tes captures d'écran ?"
 />
 
 <!--
-On ne convainc personne en évangélisant « tu DOIS utiliser X » : les gens se braquent. Ce qui marche, c'est l'inverse : on vous voit aller vite, et ce sont eux qui viennent demander « mais comment tu fais ça ?! ». C'est ça la vraie porte d'entrée — on tire (pull), on ne pousse pas (push).
+La dose, c'est le mode d'administration. Prêcher, c'est l'injection forcée : « tu DOIS installer ces 15 outils » — rejet immédiat, on se braque. Montrer, c'est exposer une petite dose : on te voit faire UN geste au passage, et la curiosité — le système immunitaire — fait le reste. Où s'expose cette dose ? Là où les autres te voient faire : pour tout le monde, le partage d'écran en réu, une démo ou un Loom de 30 secondes ; côté dev, le pair programming ou une PR avec un alias bien senti. Le signe que la dose a pris, c'est ce message : « comment tu fais ça aussi vite ?! ». Ce sont eux qui viennent — on n'a rien poussé.
 -->
 
 ---
-layout: section
+layout: center
 ---
 
-# Le partage informel
+<AutoFitText max="40" class="text-center">🔭 On fait découvrir</AutoFitText>
 
-<p class="text-3xl text-gray-500 mt-3">ça circule dans les deux sens 🔄</p>
+<p class="text-2xl text-gray-500 mt-2">on ne cherche pas un outil pour un problème qu'on ne se sait pas avoir</p>
 
-<!--
-Le premier canal de diffusion, c'est l'informel — et ça marche dans les deux sens : on apprend des autres autant qu'on leur transmet.
--->
+---
+layout: full
+---
+
+<div class="flex items-center gap-4 h-full w-full">
+<div v-click class="h-1/2 w-1/2">
+  <img src="https://github.com/sindresorhus/awesome/raw/main/media/logo.svg" alt="Awesome" class="w-full max-h-4/5" />
+  <p class="text-center text-2xl text-gray-500">"Des listes de tout,<br/>des CLI aux livres de fantasy"</p>
+</div>
+  <div v-click class="h-1/2 w-1/2">
+    <img src="https://www.raycast.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fcover.e4e5c3a7.png&w=1920&q=70" alt="Raycast" class="max-h-4/5 w-full object-contain" />
+    <p class="text-center text-2xl text-gray-500">Raycast</p>
+  </div>
+</div>
+
+<!-- Alors on regarde du coté des listes `awesome` ou des outils extensibles, on installe raycast pour son emoji picker et on le garde pour son clipboard manager -->
+
+---
+layout: full
+---
+
+<AutoFitText max="40" class="text-center">📣 On partage ses trouvailles</AutoFitText>
+
+<div class="flex gap-10 justify-center items-center my-14 w-full">
+
+  <div
+    class="flex flex-col items-center bg-white/80 dark:bg-gray-900/80 shadow-2xl rounded-3xl px-10 py-8 min-w-[320px] max-w-xs"
+    v-click
+  >
+    <div class="text-4xl mb-4">📰</div>
+    <div class="text-2xl font-bold mb-2 text-blue-700 dark:text-blue-400 text-center">On partage ses trouvailles</div>
+    <div class="text-gray-600 text-center mt-1 text-xl">outils, nouveautés, articles...</div>
+  </div>
+
+  <div
+    class="flex flex-col items-center bg-white/80 dark:bg-gray-900/80 shadow-2xl rounded-3xl px-10 py-8 min-w-[320px] max-w-xs"
+    v-click
+  >
+    <div class="text-4xl mb-4">💡</div>
+    <div class="text-2xl font-bold mb-2 text-green-700 dark:text-green-400 text-center">On partage ses canaux de veilles</div>
+    <div class="text-gray-600 text-center mt-1 text-xl">newsletters, chaine youtube, blog</div>
+  </div>
+
+</div>
+
 
 ---
 layout: image
 image: https://m.media-amazon.com/images/M/MV5BNmU4ODM0NGUtYjk0ZC00ODQwLTk3NjItYThiZWRiNDk2MjFlXkEyXkFqcGc@._V1_.jpg
 ---
 
-
-<!-- Un bon endroit pour ça c'est la machine à café, ça vous permet de rendre vos pauses productives, et en fonction vos bureaux ça peut même vous faire croiser des équipes avec qui vous travaillez pas et qui ont donc d'autres expériences enrichissantes -->
-
----
-layout: full
----
-
-# Partager sa config → `chezmoi`
-
-<v-clicks>
-
-- versionne tes dotfiles et les réplique sur n'importe quelle machine
-- ton setup devient reproductible et lisible par les autres
-- ⚠️ propose **un outil à la fois** — sinon l'équipe oublie tout
-
-</v-clicks>
-
-<!-- chezmoi gère ses dotfiles proprement. Le piège quand on partage, c'est de tout balancer d'un coup : personne ne retient. Un outil à la fois. -->
+<!--
+ou alors on en profite pendant le café... bon d'accord je bois trop de café, j'arrête
+-->
 
 ---
 layout: center
 ---
 
-# Ancrer une dynamique d'équipe
+<AutoFitText max="40" class="text-center">🩹 On minimise le coût d'adoption</AutoFitText>
 
-<div class="grid grid-cols-2 gap-x-12 gap-y-8 mt-18">
-  <div v-click v-motion :initial="{ y: 30, opacity: 0, scale: 0.9 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="bg-blue-50 dark:bg-blue-950 rounded-2xl px-6 py-5 shadow-lg flex items-center gap-4">
-    <span class="text-4xl shrink-0">👥</span>
-    <div><div class="font-bold text-2xl">travaillez ensemble</div><div class="text-xl text-gray-500">les astuces partagées</div></div>
-  </div>
-  <div v-click v-motion :initial="{ y: 30, opacity: 0, scale: 0.9 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="bg-blue-50 dark:bg-blue-950 rounded-2xl px-6 py-5 shadow-lg flex items-center gap-4">
-    <span class="text-4xl shrink-0">#️⃣</span>
-    <div><div class="font-bold text-2xl">un canal #astuces</div><div class="text-xl text-gray-500">une trouvaille = un message</div></div>
-  </div>
-  <div v-click v-motion :initial="{ y: 30, opacity: 0, scale: 0.9 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="bg-blue-50 dark:bg-blue-950 rounded-2xl px-6 py-5 shadow-lg flex items-center gap-4">
-    <span class="text-4xl shrink-0">🧬</span>
-    <div><div class="font-bold text-2xl">montrez vos dotfiles</div><div class="text-xl text-gray-500">les astuces partagées</div></div>
-  </div>
-  <div v-click v-motion :initial="{ y: 30, opacity: 0, scale: 0.9 }" :enter="{ y: 0, opacity: 1, scale: 1 }" class="bg-blue-50 dark:bg-blue-950 rounded-2xl px-6 py-5 shadow-lg flex items-center gap-4">
-    <span class="text-4xl shrink-0">🎁</span>
-    <div><div class="font-bold text-2xl">onboarding</div><div class="text-xl text-gray-500">les bons outils dès le jour 1</div></div>
+<p v-click class="text-center text-2xl text-gray-500">🗣️ "ça fait 10 ans que je fais comme ça"</p>
+<p v-click class="text-center text-2xl italic text-gray-500">👂 changer me coûterait plus cher que ce que ça me rapporte</p>
+
+<div v-click class="flex gap-10 justify-center items-center my-3 w-full">
+  <div class="flex flex-col items-center bg-white/80 dark:bg-gray-900/80 shadow-xl rounded-3xl px-8 py-6 min-w-[320px] max-w-xs">
+    <div class="text-4xl mb-4">💡</div>
+    <div class="text-2xl font-bold mb-2 text-green-700 dark:text-green-400 text-center">Fournir du <i class="whitespace-nowrap">clé en main</i></div>
+    <div class="text-gray-600 text-center mt-1 text-xl">settings exportés, templates, configuration prête à l'emploi</div>
   </div>
 </div>
 
+---
+layout: full
+---
+
+<AutoFitText max="40" class="text-center my-4">🗂️ On documente sa config</AutoFitText>
+
+
+<div class="flex justify-around items-center mt-10 w-full">
+  <div class="flex flex-col items-center bg-white/80 dark:bg-gray-900/80 shadow-xl rounded-3xl px-8 py-6 min-w-[320px] max-w-xs" v-click v-motion :initial="{ scale: 0.8, opacity: 0}" :enter="{ scale: 1, opacity: 1, type: 'spring' }">
+    <div class="text-3xl font-bold mb-2 text-green-700 dark:text-green-400 text-center">Markdown</div>
+    <div class="text-gray-600 text-center mt-1 text-2xl">simple, lisible et partageable</div>
+  </div>
+
+  <div 
+  class="flex flex-col items-center bg-white/80 dark:bg-gray-900/80 shadow-xl rounded-3xl px-8 py-6 min-w-[320px] max-w-xs" v-click v-motion 
+  :initial="{ scale: 0.8, opacity: 0}" :enter="{ scale: 1, opacity: 1, type: 'spring' }">
+  <img src="https://www.chezmoi.io/logo.svg" class="bg-[#4051b5] rounded-full p-2 w-1/2" alt="Chezmoi" />
+    <div class="text-3xl font-bold my-2 text-[#4051b5] dark:text-green-400 text-center">Chezmoi</div>
+    <div class="text-gray-600 text-center text-2xl">dotfiles versionnés et synchronisés</div>
+  </div>
+</div>
 <!--
-Pour que le gain devienne collectif et durable, on l'ancre dans un rituel : un canal #astuces où chacun poste ses trouvailles, un « tip of the week » de deux minutes en daily, les bons outils glissés dès l'onboarding des nouveaux, et des dotfiles d'équipe pour partager les bons défauts. C'est ça qui transforme une habitude perso en culture d'équipe.
+Si tu veux vraiment gagner du temps et arrêter de réinstaller tes outils un par un à chaque nouvelle machine, installe chezmoi. C’est l’outil pour versionner et synchroniser tous tes fichiers de config (dotfiles): shell, éditeur, alias, prompt... Sur un nouvel ordi, un simple « chezmoi init » et tu retrouves tout ton environnement en quelques minutes, sans te demander “j’avais tweaké quoi déjà ?”. C’est simple à installer et tu peux même garder certains secrets chiffrés. En résumé : dès que tu passes du temps à personnaliser ton outil, versionne !
 -->
 
----
-layout: full
----
 
-# Faire découvrir → les listes `awesome`
-
-<v-clicks>
-
-- des collections curées par écosystème (`awesome-macos`, `awesome-cli`, …)
-- parfait pour tomber sur des outils dont on ignorait l'existence
-- chacun pioche ce qui colle à **ses** frictions
-
-</v-clicks>
-
-<!-- Les listes awesome sont d'excellents points de départ pour découvrir, et ça laisse chacun choisir ce qui lui parle. -->
 
 ---
 layout: full
 ---
 
-# La semaine prochaine 🗓️
+<AutoFitText max="40" class="text-center">🔄 On y va petit à petit</AutoFitText>
+
+<img src="https://home.ralphammer.com/wp-content/uploads/2019/12/enough_6.gif" alt="Enough" class="h-1/2 object-contain absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+<p class="text-2xl text-gray-500 absolute bottom-12">Ralph Ammer - Is it good enough? Is the wrong question</p>
+
+<div class="absolute bottom-0 right-0">
+  <qr-code modulesize="6" :data="articleUrl"></qr-code>
+</div>
+<script setup>
+import "webcomponent-qr-code";
+const articleUrl = "https://ralphammer.com/is-it-good-enough-is-the-wrong-question/";
+</script>
+
+---
+layout: full
+---
+
+# Prescription: La semaine prochaine 🗓️
 
 <v-clicks>
 
-- installer un **gestionnaire de presse-papier**
-- régler un raccourci de **capture de zone**
-- mettre **2-3 alias** sur vos commandes du quotidien
-- cacher **une** distraction inutile de la barre
-- choisir **une** friction par semaine, pas dix
+- je demande aux collègues si ils savent ce qu'est un presse-papier
+- je parle "frictionite" à la machine à café
+- je prévoie la prochaine friction que j'enlève en suivant radar / silence / parcimonie
+- et je demande autour de moi...
 
 </v-clicks>
 
@@ -971,38 +1014,9 @@ layout: full
 layout: center
 ---
 
-# La frictionite, ça se soigne 🩺
-
-<h3 v-click>Une friction. Un geste. Répéter.</h3>
-
-<!-- Pour conclure : c'est chronique, mais ça se soigne, un geste à la fois. Vous êtes le médecin et le patient. -->
-
----
-layout: center
----
-
-<div class="font-mono text-center border-2 border-dashed border-gray-400 rounded-xl p-12 max-w-xl mx-auto">
-  <p class="text-gray-400 text-sm mb-4">Rx — Ordonnance</p>
-  <p class="text-2xl font-bold">1 friction · 1 geste · répéter</p>
-  <p class="text-gray-400 text-xs mt-4">durée : à vie</p>
-</div>
-
-
-<!--
-On s'est quitté sur l'ordonnance : une friction, un geste, on répète, à vie. Et plutôt que de répondre à la question du début à votre place, je vous la retourne : à votre avis, il ressemblera à quoi votre quotidien quand vos outils feront un peu plus pour vous ? ... Laissez infuser, et merci.
--->
-
----
-layout: center
----
-
 <h2 v-click class="mt-12 text-xl italic text-center">
-  Et vous, il ressemblera à quoi votre quotidien<br>
-  quand vos outils feront un peu plus pour vous ?
+  Et si vos outils faisaient un peu plus pour vous ?
 </h2>
-
-<div class="grid grid-cols-2 gap-12 items-center mt-6">
-<div>
 
 ### Sources
 - *Cognitive Load* — zakirullin

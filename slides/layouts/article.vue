@@ -6,7 +6,7 @@
     />
     <qr-code
       margin="0"
-      modulesize="10"
+      modulesize="8"
       class="absolute bottom-0 right-0"
       :data="$frontmatter.link"
     ></qr-code>
