@@ -767,28 +767,36 @@ Le besoin d'abord : ne pas refaire ni retaper ce que j'ai déjà fait, laisser l
 
 
 ---
-layout: center
-class: text-center
+layout: none
+class: h-full
+transition: slide-up
 ---
 
-# L'iceberg des possibilités
-
-<div class="relative w-full max-w-3xl mx-auto mt-8 rounded-xl overflow-hidden shadow-lg">
-  <div class="bg-sky-100 px-6 py-5">
-    <p class="text-xs uppercase tracking-widest text-sky-600 mb-2">Ma sélection perso — ce que je connais</p>
-    <p class="text-lg">📡 Radar · 🤫 Silence · ✋ Parcimonie</p>
-  </div>
-  <div class="h-1.5 bg-blue-400"></div>
-  <div class="bg-gradient-to-b from-blue-500 to-blue-900 text-white px-6 pt-6 pb-12" v-click>
-    <p class="text-xs uppercase tracking-widest text-blue-200 mb-3">Tout ce que je ne connais même pas (encore)</p>
-    <p class="text-lg leading-relaxed">des milliers d'outils · pour des frictions<br/>que je n'ai même pas conscience d'avoir</p>
-  </div>
+<div class="w-full h-full relative ">
+  <p class="absolute top-5 right-80 text-4xl bg-white border-5 border-sky-500 p-8 rounded-xl shadow-md">📋 Presse-papier</p>
+  <p class="absolute top-40 right-30 text-4xl bg-white border-5 border-sky-500 p-8 rounded-xl shadow-md">📸 Capture d'écran</p>
+  <p class="absolute bottom-38 left-30 text-4xl bg-sky-500 border-5 border-white text-white p-8 rounded-xl shadow-md">🔍 App Launcher</p>
+  <p class="absolute bottom-5 right-40 text-4xl bg-sky-500 border-5 border-white text-white p-8 rounded-xl shadow-md">🪟 Window manager</p>
+  <img class="w-full h-full object-cover object-center" src="/iceberg.svg" alt="iceberg"/>
 </div>
 
 <!--
 Et tout ce que je viens de montrer, c'est juste MA petite pointe émergée : les outils que je connais et qui collent à mes frictions à moi.
 En dessous, il y a un océan d'outils que je ne connais même pas, qui résolvent des frictions dont je n'ai même pas conscience. Personne ne peut tout connaître, et c'est exactement pour ça que ça vaut le coup de partager.
 -->
+
+---
+layout: none
+class: h-full
+---
+
+<div class="w-full h-full">
+  <p class="absolute top-5 left-30 text-4xl bg-sky-500 border-5 border-white text-white p-8 rounded-xl shadow-md">⌨️ Passer en qwerty ou autre</p>
+  <p class="absolute top-40 right-30 text-4xl bg-sky-500 border-5 border-white text-white p-8 rounded-xl shadow-md">✌️ Passer sous Vim</p>
+  <p class="absolute bottom-38 left-70 text-4xl bg-sky-500 border-5 border-white text-white p-8 rounded-xl shadow-md">🦈 ???</p>
+  <p class="absolute bottom-5 right-60 text-4xl bg-sky-500 border-5 border-white text-white p-8 rounded-xl shadow-md">👽 ???</p>
+  <img class="w-full h-full object-cover object-bottom" src="/iceberg.svg" alt="iceberg"/>
+</div>
 
 ---
 layout: full
