@@ -957,16 +957,17 @@ layout: full
 
 
 <div class="flex justify-around items-center mt-10 w-full">
-  <div class="flex flex-col items-center bg-white/80 dark:bg-gray-900/80 shadow-xl rounded-3xl px-8 py-6 min-w-[320px] max-w-xs" v-click v-motion :initial="{ scale: 0.8, opacity: 0}" :enter="{ scale: 1, opacity: 1, type: 'spring' }">
-    <div class="text-3xl font-bold mb-2 text-green-700 dark:text-green-400 text-center">Markdown</div>
+  <div class="flex flex-col items-center bg-white/80 dark:bg-gray-900/80 shadow-xl rounded-3xl px-8 py-6 min-w-[320px] max-w-xs h-full" v-click v-motion :initial="{ scale: 0.8, opacity: 0}" :enter="{ scale: 1, opacity: 1, type: 'spring' }">
+  <img src="https://cdn.commonmark.org/uploads/default/original/2X/3/366f3614de6996d79a131fdf9b41ed7d65cfe181.png" class="p-2 w-1/2 dark:invert" alt="Chezmoi" />
+    <div class="text-3xl font-bold mb-2 text-black-700 text-center">Markdown</div>
     <div class="text-gray-600 text-center mt-1 text-2xl">simple, lisible et partageable</div>
   </div>
 
   <div 
-  class="flex flex-col items-center bg-white/80 dark:bg-gray-900/80 shadow-xl rounded-3xl px-8 py-6 min-w-[320px] max-w-xs" v-click v-motion 
+  class="flex flex-col items-center bg-white/80 dark:bg-gray-900/80 shadow-xl rounded-3xl px-8 py-6 min-w-[320px] max-w-xs h-full" v-click v-motion 
   :initial="{ scale: 0.8, opacity: 0}" :enter="{ scale: 1, opacity: 1, type: 'spring' }">
   <img src="https://www.chezmoi.io/logo.svg" class="bg-[#4051b5] rounded-full p-2 w-1/2" alt="Chezmoi" />
-    <div class="text-3xl font-bold my-2 text-[#4051b5] dark:text-green-400 text-center">Chezmoi</div>
+    <div class="text-3xl font-bold my-2 text-[#4051b5] dark:text-white text-center">Chezmoi</div>
     <div class="text-gray-600 text-center text-2xl">dotfiles versionnés et synchronisés</div>
   </div>
 </div>
@@ -1015,7 +1016,7 @@ layout: center
 layout: center
 ---
 
-<p class="text-2xl text-gray-500">À la machine à café, je parle:</p>
+<p class="text-2xl text-gray-500">À la machine à café, j'évoque:</p>
 <AutoFitText :max="40" modelValue="Friction et charge cognitive"/>
 
 <!-- Je parle "frictionite" à la machine à café. -->
@@ -1024,7 +1025,7 @@ layout: center
 layout: fact
 ---
 
-<p class="text-2xl text-gray-500">En choisissant parmi radar, silence et parcimonie,</p>
+<p class="text-2xl text-gray-500">En choisissant parmi radar, silence et parcimonie:</p>
 <AutoFitText :max="40" modelValue="Je prévois la prochaine friction que j'enlève"/>
 
 <!-- Je prévois la prochaine friction que j'enlève en suivant radar / silence / parcimonie. -->
@@ -1044,20 +1045,25 @@ layout: center
 <AutoFitText :max="40" modelValue="Et si vos outils faisaient un peu plus pour vous ?"/>
 
 ---
-layout: two-cols
+layout: two-cols-header
 ---
 
-<div class="flex flex-col items-center">
+<AutoFitText :max="40" modelValue="&quot;Et si vos outils faisaient un peu plus pour vous ?&quot;"/>
+<AutoFitText :max="30" modelValue="- Jules Poissonnet"/>
+
+::left::
+
+<div class="flex flex-col items-center h-full justify-center">
   <qr-code modulesize="8" :data="slidesUrl"></qr-code>
-  <span class="inline-flex">
+  <div class="flex items-center gap-2">
     <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" class="h-12" />
-    <h1 class="text-sm text-gray-500 mt-2">Slides</h1>
-  </span>
+    <span class="text-4xl text-gray-500 mt-2">Slides</span>
+  </div>
 </div>
 
 ::right::
 
-<div class="flex flex-col items-center">
+<div class="flex flex-col items-center h-full justify-center">
   <h1 class="text-sm text-gray-500 mt-2">🙏 Feedback</h1>
   <qr-code modulesize="8" :data="feedbackUrl"></qr-code>
 </div>
