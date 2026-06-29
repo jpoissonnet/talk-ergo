@@ -663,6 +663,13 @@ layout: full
 </div>
 
 <!-- Mes optimisations perso se rangent en 3 axes : Radar (avoir la bonne info en vue), Silence (couper le bruit), Parcimonie (taper moins, se tromper moins). -->
+---
+layout: full
+---
+
+<AutoFitText max="40" class="font-bold text-center">📡 Radar — la bonne info, sans la chercher</AutoFitText>
+
+<img v-click v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, opacity: 1 }" src="/iron-man-hud.gif" alt="Jurassic Park logo" class="h-2/3 mx-auto mt-20" />
 
 ---
 layout: full
@@ -748,12 +755,11 @@ layout: full
 
 # ✋ Parcimonie — moins de souris, plus de clavier
 
-<div class="absolute inset-0">
-
-todo: spark
-todo: notion calendar
-tosay: navigable au clavier
-
+<div class="w-full h-full relative">
+    <img v-click src="/notion-cal.png" alt="Notion Calendar" class="h-3/4 absolute top-0 rounded-xl" />
+    <p v-after class="absolute bottom-5 left-0 bg-blue-100 text-4xl p-5 rounded-xl shadow-xl">Notion Calendar</p>
+    <img v-click src="/spark.png" alt="Alias Expand" class="h-4/5 absolute bottom-10 right-0 rounded-xl" />
+    <p v-after class="absolute top-0 right-0 bg-blue-100 text-4xl p-5 rounded-xl shadow-xl">Spark</p>
 </div>
 
 <!--
