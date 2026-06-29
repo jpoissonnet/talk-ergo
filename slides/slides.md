@@ -1,6 +1,7 @@
 ---
 theme: default
 title: Et si vos outils faisaient un peu plus pour vous ?
+remoteAssets: true
 aspectRatio: 16/9
 transition: slide-left
 duration: 50
@@ -82,7 +83,7 @@ layout: center
 
 ---
 layout: image
-image: https://static.wikia.nocookie.net/joueur-du-grenier/images/4/43/David_Good.jpg/revision/latest/scale-to-width-down/1200?cb=20200629174229&path-prefix=fr
+image: /david-goodenough.jpg
 ---
 
 <!--
@@ -109,7 +110,7 @@ En fait tout les gens qui travaillent sur un ordinateur sont concernés. C'est u
 layout: quote
 ---
 
-<img src="https://static.wikia.nocookie.net/house/images/2/29/5x7theitch.jpg/revision/latest/scale-to-width-down/1000?cb=20090620124629" alt="cameron nurse" class="w-1/2 mx-auto my-8 rounded-xl object-cover" />
+<img src="/house-itch-nurse.jpg" alt="cameron nurse" class="w-1/2 mx-auto my-8 rounded-xl object-cover" />
 <blockquote><h2>Dans le bloc, la poubelle est parfois à l'autre bout, on traverse avec des compresses dans les mains</h2>
 <br/>
 <h3 class="text-lg">— Infirmier de la famille Goodenough</h3>
@@ -152,7 +153,7 @@ Alors je vous le dis: apprendre à se servir de ses outils, c'est rigolo, ça pe
 
 ---
 layout: image
-image: https://preview.redd.it/started-at-10-wpm-in-march-built-a-tool-to-track-full-v0-ux016wvjej7f1.png?width=1865&format=png&auto=webp&s=fd70dc5c86293ad035ba91ad2a31ccc7186241eb
+image: /wpm-tracker.png
 backgroundSize: contain
 ---
 
@@ -163,7 +164,7 @@ Un exemple tout bête, c'est d'apprendre à taper sur un clavier. c'est votre in
 ---
 
 <div class="relative">  
-<img class="absolute" v-click src="https://dfjx2uxqg3cgi.cloudfront.net/img/photo/270603/270603_00_2x.jpg?20230207234316"/>
+<img class="absolute" v-click src="/keyboard-typing.jpg"/>
 <img class="absolute left-1/2 -translate-x-1/2" v-click src="https://thumbs.dreamstime.com/b/woman-writing-blog-content-notebook-table-closeup-162627112.jpg"/>
 <img class="absolute left-1/2 -translate-x-1/2" v-click src="https://sunny-tech.io/gallery/01.jpg"/>
 </div>
@@ -293,7 +294,7 @@ Eh oui, c'est vous qui connaissez le mieux vos habitudes, vos gouts et vos frict
 -->
 ---
 layout: image
-image: https://lagranderecre-lagranderecre-fr-storage.omn.proximis.com/Imagestorage/images/0/0/607efd4c57507_B2176_HAND_GMS_WMT_OPERATION_177.jpg
+image: /hand-spinner.jpg
 backgroundSize: contain
 ---
 
@@ -360,7 +361,7 @@ layout: center
 
 <SlackNotification
   class="absolute right-4 top-4"
-  avatar-src="https://media.licdn.com/dms/image/v2/C4D03AQFhBI1feJOYeQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1637317452394?e=1783555200&v=beta&t=k7Deh4Swr4pqEgSxx3z-lZwW8C6Xy8AblmIdrPin-Eo"
+  avatar-src="/linkedin-avatar.jpg"
   v-click="4"
   v-motion
   :initial="{ translateX: 100, filter: 'blur(10px)' }"
@@ -905,7 +906,7 @@ layout: full
   <p class="text-center text-2xl text-gray-500">"Des listes de tout,<br/>des CLI aux livres de fantasy"</p>
 </div>
   <div v-click class="h-1/2 w-1/2">
-    <img src="https://www.raycast.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fcover.e4e5c3a7.png&w=1920&q=70" alt="Raycast" class="max-h-4/5 w-full object-contain" />
+    <img src="/raycast-cover.png" alt="Raycast" class="max-h-4/5 w-full object-contain" />
     <p class="text-center text-2xl text-gray-500">Raycast</p>
   </div>
 </div>
@@ -1001,7 +1002,7 @@ layout: full
 
 <AutoFitText max="40" class="text-center">🔄 On y va petit à petit</AutoFitText>
 
-<img src="https://home.ralphammer.com/wp-content/uploads/2019/12/enough_6.gif" alt="Enough" class="h-1/2 object-contain absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+<img src="/enough.gif" alt="Enough" class="h-1/2 object-contain absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 <p class="text-2xl text-gray-500 absolute bottom-12">Ralph Ammer - Is it good enough? Is the wrong question</p>
 
 <div class="absolute bottom-0 right-0">

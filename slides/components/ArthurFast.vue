@@ -94,8 +94,7 @@ const currentShortcut = computed(() => {
   }
 })
 
-const avatarSrc =
-  'https://media.licdn.com/dms/image/v2/C4D03AQFhBI1feJOYeQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1637317452394?e=1783555200&v=beta&t=k7Deh4Swr4pqEgSxx3z-lZwW8C6Xy8AblmIdrPin-Eo'
+const avatarSrc = '/linkedin-avatar.jpg'
 </script>
 
 <template>
