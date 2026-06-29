@@ -5,6 +5,8 @@ remoteAssets: true
 aspectRatio: 16/9
 transition: slide-left
 duration: 50
+feedbackUrl: https://openfeedback.io/sunnytech2026/2026-07-02/cmm4pkmk4006k01nsnwb3n0qw
+conferenceName: Sunny Tech
 layout: none
 class: "bg-black h-full w-full"
 ---
@@ -15,9 +17,12 @@ layout: intro
 
 <h1 class="text-4xl font-bold">Et si vos outils faisaient un peu plus pour vous ?</h1>
 
-<p class="text-2xl">CAS N°001 · CONSULTATION DE {{$slidev.configs.duration}} MIN</p>
-<p class="text-2xl">PATIENT : VOUS</p>
-<p class="text-2xl">DOCTEUR : VOUS</p>
+<br/>
+
+<p class="text-2xl uppercase">CAS N°001 · CONSULTATION DE {{$slidev.configs.duration}} MIN à {{$slidev.configs.conferenceName}}</p>
+<p class="text-2xl">😷 PATIENT : VOUS</p>
+<p class="text-2xl">👨‍⚕️ DOCTEUR : VOUS</p>
+<p class="text-xl text-gray-500">{{new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}}</p>
 
 <!--
 Installez-vous confortablement, aujourd'hui on va parler de vous, et surtout on va parler de votre relation à vos outils.
@@ -1096,7 +1101,7 @@ layout: two-cols-header
 <script setup>
 import "webcomponent-qr-code";
 const slidesUrl = "https://github.com/jules-poissonnet/talk-ergo";
-const feedbackUrl = "https://openfeedback.io/sunnytech2026/2026-07-02/cmm4pkmk4006k01nsnwb3n0qw";
+const feedbackUrl = $slidev.configs.feedbackUrl;
 </script>
 
 <!-- Merci ! Les slides et les sources sont derrière le QR. La citation Marc-Aurèle sur le clavier vient de Claude, pas du texte original. -->
