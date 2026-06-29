@@ -666,8 +666,11 @@ layout: full
 
 <div class="w-full h-full relative">
   <img v-click="[1, 2]" src="https://starship.rs/presets/img/nerd-font-symbols.png" alt="Starship symbols" class="h-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+  <p v-click="[1, 2]" class="absolute bottom-5 left-5 bg-blue-100 text-4xl p-5 rounded-xl shadow-xl">Starship</p>
   <img v-click="[2, 3]" src="/notion-calendar.png" alt="Notion Calendar" class="w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+  <p v-click="[2, 3]" class="absolute bottom-5 left-5 bg-blue-100 text-4xl p-5 rounded-xl shadow-xl">Notion Calendar</p>
   <img v-click="3" src="/weather.png" alt="Weather" class="w-1/2 absolute right-0 top-1/4 border-gray border border-1 rounded-[35px] shadow-2xl" v-motion :initial="{ x:100, opacity: 0 }" :enter="{ x: 0, opacity: 1, type: 'spring' }"/>
+  <p v-click="3" class="absolute bottom-5 left-5 bg-blue-100 text-4xl p-5 rounded-xl shadow-xl">Widget MacOs</p>
 </div>
 
 <!--
@@ -694,6 +697,7 @@ layout: full
   <div class="absolute flex flex-col items-center justify-center gap-16 pb-12 h-full w-full h-full">
     <img v-click="[1, 3]" src="/menu-bar-long.png" alt="Menu Bar Long" class="w-full" />
     <img v-click="[2, 3]" src="/menu-bar-short.png" alt="Menu Bar Long" class="w-full" />
+    <p v-click="[2, 3]" class="absolute bottom-5 left-5 bg-blue-100 text-4xl p-5 rounded-xl shadow-xl">Ice</p>
   </div>
   <div class="absolute top-0 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 w-full h-full">
     <img v-click="[3, 4]" src="/cursor-full.png" alt="Cursor Full" class="h-full" />
@@ -703,6 +707,7 @@ layout: full
   </div>
   <div class="absolute top-0 py-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 w-full h-full">
     <img v-click="5" src="/aerospace.png" alt="Aerospace" class="h-full object-contain" />
+    <p v-click="5" class="absolute bottom-5 left-5 bg-blue-100 text-4xl p-5 rounded-xl shadow-xl">Aerospace</p>
   </div>
 </div>
 
