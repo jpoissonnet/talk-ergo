@@ -4,6 +4,11 @@ title: Et si vos outils faisaient un peu plus pour vous ?
 aspectRatio: 16/9
 transition: slide-left
 duration: 50
+layout: none
+class: "bg-black h-full w-full"
+---
+
+---
 layout: intro
 ---
 
