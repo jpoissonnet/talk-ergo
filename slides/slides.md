@@ -1075,3 +1075,27 @@ const feedbackUrl = "https://openfeedback.io/sunnytech2026/2026-07-02/cmm4pkmk40
 </script>
 
 <!-- Merci ! Les slides et les sources sont derrière le QR. La citation Marc-Aurèle sur le clavier vient de Claude, pas du texte original. -->
+
+---
+layout: fact
+---
+
+<AutoFitText :max="40" class="italic" modelValue="C'est quoi Raycast?"/>
+<p class="text-2xl text-gray-500">Une app sur MacOS: des extensions, un presse-papier, un window manager, un emoji picker...</p>
+<qr-code modulesize="8" :data="raycast101Url" />
+
+<script setup>
+import "webcomponent-qr-code";
+const raycast101Url = "https://www.youtube.com/watch?v=NuIpZoQwuVY"
+</script>
+
+<!--  -->
+
+---
+layout: fact
+---
+
+<AutoFitText :max="40" class="italic" modelValue="Pourquoi il y a que du MacOs? (c'est nul)"/>
+<p class="text-2xl text-gray-500">J'illustre avec des exemples que je connais</p>
+
+<!-- je travaille sur l'OS de la pomme, mes exemples sont donc orientés, je suis assez convaincu qu'il y a des alternatives pour votre OS favori. -->
