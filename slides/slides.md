@@ -146,27 +146,6 @@ Et à ça je répondrais 3 choses...
 -->
 
 ---
-layout: section 
----
-
-<h1>1. Le fun</h1>
-
-<!--
-Tout d'abord: le fun, je pense qu'en venant en parler en conf je m'adresse à des gens qui aiment apprendre et qui sont curieux.
-Alors je vous le dis: apprendre à se servir de ses outils, c'est rigolo, ça peut devenir assez technique pour ceux qui aiment, et c'est super gratifiant parcequ'on se voit progresser
--->
-
----
-layout: image
-image: /wpm-tracker.png
-backgroundSize: contain
----
-
-<!--
-Un exemple tout bête, c'est d'apprendre à taper sur un clavier. c'est votre interface primaire avec votre ordinateur. Quelque soit votre métier, il est fort probable que vous gagneriez beaucoup à taper plus vite. L'avantage c'est que la vitesse de frappe c'est une métrique facile à mesurer et du coup on pas voir une jolie courbe
--->
-
----
 
 <div class="relative">  
 <img class="absolute" v-click src="/keyboard-typing.jpg"/>
@@ -181,7 +160,8 @@ C'est un super vecteur de conversation et de partage aussi que ce soit pour en d
 ---
 layout: section
 ---
-<h1>2. La charge cognitive</h1>
+
+<h1>1. La charge cognitive</h1>
 
 <!--
 eh oui, remettez vos blouse, on va parler cerveau
@@ -219,8 +199,8 @@ L'idée c'est qu'en choisissant bien nos outils, et nos habitudes, on peut dém�
 layout: section
 ---
 
-<h1 v-click v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, textDecoration: 'none'  }" :click-2="{ scale: 0.5, opacity: .4, textDecoration: 'line-through' }">3. La vitesse</h1>
-<h1 v-click v-motion :initial="{ scale: 0.5, opacity: 0 }" :enter="{ scale: 1.2, opacity: 1, y: -50 }">3. La fluidité</h1>
+<h1 v-click v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, textDecoration: 'none'  }" :click-2="{ scale: 0.5, opacity: .4, textDecoration: 'line-through' }">2. La vitesse</h1>
+<h1 v-click v-motion :initial="{ scale: 0.5, opacity: 0 }" :enter="{ scale: 1.2, opacity: 1, y: -50 }">2. La fluidité</h1>
 
 <!--
 L'effet le plus important est le plus visible, après qq temps, astuces et investissements, vous allez vous apercevoir que vous êtes juste plus rapide...
@@ -249,95 +229,6 @@ layout: section
 
 <!--
 Bon alors c'est très sympa de nous dire qu'on peut accélérer, mais comment on fait ?
--->
-
----
-layout: full
----
-
-<img 
-  src="https://www.chambre-syndicale-sophrologie.fr/wp-content/uploads/2022/11/doctolib.jpg"
-  class="h-1/2 absolute top-1/2 left-1/2"
-  v-click
-  v-motion
-  :initial="{ scale: 0.5, opacity: 1, translateX: '-50%', translateY: '-50%' }"
-  :enter="{ scale: 1, opacity: 1 }"
-/>
-
-<img
-  src="https://everhour.com/blog/wp-content/uploads/2024/05/google-calendar-color-coding.jpg"
-  class="h-full absolute top-1/2 left-1/2"
-  v-click
-  v-motion
-  :initial="{ scale: 0.5, opacity: 1, translateX: '-50%', translateY: '-50%' }"
-  :enter="{ scale: 1, opacity: 1 }"
-/>
-
-<!--
-Malheureusement il y a pas de Doctolib pour prendre des rdvs pour soigner sa DX. Donc il va falloir trouver du temps dans votre semaine pour le faire.
--->
-
----
-layout: image
-image: https://thumbs.dreamstime.com/z/temps-de-compression-41255817.jpg
----
-
----
-layout: image
-image: https://m.media-amazon.com/images/M/MV5BNmU4ODM0NGUtYjk0ZC00ODQwLTk3NjItYThiZWRiNDk2MjFlXkEyXkFqcGc@._V1_.jpg
----
-
----
-layout: section
----
-
-<h1>Vous êtes le patient</h1>
-<h1 v-click>Et le médecin</h1>
-
-<!--
-Eh oui, c'est vous qui connaissez le mieux vos habitudes, vos gouts et vos frictions, c'est donc de vous que doit venir le remède
--->
----
-layout: image
-image: /hand-spinner.jpg
-backgroundSize: contain
----
-
-<!--
-Et là je vais vous decevoir parceque je n'ai pas de solution miracle pour rebrancher votre cerveau et vous obtenir une expérience sans friction.
-Par contre je connais qqun qui peut...
--->
-
----
-layout: center
----
-
-<h1 class="text-2xl font-black text-center mb-8">La méthode générale</h1>
-
-<div class="flex justify-center gap-16 items-center my-12">
-
-  <div class="flex flex-col items-center" v-click>
-    <span class="text-6xl mb-4">😣</span>
-    <span class="text-xl font-bold mb-2 text-red-500">1. Symptôme</span>
-    <span class="text-gray-600 text-center">Identifier une friction<br/><i>(Qu'est-ce qui ralentit&nbsp;?)</i></span>
-  </div>
-  
-  <div class="flex flex-col items-center" v-click>
-    <span class="text-6xl mb-4">🔎</span>
-    <span class="text-xl font-bold mb-2 text-purple-500">2. Diagnostic</span>
-    <span class="text-gray-600 text-center">Trouver l’outil ou le réglage<br/><i>(Comment le résoudre&nbsp;?)</i></span>
-  </div>
-
-  <div class="flex flex-col items-center" v-click>
-    <span class="text-6xl mb-4">💊</span>
-    <span class="text-xl font-bold mb-2 text-green-600">3. Prescription</span>
-    <span class="text-gray-600 text-center">Prendre la nouvelle habitude<br/><i>(S’entraîner, répéter)</i></span>
-  </div>
-
-</div>
-
-<!--
-C'est la méthode générale : on commence par repérer le symptôme — la friction, on diagnostique le point d'amélioration possible (souvent une config ou un outil), puis on l'intègre comme une nouvelle habitude. Ce cycle est à répéter pour apaiser la "frictionite" petit à petit.
 -->
 
 ---
@@ -438,6 +329,7 @@ layout: full
 <div class="w-full relative h-5/6 my-8 rounded-xl bg-[linear-gradient(140deg,_rgb(165,142,251),_rgb(233,191,248))]"
 >
   <img src="/clipboard.png" alt="copier-coller" class="absolute top-0 left-0 w-full h-full object-contain rounded-xl" />
+  <p class="absolute bottom-5 left-5 bg-blue-100 text-4xl p-5 rounded-xl shadow-xl">Raycast</p>
 </div>
 
 <!--
@@ -457,6 +349,7 @@ layout: full
 <div class="w-full relative h-5/6 my-8 rounded-xl bg-[linear-gradient(140deg,_rgb(238,213,182),_rgb(175,136,86))]"
 >
   <img src="/screenshot.png" alt="screenshot" class="absolute top-0 left-0 p-8 w-full h-full object-contain rounded-xl" />
+  <p class="absolute bottom-5 left-5 bg-blue-100 text-4xl p-5 rounded-xl shadow-xl">Shottr</p>
 </div>
 
 <!--
@@ -952,6 +845,36 @@ layout: full
 
 </div>
 
+---
+layout: full
+---
+
+<img 
+  src="https://www.chambre-syndicale-sophrologie.fr/wp-content/uploads/2022/11/doctolib.jpg"
+  class="h-1/2 absolute top-1/2 left-1/2"
+  v-click
+  v-motion
+  :initial="{ scale: 0.5, opacity: 1, translateX: '-50%', translateY: '-50%' }"
+  :enter="{ scale: 1, opacity: 1 }"
+/>
+
+<img
+  src="https://everhour.com/blog/wp-content/uploads/2024/05/google-calendar-color-coding.jpg"
+  class="h-full absolute top-1/2 left-1/2"
+  v-click
+  v-motion
+  :initial="{ scale: 0.5, opacity: 1, translateX: '-50%', translateY: '-50%' }"
+  :enter="{ scale: 1, opacity: 1 }"
+/>
+
+<!--
+Malheureusement il y a pas de Doctolib pour prendre des rdvs pour soigner sa DX. Donc il va falloir trouver du temps dans votre semaine pour le faire.
+-->
+
+---
+layout: image
+image: https://thumbs.dreamstime.com/z/temps-de-compression-41255817.jpg
+---
 
 ---
 layout: image
