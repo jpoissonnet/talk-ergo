@@ -29,6 +29,7 @@ Installez-vous confortablement, aujourd'hui on va parler de vous, et surtout on 
 -->
 
 ---
+title: house 
 layout: image
 image: https://media.vanityfair.fr/photos/673ae9083b28d3f24bf64e2c/1:1/w_2910,h_2910,c_limit/dr%20house%2020%20anni%20dopo-cast.jpg
 ---
@@ -37,6 +38,7 @@ image: https://media.vanityfair.fr/photos/673ae9083b28d3f24bf64e2c/1:1/w_2910,h_
 <!-- À la manière d'un épisode de DR House, ou d'un amphi de médecine, on va regarder un dignostic, et une maladie de notre ère -->
 
 ---
+title: watson
 layout: image
 image: https://files.mastodon.social/media_attachments/files/112/505/726/754/005/422/original/605d65dec7235350.jpg
 ---
@@ -45,6 +47,8 @@ image: https://files.mastodon.social/media_attachments/files/112/505/726/754/005
 le phénomène qu'on va étudier se produit sûrement chez vous, il se manifeste de plein de façons différentes, on va lister qq symptomes et voir si vous pouvez l'identifier
 -->
 
+---
+title: symptomes 1
 ---
 
 <v-clicks>
@@ -70,6 +74,7 @@ Les symptômes peuvent être multiples, vous avez peut-être déjà dit ou enten
 -->
 
 ---
+title: symptomes 2
 layout: center
 ---
 
@@ -87,6 +92,7 @@ layout: center
 -->
 
 ---
+title: david goodenough
 layout: image
 image: /david-goodenough.jpg
 ---
@@ -112,6 +118,7 @@ En fait tout les gens qui travaillent sur un ordinateur sont concernés. C'est u
 -->
 
 ---
+title: quote inf
 layout: quote
 ---
 
@@ -385,7 +392,9 @@ layout: full
     hsl(192deg 46% 32%) 100%
   );;"
 >
-  <img src="/cmd-tab.gif" alt="cmd-tab" class="absolute top-1/2 -translate-y-1/2 w-95% left-5 object-contain rounded-xl shadow-xl" />
+  <img v-click.hide src="/cmd-tab.gif" alt="cmd-tab" class="absolute top-1/2 -translate-y-1/2 w-95% left-5 object-contain rounded-xl shadow-xl" />
+  <img v-click="1" src="/raycast-launcher.png" alt="raycast-launcher" class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 h-95% left-1/2 object-contain rounded-xl shadow-xl"/>
+  <p v-after class="absolute -bottom-8 -left-8 bg-blue-100 text-4xl p-5 rounded-xl shadow-xl">Raycast</p>
 </div>
 
 <!--
@@ -1035,10 +1044,20 @@ layout: fact
 
 <AutoFitText :max="40" class="italic" modelValue="C'est quoi Raycast?"/>
 <p class="text-2xl text-gray-500">Une app sur MacOS: des extensions, un presse-papier, un window manager, un emoji picker...</p>
-<qr-code modulesize="8" :data="raycast101Url" />
+<div v-click class="flex justify-around items-center w-full h-80">
+  <div class="flex flex-col items-center h-full">
+    <p class="text-xl">🌐 Raycast.com</p>
+    <qr-code modulesize="7" :data="raycastDocs" />
+  </div>
+  <div class="flex flex-col items-center justify-between">
+    <p class="text-xl">🎥 Youtube: Raycast 101</p>
+    <qr-code modulesize="7" :data="raycast101Url" />
+  </div>
+</div>
 
 <script setup>
 import "webcomponent-qr-code";
+const raycastDocs = "https://raycast.com"
 const raycast101Url = "https://www.youtube.com/watch?v=NuIpZoQwuVY"
 </script>
 
