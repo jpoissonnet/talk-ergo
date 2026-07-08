@@ -30,9 +30,10 @@ Installez-vous confortablement, aujourd'hui on va parler de vous, et surtout on 
 
 ---
 title: house 
-layout: image
-image: https://media.vanityfair.fr/photos/673ae9083b28d3f24bf64e2c/1:1/w_2910,h_2910,c_limit/dr%20house%2020%20anni%20dopo-cast.jpg
+layout: none
 ---
+
+<img src="https://media.vanityfair.fr/photos/673ae9083b28d3f24bf64e2c/1:1/w_2910,h_2910,c_limit/dr%20house%2020%20anni%20dopo-cast.jpg" class="w-full object-contain"/>
 
 
 <!-- À la manière d'un épisode de DR House, ou d'un amphi de médecine, on va regarder un dignostic, et une maladie de notre ère -->
@@ -149,21 +150,9 @@ layout: section
 
 <!--
 Bon alors en bon david goodenough, vous allez dire, oui mais si c'est pas si grave, ça sert à quoi de s'en occuper maintenant
-Et à ça je répondrais 3 choses...
+Et à ça je répondrais 2 choses...
 -->
 
----
-
-<div class="relative">  
-<img class="absolute" v-click src="/keyboard-typing.jpg"/>
-<img class="absolute left-1/2 -translate-x-1/2" v-click src="https://thumbs.dreamstime.com/b/woman-writing-blog-content-notebook-table-closeup-162627112.jpg"/>
-<img class="absolute left-1/2 -translate-x-1/2" v-click src="https://sunny-tech.io/gallery/01.jpg"/>
-</div>
-
-
-<!--
-C'est un super vecteur de conversation et de partage aussi que ce soit pour en discuter autour d'un café, en faire un article de blog, ou faire des conf à ce propos
--->
 ---
 layout: section
 ---
@@ -412,7 +401,6 @@ clicks: 12
 réviser le scénario
 -->
 
-
 ---
 layout: image
 image: /i-am-speed.jpg
@@ -498,7 +486,9 @@ layout: fact
   <p class="text-5xl"><i class="text-gray-500 text-center">*discours non contractuel</i></p>
 </v-clicks>
 
-<!-- on va dire que c'est beaucoup -->
+<!--
+on va dire que c'est beaucoup, en vrai j'ai montré 8h20 de gain en calcul mais alléger sa charge cognitive évite de faire des erreurs, donc fait gagner un temps difficile à mesurer
+-->
 
 ---
 layout: intro
@@ -666,7 +656,7 @@ layout: full
     <img v-click src="/notion-cal.png" alt="Notion Calendar" class="h-3/4 absolute top-0 rounded-xl" />
     <p v-after class="absolute bottom-5 left-0 bg-blue-100 text-4xl p-5 rounded-xl shadow-xl">Notion Calendar</p>
     <img v-click src="/spark.png" alt="Alias Expand" class="h-4/5 absolute bottom-10 right-0 rounded-xl" />
-    <p v-after class="absolute top-0 right-0 bg-blue-100 text-4xl p-5 rounded-xl shadow-xl">Spark</p>
+    <p v-after class="absolute top-0 -right-5 bg-blue-100 text-4xl p-5 rounded-xl shadow-xl">Spark</p>
 </div>
 
 <!--
