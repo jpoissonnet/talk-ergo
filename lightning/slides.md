@@ -8,7 +8,7 @@ feedbackUrl: https://openfeedback.io/sunnytech2026/2026-07-02/cmm4pkmk4006k01nsn
 conferenceName: LFT
 ---
 
-# Curtain warmer – lace demo
+# 🪢
 
 <!-- 
 - multiple ways to do it
@@ -52,15 +52,21 @@ layout: cover
 
 # Change your habits
 
+---
+
 ## Why change at all?
 
 - cognitive load
 - ~speed~ flow
 - sake of learning
 
+---
+
 ## What to change first?
 
 - focus on what you do most frequently — don't under-estimate micro-interruptions
+
+---
 
 ## How to change?
 
@@ -70,15 +76,20 @@ layout: cover
 4. Use the new flow on a whole work unit
 5. Do a cutover
 
+---
 
 ## When to change?
 
 - the best time was yesterday, the second best is now
 - if you don't have time, make some by using distillation
 
+---
+
 ## Share your thoughts
 
 - keep a trace of what you change and why
 - talk to your colleagues about this, they have similar constraints and might have already found the solution
+
+---
 
 💡Ask them "what if your tools finally worked for you"
