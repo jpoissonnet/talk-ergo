@@ -8,7 +8,12 @@ feedbackUrl: https://openfeedback.io/sunnytech2026/2026-07-02/cmm4pkmk4006k01nsn
 conferenceName: LFT
 ---
 
-# 🪢
+todo: curtain warmer
+
+---
+layout: image
+image: /shoelace.jpeg
+---
 
 <!-- 
 - multiple ways to do it
@@ -39,12 +44,9 @@ layout: cover
 - I've been doing this for 10 years and accepted it
 
 ---
-title: david goodenough
 layout: image
 image: /david-goodenough.jpg
 ---
-
-todo: faire marcher david-goodenough
 
 ---
 
@@ -65,7 +67,7 @@ todo: faire marcher david-goodenough
 - focus on what you do most frequently — don't under-estimate micro-interruptions
 - my recommendation: copy-paste, launcher, window-manager
 
-:amorce gaudard
+:set-up gaudard
 ### copy-paste
 ### launcher
 ### window-manager
@@ -77,15 +79,21 @@ todo: faire marcher david-goodenough
 
 ## Needs
 - what are my frictions
+: non-muscle-memory tasks
 - what are my distractions
+: noise
 - what do I forget the most
+: hard-to-access information
 
 ## Habits
-- what am I used to – keyboard / mouse
+- what am I used to
+: keyboard / mouse
 
 ## Affordance
-- what do I like: Nice UI / Efficient TUI
-- what do I want: Bundle / DIY 
+- what do I like
+: Nice UI / Efficient TUI
+- what do I want
+: Bundle / DIY 
 
 ---
 
@@ -99,7 +107,6 @@ todo: faire marcher david-goodenough
 # For the curious: Get to know the tools
 - History, ancestors of our tools
 - Search "what's an alternative to \<tool>"
-- Drink coffee with your colleagues
 - RSS feeds and co.
 
 ---
@@ -126,7 +133,7 @@ todo: faire marcher david-goodenough
 ## Share your thoughts
 
 - keep a trace of what you change and why
-- talk to your colleagues about this, they have similar constraints and might have already found the solution
+- Drink coffee with your colleagues about this, they have similar constraints and might have already found the solution
 
 ---
 
