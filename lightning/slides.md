@@ -26,35 +26,33 @@ layout: cover
 
 # You fight your tools
 
----
-
-# Get to know yourself
-
-## Needs
-- frictions
-
-## Habits
-- keyboard / mouse
-
-## Affordance
-- Nice UI / Efficient TUI
-- Bundle / DIY 
+- I lost my copy-paste
+- Oops, I forgot to add the link
+- Crap, I didn't see I had a meeting
+- Gimme a minute, I need to find the window I want to share 
 
 ---
 
-# Learn about alternatives
-- Search "what's an alternative to [ ]"
-- Drink coffee with your colleagues
-- RSS feeds and co.
-- History, ancestors of our tools
+# ...and you convince yourself it's ok
+
+- I know it's 20sec but, I'm in the middle of something
+- I've been doing this for 10 years and accepted it
+
+---
+title: david goodenough
+layout: image
+image: /david-goodenough.jpg
+---
+
+todo: faire marcher david-goodenough
 
 ---
 
-# Change your habits
+# You (might) need to change (some of) your habits
 
 ---
 
-## Why change at all?
+## Why? you might ask
 
 - cognitive load
 - ~speed~ flow
@@ -65,10 +63,50 @@ layout: cover
 ## What to change first?
 
 - focus on what you do most frequently — don't under-estimate micro-interruptions
+- my recommendation: copy-paste, launcher, window-manager
+
+:amorce gaudard
+### copy-paste
+### launcher
+### window-manager
+:payoff gaudard
+
+---
+
+# Get to know yourself
+
+## Needs
+- what are my frictions
+- what are my distractions
+- what do I forget the most
+
+## Habits
+- what am I used to – keyboard / mouse
+
+## Affordance
+- what do I like: Nice UI / Efficient TUI
+- what do I want: Bundle / DIY 
+
+---
+
+:my examples
+### notion calendar
+### widgets
+### snippets
+
+---
+
+# For the curious: Get to know the tools
+- History, ancestors of our tools
+- Search "what's an alternative to \<tool>"
+- Drink coffee with your colleagues
+- RSS feeds and co.
 
 ---
 
 ## How to change?
+
+:go step by step
 
 1. Add a new tool
 2. Configure existing tools
