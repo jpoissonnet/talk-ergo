@@ -11,6 +11,11 @@
     "@slidev/cli": "^53.0.0",
     "@slidev/theme-default": "latest",
     "@slidev/theme-seriph": "latest",
+    "three": "^0.187.0",
     "vue": "^3.5.33"
+  },
+  "devDependencies": {
+    "@types/three": "^0.187.0",
+    "lil-gui": "^0.21.0"
   }
 }

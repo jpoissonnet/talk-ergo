@@ -6,9 +6,8 @@ transition: slide-left
 duration: 20
 feedbackUrl: https://openfeedback.io/sunnytech2026/2026-07-02/cmm4pkmk4006k01nsnwb3n0qw
 conferenceName: LFT
+src: ./pages/curtain-warmer.md
 ---
-
-todo: curtain warmer
 
 ---
 layout: image
