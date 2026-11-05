@@ -9,12 +9,7 @@ conferenceName: LFT
 src: ./pages/curtain-warmer.md
 ---
 
----
-layout: image
-image: /shoelace.jpeg
----
-
-<!-- 
+<!--
 - multiple ways to do it
 - well-anchored habits
 - localized folklore, metaphors ways to be taught
@@ -27,37 +22,75 @@ layout: cover
 # What if your tools finally worked for you?
 
 ---
+layout: section
+---
 
 # You fight your tools
 
-- I lost my copy-paste
-- Oops, I forgot to add the link
-- Crap, I didn't see I had a meeting
-- Gimme a minute, I need to find the window I want to share 
+---
+layout: image
+image: /office2.jpg
+---
+<!-- You're at the office and you hear: -->
+
+<span v-click class="text-4xl text-black font-bold bg-white p-8 rounded-xl absolute right-20 border-black border-3">I lost my copy-paste</span>
+<img v-after class="h-full absolute -bottom-4" src="./travolta.png"/>
 
 ---
+layout: image
+image: /scott-running.jpg
+---
+<!-- You're at the office and you hear: -->
 
-# ...and you convince yourself it's ok
+<div class="text-4xl text-black font-bold bg-white p-8 rounded-xl absolute right-10 border-black border-3">2:00: Meeting starts<br/>2:01: some colleague</div>
 
-- I know it's 20sec but, I'm in the middle of something
-- I've been doing this for 10 years and accepted it
+---
+layout: image-right
+image: /ncis-keyboard.gif
+---
+
+<div class="text-4xl text-black font-bold bg-white p-8 -ml-10 my-40 rounded-xl border-black border-3">Just a second,<br/>I'll share my screen</div>
 
 ---
 layout: image
 image: /david-goodenough.jpg
+backgroundSize: 60%
 ---
 
----
-
-# You (might) need to change (some of) your habits
+<h1 class="text-black text-4xl">...and it might be fine</h1>
 
 ---
+layout: section
+---
 
-## Why? you might ask
+# You'll benefit from changing your habits
 
-- cognitive load
-- ~speed~ flow
-- sake of learning
+---
+layout: statement
+---
+
+# Why?
+## you might ask
+
+---
+layout: section
+---
+
+# 1. Cognitive load 🧠
+
+---
+layout: section
+---
+
+<br/>
+<h1 v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, textDecoration: 'none'  }" :click-1="{ scale: 0.5, opacity: .4, textDecoration: 'line-through' }">2. Speed 🚀</h1>
+<h1 v-click v-motion :initial="{ scale: 0.5, opacity: 0 }" :enter="{ scale: 1, opacity: 1, y: -50 }">2. Flow 🏄️</h1>
+
+---
+layout: section
+---
+
+# 3. Being simply better 🤓
 
 ---
 

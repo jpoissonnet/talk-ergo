@@ -29,22 +29,22 @@ import type { SceneFactory } from './types'
 export const DEFAULTS = {
   count: 16,
   length: 16, // world units
-  speed: 4, // world units per second
+  speed: 2.4, // world units per second
   radius: 0.14,
-  wander: 1.8, // rad/s, strength of the meandering turns
+  wander: 2.7, // rad/s, strength of the meandering turns
   wanderPace: 1, // how fast the meander changes its mind
   maxTurn: 3.15, // rad/s, the tightest a head can turn
   turnEase: 3, // how fast the turn follows its target, 1/s (lower = rounder)
   stageX: 3.6, // half-extents of the box the heads fly in
-  stageY: 2.8,
-  stageZ: 2.3,
-  stagePull: 10, // turn strength back into the stage, per unit outside
+  stageY: 2.5,
+  stageZ: 0.5,
+  stagePull: 10.5, // turn strength back into the stage, per unit outside
   stageLookahead: 1.4, // react this far before reaching the edge
   avoidRadius: 1.65, // other bodies closer than this push the head away
   avoidStrength: 9,
   selfGap: 4, // ignore the own body this close behind the head
   textureRepeat: 3, // per world unit
-  sway: 3, // camera-ish rocking of the whole scene
+  sway: 0.7, // camera-ish rocking of the whole scene
   background: '#f4f2ee',
   colors: ['#2f7d5b', '#8a5a1c', '#40469c', '#a87a2c', '#7e3a15', '#6b4a1e'],
 }
