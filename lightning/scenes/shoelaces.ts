@@ -22,43 +22,70 @@ import {
   Group,
   HemisphereLight,
   Mesh,
+  MeshPhysicalMaterial,
   MeshStandardMaterial,
   Quaternion,
   RepeatWrapping,
+  SpotLight,
   SRGBColorSpace,
   Vector3,
 } from 'three'
+import type { Pane } from 'tweakpane'
 import type { SceneFactory } from './types'
 
-/** Tweakable settings; the dev panel edits a copy of these live. */
+
+/**
+ * Tweakable settings; the dev panel edits a copy of these live ("Copy as DEFAULTS" prints a replacement).
+ * Light: `fill` scales the soft sky and sun lights (lower it so the spotlight stands out);
+ * `spotIntensity` 0 switches the spotlight off; `spotAngle` is the cone's half-width in radians,
+ * `spotPenumbra` its edge softness (0 hard, 1 soft); the spotlight hangs at spotX/Y/Z and aims at the middle.
+ */
 export const DEFAULTS = {
-  count: 16,
-  length: 26, // world units
-  speed: 2.4, // world units per second
-  radius: 0.07,
-  flatness: 0.45, // 0 = round cord, towards 1 = flat lace
-  gravity: 1, // units/s², pulls the free part of the body down
-  drag: 1.5, // 1/s, air drag on the body: higher = calmer swinging
-  memory: 0.6, // 0..1, how strongly the body is held on the path the head flew
-  memoryLength: 0.65, // 0..1, the part of the lace (from the head) still held; the rest hangs
-  wander: 2.7, // rad/s, strength of the meandering turns
-  wanderPace: 1, // how fast the meander changes its mind
-  maxTurn: 3.15, // rad/s, the tightest a head can turn
-  turnEase: 3, // how fast the turn follows its target, 1/s (lower = rounder)
-  stageX: 3.6, // half-extents of the box the heads fly in
-  stageY: 2.5,
-  stageZ: 0.5,
-  stagePull: 10.5, // turn strength back into the stage, per unit outside
-  stageLookahead: 1.4, // react this far before reaching the edge
-  avoidRadius: 1.65, // other bodies closer than this push the head away
-  avoidStrength: 9,
-  selfGap: 4, // ignore the own body this close behind the head
-  textureRepeat: 3, // per world unit
-  knotEvery: 10, // seconds between knots, on average, per lace
-  knotSize: 0.32, // scale of the knot curves
-  sway: 0.7, // camera-ish rocking of the whole scene
-  background: '#f4f2ee',
-  colors: ['#2f7d5b', '#8a5a1c', '#40469c', '#a87a2c', '#7e3a15', '#6b4a1e'],
+  "count": 20,
+  "length": 18.5,
+  "speed": 2.4,
+  "radius": 0.07,
+  "flatness": 0.88,
+  "gravity": 0,
+  "drag": 5.8,
+  "memory": 0.6,
+  "memoryLength": 0.65,
+  "wander": 1.85,
+  "wanderPace": 1,
+  "maxTurn": 2.45,
+  "turnEase": 7.3,
+  "stageX": 3.7,
+  "stageY": 2.3,
+  "stageZ": 4.8,
+  "stagePull": 10.5,
+  "stageLookahead": 3.0999999999999996,
+  "avoidRadius": 1.15,
+  "avoidStrength": 12,
+  "selfGap": 4.3999999999999995,
+  "textureRepeat": 3,
+  "tipWidth": 0.55,
+  "tipOpacity": 0.5,
+  "knotEvery": 2,
+  "knotSize": 0.26,
+  "sway": 1.25,
+  "fill": 0.6,
+  "spotIntensity": 23.5,
+  "spotAngle": 0.61,
+  "spotPenumbra": 0.42,
+  "spotColor": "#fff0d6",
+  "spotX": -8.4,
+  "spotY": 9,
+  "spotZ": 5,
+  "background": "#f4f2ee",
+  "backgroundDark": "#1c1b19",
+  "colors": [
+    "#2f7d5b",
+    "#8a5a1c",
+    "#40469c",
+    "#a87a2c",
+    "#7e3a15",
+    "#6b4a1e"
+  ]
 }
 type Params = typeof DEFAULTS
 
@@ -72,12 +99,14 @@ const TRAIL_SPACING = 0.15
 const RING_SPACING = 0.08
 const RADIAL_SEGMENTS = 12
 const AGLET_LENGTH = 0.38
-const AGLET_SWELL = 1.12 // aglet radius, relative to the lace
-const AGLET_CRIMP = 0.06 // length over which the aglet narrows back to the lace
+const AGLET_FILL = 0.68 // the lace end inside the tip, relative to the tip's outer radius: the rest is plastic wall
+const AGLET_TAPER = 3.5 // the lace narrows into the tip over this many lace radii
 const AGLET_DOME_STEPS = 6
-const AGLET_CRIMP_STEPS = 4
-const AGLET_RINGS = 1 + AGLET_DOME_STEPS + Math.ceil(AGLET_LENGTH / RING_SPACING) + AGLET_CRIMP_STEPS
-const MAX_RINGS = Math.ceil(MAX_LENGTH / RING_SPACING) + 1 + 2 * AGLET_RINGS
+const AGLET_SLEEVE_STEPS = 5
+const AGLET_TAPER_STEPS = 5
+const TIP_RINGS = 1 + AGLET_DOME_STEPS + AGLET_SLEEVE_STEPS // from the very end to the tip's mouth
+const END_RINGS = TIP_RINGS + AGLET_TAPER_STEPS // body rings used at each end: inside the tip, then the taper
+const MAX_RINGS = Math.ceil(MAX_LENGTH / RING_SPACING) + 1 + 2 * END_RINGS
 const random = (min: number, max: number) => min + Math.random() * (max - min)
 
 /** Grayscale herringbone braid; the lace colour comes from the material. */
@@ -116,19 +145,20 @@ function braidTexture() {
   return texture
 }
 
-/** Tube buffers for the longest lace; the draw range trims it to the current length. */
-function tubeGeometry() {
+/** Tube buffers for `rings` rings; a draw range can trim them to what is in use. */
+function tubeGeometry(rings: number) {
   const geometry = new BufferGeometry()
-  const count = MAX_RINGS * (RADIAL_SEGMENTS + 1)
+  const count = rings * (RADIAL_SEGMENTS + 1)
   geometry.setAttribute('position', new BufferAttribute(new Float32Array(count * 3), 3))
   geometry.setAttribute('normal', new BufferAttribute(new Float32Array(count * 3), 3))
   geometry.setAttribute('uv', new BufferAttribute(new Float32Array(count * 2), 2))
   const index: number[] = []
-  for (let i = 0; i < MAX_RINGS - 1; i++) {
+  for (let i = 0; i < rings - 1; i++) {
     for (let j = 0; j < RADIAL_SEGMENTS; j++) {
       const a = i * (RADIAL_SEGMENTS + 1) + j
       const b = a + RADIAL_SEGMENTS + 1
-      index.push(a, b, a + 1, b, b + 1, a + 1)
+      // Counter-clockwise seen from outside, so the near wall of the tube is the one drawn and lit.
+      index.push(a, a + 1, b, b, a + 1, b + 1)
     }
   }
   geometry.setIndex(index)
@@ -136,28 +166,102 @@ function tubeGeometry() {
 }
 
 /**
- * Rings of one aglet, from its tip inwards: [distance from the tip, radius].
- * A rounded tip, a slightly swollen sleeve, then a crimp back down to the lace
- * radius: the aglet is part of the tube, so it bends with the lace and has no
- * back face to show.
+ * The shape of a tip from the very end of the lace inwards: TIP_RINGS pairs of
+ * [distance from the end, share of the full radius]. A rounded dome, then a
+ * straight sleeve up to the tip's mouth at `length`.
  */
-function agletProfile(length: number, radius: number) {
+function tipProfile(length: number, fullRadius: number) {
   const rings: [number, number][] = []
-  const swell = radius * AGLET_SWELL
-  const dome = Math.min(radius * 0.6, length * 0.3)
-  const crimp = Math.min(AGLET_CRIMP, length * 0.2)
+  const dome = Math.min(fullRadius * 0.9, length * 0.3)
   for (let k = 0; k <= AGLET_DOME_STEPS; k++) {
     const angle = (k / AGLET_DOME_STEPS) * (Math.PI / 2)
-    rings.push([dome * (1 - Math.cos(angle)), swell * Math.sin(angle)])
+    rings.push([dome * (1 - Math.cos(angle)), Math.sin(angle)])
   }
-  const sleeve = length - crimp - dome
-  const steps = Math.max(1, Math.ceil(sleeve / RING_SPACING))
-  for (let k = 1; k <= steps; k++) rings.push([dome + (sleeve * k) / steps, swell])
-  for (let k = 1; k <= AGLET_CRIMP_STEPS; k++) {
-    const u = k / AGLET_CRIMP_STEPS
-    rings.push([length - crimp + crimp * u, swell + (radius - swell) * u * u * (3 - 2 * u)])
-  }
+  for (let k = 1; k <= AGLET_SLEEVE_STEPS; k++) rings.push([dome + ((length - dome) * k) / AGLET_SLEEVE_STEPS, 1])
   return rings
+}
+
+const smooth = (u: number) => u * u * (3 - 2 * u)
+
+const ZERO_FLAT = new Float32Array(MAX_RINGS)
+const sweepN = new Vector3()
+const sweepP = new Vector3()
+const sweepT = new Vector3()
+const sweepB = new Vector3()
+const sweepRadial = new Vector3()
+const sweepOutward = new Vector3()
+
+/** The part of a lace a tube covers: points to interpolate, and ring layout (distance, radius, flatness). */
+interface Layout {
+  points: TrailPoint[]
+  tangents: Vector3[]
+  distance: ArrayLike<number>
+  radius: ArrayLike<number>
+  flat: ArrayLike<number>
+  count: number
+}
+
+/**
+ * Sweep a tube along the lace: one ring at each layout distance, with the
+ * section carried along the current shape starting from `frame`. `frame` is
+ * updated in place with the orientation at the FIRST ring, so the next frame
+ * starts from it: the section then only changes as much as the shape does.
+ */
+function sweepTube(geometry: BufferGeometry, layout: Layout, flatness: number, textureRepeat: number, frame: Vector3) {
+  const { points, tangents, distance, radius, flat, count } = layout
+  const position = geometry.getAttribute('position') as BufferAttribute
+  const normalAttribute = geometry.getAttribute('normal') as BufferAttribute
+  const uv = geometry.getAttribute('uv') as BufferAttribute
+  const n = sweepN.copy(frame) // not `frame` itself: it must keep the first ring's orientation
+  let segment = 0
+
+  for (let i = 0; i < count; i++) {
+    const s = distance[i]
+    const r = radius[i]
+    // Flat lace: thinner along the transported normal, so the flat side twists slowly like a real one.
+    const thin = r * (1 - flatness * flat[i])
+    while (segment < points.length - 2 && points[segment + 1].distance < s) segment++
+    const a = points[segment]
+    const c = points[segment + 1]
+    const span = c.distance - a.distance
+    const k = span > 0 ? Math.min(Math.max((s - a.distance) / span, 0), 1) : 0
+    sweepP.lerpVectors(a.position, c.position, k)
+    sweepT.lerpVectors(tangents[segment], tangents[segment + 1], k).normalize()
+    // The rope moves after its points were laid down, so their stored normals
+    // can end up along the lace and flip the section. Carry the normal along the
+    // current shape instead, ring to ring.
+    n.addScaledVector(sweepT, -n.dot(sweepT))
+    if (n.lengthSq() < 1e-10) {
+      // Any axis not along the lace will do.
+      n.set(Math.abs(sweepT.x) < 0.9 ? 1 : 0, Math.abs(sweepT.x) < 0.9 ? 0 : 1, 0)
+      n.addScaledVector(sweepT, -n.dot(sweepT))
+    }
+    n.normalize()
+    sweepB.crossVectors(sweepT, n)
+
+    // Where the radius changes (tips, tapers), tilt the normals along the lace.
+    const before = Math.max(i - 1, 0)
+    const after = Math.min(i + 1, count - 1)
+    const ds = distance[after] - distance[before]
+    const slope = ds > 1e-6 ? (radius[after] - radius[before]) / ds : 0
+
+    for (let j = 0; j <= RADIAL_SEGMENTS; j++) {
+      const angle = (j / RADIAL_SEGMENTS) * Math.PI * 2
+      const cos = Math.cos(angle)
+      const sin = Math.sin(angle)
+      sweepRadial.copy(n).multiplyScalar(cos * thin).addScaledVector(sweepB, sin * r)
+      // Ellipse normal, then tilted where the radius changes along the lace.
+      sweepOutward.copy(n).multiplyScalar(cos * r).addScaledVector(sweepB, sin * thin).normalize()
+      sweepOutward.addScaledVector(sweepT, -slope).normalize()
+      const v = i * (RADIAL_SEGMENTS + 1) + j
+      position.setXYZ(v, sweepP.x + sweepRadial.x, sweepP.y + sweepRadial.y, sweepP.z + sweepRadial.z)
+      normalAttribute.setXYZ(v, sweepOutward.x, sweepOutward.y, sweepOutward.z)
+      uv.setXY(v, s * textureRepeat, j / RADIAL_SEGMENTS)
+    }
+    if (i === 0) frame.copy(n)
+  }
+  position.needsUpdate = normalAttribute.needsUpdate = uv.needsUpdate = true
+  geometry.computeBoundingSphere()
 }
 
 /**
@@ -245,21 +349,27 @@ class Lace {
   private readonly phases = [random(0, 6.3), random(0, 6.3), random(0, 6.3)]
   private knotting: Knotting | null = null
 
-  private readonly geometry = tubeGeometry()
+  private readonly geometry = tubeGeometry(MAX_RINGS)
+  private readonly tailTip = tubeGeometry(TIP_RINGS)
+  private readonly headTip = tubeGeometry(TIP_RINGS)
   // Ring layout of the current frame: distance along the lace, radius.
   private readonly ringDistance = new Float32Array(MAX_RINGS)
   private readonly ringRadius = new Float32Array(MAX_RINGS)
-  private readonly ringFlat = new Float32Array(MAX_RINGS) // 1 on the lace, 0 on the round aglets
+  private readonly ringFlat = new Float32Array(MAX_RINGS) // 1 on the lace, 0 inside the round tips
+  private readonly tipDistance = [new Float32Array(TIP_RINGS), new Float32Array(TIP_RINGS)] // tail, head
+  private readonly tipRadius = [new Float32Array(TIP_RINGS), new Float32Array(TIP_RINGS)]
+  private readonly tipFrame = new Vector3()
   private readonly tangentCache: Vector3[] = []
   private readonly tailNormal = new Vector3() // the section's orientation at the tail, kept frame to frame
 
   constructor(
     private readonly params: Params,
     material: MeshStandardMaterial,
-    agletMaterial: MeshStandardMaterial,
+    tipMaterial: MeshPhysicalMaterial,
   ) {
-    // Material 0: the lace, material 1: the aglets (see the groups in `draw`).
-    this.group.add(new Mesh(this.geometry, [material, agletMaterial]))
+    this.group.add(new Mesh(this.geometry, material))
+    // Clear plastic sleeves over the ends of the lace, which shows through them.
+    this.group.add(new Mesh(this.tailTip, tipMaterial), new Mesh(this.headTip, tipMaterial))
 
     this.position.set(random(-1, 1) * params.stageX, random(-1, 1) * params.stageY, random(-1, 1) * params.stageZ)
     this.heading.randomDirection()
@@ -488,18 +598,17 @@ class Lace {
 
   dispose() {
     this.geometry.dispose()
+    this.tailTip.dispose()
+    this.headTip.dispose()
   }
 
-  /** Sweep the tube from the tail to the current head, aglets included. */
+  /** Sweep the lace's body and its two tips along the rope. */
   draw() {
     if (this.length < 0.02) {
       this.group.visible = false
       return
     }
     this.group.visible = true
-    const position = this.geometry.getAttribute('position') as BufferAttribute
-    const normalAttribute = this.geometry.getAttribute('normal') as BufferAttribute
-    const uv = this.geometry.getAttribute('uv') as BufferAttribute
     const head: TrailPoint = {
       position: this.position,
       previous: this.position,
@@ -521,87 +630,44 @@ class Lace {
       tangents[i].normalize()
     }
     tangents[points.length - 1].copy(this.heading)
-    const { radius, textureRepeat, flatness } = this.params
+    const { radius, textureRepeat, flatness, tipWidth } = this.params
     const start = this.distance - this.length
-    const end = this.distance
-    const rings = this.layoutRings(start, end, radius)
-    const tailAglet = rings.tailAglet
-    const headAglet = rings.headAglet
-    const count = rings.count
+    const count = this.layoutRings(start, this.distance, radius, tipWidth)
 
-    const p = new Vector3()
-    const t = new Vector3()
-    const n = new Vector3()
-    const b = new Vector3()
-    const radial = new Vector3()
-    const outward = new Vector3()
-    let segment = 0
+    const body = { points, tangents, distance: this.ringDistance, radius: this.ringRadius, flat: this.ringFlat, count }
+    sweepTube(this.geometry, body, flatness, textureRepeat, this.tailNormal)
+    this.geometry.setDrawRange(0, (count - 1) * RADIAL_SEGMENTS * 6)
 
-    for (let i = 0; i < count; i++) {
-      const s = this.ringDistance[i]
-      const r = this.ringRadius[i]
-      // Flat lace: thinner along the transported normal, so the flat side twists slowly like a real one.
-      const thin = r * (1 - flatness * this.ringFlat[i])
-      while (segment < points.length - 2 && points[segment + 1].distance < s) segment++
-      const a = points[segment]
-      const c = points[segment + 1]
-      const span = c.distance - a.distance
-      const k = span > 0 ? Math.min(Math.max((s - a.distance) / span, 0), 1) : 0
-      p.lerpVectors(a.position, c.position, k)
-      t.lerpVectors(tangents[segment], tangents[segment + 1], k).normalize()
-      // The rope moves after its points were laid down, so their stored normals
-      // can end up along the lace and flip the section. Carry the normal along the
-      // current shape instead, ring to ring, from the tail's orientation of last frame.
-      if (i === 0) n.copy(this.tailNormal)
-      n.addScaledVector(t, -n.dot(t))
-      if (n.lengthSq() < 1e-10) {
-        // Any axis not along the lace will do.
-        n.set(Math.abs(t.x) < 0.9 ? 1 : 0, Math.abs(t.x) < 0.9 ? 0 : 1, 0)
-        n.addScaledVector(t, -n.dot(t))
-      }
-      n.normalize()
-      if (i === 0) this.tailNormal.copy(n)
-      b.crossVectors(t, n)
-
-      // Where the radius changes (tips, crimps), tilt the normals along the lace.
-      const before = Math.max(i - 1, 0)
-      const after = Math.min(i + 1, count - 1)
-      const ds = this.ringDistance[after] - this.ringDistance[before]
-      const slope = ds > 1e-6 ? (this.ringRadius[after] - this.ringRadius[before]) / ds : 0
-
-      for (let j = 0; j <= RADIAL_SEGMENTS; j++) {
-        const angle = (j / RADIAL_SEGMENTS) * Math.PI * 2
-        const cos = Math.cos(angle)
-        const sin = Math.sin(angle)
-        radial.copy(n).multiplyScalar(cos * thin).addScaledVector(b, sin * r)
-        // Ellipse normal, then tilted where the radius changes along the lace.
-        outward.copy(n).multiplyScalar(cos * r).addScaledVector(b, sin * thin).normalize()
-        outward.addScaledVector(t, -slope).normalize()
-        const v = i * (RADIAL_SEGMENTS + 1) + j
-        position.setXYZ(v, p.x + radial.x, p.y + radial.y, p.z + radial.z)
-        normalAttribute.setXYZ(v, outward.x, outward.y, outward.z)
-        uv.setXY(v, s * textureRepeat, j / RADIAL_SEGMENTS)
-      }
-    }
-    position.needsUpdate = normalAttribute.needsUpdate = uv.needsUpdate = true
-
-    // One strip of triangles between consecutive rings, RADIAL_SEGMENTS * 6 indices each.
-    const strip = RADIAL_SEGMENTS * 6
-    this.geometry.clearGroups()
-    this.geometry.addGroup(0, tailAglet * strip, 1)
-    this.geometry.addGroup(tailAglet * strip, (headAglet - tailAglet) * strip, 0)
-    this.geometry.addGroup(headAglet * strip, (count - 1 - headAglet) * strip, 1)
-    this.geometry.setDrawRange(0, (count - 1) * strip)
-    this.geometry.computeBoundingSphere()
+    // The tips are round, so their orientation does not matter: start from the lace's.
+    const tips = [this.tailTip, this.headTip]
+    tips.forEach((geometry, k) => {
+      const tip = { points, tangents, distance: this.tipDistance[k], radius: this.tipRadius[k], flat: ZERO_FLAT, count: TIP_RINGS }
+      sweepTube(geometry, tip, 0, 0, this.tipFrame.copy(this.tailNormal))
+    })
   }
 
   /**
-   * Fill the ring layout: tail aglet, lace body, head aglet. Returns the ring
-   * count and the rings where each aglet meets the lace.
+   * Fill the ring layout of the body: from each end, the lace squeezed inside a
+   * tip, then tapering out to its full width. Also lays out the two tips' own
+   * rings. Returns the number of body rings.
    */
-  private layoutRings(start: number, end: number, radius: number) {
-    const agletLength = Math.min(AGLET_LENGTH, this.length * 0.45)
-    const profile = agletProfile(agletLength, radius)
+  private layoutRings(start: number, end: number, radius: number, tipWidth: number) {
+    const fullTaper = Math.min(radius * AGLET_TAPER, 0.4)
+    // A newborn lace is shorter than its tips: shrink them with it.
+    const fit = Math.min(1, (this.length * 0.45) / (AGLET_LENGTH + fullTaper))
+    const tipLength = AGLET_LENGTH * fit
+    const taper = fullTaper * fit
+    const outer = radius * tipWidth // the plastic
+    const inner = outer * AGLET_FILL // the lace end inside it
+    const profile = tipProfile(tipLength, outer)
+
+    // [distance from the end, radius, flatness], from the very end inwards.
+    const ends: [number, number, number][] = profile.map(([e, share]) => [e, share * inner, 0])
+    for (let m = 1; m <= AGLET_TAPER_STEPS; m++) {
+      const u = m / AGLET_TAPER_STEPS
+      ends.push([tipLength + u * taper, inner + (radius - inner) * smooth(u), smooth(u)])
+    }
+
     let count = 0
     const push = (s: number, r: number, flat: number) => {
       this.ringDistance[count] = s
@@ -609,18 +675,21 @@ class Lace {
       this.ringFlat[count] = flat
       count++
     }
-
-    profile.forEach(([e, r], k) => push(start + e, r, k === profile.length - 1 ? 1 : 0))
-    const tailAglet = count - 1
-
-    const bodyStart = start + agletLength
-    const bodyEnd = end - agletLength
+    for (const [e, r, flat] of ends) push(start + e, r, flat)
+    const bodyStart = start + tipLength + taper
+    const bodyEnd = end - tipLength - taper
     const steps = Math.max(1, Math.ceil((bodyEnd - bodyStart) / RING_SPACING))
     for (let k = 1; k < steps; k++) push(bodyStart + ((bodyEnd - bodyStart) * k) / steps, radius, 1)
+    for (let k = ends.length - 1; k >= 0; k--) push(end - ends[k][0], ends[k][1], ends[k][2])
 
-    const headAglet = count
-    for (let k = profile.length - 1; k >= 0; k--) push(end - profile[k][0], profile[k][1], k === profile.length - 1 ? 1 : 0)
-    return { count, tailAglet, headAglet }
+    // The plastic: tail rings run from the end inwards, head rings from the mouth to the end.
+    profile.forEach(([e, share], k) => {
+      this.tipDistance[0][k] = start + e
+      this.tipRadius[0][k] = share * outer
+      this.tipDistance[1][TIP_RINGS - 1 - k] = end - e
+      this.tipRadius[1][TIP_RINGS - 1 - k] = share * outer
+    })
+    return count
   }
 
   private record(pinned = false) {
@@ -648,9 +717,11 @@ const createShoelaces: SceneFactory = ({ scene, camera, renderer }) => {
   const params: Params = { ...DEFAULTS, colors: [...DEFAULTS.colors] }
   const fog = new Fog(params.background, 9, 24)
   scene.fog = fog
+  let dark = false
   const applyBackground = () => {
-    renderer.setClearColor(params.background)
-    fog.color.set(params.background)
+    const background = dark ? params.backgroundDark : params.background
+    renderer.setClearColor(background)
+    fog.color.set(background)
   }
   applyBackground()
   camera.position.set(0, 0, 14)
@@ -659,21 +730,41 @@ const createShoelaces: SceneFactory = ({ scene, camera, renderer }) => {
   const hemisphere = new HemisphereLight('#ffffff', '#b8ae96', 1.6)
   const sun = new DirectionalLight('#ffffff', 2.2)
   sun.position.set(5, 8, 10)
-  scene.add(hemisphere, sun)
+  // No distance falloff (decay 0): the intensity setting is what you see anywhere in the cone.
+  const spot = new SpotLight(params.spotColor, params.spotIntensity, 0, params.spotAngle, params.spotPenumbra, 0)
+  scene.add(hemisphere, sun, spot, spot.target)
+  const applyLight = () => {
+    hemisphere.intensity = 1.6 * params.fill
+    sun.intensity = 2.2 * params.fill
+    spot.color.set(params.spotColor)
+    spot.intensity = params.spotIntensity
+    spot.angle = params.spotAngle
+    spot.penumbra = params.spotPenumbra
+    spot.position.set(params.spotX, params.spotY, params.spotZ)
+  }
+  applyLight()
 
   const texture = braidTexture()
   const materials = params.colors.map(
     (color) =>
       new MeshStandardMaterial({ color, map: texture, bumpMap: texture, bumpScale: 1.5, roughness: 0.85 }),
   )
-  const agletMaterial = new MeshStandardMaterial({ color: '#e9e4d8', roughness: 0.25, metalness: 0 })
+  const tipMaterial = new MeshPhysicalMaterial({
+    color: '#c9d4d9', // cool grey: pure white would vanish against a light background; only the near wall is drawn, so the lace's colour stays vivid inside
+    transparent: true,
+    opacity: params.tipOpacity,
+    roughness: 0.06,
+    clearcoat: 1,
+    clearcoatRoughness: 0.05,
+    depthWrite: false,
+  })
 
   const world = new Group()
   scene.add(world)
   const laces: Lace[] = []
   const syncCount = () => {
     while (laces.length < params.count) {
-      const lace = new Lace(params, materials[laces.length % materials.length], agletMaterial)
+      const lace = new Lace(params, materials[laces.length % materials.length], tipMaterial)
       laces.push(lace)
       world.add(lace.group)
     }
@@ -708,67 +799,106 @@ const createShoelaces: SceneFactory = ({ scene, camera, renderer }) => {
       step(dt)
       laces.forEach((lace) => lace.draw())
     },
-    tweak(gui) {
-      const laceFolder = gui.addFolder('Laces')
-      laceFolder.add(params, 'count', 1, MAX_COUNT, 1).onChange(syncCount)
-      laceFolder.add(params, 'length', 2, MAX_LENGTH, 0.5)
-      laceFolder.add(params, 'speed', 0, 4, 0.05)
-      laceFolder.add(params, 'radius', 0.02, 0.4, 0.01)
-      laceFolder.add(params, 'flatness', 0, 0.9, 0.01)
+    setDark(isDark) {
+      dark = isDark
+      applyBackground()
+    },
+    tweak(pane) {
+      const numeric = (
+        folder: Pick<Pane, 'addBinding'>,
+        key: { [K in keyof Params]: Params[K] extends number ? K : never }[keyof Params],
+        min: number,
+        max: number,
+        step: number,
+      ) => folder.addBinding(params, key, { min, max, step, label: key.replace(/([A-Z])/g, ' $1').toLowerCase() })
 
-      const rope = gui.addFolder('Rope')
-      rope.add(params, 'gravity', 0, 10, 0.05)
-      rope.add(params, 'drag', 0, 10, 0.05)
-      rope.add(params, 'memory', 0, 1, 0.01)
-      rope.add(params, 'memoryLength', 0, 1, 0.01)
-      laceFolder.add(params, 'textureRepeat', 0.5, 10, 0.1)
+      const laceFolder = pane.addFolder({ title: 'Laces' })
+      numeric(laceFolder, 'count', 1, MAX_COUNT, 1).on('change', syncCount)
+      numeric(laceFolder, 'length', 2, MAX_LENGTH, 0.5)
+      numeric(laceFolder, 'speed', 0, 4, 0.05)
+      numeric(laceFolder, 'radius', 0.02, 0.4, 0.01)
+      numeric(laceFolder, 'flatness', 0, 0.9, 0.01)
+      numeric(laceFolder, 'textureRepeat', 0.5, 10, 0.1)
+      numeric(laceFolder, 'tipWidth', 0.3, 1.1, 0.01)
+      numeric(laceFolder, 'tipOpacity', 0.02, 1, 0.01).on('change', () => (tipMaterial.opacity = params.tipOpacity))
 
-      const flight = gui.addFolder('Flight')
-      flight.add(params, 'wander', 0, 3, 0.05)
-      flight.add(params, 'wanderPace', 0, 4, 0.05)
-      flight.add(params, 'maxTurn', 0.2, 5, 0.05)
-      flight.add(params, 'turnEase', 0.2, 12, 0.1)
+      const rope = pane.addFolder({ title: 'Rope', expanded: false })
+      numeric(rope, 'gravity', 0, 10, 0.05)
+      numeric(rope, 'drag', 0, 10, 0.05)
+      numeric(rope, 'memory', 0, 1, 0.01)
+      numeric(rope, 'memoryLength', 0, 1, 0.01)
 
-      const knots = gui.addFolder('Knots')
-      knots.add(params, 'knotEvery', 2, 60, 0.5)
-      knots.add(params, 'knotSize', 0.15, 0.8, 0.01)
+      const flight = pane.addFolder({ title: 'Flight', expanded: false })
+      numeric(flight, 'wander', 0, 3, 0.05)
+      numeric(flight, 'wanderPace', 0, 4, 0.05)
+      numeric(flight, 'maxTurn', 0.2, 5, 0.05)
+      numeric(flight, 'turnEase', 0.2, 12, 0.1)
 
-      const avoidance = gui.addFolder('Avoidance')
-      avoidance.add(params, 'avoidRadius', 0, 4, 0.05)
-      avoidance.add(params, 'avoidStrength', 0, 40, 0.5)
-      avoidance.add(params, 'selfGap', 0, 10, 0.1)
+      const knots = pane.addFolder({ title: 'Knots', expanded: false })
+      numeric(knots, 'knotEvery', 2, 60, 0.5)
+      numeric(knots, 'knotSize', 0.15, 0.8, 0.01)
 
-      const stage = gui.addFolder('Stage')
-      stage.add(params, 'stageX', 1, 14, 0.1)
-      stage.add(params, 'stageY', 1, 9, 0.1)
-      stage.add(params, 'stageZ', 0.5, 8, 0.1)
-      stage.add(params, 'stagePull', 0, 15, 0.1)
-      stage.add(params, 'stageLookahead', 0, 6, 0.1)
-      stage.add(params, 'sway', 0, 3, 0.05)
+      const avoidance = pane.addFolder({ title: 'Avoidance', expanded: false })
+      numeric(avoidance, 'avoidRadius', 0, 4, 0.05)
+      numeric(avoidance, 'avoidStrength', 0, 40, 0.5)
+      numeric(avoidance, 'selfGap', 0, 10, 0.1)
 
-      const look = gui.addFolder('Colours').close()
-      look.addColor(params, 'background').onChange(applyBackground)
+      const stage = pane.addFolder({ title: 'Stage', expanded: false })
+      numeric(stage, 'stageX', 1, 14, 0.1)
+      numeric(stage, 'stageY', 1, 9, 0.1)
+      numeric(stage, 'stageZ', 0.5, 8, 0.1)
+      numeric(stage, 'stagePull', 0, 15, 0.1)
+      numeric(stage, 'stageLookahead', 0, 6, 0.1)
+      numeric(stage, 'sway', 0, 3, 0.05)
+
+      const light = pane.addFolder({ title: 'Light', expanded: false })
+      numeric(light, 'fill', 0, 2, 0.05)
+      numeric(light, 'spotIntensity', 0, 40, 0.5)
+      numeric(light, 'spotAngle', 0.1, 1.2, 0.01)
+      numeric(light, 'spotPenumbra', 0, 1, 0.01)
+      light.addBinding(params, 'spotColor', { label: 'spot color' })
+      numeric(light, 'spotX', -10, 10, 0.1)
+      numeric(light, 'spotY', 2, 16, 0.1)
+      numeric(light, 'spotZ', -4, 12, 0.1)
+      light.on('change', applyLight)
+
+      const look = pane.addFolder({ title: 'Colours', expanded: false })
+      look.addBinding(params, 'background', { label: 'light bg' }).on('change', applyBackground)
+      look.addBinding(params, 'backgroundDark', { label: 'dark bg' }).on('change', applyBackground)
+      // Lace colours live in an array: expose each one as a property that writes through.
+      const laceColors: Record<string, string> = {}
       params.colors.forEach((_, i) =>
-        look.addColor(params.colors, i).name(`lace ${i + 1}`).onChange((c: string) => materials[i].color.set(c)),
-      )
-
-      gui.add(
-        {
-          copy: () => {
-            const code = `export const DEFAULTS = ${JSON.stringify(params, null, 2)}`
-            navigator.clipboard?.writeText(code)
-            console.info(code)
+        Object.defineProperty(laceColors, `lace${i + 1}`, {
+          enumerable: true,
+          get: () => params.colors[i],
+          set: (color: string) => {
+            params.colors[i] = color
+            materials[i].color.set(color)
           },
-        },
-        'copy',
-      ).name('Copy as DEFAULTS')
-      gui.add({ reset: () => gui.reset() }, 'reset').name('Reset')
+        }),
+      )
+      for (const key of Object.keys(laceColors)) look.addBinding(laceColors, key, { label: key.replace('lace', 'lace ') })
+
+      pane.addButton({ title: 'Copy as DEFAULTS' }).on('click', () => {
+        const code = `export const DEFAULTS = ${JSON.stringify(params, null, 2)}`
+        navigator.clipboard?.writeText(code)
+        console.info(code)
+      })
+      pane.addButton({ title: 'Reset' }).on('click', () => {
+        Object.assign(params, { ...DEFAULTS, colors: [...DEFAULTS.colors] })
+        materials.forEach((material, i) => material.color.set(params.colors[i]))
+        tipMaterial.opacity = params.tipOpacity
+        applyLight()
+        syncCount()
+        applyBackground()
+        pane.refresh()
+      })
     },
     dispose() {
       laces.forEach((lace) => lace.dispose())
       materials.forEach((m) => m.dispose())
       texture.dispose()
-      agletMaterial.dispose()
+      tipMaterial.dispose()
       scene.clear()
     },
   }

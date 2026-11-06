@@ -34,7 +34,7 @@ image: /office2.jpg
 <!-- You're at the office and you hear: -->
 
 <span v-click class="text-4xl text-black font-bold bg-white p-8 rounded-xl absolute right-20 border-black border-3">I lost my copy-paste</span>
-<img v-after class="h-full absolute -bottom-4" src="./travolta.png"/>
+<img v-after class="h-full absolute -bottom-4" src="/travolta.png"/>
 
 ---
 layout: image

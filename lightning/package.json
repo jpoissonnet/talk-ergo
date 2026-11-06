@@ -15,7 +15,8 @@
     "vue": "^3.5.33"
   },
   "devDependencies": {
+    "@tweakpane/core": "^2.0.5",
     "@types/three": "^0.187.0",
-    "lil-gui": "^0.21.0"
+    "tweakpane": "^4.0.5"
   }
 }

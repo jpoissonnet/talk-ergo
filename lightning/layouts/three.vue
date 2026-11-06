@@ -5,24 +5,28 @@
     ---
     layout: three
     scene: shoelaces   # loads scenes/shoelaces.ts (default export: SceneFactory)
+    devPanel: true     # optional: tweak panel while running `slidev`
     ---
 
   The layout owns the renderer, camera, resizing and the animation loop.
   It only animates while the slide is the current one, in slide or presenter view;
   elsewhere (overview, print/export) it draws a single still frame.
 
-  In dev (`slidev`, not build/export), a scene that implements `tweak(gui)` gets a
-  lil-gui panel in the top-right corner while its slide is showing.
+  A scene that implements `setDark(isDark)` follows the deck's light / dark mode.
+
+  Dev panel: `devPanel: true` in the slide's frontmatter shows a Tweakpane panel in
+  the top-right corner, for scenes that implement `tweak(pane)`, while the slide is
+  showing. It is opt-in per slide and never part of a build or export.
 -->
 
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref, watch } from 'vue'
-import { useIsSlideActive, useSlideContext } from '@slidev/client'
+import { useDarkMode, useIsSlideActive, useSlideContext } from '@slidev/client'
 import { PerspectiveCamera, Scene, Timer, WebGLRenderer } from 'three'
-import type GUI from 'lil-gui'
+import type { Pane } from 'tweakpane'
 import type { SceneFactory, SceneHandle } from '../scenes/types'
 
-const props = defineProps<{ scene: string }>()
+const props = defineProps<{ scene: string; devPanel?: boolean }>()
 
 const scenes = import.meta.glob<SceneFactory>('../scenes/*.ts', { import: 'default' })
 
@@ -30,11 +34,13 @@ const container = ref<HTMLDivElement>()
 const canvas = ref<HTMLCanvasElement>()
 const isActive = useIsSlideActive()
 const { $renderContext } = useSlideContext()
+const { isDark } = useDarkMode()
 
 let renderer: WebGLRenderer | undefined
 let handle: SceneHandle | undefined
 let resizeObserver: ResizeObserver | undefined
-let gui: GUI | undefined
+let pane: Pane | undefined
+let panelLoad: Promise<void> | undefined
 let frame = 0
 let disposed = false
 const scene = new Scene()
@@ -87,33 +93,69 @@ onMounted(async () => {
 
   renderer = new WebGLRenderer({ canvas: canvas.value, antialias: true })
   handle = factory({ scene, camera, renderer })
+  handle.setDark?.(isDark.value)
   resizeObserver = new ResizeObserver(resize)
   resizeObserver.observe(container.value!)
   resize()
   if (shouldAnimate()) start()
-  await mountTweakPanel()
+  await syncPanel()
 })
 
-async function mountTweakPanel() {
-  if (!import.meta.env.DEV || !handle?.tweak || $renderContext.value !== 'slide') return
-  const { default: LilGui } = await import('lil-gui')
-  if (disposed) return
-  gui = new LilGui({ title: props.scene })
-  gui.domElement.style.zIndex = '1000'
-  handle.tweak(gui)
-  gui.show(isActive.value)
+const wantsPanel = () =>
+  props.devPanel === true && !!handle?.tweak && $renderContext.value === 'slide'
+
+async function syncPanel() {
+  // Checked first, in this function, so the bundler drops Tweakpane from builds entirely.
+  if (!import.meta.env.DEV) return
+  if (!wantsPanel()) {
+    pane?.dispose()
+    pane = undefined
+    return
+  }
+  if (!pane) {
+    // Tweakpane is only fetched when a slide asks for it.
+    panelLoad ??= import('tweakpane')
+      .then(({ Pane }) => {
+        if (disposed || pane || !handle?.tweak) return
+        pane = new Pane({ title: props.scene })
+        const wrapper = pane.element.parentElement
+        // Fixed above the slide; scrolls when the folders are taller than the window.
+        if (wrapper) {
+          Object.assign(wrapper.style, {
+            position: 'fixed',
+            zIndex: '1000',
+            maxHeight: 'calc(100vh - 16px)',
+            overflowY: 'auto',
+            borderRadius: '6px',
+          })
+        }
+        handle.tweak(pane)
+      })
+      .finally(() => (panelLoad = undefined))
+    await panelLoad
+    // The flag or the slide may have changed while it loaded.
+    if (!wantsPanel()) {
+      pane?.dispose()
+      pane = undefined
+    }
+  }
+  if (pane) pane.hidden = !isActive.value
 }
 
-watch([isActive, $renderContext], () => {
-  shouldAnimate() ? start() : stop()
-  gui?.show(isActive.value)
+watch(isDark, (dark) => {
+  handle?.setDark?.(dark)
+  // A still frame (overview, export) only renders on demand.
+  if (!frame) renderer?.render(scene, camera)
 })
+
+watch([isActive, $renderContext], () => (shouldAnimate() ? start() : stop()))
+watch([isActive, $renderContext, () => props.devPanel], syncPanel)
 
 onUnmounted(() => {
   disposed = true
   stop()
   resizeObserver?.disconnect()
-  gui?.destroy()
+  pane?.dispose()
   handle?.dispose()
   renderer?.dispose()
 })

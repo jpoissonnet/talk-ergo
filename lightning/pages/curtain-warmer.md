@@ -1,6 +1,7 @@
 ---
 layout: three
 scene: shoelaces
+devPanel: true
 title: curtain warmer
 ---
 
