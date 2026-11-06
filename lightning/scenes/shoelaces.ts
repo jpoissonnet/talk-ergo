@@ -6,8 +6,12 @@
   forces bend that path: one keeps the head inside the stage box, the other
   steers it away from the bodies of other laces (and from its own older body),
   so laces cross in front of / behind each other but rarely touch.
-  The body is the head's trail, swept as a tube; the braid texture and the
-  tube's twist are stored on the trail, so they travel with the lace.
+  The body is a rope laid down along the head's path: near the head it holds
+  that path, further back it hangs and swings under gravity. Now and then a
+  head traces a knot curve instead; those rope points are pinned, so the knot
+  stays tied in the air until the lace has slid through it.
+  The body is swept as a tube; the braid texture and the tube's twist are
+  stored on the rope points, so they travel with the lace.
 */
 import {
   BufferAttribute,
@@ -19,6 +23,7 @@ import {
   HemisphereLight,
   Mesh,
   MeshStandardMaterial,
+  Quaternion,
   RepeatWrapping,
   SRGBColorSpace,
   Vector3,
@@ -28,9 +33,14 @@ import type { SceneFactory } from './types'
 /** Tweakable settings; the dev panel edits a copy of these live. */
 export const DEFAULTS = {
   count: 16,
-  length: 16, // world units
+  length: 26, // world units
   speed: 2.4, // world units per second
-  radius: 0.14,
+  radius: 0.07,
+  flatness: 0.45, // 0 = round cord, towards 1 = flat lace
+  gravity: 1, // units/s², pulls the free part of the body down
+  drag: 1.5, // 1/s, air drag on the body: higher = calmer swinging
+  memory: 0.6, // 0..1, how strongly the body is held on the path the head flew
+  memoryLength: 0.65, // 0..1, the part of the lace (from the head) still held; the rest hangs
   wander: 2.7, // rad/s, strength of the meandering turns
   wanderPace: 1, // how fast the meander changes its mind
   maxTurn: 3.15, // rad/s, the tightest a head can turn
@@ -44,6 +54,8 @@ export const DEFAULTS = {
   avoidStrength: 9,
   selfGap: 4, // ignore the own body this close behind the head
   textureRepeat: 3, // per world unit
+  knotEvery: 10, // seconds between knots, on average, per lace
+  knotSize: 0.32, // scale of the knot curves
   sway: 0.7, // camera-ish rocking of the whole scene
   background: '#f4f2ee',
   colors: ['#2f7d5b', '#8a5a1c', '#40469c', '#a87a2c', '#7e3a15', '#6b4a1e'],
@@ -51,6 +63,9 @@ export const DEFAULTS = {
 type Params = typeof DEFAULTS
 
 const MAX_COUNT = 30
+const MAX_KNOTS = 3 // laces tying a knot at the same time
+const KNOT_VIEW = { x: 8, y: 4.5 } // a knot must fit in roughly what the camera sees
+const KNOT_CLEARANCE = 0.3 // free space around a knot before it starts
 const MAX_LENGTH = 40
 const AVOID_LOOKAHEAD = [0.5, 1.4, 2.4] // probe for bodies at these distances ahead
 const TRAIL_SPACING = 0.15
@@ -145,12 +160,72 @@ function agletProfile(length: number, radius: number) {
   return rings
 }
 
-/** A point the head flew through: where, at which distance, and its frame. */
+/**
+ * Knot curves, in unit scale. Each is a closed knot cut open on an outer arc,
+ * its two ends pulled apart along the knot's axis, so a single strand can trace
+ * it: the head follows the curve and the trail left behind is the knot.
+ */
+const KNOT_CURVES = [
+  { t0: Math.PI / 3, at: (t: number) => new Vector3(Math.sin(t) + 2 * Math.sin(2 * t), Math.cos(t) - 2 * Math.cos(2 * t), -Math.sin(3 * t)) }, // trefoil (overhand)
+  { t0: 0, at: (t: number) => new Vector3((2 + Math.cos(2 * t)) * Math.cos(3 * t), (2 + Math.cos(2 * t)) * Math.sin(3 * t), Math.sin(4 * t)) }, // figure-eight
+]
+const KNOT_OPENING = 1.2 // how far apart the two ends are pulled, unit scale
+const KNOT_SAMPLES = 720
+const KNOT_TRAIL_SPACING = 0.04 // denser trail in knots: their curves are tight
+const PHYSICS_STEP = 1 / 60 // rope substep, seconds
+const ROPE_ITERATIONS = 6 // passes to restore segment lengths, per substep
+const ROPE_FOLD = 0.996 // points two apart may not come closer than this share of their rest distance
+
+interface KnotShape {
+  points: Vector3[] // relative to the entry point
+  tangents: Vector3[]
+  lengths: number[] // cumulative arc length
+  center: Vector3
+  extent: number // radius around `center` that holds the whole knot
+}
+
+const KNOTS: KnotShape[] = KNOT_CURVES.map(({ t0, at }) => {
+  const points: Vector3[] = []
+  for (let i = 0; i <= KNOT_SAMPLES; i++) {
+    const u = i / KNOT_SAMPLES
+    points.push(at(t0 + u * Math.PI * 2).add(new Vector3(0, 0, KNOT_OPENING * (u - 0.5))))
+  }
+  const entry = points[0].clone()
+  points.forEach((point) => point.sub(entry))
+  const lengths = [0]
+  const tangents = points.map((point, i) => {
+    if (i > 0) lengths.push(lengths[i - 1] + point.distanceTo(points[i - 1]))
+    const a = points[Math.max(i - 1, 0)]
+    const b = points[Math.min(i + 1, points.length - 1)]
+    return b.clone().sub(a).normalize()
+  })
+  const center = points.reduce((sum, point) => sum.add(point), new Vector3()).divideScalar(points.length)
+  const extent = Math.max(...points.map((point) => point.distanceTo(center)))
+  return { points, tangents, lengths, center, extent }
+})
+
+/** A lace part-way through tying a knot: the shape, placed in the world. */
+interface Knotting {
+  shape: KnotShape
+  origin: Vector3
+  rotation: Quaternion
+  scale: number
+  travelled: number // along the knot, world units
+}
+
+/**
+ * A point of the lace's body, a rope particle. Laid down where the head flew
+ * (its anchor), then free to swing, held back towards the anchor less and less
+ * as it gets older.
+ */
 interface TrailPoint {
   position: Vector3
+  previous: Vector3 // position one substep ago (Verlet integration)
+  anchor: Vector3 // where the head laid it down
   distance: number // along the lace, from its very first point
   tangent: Vector3
   normal: Vector3 // parallel-transported, so the tube never twists in place
+  pinned: boolean // part of a knot: stays on its anchor so the knot keeps its shape
 }
 
 /** A lace's trail as seen by the others, for avoidance. */
@@ -168,11 +243,15 @@ class Lace {
   private time = random(0, 100)
   private readonly frequencies = [random(0.13, 0.33), random(0.13, 0.33), random(0.13, 0.33)]
   private readonly phases = [random(0, 6.3), random(0, 6.3), random(0, 6.3)]
+  private knotting: Knotting | null = null
 
   private readonly geometry = tubeGeometry()
   // Ring layout of the current frame: distance along the lace, radius.
   private readonly ringDistance = new Float32Array(MAX_RINGS)
   private readonly ringRadius = new Float32Array(MAX_RINGS)
+  private readonly ringFlat = new Float32Array(MAX_RINGS) // 1 on the lace, 0 on the round aglets
+  private readonly tangentCache: Vector3[] = []
+  private readonly tailNormal = new Vector3() // the section's orientation at the tail, kept frame to frame
 
   constructor(
     private readonly params: Params,
@@ -185,6 +264,7 @@ class Lace {
     this.position.set(random(-1, 1) * params.stageX, random(-1, 1) * params.stageY, random(-1, 1) * params.stageZ)
     this.heading.randomDirection()
     this.normal.randomDirection().cross(this.heading).normalize()
+    this.tailNormal.copy(this.normal)
     this.record()
   }
 
@@ -192,7 +272,45 @@ class Lace {
     return this.distance
   }
 
+  get isKnotting() {
+    return this.knotting !== null
+  }
+
+  get isGrown() {
+    return this.length >= this.params.length * 0.95
+  }
+
+  /**
+   * Start tying a knot from where the head is, if the knot would be on screen
+   * and the space it needs is clear of other laces (they steer around it once
+   * it is tied). Returns whether it started.
+   */
+  tryKnot(bodies: Body[]) {
+    const p = this.params
+    const shape = KNOTS[Math.floor(Math.random() * KNOTS.length)]
+    const rotation = new Quaternion()
+      .setFromAxisAngle(this.heading, random(0, Math.PI * 2))
+      .multiply(new Quaternion().setFromUnitVectors(shape.tangents[0], this.heading))
+    const center = shape.center.clone().multiplyScalar(p.knotSize).applyQuaternion(rotation).add(this.position)
+    const reach = shape.extent * p.knotSize
+    if (Math.abs(center.x) + reach > KNOT_VIEW.x || Math.abs(center.y) + reach > KNOT_VIEW.y) return false
+    const clearance = reach + 2 * p.radius + KNOT_CLEARANCE
+    for (const body of bodies) {
+      if (body.points === this.trail) continue
+      if (body.points.some((point) => point.position.distanceTo(center) < clearance)) return false
+    }
+    this.knotting = { shape, origin: this.position.clone(), rotation, scale: p.knotSize, travelled: 0 }
+    return true
+  }
+
   step(dt: number, bodies: Body[]) {
+    if (this.knotting) this.stepKnot(dt)
+    else this.fly(dt, bodies)
+    this.simulate(dt)
+  }
+
+  /** Free flight: meander, keep clear of other laces, stay on stage. */
+  private fly(dt: number, bodies: Body[]) {
     const p = this.params
     this.time += dt * p.wanderPace
     const turn = new Vector3()
@@ -256,8 +374,114 @@ class Lace {
     this.distance += travelled
     this.length = Math.min(this.length + travelled, p.length)
 
+    this.advanceTrail(false)
+  }
+
+  /** The head follows the knot curve exactly; its trail becomes the knot. */
+  private stepKnot(dt: number) {
+    const knot = this.knotting!
+    const travelled = this.params.speed * dt
+    knot.travelled += travelled
+    const { lengths, points, tangents } = knot.shape
+    const total = lengths[lengths.length - 1]
+    const u = Math.min(knot.travelled / knot.scale, total)
+    let i = 0
+    let hi = lengths.length - 1
+    while (hi - i > 1) {
+      const mid = (i + hi) >> 1
+      if (lengths[mid] <= u) i = mid
+      else hi = mid
+    }
+    const k = (u - lengths[i]) / Math.max(lengths[hi] - lengths[i], 1e-9)
+    this.position
+      .lerpVectors(points[i], points[hi], k)
+      .multiplyScalar(knot.scale)
+      .applyQuaternion(knot.rotation)
+      .add(knot.origin)
+    this.heading.lerpVectors(tangents[i], tangents[hi], k).normalize().applyQuaternion(knot.rotation)
+    this.distance += travelled
+    this.length = Math.min(this.length + travelled, this.params.length)
+    this.advanceTrail(true)
+    if (u >= total) {
+      this.knotting = null
+      this.turn.set(0, 0, 0)
+    }
+  }
+
+  /**
+   * Rope physics on the body. Every free point gets gravity and drag, and is
+   * pulled back towards its anchor: strongly near the head, fading to nothing
+   * further back, so the front keeps the flight curves and the rest hangs and
+   * swings. Then the segments get their length back. The head and knot points
+   * are pinned.
+   */
+  private simulate(dt: number) {
+    const { gravity, drag, memory, memoryLength, length } = this.params
+    const trail = this.trail
+    const substeps = Math.max(1, Math.ceil(dt / PHYSICS_STEP))
+    const h = dt / substeps
+    const damping = Math.exp(-drag * h)
+    const velocity = new Vector3()
+    const delta = new Vector3()
+
+    for (let step = 0; step < substeps; step++) {
+      for (const point of trail) {
+        if (point.pinned) continue
+        velocity.subVectors(point.position, point.previous).multiplyScalar(damping)
+        point.previous.copy(point.position)
+        point.position.add(velocity)
+        point.position.y -= gravity * h * h
+        const age = (this.distance - point.distance) / Math.max(length, 1e-6) // 0 at the head, 1 at the tail
+        const held = Math.min(Math.max(1 - age / Math.max(memoryLength, 1e-3), 0), 1)
+        const hold = memory * held * held * (3 - 2 * held)
+        if (hold > 0) point.position.lerp(point.anchor, 1 - Math.pow(1 - hold, h * 60))
+      }
+
+      for (let iteration = 0; iteration < ROPE_ITERATIONS; iteration++) {
+        for (let i = 1; i <= trail.length; i++) {
+          const a = trail[i - 1]
+          // The last link ties the body to the head, which is always pinned.
+          const b = i < trail.length ? trail[i] : null
+          const bPosition = b ? b.position : this.position
+          const rest = (b ? b.distance : this.distance) - a.distance
+          delta.subVectors(bPosition, a.position)
+          const d = delta.length()
+          if (d < 1e-9) continue
+          const aFree = !a.pinned
+          const bFree = b !== null && !b.pinned
+          if (!aFree && !bFree) continue
+          const correction = (d - rest) / d
+          if (aFree && bFree) {
+            a.position.addScaledVector(delta, correction / 2)
+            b!.position.addScaledVector(delta, -correction / 2)
+          } else if (aFree) a.position.addScaledVector(delta, correction)
+          else b!.position.addScaledVector(delta, -correction)
+        }
+        // Bending: a squeezed rope would buckle into zigzags; forbid tight folds
+        // by keeping points two apart from getting too close (only pushes, never pulls).
+        for (let i = 2; i < trail.length; i++) {
+          const a = trail[i - 2]
+          const c = trail[i]
+          if (a.pinned && c.pinned) continue
+          const fold = (c.distance - a.distance) * ROPE_FOLD
+          delta.subVectors(c.position, a.position)
+          const d = delta.length()
+          if (d >= fold || d < 1e-9) continue
+          const correction = (d - fold) / d
+          if (!a.pinned && !c.pinned) {
+            a.position.addScaledVector(delta, correction / 2)
+            c.position.addScaledVector(delta, -correction / 2)
+          } else if (!a.pinned) a.position.addScaledVector(delta, correction)
+          else c.position.addScaledVector(delta, -correction)
+        }
+      }
+    }
+  }
+
+  private advanceTrail(pinned: boolean) {
     const last = this.trail[this.trail.length - 1]
-    if (this.distance - last.distance >= TRAIL_SPACING) this.record()
+    const spacing = pinned ? KNOT_TRAIL_SPACING : TRAIL_SPACING
+    if (this.distance - last.distance >= spacing) this.record(pinned)
     // Drop trail points the tail has passed (keep one behind it to interpolate).
     while (this.trail.length > 2 && this.trail[1].distance <= this.distance - this.length) this.trail.shift()
   }
@@ -278,12 +502,26 @@ class Lace {
     const uv = this.geometry.getAttribute('uv') as BufferAttribute
     const head: TrailPoint = {
       position: this.position,
+      previous: this.position,
+      anchor: this.position,
       distance: this.distance,
       tangent: this.heading,
       normal: this.transported(this.trail[this.trail.length - 1].normal),
+      pinned: true,
     }
     const points = [...this.trail, head]
-    const { radius, textureRepeat } = this.params
+    // The body sags after it was laid down: take tangents from where the points are now.
+    const tangents = this.tangentCache
+    while (tangents.length < points.length) tangents.push(new Vector3())
+    for (let i = 0; i < points.length; i++) {
+      const before = points[Math.max(i - 1, 0)].position
+      const after = points[Math.min(i + 1, points.length - 1)].position
+      tangents[i].subVectors(after, before)
+      if (tangents[i].lengthSq() < 1e-12) tangents[i].copy(points[i].tangent)
+      tangents[i].normalize()
+    }
+    tangents[points.length - 1].copy(this.heading)
+    const { radius, textureRepeat, flatness } = this.params
     const start = this.distance - this.length
     const end = this.distance
     const rings = this.layoutRings(start, end, radius)
@@ -302,15 +540,27 @@ class Lace {
     for (let i = 0; i < count; i++) {
       const s = this.ringDistance[i]
       const r = this.ringRadius[i]
+      // Flat lace: thinner along the transported normal, so the flat side twists slowly like a real one.
+      const thin = r * (1 - flatness * this.ringFlat[i])
       while (segment < points.length - 2 && points[segment + 1].distance < s) segment++
       const a = points[segment]
       const c = points[segment + 1]
       const span = c.distance - a.distance
       const k = span > 0 ? Math.min(Math.max((s - a.distance) / span, 0), 1) : 0
       p.lerpVectors(a.position, c.position, k)
-      t.lerpVectors(a.tangent, c.tangent, k).normalize()
-      n.lerpVectors(a.normal, c.normal, k)
-      n.addScaledVector(t, -n.dot(t)).normalize()
+      t.lerpVectors(tangents[segment], tangents[segment + 1], k).normalize()
+      // The rope moves after its points were laid down, so their stored normals
+      // can end up along the lace and flip the section. Carry the normal along the
+      // current shape instead, ring to ring, from the tail's orientation of last frame.
+      if (i === 0) n.copy(this.tailNormal)
+      n.addScaledVector(t, -n.dot(t))
+      if (n.lengthSq() < 1e-10) {
+        // Any axis not along the lace will do.
+        n.set(Math.abs(t.x) < 0.9 ? 1 : 0, Math.abs(t.x) < 0.9 ? 0 : 1, 0)
+        n.addScaledVector(t, -n.dot(t))
+      }
+      n.normalize()
+      if (i === 0) this.tailNormal.copy(n)
       b.crossVectors(t, n)
 
       // Where the radius changes (tips, crimps), tilt the normals along the lace.
@@ -321,10 +571,14 @@ class Lace {
 
       for (let j = 0; j <= RADIAL_SEGMENTS; j++) {
         const angle = (j / RADIAL_SEGMENTS) * Math.PI * 2
-        radial.copy(n).multiplyScalar(Math.cos(angle)).addScaledVector(b, Math.sin(angle))
-        outward.copy(radial).addScaledVector(t, -slope).normalize()
+        const cos = Math.cos(angle)
+        const sin = Math.sin(angle)
+        radial.copy(n).multiplyScalar(cos * thin).addScaledVector(b, sin * r)
+        // Ellipse normal, then tilted where the radius changes along the lace.
+        outward.copy(n).multiplyScalar(cos * r).addScaledVector(b, sin * thin).normalize()
+        outward.addScaledVector(t, -slope).normalize()
         const v = i * (RADIAL_SEGMENTS + 1) + j
-        position.setXYZ(v, p.x + radial.x * r, p.y + radial.y * r, p.z + radial.z * r)
+        position.setXYZ(v, p.x + radial.x, p.y + radial.y, p.z + radial.z)
         normalAttribute.setXYZ(v, outward.x, outward.y, outward.z)
         uv.setXY(v, s * textureRepeat, j / RADIAL_SEGMENTS)
       }
@@ -349,33 +603,37 @@ class Lace {
     const agletLength = Math.min(AGLET_LENGTH, this.length * 0.45)
     const profile = agletProfile(agletLength, radius)
     let count = 0
-    const push = (s: number, r: number) => {
+    const push = (s: number, r: number, flat: number) => {
       this.ringDistance[count] = s
       this.ringRadius[count] = r
+      this.ringFlat[count] = flat
       count++
     }
 
-    for (const [e, r] of profile) push(start + e, r)
+    profile.forEach(([e, r], k) => push(start + e, r, k === profile.length - 1 ? 1 : 0))
     const tailAglet = count - 1
 
     const bodyStart = start + agletLength
     const bodyEnd = end - agletLength
     const steps = Math.max(1, Math.ceil((bodyEnd - bodyStart) / RING_SPACING))
-    for (let k = 1; k < steps; k++) push(bodyStart + ((bodyEnd - bodyStart) * k) / steps, radius)
+    for (let k = 1; k < steps; k++) push(bodyStart + ((bodyEnd - bodyStart) * k) / steps, radius, 1)
 
     const headAglet = count
-    for (let k = profile.length - 1; k >= 0; k--) push(end - profile[k][0], profile[k][1])
+    for (let k = profile.length - 1; k >= 0; k--) push(end - profile[k][0], profile[k][1], k === profile.length - 1 ? 1 : 0)
     return { count, tailAglet, headAglet }
   }
 
-  private record() {
+  private record(pinned = false) {
     const previous = this.trail[this.trail.length - 1]
     const normal = previous ? this.transported(previous.normal) : this.normal.clone()
     this.trail.push({
       position: this.position.clone(),
+      previous: this.position.clone(),
+      anchor: this.position.clone(),
       distance: this.distance,
       tangent: this.heading.clone(),
       normal,
+      pinned,
     })
   }
 
@@ -429,6 +687,11 @@ const createShoelaces: SceneFactory = ({ scene, camera, renderer }) => {
 
   const step = (dt: number) => {
     const bodies = laces.map((lace) => ({ points: lace.trail, headDistance: lace.headDistance }))
+    let knotting = laces.filter((lace) => lace.isKnotting).length
+    for (const lace of laces) {
+      const due = Math.random() < dt / params.knotEvery
+      if (due && knotting < MAX_KNOTS && !lace.isKnotting && lace.isGrown && lace.tryKnot(bodies)) knotting++
+    }
     laces.forEach((lace) => lace.step(dt, bodies))
   }
 
@@ -451,6 +714,13 @@ const createShoelaces: SceneFactory = ({ scene, camera, renderer }) => {
       laceFolder.add(params, 'length', 2, MAX_LENGTH, 0.5)
       laceFolder.add(params, 'speed', 0, 4, 0.05)
       laceFolder.add(params, 'radius', 0.02, 0.4, 0.01)
+      laceFolder.add(params, 'flatness', 0, 0.9, 0.01)
+
+      const rope = gui.addFolder('Rope')
+      rope.add(params, 'gravity', 0, 10, 0.05)
+      rope.add(params, 'drag', 0, 10, 0.05)
+      rope.add(params, 'memory', 0, 1, 0.01)
+      rope.add(params, 'memoryLength', 0, 1, 0.01)
       laceFolder.add(params, 'textureRepeat', 0.5, 10, 0.1)
 
       const flight = gui.addFolder('Flight')
@@ -458,6 +728,10 @@ const createShoelaces: SceneFactory = ({ scene, camera, renderer }) => {
       flight.add(params, 'wanderPace', 0, 4, 0.05)
       flight.add(params, 'maxTurn', 0.2, 5, 0.05)
       flight.add(params, 'turnEase', 0.2, 12, 0.1)
+
+      const knots = gui.addFolder('Knots')
+      knots.add(params, 'knotEvery', 2, 60, 0.5)
+      knots.add(params, 'knotSize', 0.15, 0.8, 0.01)
 
       const avoidance = gui.addFolder('Avoidance')
       avoidance.add(params, 'avoidRadius', 0, 4, 0.05)
