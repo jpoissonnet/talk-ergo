@@ -6,6 +6,9 @@
     layout: three
     scene: shoelaces   # loads scenes/shoelaces.ts (default export: SceneFactory)
     devPanel: true     # optional: tweak panel while running `slidev`
+    lettering: Some text   # optional: text the scene writes with its laces
+    cut: all               # optional: which words get one lace per letter: all (default), or a list like "tools finally"
+    clicks: 1              # optional: the slide's clicks; the scene is told the current one
     ---
 
   The layout owns the renderer, camera, resizing and the animation loop.
@@ -26,14 +29,14 @@ import { PerspectiveCamera, Scene, Timer, WebGLRenderer } from 'three'
 import type { Pane } from 'tweakpane'
 import type { SceneFactory, SceneHandle } from '../scenes/types'
 
-const props = defineProps<{ scene: string; devPanel?: boolean }>()
+const props = defineProps<{ scene: string; devPanel?: boolean; lettering?: string; cut?: string }>()
 
 const scenes = import.meta.glob<SceneFactory>('../scenes/*.ts', { import: 'default' })
 
 const container = ref<HTMLDivElement>()
 const canvas = ref<HTMLCanvasElement>()
 const isActive = useIsSlideActive()
-const { $renderContext } = useSlideContext()
+const { $renderContext, $clicks } = useSlideContext()
 const { isDark } = useDarkMode()
 
 let renderer: WebGLRenderer | undefined
@@ -92,8 +95,9 @@ onMounted(async () => {
   if (disposed || !canvas.value) return
 
   renderer = new WebGLRenderer({ canvas: canvas.value, antialias: true })
-  handle = factory({ scene, camera, renderer })
+  handle = factory({ scene, camera, renderer, options: { lettering: props.lettering, cut: props.cut } })
   handle.setDark?.(isDark.value)
+  handle.setClicks?.($clicks.value)
   resizeObserver = new ResizeObserver(resize)
   resizeObserver.observe(container.value!)
   resize()
@@ -141,6 +145,8 @@ async function syncPanel() {
   }
   if (pane) pane.hidden = !isActive.value
 }
+
+watch($clicks, (clicks) => handle?.setClicks?.(clicks))
 
 watch(isDark, (dark) => {
   handle?.setDark?.(dark)

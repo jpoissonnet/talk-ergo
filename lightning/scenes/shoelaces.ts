@@ -31,6 +31,7 @@ import {
   Vector3,
 } from 'three'
 import type { Pane } from 'tweakpane'
+import { letteringPieces, normalise } from './lettering'
 import type { SceneFactory } from './types'
 
 
@@ -39,6 +40,8 @@ import type { SceneFactory } from './types'
  * Light: `fill` scales the soft sky and sun lights (lower it so the spotlight stands out);
  * `spotIntensity` 0 switches the spotlight off; `spotAngle` is the cone's half-width in radians,
  * `spotPenumbra` its edge softness (0 hard, 1 soft); the spotlight hangs at spotX/Y/Z and aims at the middle.
+ * Title (the page's `lettering` text, formed on the slide's first click): `titleWidth` is how wide the block of text
+ * is in world units, `titleRadius` how thin the laces get while writing it, `titleSpeed` how fast they draw.
  */
 export const DEFAULTS = {
   "count": 20,
@@ -76,6 +79,9 @@ export const DEFAULTS = {
   "spotX": -8.4,
   "spotY": 9,
   "spotZ": 5,
+  "titleWidth": 15,
+  "titleRadius": 0.05,
+  "titleSpeed": 3.5,
   "background": "#fff",
   "backgroundDark": "#1c1b19",
   "colors": [
@@ -335,6 +341,49 @@ interface TrailPoint {
 /** A lace's trail as seen by the others, for avoidance. */
 type Body = { points: TrailPoint[]; headDistance: number }
 
+/** A path a lace draws: its points, and the distance along the path at each of them. */
+interface LetterPath {
+  points: Vector3[]
+  lengths: number[]
+  total: number
+}
+
+const APPROACH_SPEED = 3.6 // how fast a head flies to the start of its stroke, units/s
+const RETRACT_SPEED = 8 // how fast a lace reels itself in, units/s
+const LETTER_LEAD = 0.1 // what is left of the lace when it starts writing
+const LETTER_STEP = 0.045 // distance between the points laid down while writing
+
+function letterPath(points: Vector3[]): LetterPath {
+  const lengths = [0]
+  for (let i = 1; i < points.length; i++) lengths.push(lengths[i - 1] + points[i].distanceTo(points[i - 1]))
+  return { points, lengths, total: lengths[lengths.length - 1] }
+}
+
+/**
+ * One path per lace. A path longer than `maxLength` (a lace has a limited length) is cut into equal parts.
+ * Neighbouring paths sit a hair apart in depth, so where laces cross they do not flicker.
+ */
+function chunkPaths(paths: Vector3[][], maxLength: number): LetterPath[] {
+  const chunks: LetterPath[] = []
+  for (const path of paths) {
+    const total = letterPath(path).total
+    const pieces = Math.max(1, Math.ceil(total / maxLength))
+    const size = Math.ceil((path.length - 1) / pieces)
+    for (let k = 0; k < pieces; k++) {
+      const z = ((chunks.length % 3) - 1) * 0.03
+      const points = path.slice(k * size, (k + 1) * size + 1).map((point) => new Vector3(point.x, point.y, z))
+      if (points.length > 1) chunks.push(letterPath(points))
+    }
+  }
+  return chunks
+}
+
+const towards = new Vector3()
+const turnAxis = new Vector3()
+
+/** What a lace is doing: wandering, or taking part in the title. */
+type Mode = 'free' | 'approach' | 'trace' | 'hold' | 'retract'
+
 class Lace {
   readonly group = new Group()
   readonly trail: TrailPoint[] = [] // oldest first
@@ -348,6 +397,12 @@ class Lace {
   private readonly frequencies = [random(0.13, 0.33), random(0.13, 0.33), random(0.13, 0.33)]
   private readonly phases = [random(0, 6.3), random(0, 6.3), random(0, 6.3)]
   private knotting: Knotting | null = null
+  private mode: Mode = 'free'
+  private letters: LetterPath | null = null // the stroke this lace draws in the title
+  private traced = 0 // how far along it
+  radiusScale = 1 // thinner while writing
+  tipScale = 1 // and with shorter tips
+  extra = false // made just for the title, gone again afterwards
 
   private readonly geometry = tubeGeometry(MAX_RINGS)
   private readonly tailTip = tubeGeometry(TIP_RINGS)
@@ -386,6 +441,35 @@ class Lace {
     return this.knotting !== null
   }
 
+  get headPosition() {
+    return this.position
+  }
+
+  /** An extra lace that has finished reeling itself in. */
+  get isRetired() {
+    return this.extra && this.mode === 'retract' && this.length < 0.02
+  }
+
+  /** Take part in the title by drawing `path`; with no path, reel in and vanish until the title lets go. */
+  form(path: LetterPath | null) {
+    this.knotting = null
+    this.letters = path
+    this.traced = 0
+    this.mode = path ? 'approach' : 'retract'
+  }
+
+  /** Let go of the title: the lace goes back to wandering, and the letters come apart as it moves off. */
+  release() {
+    if (this.mode === 'free') return
+    for (const point of this.trail) {
+      point.pinned = false
+      point.previous.copy(point.position)
+    }
+    this.mode = 'free'
+    this.letters = null
+    this.turn.set(0, 0, 0)
+  }
+
   get isGrown() {
     return this.length >= this.params.length * 0.95
   }
@@ -414,9 +498,92 @@ class Lace {
   }
 
   step(dt: number, bodies: Body[]) {
-    if (this.knotting) this.stepKnot(dt)
-    else this.fly(dt, bodies)
+    if (this.mode === 'approach') this.approach(dt)
+    else if (this.mode === 'trace') this.trace(dt)
+    else if (this.mode === 'hold') {
+      // the title stands still
+    } else if (this.knotting) this.stepKnot(dt)
+    else {
+      this.fly(dt, bodies)
+      if (this.mode === 'retract') this.length = Math.max(0, this.length - RETRACT_SPEED * dt)
+    }
     this.simulate(dt)
+  }
+
+  /** Fly to where the stroke starts, reeling the tail in on the way. */
+  private approach(dt: number) {
+    const start = this.letters!.points[0]
+    // A newborn extra lace (length 0) stays invisible until it starts writing.
+    if (this.length > LETTER_LEAD) this.length = Math.max(LETTER_LEAD, this.length - RETRACT_SPEED * dt)
+    const to = towards.subVectors(start, this.position)
+    const distance = to.length()
+    if (distance < 0.1 && this.length < LETTER_LEAD + 0.05) {
+      this.beginTrace()
+      return
+    }
+    // Slow down and turn harder when close, so the head lands on the point instead of circling it.
+    const speed = Math.min(APPROACH_SPEED, Math.max(0.8, distance * 1.6))
+    const turnRate = distance < 2 ? 9 : 4.5
+    if (distance > 1e-6) {
+      to.divideScalar(distance)
+      const angle = this.heading.angleTo(to)
+      const step = turnRate * dt
+      if (angle <= step) this.heading.copy(to)
+      else {
+        turnAxis.crossVectors(this.heading, to)
+        if (turnAxis.lengthSq() < 1e-10) turnAxis.set(0, 0, 1)
+        this.heading.applyAxisAngle(turnAxis.normalize(), step)
+      }
+    }
+    const travelled = Math.min(speed * dt, distance)
+    this.position.addScaledVector(this.heading, travelled)
+    this.distance += travelled
+    this.advanceTrail(false)
+  }
+
+  private beginTrace() {
+    const path = this.letters!
+    this.position.copy(path.points[0])
+    this.traced = 0
+    this.sampleLetters(0)
+    // Forget the flight that led here: its direction would twist the ribbon along the whole word.
+    this.trail.length = 0
+    this.length = 0
+    this.record(true)
+    // The ribbon lies flat towards the camera: its thin direction points out of the plane of the text.
+    this.tailNormal.set(0, 0, 1)
+    this.mode = 'trace'
+  }
+
+  /** Draw the stroke: the head follows it exactly and what it lays down stays where it is. */
+  private trace(dt: number) {
+    const path = this.letters!
+    const goal = Math.min(path.total, this.traced + this.params.titleSpeed * dt)
+    while (this.traced < goal) {
+      const next = Math.min(goal, this.traced + LETTER_STEP)
+      const moved = next - this.traced
+      this.traced = next
+      this.sampleLetters(next)
+      this.distance += moved
+      this.length = Math.min(this.length + moved, this.params.length)
+      this.advanceTrail(true)
+    }
+    if (this.traced >= path.total) this.mode = 'hold'
+  }
+
+  /** Put the head, and its heading, `s` units along the stroke. */
+  private sampleLetters(s: number) {
+    const { points, lengths } = this.letters!
+    let lo = 0
+    let hi = lengths.length - 1
+    while (hi - lo > 1) {
+      const mid = (lo + hi) >> 1
+      if (lengths[mid] <= s) lo = mid
+      else hi = mid
+    }
+    const span = Math.max(lengths[hi] - lengths[lo], 1e-9)
+    this.position.lerpVectors(points[lo], points[hi], (s - lengths[lo]) / span)
+    this.heading.subVectors(points[hi], points[lo]).normalize()
   }
 
   /** Free flight: meander, keep clear of other laces, stay on stage. */
@@ -630,7 +797,8 @@ class Lace {
       tangents[i].normalize()
     }
     tangents[points.length - 1].copy(this.heading)
-    const { radius, textureRepeat, flatness, tipWidth } = this.params
+    const { textureRepeat, flatness, tipWidth } = this.params
+    const radius = this.params.radius * this.radiusScale
     const start = this.distance - this.length
     const count = this.layoutRings(start, this.distance, radius, tipWidth)
 
@@ -653,9 +821,10 @@ class Lace {
    */
   private layoutRings(start: number, end: number, radius: number, tipWidth: number) {
     const fullTaper = Math.min(radius * AGLET_TAPER, 0.4)
+    const fullTip = AGLET_LENGTH * this.tipScale
     // A newborn lace is shorter than its tips: shrink them with it.
-    const fit = Math.min(1, (this.length * 0.45) / (AGLET_LENGTH + fullTaper))
-    const tipLength = AGLET_LENGTH * fit
+    const fit = Math.min(1, (this.length * 0.45) / (fullTip + fullTaper))
+    const tipLength = fullTip * fit
     const taper = fullTaper * fit
     const outer = radius * tipWidth // the plastic
     const inner = outer * AGLET_FILL // the lace end inside it
@@ -713,7 +882,7 @@ class Lace {
   }
 }
 
-const createShoelaces: SceneFactory = ({ scene, camera, renderer }) => {
+const createShoelaces: SceneFactory = ({ scene, camera, renderer, options }) => {
   const params: Params = { ...DEFAULTS, colors: [...DEFAULTS.colors] }
   const fog = new Fog(params.background, 9, 24)
   scene.fog = fog
@@ -762,28 +931,70 @@ const createShoelaces: SceneFactory = ({ scene, camera, renderer }) => {
   const world = new Group()
   scene.add(world)
   const laces: Lace[] = []
+  const addLace = (extra: boolean) => {
+    const lace = new Lace(params, materials[laces.length % materials.length], tipMaterial)
+    lace.extra = extra
+    laces.push(lace)
+    world.add(lace.group)
+    return lace
+  }
+  const removeLace = (lace: Lace) => {
+    laces.splice(laces.indexOf(lace), 1)
+    world.remove(lace.group)
+    lace.dispose()
+  }
+  // `count` is the number of ordinary laces; the title may add a few extra ones for a while.
   const syncCount = () => {
-    while (laces.length < params.count) {
-      const lace = new Lace(params, materials[laces.length % materials.length], tipMaterial)
-      laces.push(lace)
-      world.add(lace.group)
-    }
-    while (laces.length > params.count) {
-      const lace = laces.pop()!
-      world.remove(lace.group)
-      lace.dispose()
-    }
+    const ordinary = () => laces.filter((lace) => !lace.extra)
+    while (ordinary().length < params.count) addLace(false)
+    while (ordinary().length > params.count) removeLace(ordinary().pop()!)
   }
   syncCount()
+
+  // The title: on the slide's first click the laces fly to their strokes and write it; going back lets them go.
+  const lettering = typeof options.lettering === 'string' ? options.lettering.trim() : ''
+  // `cut`: the words that get one lace per letter ('all', or a list of words); the others get one lace each.
+  const cutOption = typeof options.cut === 'string' ? options.cut.trim() : 'all'
+  const cut: ReadonlySet<string> | 'all' =
+    cutOption === 'all' || cutOption === '' ? 'all' : new Set(cutOption.split(/[\s,]+/).map(normalise))
+  let titleOn = false
+  let titleBlend = 0 // 0 = wandering, 1 = writing the title: eases, and drives the thinner laces and the calmer sway
+  const formTitle = () => {
+    const chunks = chunkPaths(letteringPieces(lettering, params.titleWidth, cut), params.length - 0.5)
+    while (laces.length < chunks.length) addLace(true)
+    // Each stroke goes to the lace whose head is nearest to where it starts.
+    const free = [...laces]
+    for (const chunk of chunks) {
+      let best = 0
+      free.forEach((lace, i) => {
+        if (lace.headPosition.distanceTo(chunk.points[0]) < free[best].headPosition.distanceTo(chunk.points[0])) best = i
+      })
+      free.splice(best, 1)[0].form(chunk)
+    }
+    for (const lace of free) lace.form(null)
+  }
+  const releaseTitle = () => {
+    for (const lace of laces) {
+      lace.release()
+      if (lace.extra) lace.form(null)
+    }
+  }
+  const setTitle = (on: boolean) => {
+    if (!lettering || on === titleOn) return
+    titleOn = on
+    if (on) formTitle()
+    else releaseTitle()
+  }
 
   const step = (dt: number) => {
     const bodies = laces.map((lace) => ({ points: lace.trail, headDistance: lace.headDistance }))
     let knotting = laces.filter((lace) => lace.isKnotting).length
     for (const lace of laces) {
       const due = Math.random() < dt / params.knotEvery
-      if (due && knotting < MAX_KNOTS && !lace.isKnotting && lace.isGrown && lace.tryKnot(bodies)) knotting++
+      if (due && !titleOn && knotting < MAX_KNOTS && !lace.isKnotting && lace.isGrown && lace.tryKnot(bodies)) knotting++
     }
     laces.forEach((lace) => lace.step(dt, bodies))
+    laces.filter((lace) => lace.isRetired).forEach(removeLace)
   }
 
   // Start mid-flight rather than with empty space.
@@ -794,10 +1005,24 @@ const createShoelaces: SceneFactory = ({ scene, camera, renderer }) => {
   return {
     update(dt) {
       elapsed += dt
-      world.rotation.y = Math.sin(elapsed * 0.05) * 0.35 * params.sway
-      world.rotation.x = Math.sin(elapsed * 0.031) * 0.12 * params.sway
+      titleBlend += ((titleOn ? 1 : 0) - titleBlend) * (1 - Math.exp(-2 * dt))
+      // The text faces the camera: no sway while it is written. And thinner laces, so the letters stay readable.
+      const sway = params.sway * (1 - titleBlend)
+      world.rotation.y = Math.sin(elapsed * 0.05) * 0.35 * sway
+      world.rotation.x = Math.sin(elapsed * 0.031) * 0.12 * sway
+      const thin = 1 + (params.titleRadius / params.radius - 1) * titleBlend
+      // The fog would wash the text out: clear it while the title is written.
+      fog.near = 9 + 21 * titleBlend
+      fog.far = 24 + 36 * titleBlend
+      laces.forEach((lace) => {
+        lace.radiusScale = thin
+        lace.tipScale = 1 - 0.6 * titleBlend
+      })
       step(dt)
       laces.forEach((lace) => lace.draw())
+    },
+    setClicks(clicks) {
+      setTitle(clicks >= 1)
     },
     setDark(isDark) {
       dark = isDark
@@ -850,6 +1075,14 @@ const createShoelaces: SceneFactory = ({ scene, camera, renderer }) => {
       numeric(stage, 'stagePull', 0, 15, 0.1)
       numeric(stage, 'stageLookahead', 0, 6, 0.1)
       numeric(stage, 'sway', 0, 3, 0.05)
+
+      if (lettering) {
+        const title = pane.addFolder({ title: 'Title', expanded: false })
+        numeric(title, 'titleWidth', 4, 17, 0.1)
+        numeric(title, 'titleRadius', 0.01, 0.15, 0.005)
+        numeric(title, 'titleSpeed', 0.5, 10, 0.1)
+        title.addButton({ title: 'Write / release the title' }).on('click', () => setTitle(!titleOn))
+      }
 
       const light = pane.addFolder({ title: 'Light', expanded: false })
       numeric(light, 'fill', 0, 2, 0.05)
