@@ -90,14 +90,16 @@ layout: section
 layout: section
 ---
 
-# 3. Being simply better 🤓
+# 3. For the sake of learning 🤓
 
 ---
 
 ## What to change first?
 
-- focus on what you do most frequently — don't under-estimate micro-interruptions
+- focus on what you do most frequently
 - my recommendation: copy-paste, launcher, window-manager
+
+todo: check figma design macos notification
 
 :set-up gaudard
 ### copy-paste
