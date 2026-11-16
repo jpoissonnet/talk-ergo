@@ -16,10 +16,10 @@ src: ./pages/curtain-warmer.md
 -->
 
 ---
-layout: cover
+layout: center
 ---
 
-# What if your tools finally worked for you?
+<div class="lh-30 text-center text-8xl word-spacing-6 font-light">What if your <br/> tools finally <br/> worked for you?</div>
 
 ---
 layout: section
@@ -42,7 +42,7 @@ image: /scott-running.jpg
 ---
 <!-- You're at the office and you hear: -->
 
-<div class="text-4xl text-black font-bold bg-white p-8 rounded-xl absolute right-10 border-black border-3">2:00: Meeting starts<br/>2:01: some colleague</div>
+<div class="text-4xl text-black font-bold bg-white p-8 rounded-xl absolute right-10 border-black border-3">2:00: meeting starts<br/>2:01: some colleague</div>
 
 ---
 layout: image-right
@@ -57,13 +57,13 @@ image: /david-goodenough.jpg
 backgroundSize: 60%
 ---
 
-<h1 class="text-black text-4xl">...and it might be fine</h1>
+<h1 class="text-black dark:text-white text-4xl">...and it might be fine</h1>
 
 ---
 layout: section
 ---
 
-# You'll benefit from changing your habits
+# We can do better
 
 ---
 layout: statement
@@ -74,17 +74,23 @@ layout: statement
 
 ---
 layout: section
+transition: slide-up
 ---
 
 # 1. Cognitive load 🧠
 
 ---
 layout: section
+transition: slide-up
 ---
 
 <br/>
 <h1 v-motion :initial="{ scale: 0.5, opacity: 1 }" :enter="{ scale: 1, textDecoration: 'none'  }" :click-1="{ scale: 0.5, opacity: .4, textDecoration: 'line-through' }">2. Speed 🚀</h1>
 <h1 v-click v-motion :initial="{ scale: 0.5, opacity: 0 }" :enter="{ scale: 1, opacity: 1, y: -50 }">2. Flow 🏄️</h1>
+
+<!--
+todo: add a lace that goes from left to right
+-->
 
 ---
 layout: section
@@ -93,18 +99,51 @@ layout: section
 # 3. For the sake of learning 🤓
 
 ---
+layout: statement
+---
 
-## What to change first?
+# How?
+## Or what to change first? – you might ask
 
-- focus on what you do most frequently
-- my recommendation: copy-paste, launcher, window-manager
+---
+layout: center
+---
 
-todo: check figma design macos notification
+<RunSh/>
 
-:set-up gaudard
-### copy-paste
-### launcher
-### window-manager
+<div class="flex gap-8 justify-center">
+  <div 
+    class="border-solid border-5 border-blue-500 rounded-xl px-8 py-6 shadow-lg flex flex-col items-center space-between gap-4 min-w-[180px] max-w-[250px]"
+    v-click 
+    v-motion 
+    :initial="{ translateX: -1000, translateY: -1000, opacity: 0 }"
+    :enter="{ translateX: 0, translateY: 0, opacity: 1 }"
+  >
+    <span class="text-6xl mb-2">📋</span>
+    <span class="font-bold text-2xl">Clipboard</span>
+  </div>
+  <div 
+    class="border-solid border-5 border-blue-500 rounded-xl px-8 py-6 shadow-lg flex flex-col gap-3 items-center min-w-[180px] max-w-[250px]"
+    v-click 
+    v-motion 
+    :initial="{ scale: 0.2, opacity: 0, rotate: 180 }"
+    :enter="{ scale: 1, opacity: 1, rotate: 0 }"
+  >
+    <span class="text-6xl mb-2">📸</span>
+    <span class="font-bold text-2xl text-center">Screenshot</span>
+  </div>
+  <div 
+    class="border-solid border-5 border-blue-500 rounded-xl px-8 py-6 shadow-lg flex flex-col items-center min-w-[180px] max-w-[250px]"
+    v-click 
+    v-motion 
+    :initial="{ scale: 0.5, opacity: 0 }"
+    :enter="{ scale: 1, opacity: 1 }"
+  >
+    <span class="text-6xl mb-2">🖥️</span>
+    <span class="font-bold text-2xl text-center">Window manager</span>
+  </div>
+</div>
+
 :payoff gaudard
 
 ---

@@ -1,10 +1,10 @@
 ---
 layout: three
 scene: shoelaces
-devPanel: true
+devPanel: false
 clicks: 1
 lettering: What if your tools finally worked for you?
-cut: if tools finally worked
+cut: if tools finally worked you
 title: curtain warmer
 ---
 

@@ -848,15 +848,6 @@ layout: full
 layout: full
 ---
 
-<img 
-  src="https://www.chambre-syndicale-sophrologie.fr/wp-content/uploads/2022/11/doctolib.jpg"
-  class="h-1/2 absolute top-1/2 left-1/2"
-  v-click
-  v-motion
-  :initial="{ scale: 0.5, opacity: 1, translateX: '-50%', translateY: '-50%' }"
-  :enter="{ scale: 1, opacity: 1 }"
-/>
-
 <img
   src="https://everhour.com/blog/wp-content/uploads/2024/05/google-calendar-color-coding.jpg"
   class="h-full absolute top-1/2 left-1/2"
