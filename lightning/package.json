@@ -4,13 +4,16 @@
   "private": true,
   "scripts": {
     "build": "slidev build",
-    "dev": "slidev --open",
+    "dev": "bun run --parallel dev:*",
+    "dev:slides": "slidev",
+    "dev:server": "bun --watch server.ts",
     "export": "slidev export"
   },
   "dependencies": {
     "@slidev/cli": "^53.0.0",
     "@slidev/theme-default": "latest",
     "@slidev/theme-seriph": "latest",
+    "@types/bun": "latest",
     "bun": "^1.4.4",
     "hono": "^4.13.18",
     "three": "^0.187.0",

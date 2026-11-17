@@ -40,7 +40,6 @@ image: /office2.jpg
 layout: image
 image: /scott-running.jpg
 ---
-<!-- You're at the office and you hear: -->
 
 <div class="text-4xl text-black font-bold bg-white p-8 rounded-xl absolute right-10 border-black border-3">2:00: meeting starts<br/>2:01: some colleague</div>
 
@@ -107,9 +106,15 @@ layout: statement
 
 ---
 layout: center
+transition: slide-up
+clicks: 4
 ---
 
-<RunSh/>
+<RunSh
+  :at="4"
+  method="notify"
+  :data="{ author: 'Arthur Gaudard', appName: 'Slack', msg: 'I need you!!!' }"
+/>
 
 <div class="flex gap-8 justify-center">
   <div 
@@ -144,10 +149,56 @@ layout: center
   </div>
 </div>
 
-:payoff gaudard
-
+---
+layout: none 
+class: w-full h-full grid grid-cols-2
 ---
 
+<section class="mx-20 my-10">
+  <div class="flex items-center gap-4">
+    <span class="text-6xl mb-2">📋</span>
+    <span class="font-bold text-2xl">Clipboard</span>
+  </div>
+
+  <div class="bg-yellow-200 border-10 border-black w-full aspect-square p-10 pt-5">
+    <h2 class="text-2xl font-bold">Notes:</h2>
+    <textarea value="" class="h-full w-full bg-transparent outline-none resize-none"/>
+  </div>
+</section>
+
+<div class="h-full w-full">
+  <div class="w-full relative">
+    <input type="text" class="w-full bg-white border-3 border-blue-800 text-black p-1" value="https://ralphammer.com/is-it-worth-the-trouble/"/>
+    <button class="absolute right-0 top-0 p-0.5 h-full hover:bg-blue-200 active:bg-blue-300 bg-blue-800" onclick="(()=>{
+      navigator.clipboard.writeText('https://ralphammer.com/is-it-worth-the-trouble/')
+    })()">🔗</button>
+  </div>
+  <iframe class="h-full w-full" src="http://localhost:3000/article"/>
+</div>
+
+---
+layout: image-right
+image: /btop.png
+class: "flex flex-col justify-center h-full"
+---
+
+<section class="flex items-center gap-4">
+  <span class="text-6xl mb-2">📸</span>
+  <span class="font-bold text-2xl">Screenshot</span>
+</section>
+
+<div class="text-4xl text-black font-bold bg-white p-8 rounded-xl border-black border-3">Isn't <em class="text-blue-800">quickshell</em> taking too much ram?</div>
+
+---
+layout: image-left
+image: /btop2.png
+backgroundSize: contain
+class: "flex flex-col justify-center h-full"
+---
+
+<div class="z-10 text-4xl text-black font-bold bg-white p-8 rounded-xl border-black border-3">Yes,<em class="text-red-800">Quickshell</em> is taking too much ram</div>
+<img v-click src="/ram-altman.jpg" class="w-full rounded-xl" v-motion :initial="{ opacity: 0, translateY: -20, rotateZ: -10 }" :enter="{ opacity:1, rotateZ: 0, translateY: 0 }"/>
+---
 # Get to know yourself
 
 ## Needs
