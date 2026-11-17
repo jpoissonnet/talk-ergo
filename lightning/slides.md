@@ -107,13 +107,13 @@ layout: statement
 ---
 layout: center
 transition: slide-up
-clicks: 4
+clicks: 3
 ---
 
 <RunSh
-  :at="4"
+  :at="3"
   method="notify"
-  :data="{ author: 'Arthur Gaudard', appName: 'Slack', msg: 'I need you!!!' }"
+  :data="{ author: 'Arthur Gaudard', appName: 'Slack', msg: '👋 Have a minute? kinda urgetn' }"
 />
 
 <div class="flex gap-8 justify-center">
@@ -136,16 +136,6 @@ clicks: 4
   >
     <span class="text-6xl mb-2">📸</span>
     <span class="font-bold text-2xl text-center">Screenshot</span>
-  </div>
-  <div 
-    class="border-solid border-5 border-blue-500 rounded-xl px-8 py-6 shadow-lg flex flex-col items-center min-w-[180px] max-w-[250px]"
-    v-click 
-    v-motion 
-    :initial="{ scale: 0.5, opacity: 0 }"
-    :enter="{ scale: 1, opacity: 1 }"
-  >
-    <span class="text-6xl mb-2">🖥️</span>
-    <span class="font-bold text-2xl text-center">Window manager</span>
   </div>
 </div>
 
@@ -198,26 +188,52 @@ class: "flex flex-col justify-center h-full"
 
 <div class="z-10 text-4xl text-black font-bold bg-white p-8 rounded-xl border-black border-3">Yes,<em class="text-red-800">Quickshell</em> is taking too much ram</div>
 <img v-click src="/ram-altman.jpg" class="w-full rounded-xl" v-motion :initial="{ opacity: 0, translateY: -20, rotateZ: -10 }" :enter="{ opacity:1, rotateZ: 0, translateY: 0 }"/>
+
 ---
+layout: statement
+---
+
 # Get to know yourself
+## (If) my recommendations suck
 
-## Needs
-- what are my frictions
-: non-muscle-memory tasks
-- what are my distractions
-: noise
-- what do I forget the most
-: hard-to-access information
+---
+layout: statement
+---
 
-## Habits
-- what am I used to
-: keyboard / mouse
+# What you need (to get rid of)
 
-## Affordance
-- what do I like
-: Nice UI / Efficient TUI
-- what do I want
-: Bundle / DIY 
+<v-switch>
+  <template #1-3><span class="text-4xl text-blue-800">identical repetitive tasks</span></template>
+  <template #2>
+    <div class="text-2xl">snippets to the rescue</div>
+    <div class="flex flex-col mx-auto my-1 h-70 w-100 border-gray-500 border-2 bg-black rounded-xl p-4">
+      <div class="text-white text-2xl text-left my-2 mx-3">Request up to 100 reviewers</div>
+      <div class="flex bg-gray-900 rounded-lg p-2 border-gray-500 border-2">
+        <span class="px-1">🔍</span>
+        <input placeholder="Type of choose a user" class="bg-transparent h-full w-full outline-none text-white" type="text"/>
+      </div>
+      <div class="border-gray-500 border-y-2 text-gray-500 text-lg bg-gray-900 -mx-4 text-left my-2 px-2">Suggestions</div>
+      <div class="text-white text-2xl text-left my-2 mx-3">...</div>
+      <div class="text-white text-2xl text-left my-2 mx-3">...</div>
+    </div>
+    <div class="text-2xl">m6web/bedrock_squad_web</div>
+  </template>
+  <template #3-6><span class="text-4xl text-red-800">distractions and interruptions</span></template>
+  <template #4-6>
+    <img src="/menu-bar-long.png" class="w-full my-8" />
+  </template>
+  <template #5><img src="/menu-bar-short.png" class="w-full" /></template>
+  <template #6>todo: forgettable information</template>
+</v-switch>
+
+---
+
+## What you already know
+- what am I used to: keyboard / mouse
+
+## What I like
+- what do I like: Nice UI / Efficient TUI
+- what do I want: Bundle / DIY 
 
 ---
 
