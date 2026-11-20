@@ -1,5 +1,5 @@
 ---
-title: Et si vos outils faisaient un peu plus pour vous ?
+title: What if your tools finally worked for you?
 remoteAssets: true
 aspectRatio: 16/9
 transition: slide-left
@@ -8,12 +8,6 @@ feedbackUrl: https://openfeedback.io/sunnytech2026/2026-07-02/cmm4pkmk4006k01nsn
 conferenceName: LFT
 src: ./pages/curtain-warmer.md
 ---
-
-<!--
-- multiple ways to do it
-- well-anchored habits
-- localized folklore, metaphors ways to be taught
--->
 
 ---
 layout: center
@@ -184,10 +178,33 @@ layout: image-left
 image: /btop2.png
 backgroundSize: auto 100% 
 class: "flex flex-col justify-center h-full"
+clicks: 2
 ---
 
 <div class="z-10 text-4xl text-black font-bold bg-white p-8 rounded-xl border-black border-3">Yes,<em class="text-red-800">Quickshell</em> is taking too much ram</div>
 <img v-click src="/ram-altman.jpg" class="w-full rounded-xl" v-motion :initial="{ opacity: 0, translateY: -20, rotateZ: -10 }" :enter="{ opacity:1, rotateZ: 0, translateY: 0 }"/>
+
+<RunSh
+  :at="2"
+  method="notify"
+  :data="{ author: 'Arthur Gaudard', appName: 'You there?' }"
+/>
+
+---
+layout: none
+---
+
+<SlackDm
+  class="!absolute inset-0"
+  contact="Arthur Gaudard"
+  me="Jules Poissonnet"
+  me-avatar="/jules-avatar.png"
+  contact-avatar="/linkedin-avatar.jpg"
+  :messages="[
+    { from: 'contact', text: '👋 Have a minute? kinda urgetn', ago: 4 },
+    { from: 'contact', text: 'You there?', ago: 1 },
+  ]"
+/>
 
 ---
 layout: statement
@@ -229,47 +246,137 @@ layout: statement
 </v-switch>
 
 ---
-
-## What you already know
-- what am I used to: keyboard / mouse / multiple screens
-
-## What I like
-- what do I like: Nice UI / Efficient TUI
-- what do I want: Bundle / DIY 
-
+layout: none
+clicks: 4
 ---
 
-# For the curious: Get to know the tools
-- History, ancestors of our tools
-- Search "what's an alternative to \<tool>"
-- RSS feeds and co.
+<ToolZones
+  class="!absolute inset-0"
+  :order="['hands-on', 'keyboard-driven', 'point-and-click', 'hands-off']"
+  :zones="{
+    'hands-on': { tool: 'docker', image: '/docker-cli.png' },
+    'point-and-click': { tool: 'orbstack', image: '/orbstack.png' },
+    'keyboard-driven': { tool: 'lazydocker', image: '/lazydocker.webp' },
+    'hands-off': { tool: 'skills', image: '/docker-skill.png' },
+  }"
+/>
 
 ---
-
-## How to change?
-
-:go step by step
-
-1. Add a new tool
-2. Configure existing tools
-3. Replace iteratively by using the alternative alongside the rest
-4. Use the new flow on a whole work unit
-5. Do a cutover
-
+layout: two-cols
+clicks: 4
 ---
 
-## When to change?
+<div class="h-full flex flex-col justify-center text-center">
+  <div class="text-7xl font-800 text-blue-700 dark:text-blue-400">Turnkey</div>
+  <div v-click="1" class="text-5xl mt-10">🧳 All-inclusive trip</div>
+  <div v-click="3" class="text-5xl mt-6 flex items-center justify-center gap-3"><img src="/jetbrains.svg" class="h-[1.1em]" alt="" /> JetBrains IDE</div>
+</div>
 
-- the best time was yesterday, the second best is now
-- if you don't have time, make some by using distillation
+::right::
+
+<div class="h-full flex flex-col justify-center text-center">
+  <div class="text-7xl font-800 text-orange-700 dark:text-orange-400">Tailor-made</div>
+  <div v-click="2" class="text-5xl mt-10">🗺️ Road-trip</div>
+  <div v-click="4" class="text-5xl mt-6 flex items-center justify-center gap-3"><img src="/neovim.svg" class="h-[1.1em]" alt="" />Neovim</div>
+</div>
 
 ---
-
-## Share your thoughts
-
-- keep a trace of what you change and why
-- Drink coffee with your colleagues about this, they have similar constraints and might have already found the solution
-
+layout: center
 ---
 
-💡Ask them "what if your tools finally worked for you"
+<div class="text-7xl font-800 text-center absolute top-10 inset-x-0">🔄 Step by step</div>
+
+<img src="/enough.gif" alt="" class="h-1/2 object-contain absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+<p class="text-2xl text-gray-500 absolute bottom-12 left-14">Ralph Ammer – Is it good enough? is the wrong question</p>
+<img src="/ralph-ammer-qr.svg" alt="QR code to the article" class="absolute bottom-4 right-4 w-32 bg-white" />
+
+<!--
+https://ralphammer.com/is-it-good-enough-is-the-wrong-question/
+-->
+
+---
+layout: center
+clicks: 1
+---
+
+<SearchPrompt :prompts="[
+  { prefix: 'what\'s an alternative to', tools: ['figma', 'macos', 'vscode', 'gmail', 'chrome', 'notion', 'alt-tab', 'copy-paste'] },
+  { prefix: 'what\'s the ancestor of', tools: ['git', 'vim', 'herdr', 'vscode', 'tmux', 'markdown', 'slack', 'docker'] },
+]" />
+
+<!--
+Keep watching for alternatives, and look at where your tools come from.
+-->
+
+---
+layout: image
+image: /office-coffee.jpg
+---
+
+<!--
+Share your thoughts: drink coffee with your colleagues about this, they have similar constraints and might have already found the solution.
+-->
+
+---
+layout: center
+---
+
+<div class="lh-30 text-center text-8xl word-spacing-6 font-light">What if your <br/> tools finally <br/> worked for you?</div>
+
+---
+layout: two-cols-header
+---
+
+<AutoFitText :max="40" modelValue="What if your tools finally worked for you?"/>
+<AutoFitText :max="30" modelValue="- Jules Poissonnet"/>
+
+::left::
+
+<div class="flex flex-col items-center h-full justify-center">
+  <qr-code modulesize="8" :data="slidesUrl"></qr-code>
+  <div class="flex items-center gap-2">
+    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" class="h-12" />
+    <span class="text-4xl text-gray-500 mt-2">Slides</span>
+  </div>
+</div>
+
+::right::
+
+<div class="flex flex-col items-center h-full justify-center">
+  <h1 class="text-sm text-gray-500 mt-2">🙏 Feedback</h1>
+  <qr-code modulesize="8" :data="feedbackUrl"></qr-code>
+</div>
+
+<script setup>
+import "webcomponent-qr-code";
+const slidesUrl = "https://github.com/jules-poissonnet/talk-ergo";
+const feedbackUrl = $slidev.configs.feedbackUrl;
+</script>
+
+<!-- Merci ! Les slides et les sources sont derrière le QR. La citation Marc-Aurèle sur le clavier vient de Claude, pas du texte original. -->
+
+---
+layout: fact
+---
+
+<AutoFitText :max="40" class="italic" modelValue="What's Raycast?"/>
+<p class="text-2xl text-gray-500">A MacOs app that does, clipboard, window manager, app launcher, emoji picker</p>
+<div v-click class="flex justify-around items-center w-full h-80">
+  <div class="flex flex-col items-center h-full">
+    <p class="text-xl">🌐 Raycast.com</p>
+    <qr-code modulesize="7" :data="raycastDocs" />
+  </div>
+</div>
+
+<script setup>
+import "webcomponent-qr-code";
+const raycastDocs = "https://raycast.com"
+</script>
+
+---
+layout: fact
+---
+
+<AutoFitText :max="40" class="italic" modelValue="I've only worked with MacOs am I doomed?"/>
+<p v-click class="text-2xl text-gray-500">No, you're fine, but you should try something else (yes, I'm talking about Linux)</p>
+
