@@ -182,7 +182,7 @@ class: "flex flex-col justify-center h-full"
 ---
 layout: image-left
 image: /btop2.png
-backgroundSize: contain
+backgroundSize: auto 100% 
 class: "flex flex-col justify-center h-full"
 ---
 
@@ -202,7 +202,7 @@ layout: statement
 
 # What you need (to get rid of)
 
-<v-switch>
+<v-switch transition="true">
   <template #1-3><span class="text-4xl text-blue-800">identical repetitive tasks</span></template>
   <template #2>
     <div class="text-2xl">snippets to the rescue</div>
@@ -210,7 +210,7 @@ layout: statement
       <div class="text-white text-2xl text-left my-2 mx-3">Request up to 100 reviewers</div>
       <div class="flex bg-gray-900 rounded-lg p-2 border-gray-500 border-2">
         <span class="px-1">🔍</span>
-        <input placeholder="Type of choose a user" class="bg-transparent h-full w-full outline-none text-white" type="text"/>
+        <input placeholder="Type or choose a user" class="bg-transparent h-full w-full outline-none text-white" type="text"/>
       </div>
       <div class="border-gray-500 border-y-2 text-gray-500 text-lg bg-gray-900 -mx-4 text-left my-2 px-2">Suggestions</div>
       <div class="text-white text-2xl text-left my-2 mx-3">...</div>
@@ -223,24 +223,19 @@ layout: statement
     <img src="/menu-bar-long.png" class="w-full my-8" />
   </template>
   <template #5><img src="/menu-bar-short.png" class="w-full" /></template>
-  <template #6>todo: forgettable information</template>
+  <template #6-9><span class="text-4xl text-green-800">on-display information</span></template>
+  <template #7-9><img src="/notion-calendar.png" class="my-10 w-full" /></template>
+  <template #8><img src="/quickshell.png" class="w-full" /></template>
 </v-switch>
 
 ---
 
 ## What you already know
-- what am I used to: keyboard / mouse
+- what am I used to: keyboard / mouse / multiple screens
 
 ## What I like
 - what do I like: Nice UI / Efficient TUI
 - what do I want: Bundle / DIY 
-
----
-
-:my examples
-### notion calendar
-### widgets
-### snippets
 
 ---
 
