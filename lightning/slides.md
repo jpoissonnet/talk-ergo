@@ -171,21 +171,31 @@ class: "flex flex-col justify-center h-full"
   <span class="font-bold text-2xl">Screenshot</span>
 </section>
 
-<div class="text-4xl text-black font-bold bg-white p-8 rounded-xl border-black border-3">Isn't <em class="text-blue-800">quickshell</em> taking too much ram?</div>
+<v-switch transition="true">
+  <template #1>
+    <div class="text-4xl text-black font-bold bg-white p-8 rounded-xl border-black border-3">Isn't <em class="text-blue-800">quickshell</em> taking too much ram?</div>
+  </template>
+</v-switch>
 
 ---
 layout: image-left
 image: /btop2.png
 backgroundSize: auto 100% 
 class: "flex flex-col justify-center h-full"
-clicks: 2
+clicks: 3
 ---
 
-<div class="z-10 text-4xl text-black font-bold bg-white p-8 rounded-xl border-black border-3">Yes,<em class="text-red-800">Quickshell</em> is taking too much ram</div>
-<img v-click src="/ram-altman.jpg" class="w-full rounded-xl" v-motion :initial="{ opacity: 0, translateY: -20, rotateZ: -10 }" :enter="{ opacity:1, rotateZ: 0, translateY: 0 }"/>
+<v-switch transition="true">
+  <template #1-2>
+    <div class="z-10 text-4xl text-black font-bold bg-white p-8 rounded-xl border-black border-3">Yes,<em class="text-red-800">Quickshell</em> is taking too much ram</div>
+  </template>
+  <template #2-4>
+    <img src="/ram-altman.jpg" class="w-full rounded-xl"/>
+  </template>
+</v-switch>
 
 <RunSh
-  :at="2"
+  :at="3"
   method="notify"
   :data="{ author: 'Arthur Gaudard', appName: 'You there?' }"
 />
@@ -214,16 +224,14 @@ layout: statement
 ## (If) my recommendations suck
 
 ---
-layout: statement
+layout: center
 ---
 
-# What you need (to get rid of)
-
 <v-switch transition="true">
-  <template #1-3><span class="text-4xl text-blue-800">identical repetitive tasks</span></template>
-  <template #2>
+  <template #1-4><span class="text-4xl text-blue-800">identical repetitive tasks</span></template>
+  <template #2-4>
     <div class="text-2xl">snippets to the rescue</div>
-    <div class="flex flex-col mx-auto my-1 h-70 w-100 border-gray-500 border-2 bg-black rounded-xl p-4">
+    <div class="flex flex-col mx-auto my-1 h-70 w-100 border-gray-500 border-2 bg-black rounded-xl p-4 shadow-xl">
       <div class="text-white text-2xl text-left my-2 mx-3">Request up to 100 reviewers</div>
       <div class="flex bg-gray-900 rounded-lg p-2 border-gray-500 border-2">
         <span class="px-1">🔍</span>
@@ -233,16 +241,18 @@ layout: statement
       <div class="text-white text-2xl text-left my-2 mx-3">...</div>
       <div class="text-white text-2xl text-left my-2 mx-3">...</div>
     </div>
-    <div class="text-2xl">m6web/bedrock_squad_web</div>
   </template>
-  <template #3-6><span class="text-4xl text-red-800">distractions and interruptions</span></template>
-  <template #4-6>
+  <template #3>
+    <div class="text-4xl text-black font-bold bg-white p-4 rounded-xl border-black border-3 text-2xl text-center">m6web/bedrock_squad_web</div>
+  </template>
+  <template #4-7><span class="text-4xl text-red-800">distractions and interruptions</span></template>
+  <template #5-7>
     <img src="/menu-bar-long.png" class="w-full my-8" />
   </template>
-  <template #5><img src="/menu-bar-short.png" class="w-full" /></template>
-  <template #6-9><span class="text-4xl text-green-800">on-display information</span></template>
-  <template #7-9><img src="/notion-calendar.png" class="my-10 w-full" /></template>
-  <template #8><img src="/quickshell.png" class="w-full" /></template>
+  <template #6><img src="/menu-bar-short.png" class="w-full" /></template>
+  <template #7-10><span class="text-4xl text-green-800">on-display information</span></template>
+  <template #8-10><img src="/notion-calendar.png" class="my-10 w-full" /></template>
+  <template #9><img src="/quickshell.png" class="w-full" /></template>
 </v-switch>
 
 ---
@@ -360,8 +370,8 @@ layout: fact
 ---
 
 <AutoFitText :max="40" class="italic" modelValue="What's Raycast?"/>
-<p class="text-2xl text-gray-500">A MacOs app that does, clipboard, window manager, app launcher, emoji picker</p>
-<div v-click class="flex justify-around items-center w-full h-80">
+<p v-click class="text-2xl text-gray-500">A MacOs app that does, clipboard, window manager, app launcher, emoji picker</p>
+<div v-after class="flex justify-around items-center w-full h-80">
   <div class="flex flex-col items-center h-full">
     <p class="text-xl">🌐 Raycast.com</p>
     <qr-code modulesize="7" :data="raycastDocs" />
