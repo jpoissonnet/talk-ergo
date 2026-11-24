@@ -1,8 +1,8 @@
 <!--
-  Fake desktop notification, a Vue copy of fake-slack/shell.qml. It lives in a global layer
-  so it stays on screen across slide changes, like the real overlay did. <Notify> shows it.
+  Fake Slack desktop notification. It lives in a global layer so it stays on screen across
+  slide changes, like a real overlay would. <Notify> shows it.
 
-  Sizes are the QML's pixels on a 2560 px wide screen, as a share of the slide width, times
+  Sizes are pixels on a 2560 px wide screen, as a share of the slide width, times
   --scale (1.43 makes the card about a fifth of the slide height).
 -->
 

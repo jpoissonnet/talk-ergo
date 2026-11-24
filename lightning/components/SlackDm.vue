@@ -7,21 +7,16 @@
       contact="Arthur Gaudard"
       me="Jules Poissonnet"
       me-avatar="/linkedin-avatar.jpg"
-      :messages="[
-        { from: 'contact', text: 'Have a minute?', ago: 12 },
-        { from: 'me', text: 'Here it is', image: '/btop2.png', at: 1 },
-      ]"
+      :messages="[{ from: 'contact', text: 'Have a minute?', ago: 12 }]"
     />
-  A message shows from slide click `at` (default 0); `ago` is its age in minutes, from when the slide opens.
-  Give the slide `clicks: <highest at>` in its frontmatter.
+  `ago` is a message's age in minutes, counted from when the slide opens.
   The input is a real text field: Enter sends what was typed as a message from `me`.
 -->
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { useSlideContext } from '@slidev/client'
 
-type Message = { from: 'me' | 'contact', text?: string, image?: string, link?: string, ago?: number, at?: number, sentAt?: number }
+type Message = { from: 'me' | 'contact', text: string, ago?: number, sentAt?: number }
 
 const props = withDefaults(defineProps<{
   contact: string
@@ -36,7 +31,6 @@ const props = withDefaults(defineProps<{
   channels: () => ['general', 'random'],
 })
 
-const { $clicks } = useSlideContext()
 const openedAt = Date.now()
 
 const SHORTCUTS = [
@@ -53,7 +47,7 @@ const people = computed(() => ({
 const draft = ref('')
 const sent = ref<Message[]>([])
 
-const visible = computed(() => [...props.messages.filter(m => (m.at ?? 0) <= $clicks.value), ...sent.value])
+const thread = computed(() => [...props.messages, ...sent.value])
 
 function send() {
   const text = draft.value.trim()
@@ -106,14 +100,12 @@ function time(m: Message) {
         </div>
 
         <TransitionGroup tag="div" name="msg" class="messages">
-          <div v-for="(m, i) in visible" :key="i" class="message">
+          <div v-for="(m, i) in thread" :key="i" class="message">
             <img v-if="people[m.from].avatar" :src="people[m.from].avatar" alt="" class="avatar">
             <span v-else class="avatar">{{ people[m.from].name[0] }}</span>
             <div class="info">
               <h4>{{ people[m.from].name }} <span class="timestamp">{{ time(m) }}</span></h4>
-              <p v-if="m.text">{{ m.text }}</p>
-              <a v-if="m.link" :href="m.link" target="_blank">{{ m.link }}</a>
-              <img v-if="m.image" :src="m.image" alt="" class="attachment">
+              <p>{{ m.text }}</p>
             </div>
           </div>
         </TransitionGroup>
@@ -345,18 +337,6 @@ function time(m: Message) {
   color: grey;
   font-weight: 300;
   font-size: 1.19rem;
-}
-
-.info a {
-  color: #1264a3;
-  text-decoration: none;
-}
-
-.attachment {
-  max-height: 15.4rem;
-  margin-top: 0.56rem;
-  border: 1px solid #ddd;
-  border-radius: 6px;
 }
 
 .input {
