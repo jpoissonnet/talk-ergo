@@ -105,11 +105,7 @@ transition: slide-up
 clicks: 3
 ---
 
-<RunSh
-  :at="3"
-  method="notify"
-  :data="{ author: 'Arthur Gaudard', appName: 'Slack', msg: '👋 Have a minute? kinda urgetn' }"
-/>
+<Notify :at="3" author="Arthur Gaudard" app-name="Slack" msg="👋 Have a minute? kinda urgetn" />
 
 <div class="flex gap-8 justify-center">
   <div 
@@ -195,11 +191,7 @@ clicks: 3
   </template>
 </v-switch>
 
-<RunSh
-  :at="3"
-  method="notify"
-  :data="{ author: 'Arthur Gaudard', appName: 'You there?' }"
-/>
+<Notify :at="3" author="Arthur Gaudard" msg="You there?" />
 
 ---
 layout: none
