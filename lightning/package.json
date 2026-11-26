@@ -3,11 +3,11 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "slidev build",
-    "dev": "bun run --parallel dev:*",
-    "dev:slides": "slidev",
-    "dev:server": "bun --watch server.ts",
-    "export": "slidev export"
+    "build": "slidev build --base /ergo/ --out dist/ergo",
+    "dev": "slidev",
+    "export": "slidev export",
+    "prune:article": "bun scripts/prune-article.ts",
+    "deploy": "bun run build && wrangler deploy"
   },
   "dependencies": {
     "@slidev/cli": "^53.0.0",
@@ -15,7 +15,6 @@
     "@slidev/theme-seriph": "latest",
     "@types/bun": "latest",
     "bun": "^1.4.4",
-    "hono": "^4.13.18",
     "three": "^0.187.0",
     "vue": "^3.5.33",
     "webcomponent-qr-code": "^1.3.0"
@@ -23,6 +22,9 @@
   "devDependencies": {
     "@tweakpane/core": "^2.0.5",
     "@types/three": "^0.187.0",
-    "tweakpane": "^4.0.5"
+    "cheerio": "^1.2.0",
+    "purgecss": "^9.1.0",
+    "tweakpane": "^4.0.5",
+    "wrangler": "^4.168.0"
   }
 }

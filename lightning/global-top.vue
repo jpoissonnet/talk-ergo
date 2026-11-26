@@ -7,6 +7,7 @@
 -->
 
 <script setup lang="ts">
+import { resolveAssetUrl } from '@slidev/client'
 import { current, dismiss } from './utils/notification'
 
 const OUT_BACK_OVERSHOOT = 0.8
@@ -20,7 +21,7 @@ const outBack = Array.from({ length: 31 }, (_, i) => {
   <div class="layer" :style="{ '--out-back': `linear(${outBack})` }">
     <Transition name="toast">
       <div v-if="current" :key="current.id" class="toast" @click.stop="dismiss">
-        <img :src="current.icon" alt="" class="icon">
+        <img :src="resolveAssetUrl(current.icon)" alt="" class="icon">
         <div class="text">
           <div class="app">{{ current.appName }} · {{ current.channel }} · now</div>
           <div class="author">{{ current.author }}</div>

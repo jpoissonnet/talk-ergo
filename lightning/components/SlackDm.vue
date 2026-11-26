@@ -14,6 +14,7 @@
 -->
 
 <script setup lang="ts">
+import { resolveAssetUrl } from '@slidev/client'
 import { computed, ref } from 'vue'
 
 type Message = { from: 'me' | 'contact', text: string, ago?: number, sentAt?: number }
@@ -40,8 +41,8 @@ const SHORTCUTS = [
 ]
 
 const people = computed(() => ({
-  me: { name: props.me, avatar: props.meAvatar },
-  contact: { name: props.contact, avatar: props.contactAvatar },
+  me: { name: props.me, avatar: props.meAvatar && resolveAssetUrl(props.meAvatar) },
+  contact: { name: props.contact, avatar: props.contactAvatar && resolveAssetUrl(props.contactAvatar) },
 }))
 
 const draft = ref('')

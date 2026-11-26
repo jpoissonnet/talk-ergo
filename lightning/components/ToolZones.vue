@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
-import { useSlideContext } from '@slidev/client'
+import { resolveAssetUrl, useSlideContext } from '@slidev/client'
 
 type ZoneId = 'hands-on' | 'keyboard-driven' | 'point-and-click' | 'hands-off'
 type ZoneContent = { tool?: string, image?: string }
@@ -113,7 +113,7 @@ const puckStyle = computed(() => ({ left: `${pos.value.x}%`, top: `${pos.value.y
         }}</span>
       <div class="puck" :style="puckStyle">
         <div class="frame">
-          <img v-if="props.zones?.[id]?.image" :src="props.zones[id]!.image" alt="">
+          <img v-if="props.zones?.[id]?.image" :src="resolveAssetUrl(props.zones[id]!.image!)" alt="">
         </div>
         <span class="pill">{{ props.zones?.[id]?.tool ?? id }}</span>
       </div>

@@ -2,6 +2,7 @@
 title: What if your tools finally worked for you?
 remoteAssets: true
 aspectRatio: 16/9
+routerMode: hash
 transition: slide-left
 duration: 20min
 timer: countdown
@@ -154,7 +155,7 @@ class: w-full h-full grid grid-cols-2
       navigator.clipboard.writeText('https://ralphammer.com/is-it-worth-the-trouble/')
     })()">🔗</button>
   </div>
-  <iframe class="h-full w-full" src="http://localhost:3000/article"/>
+  <iframe class="h-full w-full" src="article.html"/>
 </div>
 
 ---
