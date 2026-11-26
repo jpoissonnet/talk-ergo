@@ -353,7 +353,7 @@ layout: two-cols-header
 
 <script setup>
 import "webcomponent-qr-code";
-const slidesUrl = "https://github.com/jules-poissonnet/talk-ergo";
+const slidesUrl = "https://github.com/jpoissonnet/talk-ergo";
 const feedbackUrl = $slidev.configs.feedbackUrl;
 </script>
 
